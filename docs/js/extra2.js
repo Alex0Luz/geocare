@@ -126,7 +126,7 @@ const Extras2 = (() => {
         if (!x.ok) continue;
         const order = { assembly_point: 0, shelter: 1, community_centre: 2, fire_station: 3, hospital: 4, police: 5 };
         out = (await x.json()).elements.map((e) => { const g = e.tags || {}; return { kind: g.emergency === "assembly_point" ? "assembly_point" : g.social_facility === "shelter" || g.amenity === "shelter" ? "shelter" : g.amenity, name: g.name || "", lat: e.lat ?? e.center?.lat, lon: e.lon ?? e.center?.lon }; })
-          .filter((e) => e.lat).map((e) => ({ ...e, dist: km(r.lat, r.lon, e.lat, e.lon) })).sort((p, q2) => (order[p.kind] ?? 9) - (order[q2.kind] ?? 9) || p.dist - q2.dist).slice(0, 14);
+          .filter((e) => e.lat && (e.kind !== "shelter" || e.name)).map((e) => ({ ...e, dist: km(r.lat, r.lon, e.lat, e.lon) })).sort((p, q2) => (order[p.kind] ?? 9) - (order[q2.kind] ?? 9) || p.dist - q2.dist).slice(0, 14);
         break;
       } catch (_) { /* next mirror */ }
     }
