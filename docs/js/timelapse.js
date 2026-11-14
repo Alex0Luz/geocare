@@ -171,7 +171,7 @@ const Timelapse = (() => {
     C.addTo(map); paint();
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
-  return { refresh: paint, addTheme: (th) => { if (!THEMES.some((x) => x.id === th.id)) THEMES.splice(THEMES.findIndex((x) => x.g === "where"), 0, th); paint(); }, start: (id) => { const th = THEMES.find((x) => x.id === id); if (!th) return; open = true; start(th); }, PY };
+  return { refresh: paint, close: () => { stop(); if (open) { open = false; paint(); } }, addTheme: (th) => { if (!THEMES.some((x) => x.id === th.id)) THEMES.splice(THEMES.findIndex((x) => x.g === "where"), 0, th); paint(); }, start: (id) => { const th = THEMES.find((x) => x.id === id); if (!th) return; open = true; start(th); }, PY };
 })();
 
 I18N.add("en", { "tl.dengue": "Dengue in Paraguay", "tl.dengue.d": "Reported dengue cases (suspected, probable and confirmed) in each department of Paraguay, month by month from 2019 to 2023. The circle grows with the number of cases; the number beside the date is the national total of that month. Transcribed from the weekly bulletins of Paraguay's health surveillance office (DGVS) in an open dataset (Care99, Zenodo): good for size and timing, not for fine comparisons.", "tl.dengue.leg": "cases in the month" });

@@ -345,6 +345,7 @@ I18N.add("pt", { "plans.title": "Como isto se encaixa nos planos públicos de cl
 I18N.add("en", { "rp.lightning.sub2": "{n} lightning flashes per km² a year", "rp.lightning.hist": "NASA's lightning sensors in orbit counted about {n} flashes per km² a year at this spot. The most active places on Earth pass 100.", "rp.lightning.src.lis": "Lightning Imaging Sensor on the TRMM satellite, 1998–2013.", "rp.lightning.src.both": "LIS and OTD sensors combined, 1995–2014, on a coarser grid.", "rp.lightning.rule": "When you hear thunder, go indoors; no place outside is safe." });
 I18N.add("es", { "rp.lightning.sub2": "{n} rayos por km² al año", "rp.lightning.hist": "Los sensores de rayos de la NASA en órbita contaron unos {n} rayos por km² al año en este punto. Los lugares más activos del planeta pasan de 100.", "rp.lightning.src.lis": "Sensor LIS en el satélite TRMM, 1998–2013.", "rp.lightning.src.both": "Sensores LIS y OTD combinados, 1995–2014, en una grilla más gruesa.", "rp.lightning.rule": "Cuando oiga truenos, entre a un lugar cerrado; ningún lugar al aire libre es seguro." });
 I18N.add("pt", { "rp.lightning.sub2": "{n} raios por km² por ano", "rp.lightning.hist": "Os sensores de raios da NASA em órbita contaram cerca de {n} raios por km² por ano neste ponto. Os lugares mais ativos do planeta passam de 100.", "rp.lightning.src.lis": "Sensor LIS no satélite TRMM, 1998–2013.", "rp.lightning.src.both": "Sensores LIS e OTD combinados, 1995–2014, numa grade mais grossa.", "rp.lightning.rule": "Quando ouvir trovão, entre num lugar fechado; nenhum lugar ao ar livre é seguro." });
+I18N.add("en", { "home.demo": "Watch the demo (2 minutes)" }); I18N.add("es", { "home.demo": "Ver la demostración (2 minutos)" }); I18N.add("pt", { "home.demo": "Ver a demonstração (2 minutos)" });
 // Cross-navigation between sections: any element with data-go="tab:anchor" opens that tab and brings the matching block into view.
 function goTo(tab, anchor) {
   showTab(tab);
@@ -815,7 +816,7 @@ const Extras2 = (() => {
 
   function hero() {
     const pt = (n) => `<li><span class="n">0${n}</span><div><b>${t("home." + n)}</b><p>${t("home." + n + "d")}</p></div></li>`;
-    return `<p class="eyebrow">${t("home.eyebrow")}</p><h2 class="hero">${t("home.title")}</h2><p class="lead">${t("home.lead")}</p><ol class="points">${pt(1)}${pt(2)}${pt(3)}</ol><p class="plabel">${t("home.try")}</p>`;
+    return `<p class="eyebrow">${t("home.eyebrow")}</p><h2 class="hero">${t("home.title")}</h2><p class="lead">${t("home.lead")}</p><ol class="points">${pt(1)}${pt(2)}${pt(3)}</ol><p><button type="button" class="btn" data-demo="1">▶ ${t("home.demo")}</button></p><p class="plabel">${t("home.try")}</p>`;
   }
 
   function render() { renderWorld(); renderCalendar(); renderPrepare(); renderExpect(); renderNowContext(); renderSat(); renderQuakes(); schedule(); if (typeof Timelapse !== "undefined") Timelapse.refresh(); }

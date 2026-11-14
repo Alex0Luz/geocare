@@ -450,3 +450,15 @@ input:focus, select:focus, textarea:focus, button:focus-visible { outline: 2px s
 @media (max-width: 820px) { body.tl-open #map { height: 82vh; } .tl-panel { padding: 8px 10px; } .tl-legend { max-height: 40px; } .tl-src { display: none; } }
 .tl-h { font: 700 0.62rem "Manrope", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 6px 0 4px; } .tl-h:first-child { margin-top: 0; }
 .tl-leg i.sq { border-radius: 3px; width: 14px; height: 14px; border: 0; } .tl-panel { max-height: 78vh; overflow-y: auto; }
+
+/* guided demonstrations */
+.tour { position: fixed; z-index: 2000; top: 22px; right: 76px; width: min(470px, 42vw); background: var(--ink); color: #fff; border-radius: 14px; padding: 12px 16px 14px; box-shadow: 0 10px 34px rgba(0,0,0,.35); font-family: "Manrope", sans-serif; }
+.tour-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; } .tour-n { font: 700 0.68rem "Manrope", sans-serif; letter-spacing: 0.1em; color: #e7a983; }
+.tour-ctl { display: flex; gap: 4px; } .tour-ctl button { font: 600 0.72rem "Manrope", sans-serif; background: rgba(255,255,255,.12); color: #fff; border: 0; border-radius: 999px; min-width: 30px; height: 28px; padding: 0 9px; cursor: pointer; } .tour-ctl button:hover { background: rgba(255,255,255,.24); }
+.tour-head { font: 700 1.12rem/1.25 "Bricolage Grotesque", sans-serif; letter-spacing: -0.01em; margin: 8px 0 6px; } .tour-cap { font-size: 0.86rem; line-height: 1.4; margin: 0; color: #d9e2de; min-height: 2.4em; }
+.tour-bar { display: flex; gap: 4px; margin-top: 10px; } .tour-bar i { flex: 1; height: 3px; border-radius: 2px; background: rgba(255,255,255,.2); } .tour-bar i.done { background: rgba(255,255,255,.6); } .tour-bar i.on { background: #e7a983; }
+.tour-focus { outline: 3px solid var(--earth); outline-offset: 5px; border-radius: 8px; transition: outline-color .3s; }
+.demo-btn { display: flex; align-items: center; gap: 6px; width: 100%; font: 700 0.78rem "Manrope", sans-serif; background: var(--earth); color: #fff; border: 0; border-radius: 10px; padding: 9px 10px; margin-bottom: 10px; cursor: pointer; }
+@media (max-width: 1180px) { .demo-btn span { display: none; } .demo-btn { justify-content: center; padding: 8px 0; } }
+@media (max-width: 820px) { .tour { top: auto; bottom: 10px; left: 10px; right: 10px; width: auto; padding: 10px 12px 12px; } .tour-head { font-size: 0.98rem; } .tour-cap { font-size: 0.8rem; min-height: 0; } .demo-btn { width: auto; margin: 0 6px 0 0; padding: 5px 9px; } body.tour-on .panels { padding-bottom: 170px; } }
+@media (max-width: 820px) { .rail-foot { display: flex; align-items: center; gap: 6px; } }

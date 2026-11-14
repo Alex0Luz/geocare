@@ -350,5 +350,7 @@ const Extras = (() => {
     renderMe(); renderTools(); renderRegion(); renderAct(); renderCapitals();
     if (!Array.isArray(state.main?.grid) && ui.layers.grid) ui.layers.grid.clearLayers();
   }
-  return { render, has: (k) => profile.on.includes(k) };
+  // the guided demonstration shows a sample profile without touching what the person saved
+  const preview = (p) => { if (p) { if (!ui.saved) ui.saved = profile; profile = p; ui.editing = false; } else if (ui.saved) { profile = ui.saved; ui.saved = null; ui.editing = undefined; } };
+  return { render, has: (k) => profile.on.includes(k), preview };
 })();
