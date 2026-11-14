@@ -66,7 +66,29 @@ const Stats = (() => {
       intercept: sen.intercept, slope: sen.slope,
       significant: mk.p < 0.05, direction: Math.sign(sen.slope),
       early: mean(first), recent: mean(last), t0: t[0], t1: t[t.length - 1],
+      total: sen.slope * (t[t.length - 1] - t[0]),
+      pA: periodMean(t, x, -Infinity, 2000), pB: periodMean(t, x, 2006, Infinity),
     };
+  }
+
+  function periodMean(t, x, from, to) {
+    const v = x.filter((_, i) => t[i] >= from && t[i] <= to);
+    return v.length >= 5 ? v.reduce((p, c) => p + c, 0) / v.length : NaN;
+  }
+
+  // NOAA heat index (Rothfusz regression), inputs in Celsius and percent, output in Celsius.
+  function heatIndex(Tc, R) {
+    if (!Number.isFinite(Tc) || !Number.isFinite(R)) return NaN;
+    const T = (Tc * 9) / 5 + 32;
+    const simple = 0.5 * (T + 61 + (T - 68) * 1.2 + R * 0.094);
+    let H = simple;
+    if ((simple + T) / 2 >= 80) {
+      H = -42.379 + 2.04901523 * T + 10.14333127 * R - 0.22475541 * T * R - 0.00683783 * T * T - 0.05481717 * R * R
+        + 0.00122874 * T * T * R + 0.00085282 * T * R * R - 0.00000199 * T * T * R * R;
+      if (R < 13 && T >= 80 && T <= 112) H -= ((13 - R) / 4) * Math.sqrt((17 - Math.abs(T - 95)) / 17);
+      else if (R > 85 && T >= 80 && T <= 87) H += ((R - 85) / 10) * ((87 - T) / 5);
+    }
+    return ((H - 32) * 5) / 9;
   }
 
   // Combine two independent sources ("witnesses") into one verdict.
@@ -102,5 +124,5 @@ const Stats = (() => {
   for (let T = AEDES_MIN; T <= AEDES_MAX; T += 0.01) briereMax = Math.max(briereMax, briereRaw(T));
   const aedes = (T) => briereRaw(T) / briereMax;
 
-  return { trend, verdict, percentile, aedes, mannKendall, senSlope };
+  return { trend, verdict, percentile, aedes, mannKendall, senSlope, heatIndex };
 })();

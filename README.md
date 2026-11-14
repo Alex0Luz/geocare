@@ -4,7 +4,7 @@
 
 A project for the **NASA Space Apps Challenge 2026**, challenge *Be An Earth System Trend Detective!*, by team GeoCare (Ciudad del Este, Paraguay).
 
-> Working title inside the app: "Arandu". Prototype built during the 48-hour hackathon (14–15 November 2026).
+> Prototype built during the 48-hour hackathon (14–15 November 2026).
 
 ## What it does
 

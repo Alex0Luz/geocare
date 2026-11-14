@@ -13,7 +13,7 @@ const I18N = (() => {
       "giov.merra": "NASA Giovanni · MERRA-2 daily", "giov.airs": "NASA AIRS · satellite (Aqua)", "giov.gpm": "NASA GPM IMERG · satellite + gauges",
       "giov.note.temp": "MERRA-2 from Giovanni is the same model as NASA POWER, taken from the official source. AIRS is a satellite instrument with a shorter record (2003 on); its day and night passes are averaged because the Aqua orbit has drifted in recent years.",
       "giov.note.rain": "GPM IMERG combines satellite rain estimates with rain gauges. It is a shorter record and independent of both reanalyses.",
-      "app.tagline": "Know what the climate is doing where you live, and what to do about it.",
+      "app.tagline": "Climate & Health where you are.",
       "search.placeholder": "Type an address, neighbourhood or city",
       "search.go": "Search", "search.gps": "Use my location",
       "tab.place": "My place", "tab.health": "Health", "tab.now": "This week", "tab.community": "Community", "tab.compare": "Compare",
@@ -69,11 +69,11 @@ const I18N = (() => {
       "h.wash.src": "Based on WHO/UNICEF water, sanitation and hygiene guidance.",
       "why.vector.now": "This month's usual temperature here ({t} °C) gives {s}% of the maximum thermal suitability for dengue transmission.",
       "why.vector.trend": "The yearly mosquito season is getting longer in the records.",
-      "why.heat.now": "The forecast reaches a feels-like temperature of {f} °C in the next 7 days.", "why.heat.trend": "Very hot days are becoming more frequent in the records.",
+      "why.heat.now": "The forecast reaches a heat index of {f} °C in the next 7 days.", "why.heat.trend": "Very hot days are becoming more frequent in the records.",
       "why.water.now": "The forecast shows up to {r} mm of rain in one day this week.", "why.water.low": "This spot is lower than its surroundings.", "why.water.trend": "Heavy-rain days are becoming more frequent.",
       "why.air.now": "Fine particles (PM2.5) are at {p} µg/m³ now, above the WHO daily guideline of 15.",
       "why.wash.rain": "Yearly rainfall is falling in the records.", "why.wash.dry": "Dry days are becoming more frequent.",
-      "now.title": "The next 7 days", "now.feels": "feels like", "now.legend": "☀ feels-like maximum · ☂ rain. Highlighted days: feels-like 32 °C or more, or 50 mm or more of rain.",
+      "now.title": "The next 7 days", "now.feels": "feels like", "now.legend": "☀ maximum heat index (NOAA) · ☂ rain. Highlighted days: heat index of 32 °C or more, or 50 mm or more of rain.",
       "now.air": "Air quality now", "now.air.note": "Modelled by CAMS (Copernicus) via Open-Meteo, not a local sensor.",
       "now.events": "Natural events within 500 km (NASA EONET)", "now.noevents": "No open events reported nearby.", "now.sources": "Forecast: Open-Meteo. Events: NASA EONET.",
       "kind.flood": "Flooding", "kind.heat": "Extreme heat", "kind.mosquito": "Mosquito breeding site", "kind.nowater": "No water supply", "kind.landslide": "Landslide", "kind.smoke": "Smoke", "kind.need": "Help needed", "kind.donate": "Donation point", "kind.partner": "Partner business",
@@ -99,7 +99,7 @@ const I18N = (() => {
       "giov.merra": "NASA Giovanni · MERRA-2 diario", "giov.airs": "NASA AIRS · satélite (Aqua)", "giov.gpm": "NASA GPM IMERG · satélite + pluviómetros",
       "giov.note.temp": "MERRA-2 de Giovanni es el mismo modelo que NASA POWER, tomado de la fuente oficial. AIRS es un instrumento satelital con registro más corto (desde 2003); se promedian sus pasadas de día y de noche porque la órbita de Aqua se desplazó en los últimos años.",
       "giov.note.rain": "GPM IMERG combina estimaciones satelitales de lluvia con pluviómetros. Es un registro más corto e independiente de los dos reanálisis.",
-      "app.tagline": "Sepa qué está haciendo el clima donde usted vive y cómo prepararse.",
+      "app.tagline": "Clima y Salud donde estás.",
       "search.placeholder": "Escriba una dirección, barrio o ciudad",
       "search.go": "Buscar", "search.gps": "Usar mi ubicación",
       "tab.place": "Mi lugar", "tab.health": "Salud", "tab.now": "Esta semana", "tab.community": "Comunidad", "tab.compare": "Comparar",
@@ -155,11 +155,11 @@ const I18N = (() => {
       "h.wash.src": "Basado en orientaciones de OMS/UNICEF sobre agua, saneamiento e higiene.",
       "why.vector.now": "La temperatura habitual de este mes aquí ({t} °C) da un {s}% de la aptitud térmica máxima para la transmisión del dengue.",
       "why.vector.trend": "La temporada anual del mosquito se está alargando en los registros.",
-      "why.heat.now": "El pronóstico llega a una sensación térmica de {f} °C en los próximos 7 días.", "why.heat.trend": "Los días muy calurosos son cada vez más frecuentes en los registros.",
+      "why.heat.now": "El pronóstico llega a un índice de calor de {f} °C en los próximos 7 días.", "why.heat.trend": "Los días muy calurosos son cada vez más frecuentes en los registros.",
       "why.water.now": "El pronóstico muestra hasta {r} mm de lluvia en un día esta semana.", "why.water.low": "Este punto está más bajo que su entorno.", "why.water.trend": "Los días de lluvia fuerte son cada vez más frecuentes.",
       "why.air.now": "Las partículas finas (PM2,5) están en {p} µg/m³ ahora, sobre la guía diaria de la OMS de 15.",
       "why.wash.rain": "La lluvia anual está bajando en los registros.", "why.wash.dry": "Los días secos son cada vez más frecuentes.",
-      "now.title": "Los próximos 7 días", "now.feels": "sensación térmica", "now.legend": "☀ sensación térmica máxima · ☂ lluvia. Días destacados: sensación de 32 °C o más, o 50 mm o más de lluvia.",
+      "now.title": "Los próximos 7 días", "now.feels": "sensación térmica", "now.legend": "☀ índice de calor máximo (NOAA) · ☂ lluvia. Días destacados: índice de calor de 32 °C o más, o 50 mm o más de lluvia.",
       "now.air": "Calidad del aire ahora", "now.air.note": "Modelado por CAMS (Copernicus) vía Open-Meteo, no es un sensor local.",
       "now.events": "Eventos naturales a menos de 500 km (NASA EONET)", "now.noevents": "No hay eventos abiertos cerca.", "now.sources": "Pronóstico: Open-Meteo. Eventos: NASA EONET.",
       "kind.flood": "Inundación", "kind.heat": "Calor extremo", "kind.mosquito": "Criadero de mosquitos", "kind.nowater": "Sin agua", "kind.landslide": "Deslizamiento", "kind.smoke": "Humo", "kind.need": "Se necesita ayuda", "kind.donate": "Punto de donación", "kind.partner": "Empresa aliada",
@@ -185,7 +185,7 @@ const I18N = (() => {
       "giov.merra": "NASA Giovanni · MERRA-2 diário", "giov.airs": "NASA AIRS · satélite (Aqua)", "giov.gpm": "NASA GPM IMERG · satélite + pluviômetros",
       "giov.note.temp": "O MERRA-2 do Giovanni é o mesmo modelo do NASA POWER, tirado da fonte oficial. O AIRS é um instrumento de satélite com registro mais curto (desde 2003); as passagens de dia e de noite são promediadas porque a órbita do Aqua se deslocou nos últimos anos.",
       "giov.note.rain": "O GPM IMERG combina estimativas de chuva por satélite com pluviômetros. É um registro mais curto e independente das duas reanálises.",
-      "app.tagline": "Saiba o que o clima está fazendo onde você mora e como se preparar.",
+      "app.tagline": "Clima e Saúde onde você está.",
       "search.placeholder": "Digite um endereço, bairro ou cidade",
       "search.go": "Buscar", "search.gps": "Usar minha localização",
       "tab.place": "Meu lugar", "tab.health": "Saúde", "tab.now": "Esta semana", "tab.community": "Comunidade", "tab.compare": "Comparar",
@@ -241,11 +241,11 @@ const I18N = (() => {
       "h.wash.src": "Com base em orientações da OMS/UNICEF sobre água, saneamento e higiene.",
       "why.vector.now": "A temperatura habitual deste mês aqui ({t} °C) dá {s}% da adequação térmica máxima para a transmissão da dengue.",
       "why.vector.trend": "A temporada anual do mosquito está ficando mais longa nos registros.",
-      "why.heat.now": "A previsão chega a uma sensação térmica de {f} °C nos próximos 7 dias.", "why.heat.trend": "Os dias muito quentes estão mais frequentes nos registros.",
+      "why.heat.now": "A previsão chega a um índice de calor de {f} °C nos próximos 7 dias.", "why.heat.trend": "Os dias muito quentes estão mais frequentes nos registros.",
       "why.water.now": "A previsão mostra até {r} mm de chuva em um dia nesta semana.", "why.water.low": "Este ponto fica mais baixo que o entorno.", "why.water.trend": "Os dias de chuva forte estão mais frequentes.",
       "why.air.now": "As partículas finas (PM2,5) estão em {p} µg/m³ agora, acima da diretriz diária da OMS, de 15.",
       "why.wash.rain": "A chuva anual está caindo nos registros.", "why.wash.dry": "Os dias secos estão mais frequentes.",
-      "now.title": "Os próximos 7 dias", "now.feels": "sensação térmica", "now.legend": "☀ sensação térmica máxima · ☂ chuva. Dias em destaque: sensação de 32 °C ou mais, ou 50 mm ou mais de chuva.",
+      "now.title": "Os próximos 7 dias", "now.feels": "sensação térmica", "now.legend": "☀ índice de calor máximo (NOAA) · ☂ chuva. Dias em destaque: índice de calor de 32 °C ou mais, ou 50 mm ou mais de chuva.",
       "now.air": "Qualidade do ar agora", "now.air.note": "Modelado pelo CAMS (Copernicus) via Open-Meteo, não é sensor local.",
       "now.events": "Eventos naturais a até 500 km (NASA EONET)", "now.noevents": "Nenhum evento aberto por perto.", "now.sources": "Previsão: Open-Meteo. Eventos: NASA EONET.",
       "kind.flood": "Alagamento", "kind.heat": "Calor extremo", "kind.mosquito": "Criadouro de mosquito", "kind.nowater": "Falta de água", "kind.landslide": "Deslizamento", "kind.smoke": "Fumaça", "kind.need": "Precisa de ajuda", "kind.donate": "Ponto de doação", "kind.partner": "Empresa parceira",
@@ -262,17 +262,18 @@ const I18N = (() => {
   };
   const LOCALES = { en: "en-US", es: "es-PY", pt: "pt-BR" };
   let saved = null;
-  try { saved = localStorage.getItem("arandu.lang"); } catch (_) { /* storage unavailable */ }
+  try { saved = localStorage.getItem("geocare.lang"); } catch (_) { /* storage unavailable */ }
   const guess = (navigator.language || "en").slice(0, 2);
   const api = {
     lang: D[saved] ? saved : D[guess] ? guess : "en",
     locale: () => LOCALES[api.lang],
+    add(l, o) { Object.assign(D[l], o); },
     t(key, vars) {
       let s = D[api.lang][key] ?? D.en[key] ?? key;
       if (vars) for (const k in vars) s = s.split(`{${k}}`).join(vars[k]);
       return s;
     },
-    set(l) { if (D[l]) { api.lang = l; try { localStorage.setItem("arandu.lang", l); } catch (_) { /* ignore */ } } },
+    set(l) { if (D[l]) { api.lang = l; try { localStorage.setItem("geocare.lang", l); } catch (_) { /* ignore */ } } },
     apply() {
       document.documentElement.lang = api.lang;
       document.querySelectorAll("[data-i18n]").forEach((e) => (e.textContent = api.t(e.dataset.i18n)));

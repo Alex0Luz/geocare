@@ -116,3 +116,37 @@ input:focus, select:focus, textarea:focus, button:focus-visible { outline: 2px s
 .giov-badge { font-size: 0.82rem; background: #e6f0ea; border-left: 4px solid var(--forest); padding: 6px 10px; border-radius: 0 8px 8px 0; margin-top: 8px; }
 .emoji-pin.k-care { border-color: #1f4d3a; color: #1f4d3a; font-size: 14px; line-height: 24px; font-weight: 700; }
 .reports.care .k { color: var(--forest); font-weight: 700; }
+
+/* --- GeoCare extras --- */
+.tools { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-top: 10px; }
+.tools p { flex-basis: 100%; margin: 2px 0; }
+.quant { font-size: 0.86rem; margin-top: 8px; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; margin: 8px 0; }
+.seg button { font: inherit; font-size: 0.85rem; border: none; background: #fff; padding: 7px 12px; cursor: pointer; color: var(--muted); }
+.seg button.on { background: var(--forest); color: #fff; font-weight: 700; }
+.seg.small button { padding: 4px 10px; font-size: 0.78rem; }
+.me summary { padding: 4px 0; }
+.plabel { font-weight: 700; font-size: 0.82rem; margin: 10px 0 4px; }
+.pchips { display: flex; flex-wrap: wrap; gap: 5px; }
+.pchip { font-size: 0.8rem; border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px; cursor: pointer; background: #fff; user-select: none; }
+.pchip input { position: absolute; opacity: 0; width: 0; height: 0; }
+.pchip.on { background: var(--forest); border-color: var(--forest); color: #fff; }
+.pchip:focus-within { outline: 2px solid var(--sky); outline-offset: 1px; }
+.light { display: flex; gap: 12px; border: 1px solid var(--line); border-radius: var(--radius); padding: 12px 14px; margin: 10px 0; background: #fff; }
+.light ul { margin: 6px 0; padding-left: 18px; font-size: 0.88rem; }
+.lamp { width: 30px; flex: none; }
+.lamp span { display: block; width: 26px; height: 26px; border-radius: 50%; margin-top: 2px; background: #3f8f5f; box-shadow: 0 0 0 4px rgba(63,143,95,.2); }
+.light-mid .lamp span { background: var(--amber); box-shadow: 0 0 0 4px rgba(201,138,27,.25); }
+.light-high .lamp span { background: var(--earth); box-shadow: 0 0 0 4px rgba(181,69,44,.25); }
+.light-mid { border-color: var(--amber); } .light-high { border-color: var(--earth); }
+.sos { border-left-color: var(--earth); margin-bottom: 14px; }
+.sos .call { font-size: 1.05rem; }
+.badge.b-good { background: #d8ecdf; color: #1f4d3a; }
+.card.c-good { border-left-color: #3f8f5f; }
+.actions { list-style: none; padding: 0; margin: 4px 0 0; }
+.actions li { border: 1px solid var(--line); border-left: 5px solid var(--grey); border-radius: var(--radius); padding: 8px 12px; margin-bottom: 8px; background: #fff; }
+.actions li.match { border-left-color: var(--earth); }
+.actions p { margin: 4px 0; }
+.card.st-recovering { border-left-color: #3f8f5f; } .card.st-still_critical { border-left-color: var(--earth); } .card.st-warning { border-left-color: var(--amber); }
+.badge.st-recovering { background: #d8ecdf; color: #1f4d3a; } .badge.st-still_critical { background: var(--earth); color: #fff; } .badge.st-warning { background: #f3dfb4; color: #6b4a05; }
+a { color: var(--sky); }

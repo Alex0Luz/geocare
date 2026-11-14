@@ -1,4 +1,4 @@
-// Arandu (working title): climate trends, health consequences and community help for any address.
+// GeoCare: climate trends, health consequences and community help for any address.
 // Runs fully in the browser. Code written with AI assistance; concept and health content by the team.
 const START = 1981, END = 2025;
 const YEARS = Array.from({ length: END - START + 1 }, (_, i) => START + i);
@@ -127,12 +127,14 @@ async function fetchTerrain(lat, lon) {
 
 async function fetchNow(lat, lon) {
   const [fc, air] = await Promise.all([
-    getJSON(`https://api.open-meteo.com/v1/forecast?latitude=${lat.toFixed(3)}&longitude=${lon.toFixed(3)}&daily=temperature_2m_max,temperature_2m_min,apparent_temperature_max,precipitation_sum&forecast_days=7&timezone=auto`),
+    getJSON(`https://api.open-meteo.com/v1/forecast?latitude=${lat.toFixed(3)}&longitude=${lon.toFixed(3)}&daily=temperature_2m_max,temperature_2m_min,apparent_temperature_max,precipitation_sum&hourly=temperature_2m,relative_humidity_2m&forecast_days=7&timezone=auto`),
     getJSON(`https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${lat.toFixed(3)}&longitude=${lon.toFixed(3)}&current=pm2_5,us_aqi`).catch(() => null),
   ]);
-  const d = fc.daily;
+  const d = fc.daily, hi = {};
+  // NOAA heat index (Rothfusz) from hourly temperature and humidity; daily maximum.
+  (fc.hourly?.time || []).forEach((tt, i) => { const v = Stats.heatIndex(fc.hourly.temperature_2m[i], fc.hourly.relative_humidity_2m[i]); if (Number.isFinite(v)) hi[tt.slice(0, 10)] = Math.max(hi[tt.slice(0, 10)] ?? -99, v); });
   return {
-    days: d.time.map((day, i) => ({ day, tmax: d.temperature_2m_max[i], tmin: d.temperature_2m_min[i], feels: d.apparent_temperature_max[i], rain: d.precipitation_sum[i] })),
+    days: d.time.map((day, i) => ({ day, tmax: d.temperature_2m_max[i], tmin: d.temperature_2m_min[i], feels: hi[day] ?? d.apparent_temperature_max[i], rain: d.precipitation_sum[i] })),
     pm25: air?.current?.pm2_5 ?? NaN, aqi: air?.current?.us_aqi ?? NaN,
   };
 }
@@ -243,7 +245,9 @@ async function analyzeAt(lat, lon, label, slot = "main") {
     promise.then((v) => { r[name] = v; }).catch((e) => { r[name] = null; console.warn(name, e); })
       .finally(() => { r.pending--; r.signals = buildSignals(r); if (state[slot] === r) render(); });
   };
-  if (!label) step("label", reverseName(lat, lon));
+  r.pending++;
+  geoInfo(lat, lon).then((g) => { r.cc = g.cc; r.country = g.country; if (!label) r.label = g.label; }).catch(() => {})
+    .finally(() => { r.pending--; if (state[slot] === r) render(); });
   step("nasa", fetchNasa(lat, lon));
   step("era5", fetchEra5(lat, lon));
   step("terrain", fetchTerrain(lat, lon));
@@ -275,6 +279,7 @@ function render() {
   state.charts.forEach((c) => c.destroy()); state.charts = [];
   I18N.apply();
   renderPlace(); renderHealth(); renderNow(); renderCommunity(); renderCompare();
+  Extras.render();
 }
 
 function verdictBadge(s) {
@@ -302,6 +307,7 @@ function renderPlace() {
   const strong = done.filter((s) => ["confirmed", "likely"].includes(s.verdict)).length;
   let html = `<div class="place-head"><h2>${esc(r.label)}</h2><p class="muted">${r.lat.toFixed(4)}, ${r.lon.toFixed(4)} · ${START}–${END}${r.terrain ? ` · ${fmt(r.terrain.elevation, 0)} m` : ""}</p>`;
   html += r.pending ? `<p class="loading">${t("status.loading", { n: r.pending })}</p>` : `<p class="summary">${t("place.summary", { a: strong, b: done.length })}</p>`;
+  html += `<div id="place-tools" class="tools"></div>`;
   if (nearestGiov(r)) html += `<p class="giov-badge">${t("giov.badge")}</p>`;
   html += `</div><h3>${t("place.signals")}</h3><p class="muted small">${t("place.method")}</p><div class="cards">`;
   for (const s of sigs) {
@@ -311,7 +317,7 @@ function renderPlace() {
       <table class="wit"><thead><tr><th>${t("wit.source")}</th><th>${START}–${START + 9} → ${END - 9}–${END}</th><th>${t("wit.slope")}</th><th>${t("wit.test")}</th></tr></thead><tbody>
       ${witnessRow("NASA POWER (MERRA-2)", s.nasa, s)}${witnessRow("ERA5 (Copernicus)", s.era5, s)}${giovWitnesses(r, s.key).map((w) => witnessRow(w.name, w.trend, s)).join("")}</tbody></table>
       ${giovWitnesses(r, s.key).length ? `<p class="muted small">${t("giov.note." + s.key)}</p>` : ""}
-      <p class="explain">${s.waiting ? "" : t("explain." + s.verdict)}</p></details>`;
+      ${quantLine(s)}<p class="explain">${s.waiting ? "" : t("explain." + s.verdict)}</p></details>`;
   }
   html += `</div>`;
   if (r.terrain) {
@@ -377,8 +383,8 @@ function healthTopics(r) {
 }
 function renderHealth() {
   const r = state.main, box = $("#p-health");
-  if (!r) { box.innerHTML = `<p class="muted">${t("need.place")}</p>`; return; }
-  let html = `<h2>${t("health.title")}</h2><p class="muted small">${t("health.intro")}</p>`;
+  if (!r) { box.innerHTML = `<div id="me-box"></div><p class="muted">${t("need.place")}</p>`; return; }
+  let html = `<div id="me-box"></div><h2>${t("health.title")}</h2><p class="muted small">${t("health.intro")}</p>`;
   for (const h of healthTopics(r)) {
     const why = h.why.filter(Boolean);
     html += `<details class="card h-${h.level}" ${h.level === "now" ? "open" : ""}><summary><div><span class="card-title">${t("h." + h.key)}</span><span class="badge l-${h.level}">${t("level." + h.level)}</span></div></summary>
@@ -435,8 +441,8 @@ const SEED = [
   { id: "s4", kind: "mosquito", lat: -25.4978, lon: -54.6441, text: "Abandoned lot with tyres holding water.", when: "2026-11-10", seed: true },
   { id: "s5", kind: "partner", lat: -25.5128, lon: -54.6089, text: "Example partner business: pledged drinking water and transport in case of disaster.", when: "2026-11-01", seed: true },
 ];
-function loadReports() { try { return JSON.parse(localStorage.getItem("arandu.reports") || "[]"); } catch (_) { return []; } }
-function saveReports(a) { try { localStorage.setItem("arandu.reports", JSON.stringify(a)); } catch (_) { /* storage unavailable */ } }
+function loadReports() { try { return JSON.parse(localStorage.getItem("geocare.reports") || "[]"); } catch (_) { return []; } }
+function saveReports(a) { try { localStorage.setItem("geocare.reports", JSON.stringify(a)); } catch (_) { /* storage unavailable */ } }
 function allReports() { return [...loadReports(), ...SEED]; }
 let draft = null;
 function openReportForm(lat, lon) { draft = { lat, lon }; renderCommunity(); $("#p-community").scrollTop = 0; }
