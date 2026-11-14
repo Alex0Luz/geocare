@@ -78,7 +78,23 @@ async function fetchNasa(lat, lon) {
 }
 
 // Witness 2: ERA5 reanalysis (ECMWF / Copernicus) through Open-Meteo, daily, 1981-2025.
+// The free ERA5 service limits requests per hour. Order of attempts: result cached on this device,
+// live request, then an archived file shipped with the app for demonstration places.
 async function fetchEra5(lat, lon) {
+  const key = `geocare.era5:${round2(lat)}:${round2(lon)}`;
+  try { const c = localStorage.getItem(key); if (c) return JSON.parse(c); } catch (_) { /* storage unavailable */ }
+  try {
+    const live = await fetchEra5Live(lat, lon);
+    try { localStorage.setItem(key, JSON.stringify(live)); } catch (_) { /* storage full: skip */ }
+    return live;
+  } catch (e) {
+    const idx = await getJSON("data/era5/index.json", "era5idx");
+    const near = idx.map((p) => ({ ...p, dist: km(lat, lon, p.lat, p.lon) })).sort((a, b) => a.dist - b.dist)[0];
+    if (!near || near.dist > 25) throw e;
+    return { ...(await getJSON("data/era5/" + near.file)), archived: true };
+  }
+}
+async function fetchEra5Live(lat, lon) {
   const url = `https://archive-api.open-meteo.com/v1/archive?latitude=${round2(lat)}&longitude=${round2(lon)}&start_date=${START}-01-01&end_date=${END}-12-31&daily=temperature_2m_mean,temperature_2m_max,precipitation_sum&timezone=auto`;
   const d = (await getJSON(url)).daily;
   const n = d.time.length, yr = new Int16Array(n), mo = new Int8Array(n);
@@ -95,10 +111,20 @@ async function fetchEra5(lat, lon) {
     if (Number.isFinite(tx[i]) && tx[i] > hotThr) a.hot++;
     if (Number.isFinite(pr[i])) { a.p += pr[i]; if (pr[i] >= wetThr) a.heavy++; if (pr[i] < 1) a.dry++; }
   }
+  const cal = Array.from({ length: 12 }, () => ({ d: 0, hot: 0, heavy: 0, rain: 0, t: 0, nt: 0 }));
+  for (let i = 0; i < n; i++) {
+    if (yr[i] < END - 9) continue;
+    const c = cal[mo[i]]; c.d++;
+    if (tx[i] > hotThr) c.hot++;
+    if (Number.isFinite(pr[i])) { c.rain += pr[i]; if (pr[i] >= wetThr) c.heavy++; }
+    if (Number.isFinite(tm[i])) { c.t += tm[i]; c.nt++; }
+  }
+  // per month: share of very hot days, heavy-rain days per month, mean monthly rain (mm), mosquito thermal suitability
+  const calendar = cal.map((c) => ({ hot: c.hot / c.d, heavy: (c.heavy / c.d) * 30, rain: c.rain / 10, aedes: Stats.aedes(c.t / c.nt) }));
   const ok = (a) => a.n >= 360;
   const monthlyT = acc.map((a) => a.mT.map((s, m) => (a.mN[m] ? s / a.mN[m] : NaN)));
   return {
-    hotThr, wetThr, monthlyT,
+    hotThr, wetThr, monthlyT, calendar,
     temp: acc.map((a) => (ok(a) ? a.t / a.n : NaN)),
     rain: acc.map((a) => (ok(a) ? a.p : NaN)),
     hotdays: acc.map((a) => (ok(a) ? a.hot : NaN)),
@@ -273,13 +299,14 @@ function showTab(name) {
   document.querySelectorAll(".tab").forEach((b) => b.classList.toggle("on", b.dataset.tab === name));
   document.querySelectorAll(".panel").forEach((p) => p.classList.toggle("on", p.id === "p-" + name));
   setTimeout(() => map.invalidateSize(), 50);
+  Extras2.onTab(name);
 }
 
 function render() {
   state.charts.forEach((c) => c.destroy()); state.charts = [];
   I18N.apply();
   renderPlace(); renderHealth(); renderNow(); renderCommunity(); renderCompare();
-  Extras.render();
+  Extras.render(); Extras2.render();
 }
 
 function verdictBadge(s) {
@@ -306,6 +333,8 @@ function renderPlace() {
   const sigs = r.signals, done = sigs.filter((s) => !s.waiting);
   const strong = done.filter((s) => ["confirmed", "likely"].includes(s.verdict)).length;
   let html = `<div class="place-head"><h2>${esc(r.label)}</h2><p class="muted">${r.lat.toFixed(4)}, ${r.lon.toFixed(4)} · ${START}–${END}${r.terrain ? ` · ${fmt(r.terrain.elevation, 0)} m` : ""}</p>`;
+  if (r.era5 === null) html += `<p class="warn-note">${t("era5.down")}</p>`;
+  else if (r.era5?.archived) html += `<p class="muted small">${t("era5.archived")}</p>`;
   html += r.pending ? `<p class="loading">${t("status.loading", { n: r.pending })}</p>` : `<p class="summary">${t("place.summary", { a: strong, b: done.length })}</p>`;
   html += `<div id="place-tools" class="tools"></div>`;
   if (nearestGiov(r)) html += `<p class="giov-badge">${t("giov.badge")}</p>`;
@@ -319,7 +348,7 @@ function renderPlace() {
       ${giovWitnesses(r, s.key).length ? `<p class="muted small">${t("giov.note." + s.key)}</p>` : ""}
       ${quantLine(s)}<p class="explain">${s.waiting ? "" : t("explain." + s.verdict)}</p></details>`;
   }
-  html += `</div>`;
+  html += `</div><div id="sat-box"></div><div id="calendar-box"></div>`;
   if (r.terrain) {
     const tr = r.terrain, flags = [tr.low && t("terrain.low"), tr.steep && t("terrain.steep")].filter(Boolean);
     html += `<h3>${t("terrain.title")}</h3><div class="card plain ${flags.length ? "v-likely" : ""}"><p><b>${fmt(tr.elevation, 0)} m</b> · ${t("terrain.rel", { a: signed(tr.relNear, 0), b: signed(tr.relFar, 0), s: fmt(tr.slopePct, 0) })}</p><p>${flags.length ? flags.join(" ") : t("terrain.none")}</p><p class="muted small">${t("terrain.disclaimer")}</p></div>`;

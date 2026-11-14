@@ -158,3 +158,17 @@ a { color: var(--sky); }
 .vdot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 5px; background: #c9cfca; vertical-align: baseline; }
 .vdot.v-confirmed { background: var(--earth); } .vdot.v-likely { background: var(--amber); } .vdot.v-single { background: var(--sky); } .vdot.v-conflict { background: #6b4fa3; }
 .capitals-box { margin-top: 22px; }
+
+/* --- world, calendar, prepare --- */
+.seg.wrap { flex-wrap: wrap; }
+.bar { display: inline-block; width: 46px; height: 7px; background: #eceee9; border-radius: 4px; margin-right: 6px; vertical-align: middle; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--earth); }
+.summary { background: var(--sand); border-left: 4px solid var(--forest); padding: 8px 12px; border-radius: 0 8px 8px 0; }
+.calgrid { display: grid; grid-template-columns: minmax(96px, 1.6fr) repeat(12, 1fr); gap: 3px; align-items: center; font-size: 0.72rem; margin-top: 6px; }
+.calm { text-align: center; color: var(--muted); text-transform: capitalize; } .calm.now { color: var(--ink); font-weight: 700; }
+.callab { font-size: 0.76rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.calc { height: 22px; border-radius: 4px; } .calc.now { outline: 2px solid var(--ink); outline-offset: 1px; }
+.emoji-pin.k-safe { border-color: var(--sky); font-size: 16px; line-height: 26px; }
+.reports.safe .k { font-size: 1.1rem; }
+
+.warn-note { font-size: 0.84rem; background: #fbf0d6; border-left: 4px solid var(--amber); padding: 8px 12px; border-radius: 0 8px 8px 0; margin-top: 8px; }

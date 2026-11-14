@@ -21,3 +21,5 @@ analysis/.gitignore
 __pycache__/
 analysis/cache_capitais/
 analysis/geonames/
+analysis/cache_panorama/
+analysis/cache_era5/
