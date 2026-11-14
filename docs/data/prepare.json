@@ -2,7 +2,7 @@
  "hazards": [
   {
    "id": "heat",
-   "icon": "🌡️",
+   "icon": "heat",
    "name": {
     "en": "Extreme heat",
     "es": "Calor extremo",
@@ -84,7 +84,7 @@
   },
   {
    "id": "flood",
-   "icon": "🌊",
+   "icon": "flood",
    "name": {
     "en": "Flood",
     "es": "Inundación",
@@ -166,7 +166,7 @@
   },
   {
    "id": "storm",
-   "icon": "⛈️",
+   "icon": "storm",
    "name": {
     "en": "Severe storm, lightning and hail",
     "es": "Tormenta fuerte, rayos y granizo",
@@ -245,7 +245,7 @@
   },
   {
    "id": "tornado",
-   "icon": "🌪️",
+   "icon": "tornado",
    "name": {
     "en": "Tornado",
     "es": "Tornado",
@@ -327,7 +327,7 @@
   },
   {
    "id": "cyclone",
-   "icon": "🌀",
+   "icon": "cyclone",
    "name": {
     "en": "Tropical cyclone, hurricane or typhoon",
     "es": "Ciclón tropical, huracán o tifón",
@@ -409,7 +409,7 @@
   },
   {
    "id": "wildfire",
-   "icon": "🔥",
+   "icon": "fire",
    "name": {
     "en": "Wildfire and smoke",
     "es": "Incendio forestal y humo",
@@ -491,7 +491,7 @@
   },
   {
    "id": "landslide",
-   "icon": "⛰️",
+   "icon": "mountain",
    "name": {
     "en": "Landslide and mudflow",
     "es": "Deslizamiento de tierra y alud de barro",
@@ -573,7 +573,7 @@
   },
   {
    "id": "drought",
-   "icon": "🏜️",
+   "icon": "drought",
    "name": {
     "en": "Drought and water shortage",
     "es": "Sequía y falta de agua",
@@ -655,7 +655,7 @@
   },
   {
    "id": "cold",
-   "icon": "❄️",
+   "icon": "cold",
    "name": {
     "en": "Cold wave and frost",
     "es": "Ola de frío y heladas",
@@ -737,7 +737,7 @@
   },
   {
    "id": "earthquake",
-   "icon": "🌐",
+   "icon": "quake",
    "name": {
     "en": "Earthquake",
     "es": "Terremoto",

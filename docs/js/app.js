@@ -310,6 +310,8 @@ function giovWitnesses(r, key) {
   return out.map((w) => ({ ...w, trend: Stats.trend(YEARS, w.values) }));
 }
 
+if (window.Chart) { Chart.defaults.devicePixelRatio = Math.max(2, window.devicePixelRatio || 1); Chart.defaults.font.family = '"Manrope", sans-serif'; Chart.defaults.font.size = 12; Chart.defaults.color = "#5b6762"; }
+
 /* ---------------- Signals ---------------- */
 const SIGNALS = [
   { key: "temp", unit: "°C", d: 2, src: ["nasa", "era5"] },
@@ -342,7 +344,7 @@ const rising = (s, dir = 1) => s && ["confirmed", "likely", "single"].includes(s
 async function analyzeAt(lat, lon, label, slot = "main") {
   const r = { lat, lon, label: label || `${lat.toFixed(3)}, ${lon.toFixed(3)}`, pending: 0 };
   state[slot] = r;
-  if (slot === "main") { setPin(lat, lon, false); map.setView([lat, lon], Math.max(map.getZoom(), 12)); showTab("place"); }
+  if (slot === "main") { setPin(lat, lon, false); map.setView([lat, lon], Math.max(map.getZoom(), 12), { animate: false }); showTab("place"); }
   const step = (name, promise) => {
     r.pending++;
     promise.then((v) => { r[name] = v; }).catch((e) => { r[name] = null; console.warn(name, e); })
@@ -468,18 +470,35 @@ function drawDetail(r, key) {
 }
 
 function drawSignal(d, s, r) {
-  const ds = [];
+  const ds = [], unit = t("unit." + s.unit) || s.unit;
   const add = (label, color, values, tr) => {
     if (!values) return;
-    ds.push({ label, data: values.map((v) => (Number.isFinite(v) ? v : null)), borderColor: color, backgroundColor: color, pointRadius: 1.5, borderWidth: 1.5, tension: 0.15, spanGaps: true });
-    if (tr) ds.push({ label: label + " · Sen", data: YEARS.map((y) => tr.intercept + tr.slope * y), borderColor: color, borderDash: tr.significant ? [] : [5, 4], borderWidth: 2.5, pointRadius: 0 });
+    ds.push({ label, data: values.map((v) => (Number.isFinite(v) ? v : null)), borderColor: color + "8c", backgroundColor: color, pointRadius: 0, pointHoverRadius: 4, borderWidth: 1.6, tension: 0.25, spanGaps: true });
+    if (tr) ds.push({ label: label + " · Sen", data: YEARS.map((y) => tr.intercept + tr.slope * y), borderColor: color, borderDash: tr.significant ? [] : [6, 5], borderWidth: 3, pointRadius: 0, pointHoverRadius: 0 });
   };
   if (s.src.includes("nasa") && nasaOf(r, s.key)) add("NASA", "#b2592a", nasaOf(r, s.key)[s.key], s.nasa);
   if (s.src.includes("era5") && r.era5) add("ERA5", "#1f7f5f", r.era5[s.key], s.era5);
   giovWitnesses(r, s.key).forEach((w) => add(w.name.split(" · ")[0], w.color, w.values, w.trend));
+  // the first and the last ten years, shaded, each with its average: the change the verdict talks about
+  const main = s.nasa || s.era5;
+  const decades = { id: "decades", beforeDatasetsDraw(ch) {
+    if (!main || main.t0 > START || !Number.isFinite(main.early) || !Number.isFinite(main.recent)) return;
+    const { ctx, chartArea: A, scales: { x, y } } = ch; ctx.save(); ctx.font = '700 11px Manrope, sans-serif';
+    [[0, 9, main.early], [YEARS.length - 10, YEARS.length - 1, main.recent]].forEach(([i0, i1, v], k) => {
+      const x0 = x.getPixelForValue(i0), x1 = x.getPixelForValue(i1), yy = Math.max(A.top + 2, Math.min(A.bottom - 2, y.getPixelForValue(v)));
+      ctx.fillStyle = "rgba(19,27,24,.055)"; ctx.fillRect(x0, A.top, x1 - x0, A.bottom - A.top);
+      ctx.strokeStyle = "#131b18"; ctx.lineWidth = 2; ctx.setLineDash([]); ctx.beginPath(); ctx.moveTo(x0, yy); ctx.lineTo(x1, yy); ctx.stroke();
+      ctx.fillStyle = "#131b18"; ctx.textAlign = k ? "right" : "left"; ctx.fillText(fmt(v, s.d), k ? x1 : x0, yy - 7 < A.top + 10 ? yy + 15 : yy - 7);
+    });
+    ctx.restore();
+  } };
   state.charts.push(new Chart(d.querySelector("canvas"), {
-    type: "line", data: { labels: YEARS, datasets: ds },
-    options: { responsive: true, maintainAspectRatio: false, animation: false, plugins: { legend: { labels: { boxWidth: 10, font: { size: 11, family: "Manrope" }, filter: (it) => !it.text.includes("· Sen") } } }, scales: { x: { ticks: { maxTicksLimit: 8 }, grid: { display: false } }, y: { grid: { color: "#e6ebe8" } } } },
+    type: "line", data: { labels: YEARS, datasets: ds }, plugins: [decades],
+    options: { responsive: true, maintainAspectRatio: false, animation: false, devicePixelRatio: Math.max(2, window.devicePixelRatio || 1), interaction: { mode: "index", intersect: false },
+      plugins: { legend: { align: "start", labels: { usePointStyle: true, pointStyle: "line", boxWidth: 22, font: { size: 12, family: "Manrope", weight: 600 }, filter: (it) => !it.text.includes("· Sen") } },
+        tooltip: { filter: (it) => !it.dataset.label.includes("· Sen"), callbacks: { label: (it) => ` ${it.dataset.label}: ${fmt(it.parsed.y, s.d)} ${unit}` } } },
+      scales: { x: { ticks: { maxTicksLimit: 7, font: { size: 12, family: "Manrope" }, color: "#5b6762" }, grid: { display: false } },
+        y: { title: { display: !!unit, text: unit, font: { size: 11, family: "Manrope" }, color: "#5b6762" }, ticks: { maxTicksLimit: 6, font: { size: 12, family: "Manrope" }, color: "#5b6762" }, grid: { color: "rgba(19,27,24,.07)" }, border: { display: false } } } },
   }));
 }
 
@@ -537,8 +556,8 @@ function renderHealth() {
   careLayer.clearLayers();
   html += `<h3>${t("care.title")}</h3>`;
   if (r.care?.length) {
-    html += `<ul class="rows care">` + r.care.map((c) => `<li data-lat="${c.lat}" data-lon="${c.lon}"><span class="k">✚</span><div><b>${esc(c.name)}</b><span class="muted small">${t("care." + c.kind)}</span></div><span class="dist">${fmt(c.dist, 1)} km</span></li>`).join("") + `</ul>`;
-    r.care.forEach((c) => L.marker([c.lat, c.lon], { icon: L.divIcon({ className: "emoji-pin k-care", html: "✚", iconSize: [26, 26] }) }).bindPopup(`<b>${esc(c.name)}</b><br>${t("care." + c.kind)}`).addTo(careLayer));
+    html += `<ul class="rows care">` + r.care.map((c) => `<li data-lat="${c.lat}" data-lon="${c.lon}"><span class="k">${ICON("plus")}</span><div><b>${esc(c.name)}</b><span class="muted small">${t("care." + c.kind)}</span></div><span class="dist">${fmt(c.dist, 1)} km</span></li>`).join("") + `</ul>`;
+    r.care.forEach((c) => L.marker([c.lat, c.lon], { icon: L.divIcon({ className: "emoji-pin k-care", html: ICON("plus"), iconSize: [26, 26] }) }).bindPopup(`<b>${esc(c.name)}</b><br>${t("care." + c.kind)}`).addTo(careLayer));
   } else html += `<p class="muted">${r.care === undefined ? "…" : t("care.none")}</p>`;
   html += `<p class="muted small">${t("care.note")}</p><p class="disclaimer">${t("health.disclaimer")}</p>`;
   box.innerHTML = html;
@@ -575,7 +594,7 @@ function renderNow() {
   html += `<div id="quake-box"></div><h3>${t("now.events")}</h3>`;
   eventLayer.clearLayers();
   if (r.events?.length) {
-    html += `<ul class="rows">` + r.events.map((e) => `<li data-lat="${e.lat}" data-lon="${e.lon}"><span class="k">●</span><div><b>${esc(e.title)}</b><span class="muted small">${esc(e.cat)}${e.date ? " · " + e.date : ""}</span></div><span class="dist">${fmt(e.dist, 0)} km</span></li>`).join("") + `</ul>`;
+    html += `<ul class="rows">` + r.events.map((e) => `<li data-lat="${e.lat}" data-lon="${e.lon}"><span class="k">${ICON("pin")}</span><div><b>${esc(e.title)}</b><span class="muted small">${esc(e.cat)}${e.date ? " · " + e.date : ""}</span></div><span class="dist">${fmt(e.dist, 0)} km</span></li>`).join("") + `</ul>`;
     r.events.forEach((e) => L.circleMarker([e.lat, e.lon], { radius: 7, color: "#b2592a" }).bindPopup(`<b>${esc(e.cat)}</b><br>${esc(e.title)}`).addTo(eventLayer));
   } else html += `<p class="muted">${r.events === undefined ? "…" : t("now.noevents")}</p>`;
   html += `<p class="muted small foot">${t("now.sources")}</p>`;
@@ -584,7 +603,7 @@ function renderNow() {
 }
 
 /* ---------------- Community (prototype: stored on this device only) ---------------- */
-const KINDS = { flood: "🌊", heat: "🥵", mosquito: "🦟", nowater: "🚱", landslide: "⛰️", smoke: "🌫️", need: "🆘", donate: "📦", partner: "🤝", animal: "🐾", spray: "🚜" };
+const KINDS = { flood: ICON("flood"), heat: ICON("heat"), mosquito: ICON("mosquito"), nowater: ICON("nowater"), landslide: ICON("mountain"), smoke: ICON("cloud"), need: ICON("heart"), donate: ICON("box"), partner: ICON("link"), animal: ICON("paw"), spray: ICON("spray") };
 const SEED = [
   { id: "s1", kind: "flood", lat: -25.5215, lon: -54.6205, text: "Street flooded after last night's storm; water entered ground-floor homes.", when: "2026-11-13", seed: true },
   { id: "s2", kind: "need", lat: -25.5231, lon: -54.6188, text: "Families need cleaning supplies, mattresses and drinking water.", when: "2026-11-13", seed: true },
@@ -611,7 +630,7 @@ function renderCommunity() {
     html += `<form id="report-form" class="formcard"><p class="eyebrow">${t("community.new")} <span class="muted">${draft.lat.toFixed(4)}, ${draft.lon.toFixed(4)}</span></p>
       <div class="pchips">${Object.keys(KINDS).map((k, i) => `<label class="pchip ${i === 0 ? "on" : ""}"><input type="radio" name="r-kind" value="${k}" ${i === 0 ? "checked" : ""}>${KINDS[k]} ${t("kind." + k)}</label>`).join("")}</div>
       <textarea id="r-text" maxlength="280" rows="3" placeholder="${t("community.placeholder")}" required></textarea>
-      <p class="muted small">🔒 ${t("community.privacy")}</p>
+      <p class="muted small">${ICON("lock")} ${t("community.privacy")}</p>
       <div class="row"><button class="btn">${t("community.send")}</button><button type="button" class="btn ghost" id="r-cancel">${t("community.cancel")}</button></div></form>`;
   } else html += `<button class="btn wide" id="r-open">＋ ${t("community.add")}</button>`;
   const group = (title, kinds) => {
@@ -619,7 +638,7 @@ function renderCommunity() {
     return `<h3>${title}</h3><ul class="rows feed">` + g.map((it) => `<li data-lat="${it.lat}" data-lon="${it.lon}"><span class="k">${KINDS[it.kind]}</span><div><b>${t("kind." + it.kind)}</b><span class="txt">${esc(it.text)}</span><span class="muted small">${it.when}${it.seed ? " · " + t("community.example") : ""}</span></div><span class="dist">${fmt(it.dist, 1)} km</span></li>`).join("") + `</ul>`;
   };
   html += group(t("community.needs"), HELP) + group(t("community.seen"), ["flood", "heat", "mosquito", "nowater", "landslide", "smoke", "spray", "animal"]);
-  html += `<p class="muted small">🐾 ${t("community.animal")}</p><p class="disclaimer">${t("community.disclaimer")}</p>`;
+  html += `<p class="muted small">${ICON("paw")} ${t("community.animal")}</p><p class="disclaimer">${t("community.disclaimer")}</p>`;
   box.innerHTML = html;
   box.querySelectorAll(".feed li").forEach((li) => (li.onclick = () => map.setView([+li.dataset.lat, +li.dataset.lon], 15)));
   const open = $("#r-open"); if (open) open.onclick = () => { const p = state.pin ? state.pin.getLatLng() : map.getCenter(); openReportForm(p.lat, p.lng); };

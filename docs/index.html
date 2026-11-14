@@ -48,7 +48,7 @@
     <form id="search-form" class="search">
       <input id="q" data-i18n-ph="search.placeholder" autocomplete="off" aria-label="Address">
       <button class="btn" data-i18n="search.go"></button>
-      <button type="button" class="btn ghost icon" id="gps" title="GPS" aria-label="Use my location">◎</button>
+      <button type="button" class="btn ghost icon" id="gps" title="GPS" aria-label="Use my location"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></button>
     </form>
     <p id="status" class="status" role="status"></p>
 
@@ -67,8 +67,9 @@
   <div id="map" aria-label="Map"></div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="js/icons.js"></script>
 <script src="js/i18n.js"></script>
 <script src="js/stats.js"></script>
 <script src="js/extra.js"></script>

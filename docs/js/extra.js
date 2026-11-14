@@ -186,7 +186,7 @@ const Extras = (() => {
     let h = `<section class="lighthero light-${L1.level}"><div class="lh-top"><span class="lamp"><span></span></span><div class="lh-t"><p class="eyebrow">${t("light.title")}</p><p class="lh-level">${t("light." + L1.level)} <small>${L1.score}</small></p></div><button class="btn small ghost" id="me-edit">${t(ui.editing ? "me.done" : "me.edit")}</button></div>
       <ul class="lh-why">${L1.why.map((w) => `<li>${w}</li>`).join("")}</ul>${r ? "" : `<p class="muted small">${t("light.need")}</p>`}${filled ? "" : `<p class="lh-cta">${t("me.start")}</p>`}</section>`;
     if (ui.editing) {
-      h += `<section class="card plain me"><p class="eyebrow">${t("me.title")}</p><p class="muted small">🔒 ${t("me.privacy")}</p>`;
+      h += `<section class="card plain me"><p class="eyebrow">${t("me.title")}</p><p class="muted small">${ICON("lock")} ${t("me.privacy")}</p>`;
       for (const g of ["age", "cond", "work", "meds", "home"]) h += `<p class="plabel">${t("me." + g)}</p><div class="pchips">${GROUPS[g].map((k) => chip(g, k)).join("")}</div>`;
       h += `<p class="muted small rule">${t("light.rule")}</p></section>`;
     }
@@ -320,7 +320,7 @@ const Extras = (() => {
   }
   function renderTools() {
     const box = document.querySelector("#place-tools"), r = state.main; if (!box || !r) return;
-    let h = `<button class="btn small ghost" id="t-grid">◱ ${t("tools.grid")}</button><button class="btn small ghost" id="t-csv">⇩ ${t("tools.csv")}</button>`;
+    let h = `<button class="btn small ghost" id="t-grid">${t("tools.grid")}</button><button class="btn small ghost" id="t-csv">${t("tools.csv")}</button>`;
     if (r.grid === "loading") h += `<p class="loading small">${t("grid.loading")}</p>`;
     else if (Array.isArray(r.grid)) h += `<div class="seg small">${["temp", "rain"].map((v) => `<button class="${ui.gridVar === v ? "on" : ""}" data-v="${v}">${t("tools.gridvar." + v)}</button>`).join("")}</div><p class="muted small">${t("grid.legend")}</p>`;
     box.innerHTML = h;

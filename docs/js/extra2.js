@@ -451,7 +451,7 @@ const Extras2 = (() => {
       <div class="stats3"><div><b class="hot">${cnt((c) => c.sig.temp.sig && c.sig.temp.s > 0)}<small>/${n}</small></b><span>${t("world.k.warm")}</span></div><div><b>${cnt((c) => c.sig.aedes?.sig && c.sig.aedes.s > 0)}</b><span>${t("world.k.mosq")}</span></div><div><b>${cnt((c) => c.sig.rain?.sig && c.sig.rain.s < 0)}</b><span>${t("world.k.dry")}</span></div></div>`;
     h += `<p class="plabel">${t("world.sort")}</p><div class="seg small wrap">${["score", "temp", "rain", "aedes", "pop"].map((k) => `<button class="${ui.sort === k ? "on" : ""}" data-k="${k}">${t("world.s." + k)}</button>`).join("")}</div>`;
     const dot = (s) => `<span class="vdot ${s?.sig ? (s.s > 0 ? "v-confirmed" : "v-single") : ""}"></span>`;
-    h += `<div class="tblwrap"><table class="cmp caps"><thead><tr><th>#</th><th>${t("world.city")}</th><th>${t("world.idx")}</th><th>°C</th><th>${t("sig.rain").split(" ")[0]} %</th><th>🦟</th></tr></thead><tbody>`;
+    h += `<div class="tblwrap"><table class="cmp caps"><thead><tr><th>#</th><th>${t("world.city")}</th><th>${t("world.idx")}</th><th>°C</th><th>${t("sig.rain").split(" ")[0]} %</th><th>${ICON("mosquito")}</th></tr></thead><tbody>`;
     shown.forEach((c, i) => { h += `<tr data-n="${esc(c.name)}" data-lat="${c.lat}" data-lon="${c.lon}"><td>${i + 1}</td><td><b>${esc(c.name)}</b> <small class="muted">${c.cc}</small></td><td><span class="bar"><i style="width:${c.score}%"></i></span>${fmt(c.score, 0)}</td><td>${dot(c.sig.temp)}${signed(c.sig.temp.s, 2)}</td><td>${dot(c.sig.rain)}${signed(c.rainPct, 1)}</td><td>${dot(c.sig.aedes)}${c.sig.aedes ? signed(c.sig.aedes.s, 2) : "–"}</td></tr>`; });
     h += `</tbody></table></div>${ui.all ? "" : `<button class="btn small ghost" id="w-all">${t("world.more")} (${n})</button>`}<p class="muted small foot">${t("world.note")}</p>`;
     box.innerHTML = h;
@@ -467,7 +467,7 @@ const Extras2 = (() => {
     const cal = (r?.era5 || r?.nasad)?.calendar; if (!cal) { box.innerHTML = ""; return; }
     const south = r.lat < 0, now = new Date().getMonth();
     const mon = Array.from({ length: 12 }, (_, m) => new Date(2024, m, 15).toLocaleDateString(I18N.locale(), { month: "short" }).replace(".", ""));
-    const rowsDef = [["🦟", "cal.mosq", (c) => c.aedes, "#b2592a"], ["🥵", "cal.hot", (c) => Math.min(c.hot / 0.25, 1), "#c08a2e"], ["🌧", "cal.heavy", (c) => Math.min(c.heavy / 1.5, 1), "#3d6f8e"], ["🏜", "cal.dry", (c) => Math.max(0, Math.min(1, 1 - c.rain / 60)), "#8a6d3b"]];
+    const rowsDef = [[ICON("mosquito"), "cal.mosq", (c) => c.aedes, "#b2592a"], [ICON("heat"), "cal.hot", (c) => Math.min(c.hot / 0.25, 1), "#c08a2e"], [ICON("storm"), "cal.heavy", (c) => Math.min(c.heavy / 1.5, 1), "#3d6f8e"], [ICON("drought"), "cal.dry", (c) => Math.max(0, Math.min(1, 1 - c.rain / 60)), "#8a6d3b"]];
     let h = `<h3>${t("cal.title")}</h3><p class="muted small">${t("cal.intro")}</p><div class="calgrid"><div></div>${mon.map((m, i) => `<div class="calm ${i === now ? "now" : ""}">${m}</div>`).join("")}`;
     for (const [ic, k, f, col] of rowsDef) h += `<div class="callab">${ic} ${t(k)}</div>` + cal.map((c, i) => { const v = f(c); return `<div class="calc ${i === now ? "now" : ""}" style="background:${col};opacity:${(0.08 + 0.92 * v).toFixed(2)}" title="${mon[i]}: ${fmt(v * 100, 0)}%"></div>`; }).join("");
     box.innerHTML = h + `</div>`;
@@ -522,7 +522,7 @@ const Extras2 = (() => {
       }
       if (N.mam && N.bir) h += `<div class="factrow"><div class="fact-num">${fmt((N.mam[0] || 0) + (N.bir[0] || 0) + (N.fsh?.[0] || 0) + (N.plt?.[0] || 0), 0)}</div><div><p>${t("nat.species", { y: N.mam[1], m: N.mam[0], b: N.bir[0], f: N.fsh?.[0] ?? "–", p: N.plt?.[0] ?? "–" })}</p><p class="muted small">${t("nat.species.note")}</p></div></div>`;
       if (N.prot) h += `<div class="factrow"><div class="fact-num">${fmt(N.prot[0], 0)}<small>%</small></div><div><p>${t("nat.prot", { y: N.prot[1] })}</p></div></div>`;
-      h += `<div class="golinks"><button type="button" data-tl="land">▶ ${t("nat.watch")}</button></div><p class="muted small">${t("nat.src")}</p>`;
+      h += `<div class="golinks"><button type="button" data-tl="land">${ICON("play")} ${t("nat.watch")}</button></div><p class="muted small">${t("nat.src")}</p>`;
     }
     box.innerHTML = h;
     box.querySelectorAll(".rivs li").forEach((li) => (li.onclick = () => map.setView([+li.dataset.lat, +li.dataset.lon], 12)));
@@ -559,7 +559,7 @@ const Extras2 = (() => {
       const feels = now ? Math.max(...now.days.map((d) => d.feels)) : NaN, hotN = now ? now.days.filter((d) => d.feels >= 32).length : 0;
       // a forecast hotter than the whole record means the coarse record reads cooler than this exact spot (coasts, mountains)
       const under = now ? Math.max(...now.days.map((d) => d.tmax)) > A.rec.hot[0] : false;
-      add({ id: "heat", icon: "🥵", level: A.d41 >= 10 || A.d32 >= 60 ? 3 : A.d32 >= 10 ? 2 : A.d32 > 0 ? 1 : 0, sub: t("rp.heat.sub", { n: f1(A.d32) }), vals: norm(A.m32, 25), mask: mk(A.m32, 3),
+      add({ id: "heat", icon: ICON("heat"), level: A.d41 >= 10 || A.d32 >= 60 ? 3 : A.d32 >= 10 ? 2 : A.d32 > 0 ? 1 : 0, sub: t("rp.heat.sub", { n: f1(A.d32) }), vals: norm(A.m32, 25), mask: mk(A.m32, 3),
         why: [t("rp.heat.why", { a: fmt(A.d32, 0), b: fmt(A.d41, 0), rec: fmt(A.rec.hot[0], 1), y: A.rec.hot[1] }), Math.abs(r.lat) < 23.5 && t("rp.why.tropics"), r.terrain?.elevation >= 1200 && t("rp.why.high", { m: fmt(r.terrain.elevation, 0) }), under && t("rp.heat.under")],
         trend: tr("hotdays"), now: hotN ? t(under ? "rp.heat.now2" : "rp.heat.now", { n: hotN, f: fmt(feels, 0), u: fmt(A.m32[mNow], 0), m: mon[mNow] }) : "", topic: "heat", guide: "heat", signal: "hotdays" });
       const rainMax = now ? Math.max(...now.days.map((d) => d.rain)) : 0, rl = riverLevel(r.river), big = r.river && r.river.p50 >= 50;
@@ -568,54 +568,54 @@ const Extras2 = (() => {
       const E = r.era5?.abs, d50 = Math.max(A.d50, E?.d50 ?? 0), sum = (v) => v.reduce((a, b) => a + b, 0), s50 = E && sum(E.s50) > sum(A.s50) ? E.s50 : A.s50;
       const two = E && Math.abs(E.d50 - A.d50) >= 0.5 ? t("rp.flood.two", { a: fmt(A.d50, 1), b: fmt(E.d50, 1), rec: fmt(E.wet[0], 0), y: E.wet[1] }) : "";
       const wetBy = sum(s50) >= 12 ? s50 : cal.map((c) => c.rain), wetMask = mk(smooth(wetBy), 0, wetBy === s50 ? 0.45 : 0.7);
-      add({ id: "flood", icon: "🌊", level: Math.max(lvl(d50, 2, 0.3), r.terrain?.low || big || s50.some((v) => v > 0) ? 1 : 0), sub: t("rp.flood.sub", { n: fmt(d50, 1) }), vals: norm(wetBy), mask: wetMask,
+      add({ id: "flood", icon: ICON("flood"), level: Math.max(lvl(d50, 2, 0.3), r.terrain?.low || big || s50.some((v) => v > 0) ? 1 : 0), sub: t("rp.flood.sub", { n: fmt(d50, 1) }), vals: norm(wetBy), mask: wetMask,
         why: [t("rp.flood.why", { n: fmt(A.d50, 1), rec: fmt(A.rec.wet[0], 0), y: A.rec.wet[1] }), two, r.terrain?.low && t("terrain.low"), big && t("rp.flood.river", { a: fmt(r.river.p50, 0), b: fmt(r.river.p99, 0) }), plastic && t("rp.flood.plastic", { k: fmt(plastic.dist, 0), t: fmt(plastic.t, 0) })],
         trend: tr("heavyrain"), now: [rainMax >= 50 && t("rp.flood.now", { r: fmt(rainMax, 0) }), rl && t("why.water.river")].filter(Boolean).join(" "), topic: "water", guide: "flood", signal: "heavyrain" });
-      if (r.terrain?.steep) add({ id: "landslide", icon: "⛰", level: d50 >= 2 ? 3 : d50 >= 0.3 ? 2 : 1, sub: t("rp.landslide.sub", { n: fmt(d50, 1) }), vals: norm(wetBy), mask: wetMask,
+      if (r.terrain?.steep) add({ id: "landslide", icon: ICON("mountain"), level: d50 >= 2 ? 3 : d50 >= 0.3 ? 2 : 1, sub: t("rp.landslide.sub", { n: fmt(d50, 1) }), vals: norm(wetBy), mask: wetMask,
         why: [t("rp.landslide.why", { s: fmt(r.terrain.slopePct, 0), n: fmt(d50, 1) })], now: rainMax >= 50 ? t("rp.flood.now", { r: fmt(rainMax, 0) }) : "", guide: "landslide", signal: "heavyrain" });
       const dryM = cal.map((c) => c.rain < 30), nDry = dryM.filter(Boolean).length;
       const dl = A.spell >= 60 || nDry >= 4 ? 3 : A.spell >= 25 || nDry >= 1 ? 2 : 1;
-      add({ id: "drought", icon: "🏜", level: dl, lab: "rp.dr" + dl, sub: t("rp.drought.sub", { n: fmt(A.spell, 0) }), vals: cal.map((c) => Math.max(0, Math.min(1, 1 - c.rain / 60))), mask: dryM,
+      add({ id: "drought", icon: ICON("drought"), level: dl, lab: "rp.dr" + dl, sub: t("rp.drought.sub", { n: fmt(A.spell, 0) }), vals: cal.map((c) => Math.max(0, Math.min(1, 1 - c.rain / 60))), mask: dryM,
         why: [t("rp.drought.why", { s: fmt(A.spell, 0), n: nDry })], trend: tr("drydays"), topic: "wash", guide: "drought", signal: "drydays" });
       const mq = cal.map((c) => c.aedes >= 0.5), nMq = mq.filter(Boolean).length;
       const ml = nMq >= 8 ? 3 : nMq >= 3 ? 2 : nMq >= 1 ? 1 : 0;
-      add({ id: "mosquito", ill: true, icon: "🦟", level: ml, lab: "rp.mq" + ml, sub: t("rp.mosquito.sub", { n: nMq }), vals: cal.map((c) => c.aedes), mask: mq,
+      add({ id: "mosquito", ill: true, icon: ICON("mosquito"), level: ml, lab: "rp.mq" + ml, sub: t("rp.mosquito.sub", { n: nMq }), vals: cal.map((c) => c.aedes), mask: mq,
         why: [t("rp.mosquito.why", { n: nMq })], trend: tr("aedes"), topic: "vector", signal: "aedes" });
       // seasonal illnesses expected from the climate of the address (not from case counts)
       const rows = r.nasa?.monthlyT?.slice(-10) || [], mT = Array.from({ length: 12 }, (_, m) => { const v = rows.map((x) => x[m]).filter(Number.isFinite); return v.length ? v.reduce((a, b) => a + b, 0) / v.length : NaN; });
       if (mT.every(Number.isFinite)) {
         const cold = mT.map((v) => v < 20), nC = cold.filter(Boolean).length, srt = [...mT].sort((a, b) => a - b), rainy = cal.map((c) => c.rain >= 150);
         const rm = nC > 8 ? mT.map((v) => v <= srt[4]) : nC ? cold : rainy.some(Boolean) ? rainy : null;
-        add({ id: "resp", ill: true, icon: "🤧", level: 2, lab: "rp.ill", sub: t("rp.resp.sub"), vals: !rm ? null : nC ? mT.map((v) => Math.max(0, Math.min(1, (srt[11] - v) / Math.max(1, srt[11] - srt[0])))) : norm(cal.map((c) => c.rain)), mask: rm, noseason: !rm,
+        add({ id: "resp", ill: true, icon: ICON("lungs"), level: 2, lab: "rp.ill", sub: t("rp.resp.sub"), vals: !rm ? null : nC ? mT.map((v) => Math.max(0, Math.min(1, (srt[11] - v) / Math.max(1, srt[11] - srt[0])))) : norm(cal.map((c) => c.rain)), mask: rm, noseason: !rm,
           why: [t(nC ? "rp.resp.cold" : rm ? "rp.resp.rain" : "rp.resp.flat", { a: fmt(srt[0], 0) })], topic: "resp" });
       }
       const sw = loadPress()?.countries?.[r.cc]?.wastewater;
-      add({ id: "diarr", ill: true, icon: "🚰", level: 2, lab: "rp.ill", sub: t("rp.diarr.sub"), vals: norm(wetBy), mask: wetMask, why: [t("rp.diarr.why"), sw && t(sw[0] < 70 ? "rp.diarr.sew" : "rp.diarr.sewok", { p: fmt(sw[0], 0), y: sw[1] })], topic: "water", press: true });
-      if (nDry >= 2) add({ id: "asthma", ill: true, icon: "😮‍💨", level: 2, lab: "rp.ill", sub: t("rp.asthma.sub"), vals: cal.map((c) => Math.max(0, Math.min(1, 1 - c.rain / 60))), mask: dryM, why: [t("rp.asthma.why")], topic: "air" });
+      add({ id: "diarr", ill: true, icon: ICON("drop"), level: 2, lab: "rp.ill", sub: t("rp.diarr.sub"), vals: norm(wetBy), mask: wetMask, why: [t("rp.diarr.why"), sw && t(sw[0] < 70 ? "rp.diarr.sew" : "rp.diarr.sewok", { p: fmt(sw[0], 0), y: sw[1] })], topic: "water", press: true });
+      if (nDry >= 2) add({ id: "asthma", ill: true, icon: ICON("wind"), level: 2, lab: "rp.ill", sub: t("rp.asthma.sub"), vals: cal.map((c) => Math.max(0, Math.min(1, 1 - c.rain / 60))), mask: dryM, why: [t("rp.asthma.why")], topic: "air" });
       const tmin = now ? Math.min(...now.days.map((d) => d.tmin)) : NaN;
-      add({ id: "cold", icon: "🥶", level: A.frost >= 30 ? 3 : A.frost >= 1 ? 2 : A.frost > 0 ? 1 : 0, sub: t("rp.cold.sub", { n: f1(A.frost) }), vals: norm(A.mfrost, 25), mask: mk(A.mfrost, 1),
+      add({ id: "cold", icon: ICON("cold"), level: A.frost >= 30 ? 3 : A.frost >= 1 ? 2 : A.frost > 0 ? 1 : 0, sub: t("rp.cold.sub", { n: f1(A.frost) }), vals: norm(A.mfrost, 25), mask: mk(A.mfrost, 1),
         why: [t("rp.cold.why", { n: f1(A.frost), rec: fmt(A.rec.cold[0], 1), y: A.rec.cold[1] })], now: tmin <= 2 ? t("rp.cold.now", { f: fmt(tmin, 0) }) : "", guide: "cold" });
     }
     const ev = r.events || [], cy = cycloneAt(r);
     if (cy) {
       const storms = ev.filter((e) => /storm/i.test(e.cat)).length;
-      add({ id: "cyclone", icon: "🌀", level: lvl(cy.total / 4.4, 5, 1), sub: t("rp.cyclone.sub", { n: fmt(cy.total / 4.4, 1) }), vals: cy.m ? norm(cy.m) : null, mask: cy.m ? (cy.total >= 6 ? mk(smooth(cy.m), 0, 0.4) : cy.m.map((v) => v > 0)) : null,
+      add({ id: "cyclone", icon: ICON("cyclone"), level: lvl(cy.total / 4.4, 5, 1), sub: t("rp.cyclone.sub", { n: fmt(cy.total / 4.4, 1) }), vals: cy.m ? norm(cy.m) : null, mask: cy.m ? (cy.total >= 6 ? mk(smooth(cy.m), 0, 0.4) : cy.m.map((v) => v > 0)) : null,
         why: cy.total ? [t("rp.cyclone.why", { n: cy.total, h: cy.hurr, w: fmt(cy.wind * 1.852, 0), basin: t("basin." + (cy.basin || "NA")), word: t("cy.word." + (["NA", "EP"].includes(cy.basin) ? "h" : cy.basin === "WP" ? "t" : "c")) })] : [],
         trend: cy.total ? t("rp.cyclone.trend", { p: cy.per.join(" · ") }) : "", now: storms ? t("rp.cyclone.now", { n: storms }) : "", topic: "water", guide: "cyclone" });
     }
     const to = tornadoAt(r);
-    if (to) add({ id: "tornado", icon: "🌪", level: lvl(to.total / 4.4, 50, 10), sub: t("rp.tornado.sub", { n: fmt(to.total / 4.4, 0) }), vals: norm(to.m), mask: to.total >= 20 ? mk(smooth(to.m), 0, 0.5) : to.m.map((v) => v > 0),
+    if (to) add({ id: "tornado", icon: ICON("tornado"), level: lvl(to.total / 4.4, 50, 10), sub: t("rp.tornado.sub", { n: fmt(to.total / 4.4, 0) }), vals: norm(to.m), mask: to.total >= 20 ? mk(smooth(to.m), 0, 0.5) : to.m.map((v) => v > 0),
       why: [t("rp.tornado.why", { n: to.total, s: to.strong })], trend: t("rp.tornado.trend", { p: to.per.join(" · ") }), guide: "tornado" });
     const q = r.quakes;
-    if (q) add({ id: "earthquake", icon: "🫨", level: lvl(q.count / 4.5, 10, 1), sub: t("rp.earthquake.sub", { n: fmt(q.count / 4.5, 1) }), noseason: true,
+    if (q) add({ id: "earthquake", icon: ICON("quake"), level: lvl(q.count / 4.5, 10, 1), sub: t("rp.earthquake.sub", { n: fmt(q.count / 4.5, 1) }), noseason: true,
       why: q.count ? [t("rp.earthquake.why", { n: q.count, m: fmt(q.big.m, 1), place: esc(q.big.place), y: new Date(q.big.time).getFullYear() })] : [], now: q.recent.length ? t("rp.earthquake.now", { n: q.recent.length }) : "", guide: "earthquake" });
     const thN = now ? now.days.filter((d) => d.storm).length : 0;
     const Lg = r.lightning && Number.isFinite(r.lightning.rate) ? r.lightning : null;
-    if (Lg) add({ id: "lightning", icon: "⚡", level: Lg.rate >= 10 ? 3 : Lg.rate >= 2 ? 2 : Lg.rate > 0 ? 1 : 0, sub: t("rp.lightning.sub2", { n: fmt(Lg.rate, Lg.rate < 10 ? 1 : 0) }), vals: Lg.m ? norm(Lg.m) : null, mask: Lg.m ? mk(smooth(Lg.m), 0, 0.4) : null,
+    if (Lg) add({ id: "lightning", icon: ICON("bolt"), level: Lg.rate >= 10 ? 3 : Lg.rate >= 2 ? 2 : Lg.rate > 0 ? 1 : 0, sub: t("rp.lightning.sub2", { n: fmt(Lg.rate, Lg.rate < 10 ? 1 : 0) }), vals: Lg.m ? norm(Lg.m) : null, mask: Lg.m ? mk(smooth(Lg.m), 0, 0.4) : null,
       why: [t("rp.lightning.hist", { n: fmt(Lg.rate, Lg.rate < 10 ? 1 : 0) }), t("rp.lightning.src." + Lg.src), t("rp.lightning.rule")], now: thN ? t("rp.lightning.now", { n: thN }) : "", guide: "storm" });
-    else if (thN) add({ id: "lightning", icon: "⚡", level: null, sub: t("rp.lightning.sub"), why: [t("rp.lightning.why")], now: t("rp.lightning.now", { n: thN }), guide: "storm" });
+    else if (thN) add({ id: "lightning", icon: ICON("bolt"), level: null, sub: t("rp.lightning.sub"), why: [t("rp.lightning.why")], now: t("rp.lightning.now", { n: thN }), guide: "storm" });
     const fires = ev.filter((e) => /wildfire/i.test(e.cat) && e.dist <= 150);
-    if (fires.length || now?.pm25 > 35) add({ id: "wildfire", icon: "🔥", level: null, sub: t("rp.wildfire.sub"),
+    if (fires.length || now?.pm25 > 35) add({ id: "wildfire", icon: ICON("fire"), level: null, sub: t("rp.wildfire.sub"),
       why: [fires.length && t("rp.wildfire.why", { n: fires.length, k: fmt(Math.min(...fires.map((e) => e.dist)), 0) }), now?.pm25 > 35 && t("rp.wildfire.air", { p: fmt(now.pm25, 0) }), t("rp.wildfire.nohist")],
       now: fires.length ? t("rp.wildfire.why", { n: fires.length, k: fmt(Math.min(...fires.map((e) => e.dist)), 0) }) : t("rp.wildfire.air", { p: fmt(now.pm25, 0) }), topic: "air", guide: "wildfire" });
     out.list.sort((a, b) => !!b.now - !!a.now || (b.level ?? 4) - (a.level ?? 4));
@@ -626,7 +626,7 @@ const Extras2 = (() => {
   const whereOf = (z) => ({ flood: "w-flood", drought: "w-drought", landslide: "w-landslide", cyclone: "w-cyclone", earthquake: "w-quake", lightning: state.main && Math.abs(state.main.lat) <= 37.5 ? "w-lightning" : "", tornado: "w-tornado" }[z.id] || "");
   const goBtn = (go, label) => `<button type="button" data-go="${go}">${label} →</button>`;
   function rpLinks(z) {
-    return `<div class="golinks">${z.guide ? goBtn("prepare:hz-" + z.guide, t("rp.go.guide")) : ""}${z.topic ? goBtn("health:topic-" + z.topic, `${t("tab.health")}: ${t("h." + z.topic)}`) : ""}${z.signal ? goBtn("place:sig-" + z.signal, `${t("rp.go.sig")}: ${t("sig." + z.signal)}`) : ""}${z.press ? goBtn("region:pressures", t("pr.go")) : ""}${whereOf(z) ? `<button type="button" data-tl="${whereOf(z)}">◉ ${t("tl.where")}</button>` : ""}${tlOf(z) ? `<button type="button" data-tl="${tlOf(z)}">▶ ${t("tl.go")}</button>` : ""}${z.now ? goBtn("now:", t("rp.go.week")) : ""}</div>`;
+    return `<div class="golinks">${z.guide ? goBtn("prepare:hz-" + z.guide, t("rp.go.guide")) : ""}${z.topic ? goBtn("health:topic-" + z.topic, `${t("tab.health")}: ${t("h." + z.topic)}`) : ""}${z.signal ? goBtn("place:sig-" + z.signal, `${t("rp.go.sig")}: ${t("sig." + z.signal)}`) : ""}${z.press ? goBtn("region:pressures", t("pr.go")) : ""}${whereOf(z) ? `<button type="button" data-tl="${whereOf(z)}">${ICON("pin")} ${t("tl.where")}</button>` : ""}${tlOf(z) ? `<button type="button" data-tl="${tlOf(z)}">${ICON("play")} ${t("tl.go")}</button>` : ""}${z.now ? goBtn("now:", t("rp.go.week")) : ""}</div>`;
   }
   // links from a health topic back to the pattern of the place and to the step-by-step guide
   const TOPIC = { resp: ["resp", ""], vector: ["mosquito", ""], heat: ["heat", "heat"], water: ["flood", "flood"], air: ["", "wildfire"], wash: ["drought", "drought"] };
@@ -741,20 +741,20 @@ const Extras2 = (() => {
     if (r) {
       h += `<section class="band"><p class="eyebrow">${t("safe.title")}</p>`;
       const hg = r.terrain?.high;
-      if (hg && hg.gain >= 3) h += `<p class="hg">⛰ ${t("safe.high", { g: fmt(hg.gain, 0), d: fmt(hg.dist, 1), dir: t("dir").split("|")[hg.dir] })} <button class="btn small ghost" id="hg-btn">${t("safe.show")}</button></p>`;
+      if (hg && hg.gain >= 3) h += `<p class="hg">${ICON("mountain")} ${t("safe.high", { g: fmt(hg.gain, 0), d: fmt(hg.dist, 1), dir: t("dir").split("|")[hg.dir] })} <button class="btn small ghost" id="hg-btn">${t("safe.show")}</button></p>`;
       if (!r.safe) h += `<button class="btn wide" id="safe-btn">${t("safe.btn")}</button>`;
       else if (r.safe === "loading") h += `<p class="loading">${t("safe.loading")}</p>`;
       else if (!r.safe.length) h += `<p class="muted">${t("safe.none")}</p>`;
-      else h += `<ul class="rows safe">` + r.safe.map((s) => `<li data-lat="${s.lat}" data-lon="${s.lon}"><span class="k">⛑</span><div><b>${esc(s.name || t("k." + s.kind))}</b><span class="muted small">${t("k." + s.kind)} · <a target="_blank" rel="noopener" href="https://www.openstreetmap.org/directions?engine=fossgis_osrm_foot&route=${r.lat.toFixed(5)}%2C${r.lon.toFixed(5)}%3B${s.lat.toFixed(5)}%2C${s.lon.toFixed(5)}">${t("safe.route")} →</a></span></div><span class="dist">${fmt(s.dist, 1)} km</span></li>`).join("") + `</ul>`;
+      else h += `<ul class="rows safe">` + r.safe.map((s) => `<li data-lat="${s.lat}" data-lon="${s.lon}"><span class="k">${ICON("shield")}</span><div><b>${esc(s.name || t("k." + s.kind))}</b><span class="muted small">${t("k." + s.kind)} · <a target="_blank" rel="noopener" href="https://www.openstreetmap.org/directions?engine=fossgis_osrm_foot&route=${r.lat.toFixed(5)}%2C${r.lon.toFixed(5)}%3B${s.lat.toFixed(5)}%2C${s.lon.toFixed(5)}">${t("safe.route")} →</a></span></div><span class="dist">${fmt(s.dist, 1)} km</span></li>`).join("") + `</ul>`;
       h += `${Array.isArray(r.safe) && r.safe.length ? `<p class="muted small">${t("safe.tap")}</p>` : ""}<p id="route-info" class="route-info">${r.route ? t("route.info", { name: esc(r.route.name), km: fmt(r.route.km, 1), min: fmt(r.route.min, 0) }) : ""}</p><p class="muted small">${t("safe.note")}</p></section>`;
     }
     const lay = layer("safe"); lay.clearLayers();
-    if (Array.isArray(r?.safe)) r.safe.forEach((s) => L.marker([s.lat, s.lon], { icon: L.divIcon({ className: "emoji-pin k-safe", html: "⛑", iconSize: [28, 28] }) }).bindPopup(`<b>${esc(s.name || t("k." + s.kind))}</b><br>${t("k." + s.kind)}`).addTo(lay));
+    if (Array.isArray(r?.safe)) r.safe.forEach((s) => L.marker([s.lat, s.lon], { icon: L.divIcon({ className: "emoji-pin k-safe", html: ICON("shield"), iconSize: [28, 28] }) }).bindPopup(`<b>${esc(s.name || t("k." + s.kind))}</b><br>${t("k." + s.kind)}`).addTo(lay));
     if (!P) h += `<p class="muted">${P === null ? "…" : t("prep.na")}</p>`;
     else {
       const here = hazardsHere(r);
       const hz = [...P.hazards].sort((a, b) => here.has(b.id) - here.has(a.id));
-      h += `<h3>${t("prep.hazards")}</h3><div class="topics">` + hz.map((z) => `<details class="topic" data-anchor="hz-${z.id}" ${isOpen("hz-" + z.id, false)}><summary><span class="hz">${z.icon}</span><span class="tt">${esc(tx(z.name))}</span>${here.has(z.id) ? `<span class="badge v-confirmed">${t("prep.here")}</span>` : ""}</summary>
+      h += `<h3>${t("prep.hazards")}</h3><div class="topics">` + hz.map((z) => `<details class="topic" data-anchor="hz-${z.id}" ${isOpen("hz-" + z.id, false)}><summary><span class="hz">${ICON(z.icon)}</span><span class="tt">${esc(tx(z.name))}</span>${here.has(z.id) ? `<span class="badge v-confirmed">${t("prep.here")}</span>` : ""}</summary>
         <div class="tbody"><p class="why"><b>${t("prep.shelter")}:</b> ${esc(tx(z.shelter))}</p><p class="phase">${t("prep.before")}</p>${steps(z.before)}<p class="phase">${t("prep.during")}</p>${steps(z.during)}<p class="phase">${t("prep.after")}</p>${steps(z.after)}
         <p class="muted small">${esc(z.source_name || "")} · <a href="${esc(z.source)}" target="_blank" rel="noopener">${t("act.source")}</a></p></div></details>`).join("") + `</div>`;
       const ppl = Math.max(1, +done.people || 4), dys = Math.max(1, +done.days || 3);
@@ -816,7 +816,7 @@ const Extras2 = (() => {
 
   function hero() {
     const pt = (n) => `<li><span class="n">0${n}</span><div><b>${t("home." + n)}</b><p>${t("home." + n + "d")}</p></div></li>`;
-    return `<p class="eyebrow">${t("home.eyebrow")}</p><h2 class="hero">${t("home.title")}</h2><p class="lead">${t("home.lead")}</p><ol class="points">${pt(1)}${pt(2)}${pt(3)}</ol><p><button type="button" class="btn" data-demo="1">▶ ${t("home.demo")}</button></p><p class="plabel">${t("home.try")}</p>`;
+    return `<p class="eyebrow">${t("home.eyebrow")}</p><h2 class="hero">${t("home.title")}</h2><p class="lead">${t("home.lead")}</p><ol class="points">${pt(1)}${pt(2)}${pt(3)}</ol><p><button type="button" class="btn" data-demo="1">${ICON("play")} ${t("home.demo")}</button></p><p class="plabel">${t("home.try")}</p>`;
   }
 
   function render() { renderWorld(); renderCalendar(); renderPrepare(); renderExpect(); renderNowContext(); renderSat(); renderQuakes(); schedule(); if (typeof Timelapse !== "undefined") Timelapse.refresh(); }
