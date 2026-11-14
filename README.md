@@ -8,16 +8,19 @@ A project for the **NASA Space Apps Challenge 2026**, challenge *Be An Earth Sys
 
 ## What it does
 
-Type an address anywhere on Earth, tap the map, or use your location. The app:
+Type an address anywhere on Earth, tap the map, or use your location. The app is a guided path of nine numbered sections in three groups: Detect, Care and Understand.
 
-1. **Detects trends.** It builds 45-year time series (1981–2025) for eight climate signals at that spot: average temperature, very hot days, yearly rainfall, heavy-rain days, dry days, air humidity, topsoil wetness, and the length of the season that is thermally suitable for dengue transmission.
-2. **Tests whether each trend is real.** Every signal goes through the Mann-Kendall test and the Theil-Sen slope with a 95% confidence interval. Where possible, **two independent datasets are compared before a verdict is given**: *confirmed*, *likely*, *sources disagree*, *one source only* or *no clear trend*.
-3. **Translates the result into health.** Vector-borne disease, heat illness, floods and leptospirosis, smoke, and water and hygiene are ordered by urgency for that place, each with the data that triggered it and plain prevention steps.
-4. **Shows this week.** A 7-day forecast with heat and heavy-rain flags, air quality, river discharge compared with its own history, and open natural events from NASA EONET.
-5. **Connects neighbours.** A community map for reports (flooding, mosquito breeding sites, no water) and for places that need or collect donations. *Prototype: stored on the device only, with fictional examples.*
-6. **Compares two addresses** for people deciding where to live.
+1. **My place.** Eight climate signals for that spot, 1981–2025: average temperature, very hot days, yearly rainfall, heavy-rain days, dry days, air humidity, topsoil wetness, and the length of the season that is thermally suitable for dengue transmission. Every signal goes through the Mann-Kendall test and the Theil-Sen slope with a 95% confidence interval, and **two independent datasets are compared before a verdict is given**: *confirmed*, *likely*, *sources disagree*, *one source only* or *no clear trend*. A 5 × 5 grid shows where the change is happening, and a calendar shows what each month usually brings.
+2. **This week.** A 7-day view with the NOAA heat index, heavy-rain flags, air quality, river discharge compared with its own history, recent earthquakes, open natural events from NASA EONET and, for farms, the hours inside the weather limits that Paraguayan law sets for spraying.
+3. **Health.** A private profile feeds a transparent heat traffic light. Six topics are ordered by urgency for the place, each with the data that triggered it and plain prevention steps.
+4. **Be ready.** The history of tropical storms and earthquakes at that spot, official guidance for ten hazards, a kit checklist with a water calculator, a family plan, and safe places nearby with a walking route drawn on the map.
+5. **Community.** A map for reports (flooding, mosquito breeding sites, no water, spraying near homes) and for places that need or collect donations. *Prototype: stored on the device only, with fictional examples.*
+6. **Region's health.** Thirty-one national health indicators tested with the same trend method.
+7. **Cities, industry and farms.** Evidence-based actions ordered by what the data show for that place, with real cases from around the world.
+8. **World.** A screening of 300 large cities ranked by how far their climate has shifted.
+9. **Compare.** Two addresses side by side.
 
-The interface is available in English, Spanish and Portuguese.
+The interface is available in English, Spanish and Portuguese and works on a phone.
 
 ## Why a second opinion matters
 
@@ -48,6 +51,8 @@ Thermal suitability for *Aedes aegypti* follows the temperature curve in Mordeca
 ## Limits
 
 - Gridded climate data describe areas of roughly 25–50 km, not a single building.
+- Routes use the street network from OpenStreetMap and are not official evacuation routes.
+- The 300-city panorama uses one source and is a screening.
 - The terrain flag is a screening from a 90 m elevation model. It is not an official flood or landslide map.
 - River discharge is modelled and does not represent dam operations well.
 - Health guidance is general prevention information, not a diagnosis.
