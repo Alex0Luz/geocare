@@ -16,8 +16,12 @@ def ler(path):
         if dados:
             try: v = float(r[1])
             except ValueError: v = float("nan")
-            rows.append((r[0], v if abs(v) < 1e14 else float("nan")))
+            rows.append((r[0], v))
         else: meta[r[0]] = r[1] if len(r) > 1 else ""
+    try: undef = float(meta.get("undef", "nan"))
+    except ValueError: undef = float("nan")
+    nan = float("nan")
+    rows = [(t, nan if (v != v or v == undef or abs(v) >= 1e29 or v <= -9990) else v) for t, v in rows]
     return meta, rows
 def anual(rows, fn, minimo):
     g = collections.defaultdict(list)
@@ -55,6 +59,13 @@ for slug, (nome, lat, lon) in NOMES.items():
             y, mo = int(t[:4]), int(t[5:7]); dias = [31, 29 if y % 4 == 0 else 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][mo - 1]
             g[y].append(v * 24 * dias if "hr" in (mg.get("unit") or "") else v * dias if "day" in (mg.get("unit") or "") else v)
     S["gpm_chuva"] = {y: float(sum(v)) for y, v in sorted(g.items()) if len(v) == 12}
+    # sinais extras de satelite: NO2 (OMI/Aura), agua subterranea (GRACE), umidade do solo (GLDAS)
+    for chave, minimo, fator in (("omi_no2", 120, 1e-15), ("grace_gws", 30, 1.0), ("gldas_soil", 12, 1.0)):
+        arq = f"{AQUI}/giovanni/{slug}__{chave}.csv"
+        if os.path.exists(arq) and os.path.getsize(arq) > 2000:
+            mx, rx = ler(arq)
+            S[chave] = {y: v for y, v in anual(rx, lambda a, f=fator: a.mean() * f, minimo).items() if y <= 2025}
+            print("  extra", chave, "|", mx.get("param_name"), "| unidade", mx.get("unit"), "| anos", len(S[chave]))
     T = {}
     T["merra2_temp"] = tend(S["merra2_temp"], "MERRA-2 T media (Giovanni)", "C")
     T["merra2_tmin"] = tend(S["merra2_tmin"], "MERRA-2 T minima media", "C")

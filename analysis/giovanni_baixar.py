@@ -19,6 +19,9 @@ VARIAVEIS = {
     "airs_tar_dia": ("AIRS3STM_7_0_SurfAirTemp_A", "2002-09-01T00:00:00", "2025-12-31T23:59:59"),
     "airs_tar_noite": ("AIRS3STM_7_0_SurfAirTemp_D", "2002-09-01T00:00:00", "2025-12-31T23:59:59"),
     "gpm_chuva_mensal": ("GPM_3IMERGM_07_precipitation", "1998-01-01T00:00:00", "2025-12-31T23:59:59"),
+    "omi_no2": ("OMNO2d_003_ColumnAmountNO2TropCloudScreened", "2004-10-01T00:00:00", "2025-12-31T23:59:59"),
+    "grace_gws": ("GRACEDADM_CLSM025GL_7D_3_0_gws_inst", "2003-02-01T00:00:00", "2025-12-31T23:59:59"),
+    "gldas_soil": ("GLDAS_NOAH025_M_2_1_SoilMoi0_10cm_inst", "2000-01-01T00:00:00", "2025-12-31T23:59:59"),
 }
 SAIDA = os.path.join(AQUI, "giovanni"); os.makedirs(SAIDA, exist_ok=True)
 for local, (lat, lon) in LOCAIS.items():
