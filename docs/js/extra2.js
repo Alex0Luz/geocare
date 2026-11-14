@@ -10,7 +10,7 @@ I18N.add("en", {
   "world.note": "Change index (0–100): combines the size of the significant trends in temperature, hottest month, rainfall and mosquito season. It measures change in climate, not harm to people.",
   "cal.title": "Your year at this address", "cal.intro": "What each month usually brings here, from the last 10 years of daily records (ERA5).", "cal.mosq": "Mosquito season", "cal.hot": "Very hot days", "cal.heavy": "Heavy rain", "cal.dry": "Dry spell", "cal.now": "this month",
   "prep.title": "Be ready", "prep.intro": "What to do before, during and after each kind of event, from official civil-protection guidance. The ones that fit this place come first.", "prep.here": "relevant here",
-  "prep.shelter": "Where to shelter", "prep.before": "Before", "prep.during": "During", "prep.after": "After", "prep.kit": "Emergency kit", "prep.plan": "Family plan", "prep.numbers": "Emergency numbers", "prep.na": "Guide not available yet.",
+  "prep.shelter": "Where to shelter", "prep.before": "Before", "prep.during": "During", "prep.after": "After", "prep.hazards": "What to do in each kind of event", "world.k.warm": "cities warming significantly", "world.k.mosq": "with a longer mosquito season", "world.k.dry": "with significantly less rain", "prep.kit": "Emergency kit", "prep.plan": "Family plan", "prep.numbers": "Emergency numbers", "prep.na": "Guide not available yet.",
   "safe.title": "Safe places nearby", "safe.btn": "Find shelters and safe places near this address", "safe.loading": "Searching OpenStreetMap…", "safe.none": "Nothing mapped within 5 km. Ask your civil-defence office where the official shelters are.", "safe.route": "walking route",
   "safe.note": "From OpenStreetMap volunteers. It is not an official evacuation plan: confirm shelters and routes with your civil-defence office.",
   "k.assembly_point": "Assembly point", "k.shelter": "Shelter", "k.fire_station": "Fire station", "k.police": "Police", "k.community_centre": "Community centre", "k.hospital": "Hospital", "k.school": "School",
@@ -27,7 +27,7 @@ I18N.add("es", {
   "world.note": "Índice de cambio (0–100): combina el tamaño de las tendencias significativas de temperatura, mes más caluroso, lluvia y temporada del mosquito. Mide el cambio del clima, no el daño a las personas.",
   "cal.title": "Su año en esta dirección", "cal.intro": "Lo que suele traer cada mes aquí, según los últimos 10 años de registros diarios (ERA5).", "cal.mosq": "Temporada del mosquito", "cal.hot": "Días muy calurosos", "cal.heavy": "Lluvia fuerte", "cal.dry": "Período seco", "cal.now": "este mes",
   "prep.title": "Esté preparado", "prep.intro": "Qué hacer antes, durante y después de cada tipo de evento, según orientaciones oficiales de protección civil. Primero aparecen los que corresponden a este lugar.", "prep.here": "corresponde aquí",
-  "prep.shelter": "Dónde refugiarse", "prep.before": "Antes", "prep.during": "Durante", "prep.after": "Después", "prep.kit": "Kit de emergencia", "prep.plan": "Plan familiar", "prep.numbers": "Números de emergencia", "prep.na": "La guía todavía no está disponible.",
+  "prep.shelter": "Dónde refugiarse", "prep.before": "Antes", "prep.during": "Durante", "prep.after": "Después", "prep.hazards": "Qué hacer en cada tipo de evento", "world.k.warm": "ciudades con calentamiento significativo", "world.k.mosq": "con temporada del mosquito más larga", "world.k.dry": "con lluvia significativamente menor", "prep.kit": "Kit de emergencia", "prep.plan": "Plan familiar", "prep.numbers": "Números de emergencia", "prep.na": "La guía todavía no está disponible.",
   "safe.title": "Lugares seguros cercanos", "safe.btn": "Buscar refugios y lugares seguros cerca de esta dirección", "safe.loading": "Buscando en OpenStreetMap…", "safe.none": "No hay nada mapeado a menos de 5 km. Consulte en defensa civil dónde están los refugios oficiales.", "safe.route": "ruta a pie",
   "safe.note": "Datos de voluntarios de OpenStreetMap. No es un plan oficial de evacuación: confirme refugios y rutas con defensa civil.",
   "k.assembly_point": "Punto de encuentro", "k.shelter": "Refugio", "k.fire_station": "Bomberos", "k.police": "Policía", "k.community_centre": "Centro comunitario", "k.hospital": "Hospital", "k.school": "Escuela",
@@ -44,7 +44,7 @@ I18N.add("pt", {
   "world.note": "Índice de mudança (0–100): combina o tamanho das tendências significativas de temperatura, mês mais quente, chuva e temporada do mosquito. Mede a mudança do clima, não o dano às pessoas.",
   "cal.title": "Seu ano neste endereço", "cal.intro": "O que cada mês costuma trazer aqui, pelos últimos 10 anos de registros diários (ERA5).", "cal.mosq": "Temporada do mosquito", "cal.hot": "Dias muito quentes", "cal.heavy": "Chuva forte", "cal.dry": "Estiagem", "cal.now": "este mês",
   "prep.title": "Esteja pronto", "prep.intro": "O que fazer antes, durante e depois de cada tipo de evento, pelas orientações oficiais de defesa civil. Os que combinam com este lugar vêm primeiro.", "prep.here": "vale aqui",
-  "prep.shelter": "Onde se abrigar", "prep.before": "Antes", "prep.during": "Durante", "prep.after": "Depois", "prep.kit": "Kit de emergência", "prep.plan": "Plano da família", "prep.numbers": "Telefones de emergência", "prep.na": "O guia ainda não está disponível.",
+  "prep.shelter": "Onde se abrigar", "prep.before": "Antes", "prep.during": "Durante", "prep.after": "Depois", "prep.hazards": "O que fazer em cada tipo de evento", "world.k.warm": "cidades aquecendo de forma significativa", "world.k.mosq": "com temporada do mosquito mais longa", "world.k.dry": "com chuva significativamente menor", "prep.kit": "Kit de emergência", "prep.plan": "Plano da família", "prep.numbers": "Telefones de emergência", "prep.na": "O guia ainda não está disponível.",
   "safe.title": "Lugares seguros por perto", "safe.btn": "Buscar abrigos e lugares seguros perto deste endereço", "safe.loading": "Buscando no OpenStreetMap…", "safe.none": "Nada mapeado a até 5 km. Pergunte à Defesa Civil onde ficam os abrigos oficiais.", "safe.route": "rota a pé",
   "safe.note": "Dados de voluntários do OpenStreetMap. Não é plano oficial de evacuação: confirme abrigos e rotas com a Defesa Civil.",
   "k.assembly_point": "Ponto de encontro", "k.shelter": "Abrigo", "k.fire_station": "Bombeiros", "k.police": "Polícia", "k.community_centre": "Centro comunitário", "k.hospital": "Hospital", "k.school": "Escola",
@@ -105,7 +105,8 @@ const Extras2 = (() => {
     const key = { score: (c) => -c.score, temp: (c) => -c.sig.temp.s, rain: (c) => -Math.abs(c.rainPct), aedes: (c) => -(c.sig.aedes?.s || 0), pop: (c) => -c.pop }[ui.sort];
     const rows = [...C].sort((a, b) => key(a) - key(b)), shown = ui.all ? rows : rows.slice(0, 30);
     const cnt = (f) => C.filter(f).length;
-    let h = `<h2>${t("world.title")}</h2><p class="muted small">${t("world.intro", { n })}</p><p class="summary">${t("world.sum", { n, w: cnt((c) => c.sig.temp.sig && c.sig.temp.s > 0), m: cnt((c) => c.sig.aedes?.sig && c.sig.aedes.s > 0), s: cnt((c) => c.sig.aedes?.sig && c.sig.aedes.s < 0) })}</p>`;
+    let h = `<h2>${t("world.title")}</h2><p class="muted small">${t("world.intro", { n })}</p>
+      <div class="stats3"><div><b class="hot">${cnt((c) => c.sig.temp.sig && c.sig.temp.s > 0)}<small>/${n}</small></b><span>${t("world.k.warm")}</span></div><div><b>${cnt((c) => c.sig.aedes?.sig && c.sig.aedes.s > 0)}</b><span>${t("world.k.mosq")}</span></div><div><b>${cnt((c) => c.sig.rain?.sig && c.sig.rain.s < 0)}</b><span>${t("world.k.dry")}</span></div></div>`;
     h += `<p class="plabel">${t("world.sort")}</p><div class="seg small wrap">${["score", "temp", "rain", "aedes", "pop"].map((k) => `<button class="${ui.sort === k ? "on" : ""}" data-k="${k}">${t("world.s." + k)}</button>`).join("")}</div>`;
     const dot = (s) => `<span class="vdot ${s?.sig ? (s.s > 0 ? "v-confirmed" : "v-single") : ""}"></span>`;
     h += `<div class="tblwrap"><table class="cmp caps"><thead><tr><th>#</th><th>${t("world.city")}</th><th>${t("world.idx")}</th><th>°C</th><th>${t("sig.rain").split(" ")[0]} %</th><th>🦟</th></tr></thead><tbody>`;
@@ -163,15 +164,18 @@ const Extras2 = (() => {
   function renderPrepare() {
     const box = document.querySelector("#p-prepare"); if (!box) return;
     if (ui.prep === undefined) { ui.prep = null; fetch("data/prepare.json").then((x) => (x.ok ? x.json() : false)).then((j) => { ui.prep = j; }).catch(() => { ui.prep = false; }).finally(() => renderPrepare()); }
-    const P = ui.prep, r = state.main, lg = I18N.lang, tx = (o) => o?.[lg] || o?.en || "", list = (o) => (tx(o) || []).map((x) => `<li>${esc(x)}</li>`).join("");
+    const P = ui.prep, r = state.main, lg = I18N.lang, tx = (o) => o?.[lg] || o?.en || "";
+    const steps = (o) => `<ol class="steps">${(tx(o) || []).map((x) => `<li>${esc(x)}</li>`).join("")}</ol>`;
+    let done = {}; try { done = JSON.parse(localStorage.getItem("geocare.checks") || "{}"); } catch (_) { /* storage unavailable */ }
+    const checks = (id, o) => { const items = tx(o) || [], n = items.filter((_, i) => done[id + i]).length; return `<p class="prog"><b>${n}</b>/${items.length}</p><ul class="check">${items.map((x, i) => `<li><label><input type="checkbox" data-c="${id + i}" ${done[id + i] ? "checked" : ""}><span>${esc(x)}</span></label></li>`).join("")}</ul>`; };
     let h = `<h2>${t("prep.title")}</h2><p class="muted small">${t("prep.intro")}</p>`;
     if (r) {
-      h += `<h3>${t("safe.title")}</h3>`;
-      if (!r.safe) h += `<button class="btn small" id="safe-btn">${t("safe.btn")}</button>`;
+      h += `<section class="band"><p class="eyebrow">${t("safe.title")}</p>`;
+      if (!r.safe) h += `<button class="btn wide" id="safe-btn">${t("safe.btn")}</button>`;
       else if (r.safe === "loading") h += `<p class="loading">${t("safe.loading")}</p>`;
       else if (!r.safe.length) h += `<p class="muted">${t("safe.none")}</p>`;
-      else h += `<ul class="reports safe">` + r.safe.map((s) => `<li data-lat="${s.lat}" data-lon="${s.lon}"><span class="k">⛑</span><div><b>${esc(s.name || t("k." + s.kind))}</b><br><span class="muted small">${t("k." + s.kind)} · ${fmt(s.dist, 1)} km · <a target="_blank" rel="noopener" href="https://www.openstreetmap.org/directions?engine=fossgis_osrm_foot&route=${r.lat.toFixed(5)}%2C${r.lon.toFixed(5)}%3B${s.lat.toFixed(5)}%2C${s.lon.toFixed(5)}">${t("safe.route")}</a></span></div></li>`).join("") + `</ul>`;
-      h += `<p class="muted small">${t("safe.note")}</p>`;
+      else h += `<ul class="rows safe">` + r.safe.map((s) => `<li data-lat="${s.lat}" data-lon="${s.lon}"><span class="k">⛑</span><div><b>${esc(s.name || t("k." + s.kind))}</b><span class="muted small">${t("k." + s.kind)} · <a target="_blank" rel="noopener" href="https://www.openstreetmap.org/directions?engine=fossgis_osrm_foot&route=${r.lat.toFixed(5)}%2C${r.lon.toFixed(5)}%3B${s.lat.toFixed(5)}%2C${s.lon.toFixed(5)}">${t("safe.route")} →</a></span></div><span class="dist">${fmt(s.dist, 1)} km</span></li>`).join("") + `</ul>`;
+      h += `<p class="muted small">${t("safe.note")}</p></section>`;
     }
     const lay = layer("safe"); lay.clearLayers();
     if (Array.isArray(r?.safe)) r.safe.forEach((s) => L.marker([s.lat, s.lon], { icon: L.divIcon({ className: "emoji-pin k-safe", html: "⛑", iconSize: [28, 28] }) }).bindPopup(`<b>${esc(s.name || t("k." + s.kind))}</b><br>${t("k." + s.kind)}`).addTo(lay));
@@ -179,16 +183,17 @@ const Extras2 = (() => {
     else {
       const here = hazardsHere(r);
       const hz = [...P.hazards].sort((a, b) => here.has(b.id) - here.has(a.id));
-      h += `<div class="cards" style="margin-top:14px">` + hz.map((z) => `<details class="card ${here.has(z.id) ? "v-confirmed" : ""}"><summary><div><span class="card-title">${z.icon} ${esc(tx(z.name))}</span>${here.has(z.id) ? `<span class="badge v-confirmed">${t("prep.here")}</span>` : ""}</div></summary>
-        <p class="why"><b>${t("prep.shelter")}:</b> ${esc(tx(z.shelter))}</p><p class="plabel">${t("prep.before")}</p><ul>${list(z.before)}</ul><p class="plabel">${t("prep.during")}</p><ul>${list(z.during)}</ul><p class="plabel">${t("prep.after")}</p><ul>${list(z.after)}</ul>
-        <p class="muted small">${esc(z.source_name || "")} · <a href="${esc(z.source)}" target="_blank" rel="noopener">${t("act.source")}</a></p></details>`).join("") + `</div>`;
-      h += `<h3>${t("prep.kit")}</h3><div class="card plain"><ul>${list(P.kit)}</ul></div><h3>${t("prep.plan")}</h3><div class="card plain"><ul>${list(P.plan)}</ul></div>`;
+      h += `<h3>${t("prep.hazards")}</h3><div class="topics">` + hz.map((z) => `<details class="topic"><summary><span class="hz">${z.icon}</span><span class="tt">${esc(tx(z.name))}</span>${here.has(z.id) ? `<span class="badge v-confirmed">${t("prep.here")}</span>` : ""}</summary>
+        <div class="tbody"><p class="why"><b>${t("prep.shelter")}:</b> ${esc(tx(z.shelter))}</p><p class="phase">${t("prep.before")}</p>${steps(z.before)}<p class="phase">${t("prep.during")}</p>${steps(z.during)}<p class="phase">${t("prep.after")}</p>${steps(z.after)}
+        <p class="muted small">${esc(z.source_name || "")} · <a href="${esc(z.source)}" target="_blank" rel="noopener">${t("act.source")}</a></p></div></details>`).join("") + `</div>`;
+      h += `<h3>${t("prep.kit")}</h3>${checks("k", P.kit)}<h3>${t("prep.plan")}</h3>${checks("p", P.plan)}`;
       const nums = (P.numbers || []).filter((x) => x.cc === r?.cc);
-      if (nums.length) h += `<h3>${t("prep.numbers")}</h3><div class="card plain sos">${nums.map((x) => `<p>${esc(x.label)}: <b>${esc(x.number)}</b></p>`).join("")}</div>`;
+      if (nums.length) h += `<h3>${t("prep.numbers")}</h3><ul class="rows nums">${nums.map((x) => `<li><div><b>${esc(x.label)}</b></div><a class="tel" href="tel:${esc(x.number)}">${esc(x.number)}</a></li>`).join("")}</ul>`;
     }
     box.innerHTML = h;
     const b = box.querySelector("#safe-btn"); if (b) b.onclick = () => findSafe(r);
     box.querySelectorAll(".safe li").forEach((li) => (li.onclick = (e) => { if (e.target.tagName !== "A") map.setView([+li.dataset.lat, +li.dataset.lon], 16); }));
+    box.querySelectorAll(".check input").forEach((inp) => (inp.onchange = () => { done[inp.dataset.c] = inp.checked; try { localStorage.setItem("geocare.checks", JSON.stringify(done)); } catch (_) { /* ignore */ } renderPrepare(); }));
   }
 
   /* ---------- extra NASA satellite signals (Giovanni, precomputed places) ---------- */

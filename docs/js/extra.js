@@ -28,7 +28,7 @@ I18N.add("en", {
   "tr.better": "improving", "tr.worse": "worsening", "tr.flat": "no clear trend", "tr.up": "rising", "tr.down": "falling",
   "region.vax": "Ask your health unit which vaccines are in the national schedule for your age. After floods, being up to date with tetanus matters for clean-up work. Hepatitis A and rotavirus vaccines protect against water-borne disease. Yellow fever and dengue vaccines depend on the country and area. Draft text pending physician review.",
   "act.title": "What cities, companies and farms can do", "act.intro": "Actions with evidence, ordered by what the data show for this place, and real cases from around the world.", "act.city": "City government", "act.industry": "Industry", "act.farm": "Farms",
-  "act.note": "Compiled from public sources during the hackathon. Check the linked source before quoting a number.", "act.match": "matches this place", "act.cases": "Cases from around the world", "act.loading": "Playbook not available yet.", "act.source": "source",
+  "act.note": "Compiled from public sources during the hackathon. Check the linked source before quoting a number.", "act.here": "For this place", "act.other": "Other actions", "act.all": "Actions", "th.all": "All", "th.air": "Air", "th.water": "Water", "th.heat": "Heat", "th.vector": "Mosquitoes", "th.flood": "Floods", "th.farm": "Farms", "th.industry": "Industry", "act.match": "matches this place", "act.cases": "Cases from around the world", "act.loading": "Playbook not available yet.", "act.source": "source",
   "st.recovering": "recovering", "st.still_critical": "still critical", "st.warning": "warning",
   "sigk.heat": "heat", "sigk.rain_extreme": "extreme rain", "sigk.drying": "drying", "sigk.vector": "mosquitoes", "sigk.air": "air", "sigk.flood": "flood", "sigk.general": "general",
 });
@@ -59,7 +59,7 @@ I18N.add("es", {
   "tr.better": "mejorando", "tr.worse": "empeorando", "tr.flat": "sin tendencia clara", "tr.up": "en aumento", "tr.down": "en descenso",
   "region.vax": "Pregunte en su unidad de salud qué vacunas corresponden a su edad según el calendario nacional. Después de inundaciones, tener al día la antitetánica importa para la limpieza. Las vacunas contra hepatitis A y rotavirus protegen de enfermedades transmitidas por el agua. Las de fiebre amarilla y dengue dependen del país y la zona. Texto en borrador, pendiente de revisión médica.",
   "act.title": "Qué pueden hacer municipios, empresas y productores", "act.intro": "Acciones con evidencia, ordenadas según lo que muestran los datos de este lugar, y casos reales del mundo.", "act.city": "Municipio", "act.industry": "Industria", "act.farm": "Campo",
-  "act.note": "Recopilado de fuentes públicas durante el hackathon. Revise la fuente enlazada antes de citar un número.", "act.match": "coincide con este lugar", "act.cases": "Casos del mundo", "act.loading": "La guía todavía no está disponible.", "act.source": "fuente",
+  "act.note": "Recopilado de fuentes públicas durante el hackathon. Revise la fuente enlazada antes de citar un número.", "act.here": "Para este lugar", "act.other": "Otras acciones", "act.all": "Acciones", "th.all": "Todos", "th.air": "Aire", "th.water": "Agua", "th.heat": "Calor", "th.vector": "Mosquitos", "th.flood": "Inundaciones", "th.farm": "Campo", "th.industry": "Industria", "act.match": "coincide con este lugar", "act.cases": "Casos del mundo", "act.loading": "La guía todavía no está disponible.", "act.source": "fuente",
   "st.recovering": "en recuperación", "st.still_critical": "sigue crítico", "st.warning": "alerta",
   "sigk.heat": "calor", "sigk.rain_extreme": "lluvia extrema", "sigk.drying": "sequía", "sigk.vector": "mosquitos", "sigk.air": "aire", "sigk.flood": "inundación", "sigk.general": "general",
 });
@@ -90,7 +90,7 @@ I18N.add("pt", {
   "tr.better": "melhorando", "tr.worse": "piorando", "tr.flat": "sem tendência clara", "tr.up": "subindo", "tr.down": "caindo",
   "region.vax": "Pergunte na unidade de saúde quais vacinas do calendário nacional valem para a sua idade. Depois de enchentes, estar em dia com a antitetânica importa para a limpeza. As vacinas de hepatite A e rotavírus protegem de doenças transmitidas pela água. As de febre amarela e dengue dependem do país e da região. Texto em rascunho, aguardando revisão médica.",
   "act.title": "O que prefeituras, empresas e produtores podem fazer", "act.intro": "Ações com evidência, ordenadas pelo que os dados mostram neste lugar, e casos reais do mundo.", "act.city": "Prefeitura", "act.industry": "Indústria", "act.farm": "Campo",
-  "act.note": "Reunido de fontes públicas durante o hackathon. Confira a fonte indicada antes de citar um número.", "act.match": "combina com este lugar", "act.cases": "Casos do mundo", "act.loading": "O guia ainda não está disponível.", "act.source": "fonte",
+  "act.note": "Reunido de fontes públicas durante o hackathon. Confira a fonte indicada antes de citar um número.", "act.here": "Para este lugar", "act.other": "Outras ações", "act.all": "Ações", "th.all": "Todos", "th.air": "Ar", "th.water": "Água", "th.heat": "Calor", "th.vector": "Mosquitos", "th.flood": "Enchentes", "th.farm": "Campo", "th.industry": "Indústria", "act.match": "combina com este lugar", "act.cases": "Casos do mundo", "act.loading": "O guia ainda não está disponível.", "act.source": "fonte",
   "st.recovering": "em recuperação", "st.still_critical": "ainda crítico", "st.warning": "alerta",
   "sigk.heat": "calor", "sigk.rain_extreme": "chuva extrema", "sigk.drying": "seca", "sigk.vector": "mosquitos", "sigk.air": "ar", "sigk.flood": "enchente", "sigk.general": "geral",
 });
@@ -222,32 +222,32 @@ const Extras = (() => {
     if (d === null) { box.innerHTML = `<p class="loading">…</p>`; return; }
     if (!d) { box.innerHTML = `<h2>${t("region.title", { c: r.cc })}</h2><p class="muted">${t("region.none")}</p>`; return; }
     const li = { en: 0, es: 1, pt: 2 }[I18N.lang];
-    let h = `<h2>${t("region.title", { c: esc(d.name) })}</h2><p class="muted small">${t("region.intro")}</p>`;
+    const series = (c) => { const ys = Object.keys(d.ind[c] || {}).map(Number).sort((a, b) => a - b); return { ys, vs: ys.map((y) => d.ind[c][y]) }; };
+    const stat = (c) => { const { ys, vs } = series(c); if (!ys.length) return ""; return `<div><b>${fmt(vs[vs.length - 1], ui.meta[c].digits)}</b><span>${IND_LABEL[c][li]} · ${ys[ys.length - 1]}</span></div>`; };
+    let h = `<h2>${t("region.title", { c: esc(d.name) })}</h2><p class="muted small">${t("region.intro")}</p><div class="stats3">${stat("SP.DYN.LE00.IN")}${stat("SP.DYN.IMRT.IN")}${stat("SH.IMM.MEAS")}</div>`;
     for (const g of ["life", "causes", "vaccines", "system", "wash", "food"]) {
       const codes = Object.keys(IND_LABEL).filter((c) => ui.meta?.[c]?.group === g && d.ind[c]);
       if (!codes.length) continue;
-      h += `<h3>${t("g." + g)}</h3><div class="cards">`;
+      h += `<h3>${t("g." + g)}</h3><div class="irows">`;
       for (const c of codes) {
-        const ys = Object.keys(d.ind[c]).map(Number).sort((a, b) => a - b), vs = ys.map((y) => d.ind[c][y]);
-        const tr = Stats.trend(ys, vs), lab = IND_LABEL[c], dg = ui.meta[c].digits;
-        let badge = `<span class="badge">${t("tr.flat")}</span>`, cls = "";
+        const { ys, vs } = series(c), tr = Stats.trend(ys, vs), lab = IND_LABEL[c], dg = ui.meta[c].digits;
+        let badge = `<span class="badge">${t("tr.flat")}</span>`;
         if (tr?.significant) {
           const good = lab[4] === null ? null : (tr.direction < 0) === lab[4];
           badge = good === null ? `<span class="badge">${t(tr.direction > 0 ? "tr.up" : "tr.down")}</span>` : `<span class="badge ${good ? "b-good" : "v-confirmed"}">${t(good ? "tr.better" : "tr.worse")}</span>`;
-          cls = good === false ? "v-confirmed" : good ? "c-good" : "";
         }
-        h += `<details class="card ${cls}" data-ind="${c}"><summary><div><span class="card-title">${lab[li]}</span>${badge}</div><div class="headline">${fmt(vs[vs.length - 1], dg)}<small>${lab[3]} · ${ys[ys.length - 1]}</small></div></summary>
-          <div class="chart-wrap"><canvas></canvas></div><p class="muted small">${ys[0]}: ${fmt(vs[0], dg)} → ${ys[ys.length - 1]}: ${fmt(vs[vs.length - 1], dg)}${tr ? ` · ${signed(tr.slopeDecade, dg + 1)} ${t("per.decade")} · Mann-Kendall p = ${tr.p < 0.001 ? "&lt;0.001" : tr.p.toFixed(3)}` : ""}</p></details>`;
+        h += `<details class="irow" data-ind="${c}"><summary><span class="in">${lab[li]}</span><span class="iv">${fmt(vs[vs.length - 1], dg)}<small>${lab[3]}</small></span>${badge}</summary>
+          <div class="ibody"><div class="chart-wrap"><canvas></canvas></div><p class="muted small">${ys[0]}: ${fmt(vs[0], dg)} → ${ys[ys.length - 1]}: ${fmt(vs[vs.length - 1], dg)}${tr ? ` · ${signed(tr.slopeDecade, dg + 1)} ${t("per.decade")} · Mann-Kendall p = ${tr.p < 0.001 ? "&lt;0.001" : tr.p.toFixed(3)}` : ""}</p></div></details>`;
       }
       h += `</div>`;
       if (g === "vaccines") h += `<p class="why">${t("region.vax")}</p>`;
     }
     h += `<p class="muted small foot">${t("region.src")}</p>`;
     box.innerHTML = h;
-    box.querySelectorAll("details.card").forEach((el2) => el2.addEventListener("toggle", () => {
+    box.querySelectorAll("details.irow").forEach((el2) => el2.addEventListener("toggle", () => {
       if (!el2.open || el2.dataset.drawn) return; el2.dataset.drawn = 1;
-      const c = el2.dataset.ind, ys = Object.keys(d.ind[c]).map(Number).sort((a, b) => a - b);
-      state.charts.push(new Chart(el2.querySelector("canvas"), { type: "line", data: { labels: ys, datasets: [{ label: IND_LABEL[c][li], data: ys.map((y) => d.ind[c][y]), borderColor: "#1f7f5f", backgroundColor: "#1f7f5f", pointRadius: 1.5, borderWidth: 2, tension: 0.2 }] }, options: { responsive: true, maintainAspectRatio: false, animation: false, plugins: { legend: { display: false } }, scales: { x: { ticks: { maxTicksLimit: 8 } } } } }));
+      const c = el2.dataset.ind, { ys, vs } = series(c);
+      state.charts.push(new Chart(el2.querySelector("canvas"), { type: "line", data: { labels: ys, datasets: [{ label: IND_LABEL[c][li], data: vs, borderColor: "#1f7f5f", backgroundColor: "#1f7f5f", pointRadius: 1.5, borderWidth: 2, tension: 0.2 }] }, options: { responsive: true, maintainAspectRatio: false, animation: false, plugins: { legend: { display: false } }, scales: { x: { ticks: { maxTicksLimit: 8 }, grid: { display: false } }, y: { grid: { color: "#e6ebe8" } } } } }));
     }));
   }
 
@@ -269,19 +269,23 @@ const Extras = (() => {
     const pb = ui.playbook, L2 = I18N.lang, tx = (o) => esc(o?.[L2] || o?.en || "");
     if (!pb) { box.innerHTML = h + `<p class="muted">${pb === null ? "…" : t("act.loading")}</p>`; return; }
     const sigs = placeSignals(state.main);
-    h += `<div class="seg">${["city", "industry", "farm"].map((a) => `<button class="${ui.aud === a ? "on" : ""}" data-aud="${a}">${t("act." + a)}</button>`).join("")}</div><ul class="actions">`;
-    const acts = pb.actions.filter((a) => a.audience === ui.aud).map((a) => ({ ...a, match: state.main && a.signal !== "general" && sigs.has(a.signal) })).sort((a, b) => b.match - a.match);
-    for (const a of acts) h += `<li class="${a.match ? "match" : ""}"><span class="badge ${a.match ? "v-confirmed" : ""}">${t("sigk." + a.signal)}${a.match ? " · " + t("act.match") : ""}</span><p><b>${tx(a.action)}</b></p><p class="muted small">${tx(a.evidence)} <a href="${esc(a.source)}" target="_blank" rel="noopener">${t("act.source")}</a></p></li>`;
-    h += `</ul><h3>${t("act.cases")}</h3><div class="cards">`;
+    h += `<div class="seg">${["city", "industry", "farm"].map((a) => `<button class="${ui.aud === a ? "on" : ""}" data-aud="${a}">${t("act." + a)}</button>`).join("")}</div>`;
+    const acts = pb.actions.filter((a) => a.audience === ui.aud).map((a) => ({ ...a, match: !!state.main && a.signal !== "general" && sigs.has(a.signal) }));
+    const block = (title, list, hot) => (list.length ? `<p class="plabel">${title}</p><ol class="acts ${hot ? "hot" : ""}">` + list.map((a) => `<li><div><p class="at">${tx(a.action)}</p><p class="muted small">${tx(a.evidence)} <a href="${esc(a.source)}" target="_blank" rel="noopener">${t("act.source")}</a></p></div><span class="badge ${hot ? "v-likely" : ""}">${t("sigk." + a.signal)}</span></li>`).join("") + `</ol>` : "");
+    h += block(t("act.here"), acts.filter((a) => a.match), true) + block(t(acts.some((a) => a.match) ? "act.other" : "act.all"), acts.filter((a) => !a.match), false);
+    const themes = ["all", ...new Set(pb.cases.map((c) => c.theme))];
+    if (!themes.includes(ui.theme)) ui.theme = "all";
+    h += `<h3>${t("act.cases")}</h3><div class="fchips">${themes.map((k) => `<button class="chip ${ui.theme === k ? "on" : ""}" data-th="${k}">${t("th." + k)}</button>`).join("")}</div><div class="topics">`;
     const lay = layer("cases"); lay.clearLayers();
-    for (const c of pb.cases) {
+    for (const c of pb.cases.filter((x) => ui.theme === "all" || x.theme === ui.theme)) {
       const col = c.status === "recovering" ? "#1f7f5f" : c.status === "warning" ? "#c08a2e" : "#b2592a";
-      h += `<details class="card st-${c.status}" data-lat="${c.lat}" data-lon="${c.lon}"><summary><div><span class="card-title">${tx(c.title)}</span><span class="badge st-${c.status}">${t("st." + c.status)}</span></div><div class="headline"><small>${esc(c.place)}</small></div></summary><p>${tx(c.what_happened)}</p><p>${tx(c.what_changed)}</p><p class="muted small"><a href="${esc(c.source)}" target="_blank" rel="noopener">${t("act.source")}</a></p></details>`;
+      h += `<details class="topic case" data-lat="${c.lat}" data-lon="${c.lon}"><summary><span class="sdot" style="background:${col}"></span><span class="tt">${tx(c.title)}<small>${esc(c.place)}</small></span><span class="badge st-${c.status}">${t("st." + c.status)}</span></summary><div class="tbody"><p>${tx(c.what_happened)}</p><p>${tx(c.what_changed)}</p><p class="muted small"><a href="${esc(c.source)}" target="_blank" rel="noopener">${t("act.source")}</a></p></div></details>`;
       if (Number.isFinite(c.lat)) L.circleMarker([c.lat, c.lon], { radius: 8, color: col, fillOpacity: 0.7 }).bindPopup(`<b>${tx(c.title)}</b><br>${esc(c.place)}`).addTo(lay);
     }
     box.innerHTML = h + `</div>`;
     box.querySelectorAll(".seg button").forEach((b) => (b.onclick = () => { ui.aud = b.dataset.aud; renderAct(); }));
-    box.querySelectorAll("details.card").forEach((d2) => d2.addEventListener("toggle", () => { if (d2.open && d2.dataset.lat) map.setView([+d2.dataset.lat, +d2.dataset.lon], 6); }));
+    box.querySelectorAll(".fchips .chip").forEach((b) => (b.onclick = () => { ui.theme = b.dataset.th; renderAct(); }));
+    box.querySelectorAll("details.case").forEach((d2) => d2.addEventListener("toggle", () => { if (d2.open && d2.dataset.lat) map.setView([+d2.dataset.lat, +d2.dataset.lon], 6); }));
   }
 
   /* ---------- where is it changing: 5 x 5 grid of NASA POWER points ---------- */

@@ -467,27 +467,32 @@ function renderNow() {
   if (!r) { box.innerHTML = `<p class="muted">${t("need.place")}</p>`; return; }
   let html = `<h2>${t("now.title")}</h2>`;
   if (r.now) {
-    html += `<div class="days">` + r.now.days.map((d) => {
-      const cls = d.feels >= 41 ? "danger" : d.feels >= 32 || d.rain >= 50 ? "warn" : "";
-      return `<div class="day ${cls}"><b>${new Date(d.day + "T12:00").toLocaleDateString(I18N.locale(), { weekday: "short", day: "numeric" })}</b><span>${fmt(d.tmax, 0)}° / ${fmt(d.tmin, 0)}°</span><span title="${t("now.feels")}">☀ ${fmt(d.feels, 0)}°</span><span>☂ ${fmt(d.rain, 0)} mm</span></div>`;
-    }).join("") + `</div><p class="muted small">${t("now.legend")}</p>`;
-    if (Number.isFinite(r.now.pm25)) html += `<div class="card plain ${r.now.pm25 > 15 ? "v-likely" : ""}"><p><b>${t("now.air")}</b>: PM2.5 ${fmt(r.now.pm25, 0)} µg/m³ · AQI ${fmt(r.now.aqi, 0)}</p><p class="muted small">${t("now.air.note")}</p></div>`;
+    const D = r.now.days, hot = D.filter((d) => d.feels >= 32).length, wet = D.filter((d) => d.rain >= 50).length;
+    const peak = D.reduce((a, b) => (b.feels > a.feels ? b : a));
+    html += `<div class="stats3"><div><b class="${peak.feels >= 41 ? "hot" : ""}">${fmt(peak.feels, 0)}°</b><span>${t("now.s.peak")}</span></div><div><b class="${hot ? "hot" : ""}">${hot}</b><span>${t("now.s.hot")}</span></div><div><b class="${wet ? "hot" : ""}">${wet}</b><span>${t("now.s.wet")}</span></div></div>`;
+    html += `<div class="wk">` + D.map((d, i) => {
+      const lv = d.feels >= 41 ? "danger" : d.feels >= 32 ? "warn" : "", w = Math.max(6, Math.min(100, ((d.feels - 10) / 38) * 100));
+      const day = new Date(d.day + "T12:00").toLocaleDateString(I18N.locale(), { weekday: "short", day: "numeric" });
+      return `<div class="wkrow ${lv} ${i === 0 ? "today" : ""}"><span class="wd">${day}</span><span class="wt">${fmt(d.tmax, 0)}° <small>${fmt(d.tmin, 0)}°</small></span><span class="wbar"><i style="width:${w.toFixed(0)}%"></i></span><span class="whi">${fmt(d.feels, 0)}°</span><span class="wr ${d.rain >= 50 ? "wet" : ""}">${d.rain >= 1 ? fmt(d.rain, 0) + " mm" : "–"}</span></div>`;
+    }).join("") + `</div><p class="muted small">${t("now.legend2")}</p>`;
+    if (Number.isFinite(r.now.pm25)) html += `<h3>${t("now.air")}</h3><div class="factrow ${r.now.pm25 > 15 ? "flag" : ""}"><div class="fact-num">${fmt(r.now.pm25, 0)}<small>µg/m³</small></div><div><p>PM2.5 · AQI ${fmt(r.now.aqi, 0)}</p><p class="muted small">${t("now.air.note")}</p></div></div>`;
   } else html += `<p class="loading">${r.now === undefined ? t("status.loading", { n: 1 }) : t("status.error")}</p>`;
   if (r.river) {
     const rv = r.river, lv = riverLevel(rv), n0 = (v) => fmt(v, 0);
-    html += `<h3>${t("now.river")}</h3><div class="card plain ${lv === "danger" ? "v-confirmed" : lv === "warn" ? "v-likely" : ""}"><p>${t("now.river.text", { now: n0(rv.now), rank: fmt(rv.rank * 100, 0), peak: n0(rv.futMax.v), day: rv.futMax.day ? new Date(rv.futMax.day + "T12:00").toLocaleDateString(I18N.locale(), { day: "numeric", month: "short" }) : "–" })}</p>
+    html += `<h3>${t("now.river")}</h3><div class="factrow ${lv ? "flag" : ""}"><div class="fact-num">${fmt(rv.rank * 100, 0)}<small>%</small></div><div><p>${t("now.river.text", { now: n0(rv.now), rank: fmt(rv.rank * 100, 0), peak: n0(rv.futMax.v), day: rv.futMax.day ? new Date(rv.futMax.day + "T12:00").toLocaleDateString(I18N.locale(), { day: "numeric", month: "short" }) : "–" })}</p>
       ${lv ? `<p><b>${t("now.river." + lv, { p: n0(lv === "danger" ? rv.p99 : rv.p90) })}</b></p>` : ""}
       ${rv.trend ? `<p class="muted small">${t("now.river.trend", { s: signed(rv.trend.slopeDecade, 0), v: t("verdict." + (rv.trend.significant ? "single" : "none")), p: rv.trend.p < 0.01 ? "<0.01" : rv.trend.p.toFixed(2) })}</p>` : ""}
-      <p class="muted small">${t("now.river.note")}</p></div>`;
+      <p class="muted small">${t("now.river.note")}</p></div></div>`;
   }
   html += `<h3>${t("now.events")}</h3>`;
   eventLayer.clearLayers();
   if (r.events?.length) {
-    html += `<ul class="events">` + r.events.map((e) => `<li><b>${esc(e.cat)}</b> · ${esc(e.title)} <span class="muted">(${fmt(e.dist, 0)} km · ${e.date || ""})</span></li>`).join("") + `</ul>`;
+    html += `<ul class="rows">` + r.events.map((e) => `<li data-lat="${e.lat}" data-lon="${e.lon}"><span class="k">●</span><div><b>${esc(e.title)}</b><span class="muted small">${esc(e.cat)}${e.date ? " · " + e.date : ""}</span></div><span class="dist">${fmt(e.dist, 0)} km</span></li>`).join("") + `</ul>`;
     r.events.forEach((e) => L.circleMarker([e.lat, e.lon], { radius: 7, color: "#b2592a" }).bindPopup(`<b>${esc(e.cat)}</b><br>${esc(e.title)}`).addTo(eventLayer));
   } else html += `<p class="muted">${r.events === undefined ? "…" : t("now.noevents")}</p>`;
   html += `<p class="muted small foot">${t("now.sources")}</p>`;
   box.innerHTML = html;
+  box.querySelectorAll(".rows li").forEach((li) => (li.onclick = () => map.setView([+li.dataset.lat, +li.dataset.lon], 7)));
 }
 
 /* ---------------- Community (prototype: stored on this device only) ---------------- */
@@ -511,30 +516,33 @@ function renderCommunity() {
     .bindPopup(`<b>${t("kind." + it.kind)}</b><br>${esc(it.text)}<br><small>${it.when}${it.seed ? " · " + t("community.example") : ""}</small>`).addTo(communityLayer));
   const here = state.main || { lat: -25.51, lon: -54.61 };
   const near = items.map((it) => ({ ...it, dist: km(here.lat, here.lon, it.lat, it.lon) })).sort((a, b) => a.dist - b.dist);
-  let html = `<h2>${t("community.title")}</h2><p class="muted small">${t("community.intro")}</p>`;
+  const HELP = ["need", "donate", "partner"], cnt = (k) => near.filter((it) => k.includes(it.kind)).length;
+  let html = `<h2>${t("community.title")}</h2><p class="muted small">${t("community.intro")}</p>
+    <div class="stats3"><div><b class="${cnt(["need"]) ? "hot" : ""}">${cnt(["need"])}</b><span>${t("community.s.need")}</span></div><div><b>${cnt(["donate", "partner"])}</b><span>${t("community.s.give")}</span></div><div><b>${near.length - cnt(HELP)}</b><span>${t("community.s.seen")}</span></div></div>`;
   if (draft) {
-    html += `<form id="report-form" class="card plain"><p><b>${t("community.new")}</b> <span class="muted">${draft.lat.toFixed(4)}, ${draft.lon.toFixed(4)}</span></p>
-      <select id="r-kind">${Object.keys(KINDS).map((k) => `<option value="${k}">${KINDS[k]} ${t("kind." + k)}</option>`).join("")}</select>
+    html += `<form id="report-form" class="formcard"><p class="eyebrow">${t("community.new")} <span class="muted">${draft.lat.toFixed(4)}, ${draft.lon.toFixed(4)}</span></p>
+      <div class="pchips">${Object.keys(KINDS).map((k, i) => `<label class="pchip ${i === 0 ? "on" : ""}"><input type="radio" name="r-kind" value="${k}" ${i === 0 ? "checked" : ""}>${KINDS[k]} ${t("kind." + k)}</label>`).join("")}</div>
       <textarea id="r-text" maxlength="280" rows="3" placeholder="${t("community.placeholder")}" required></textarea>
-      <p class="muted small">${t("community.privacy")}</p>
+      <p class="muted small">🔒 ${t("community.privacy")}</p>
       <div class="row"><button class="btn">${t("community.send")}</button><button type="button" class="btn ghost" id="r-cancel">${t("community.cancel")}</button></div></form>`;
-  } else html += `<button class="btn" id="r-open">${t("community.add")}</button>`;
+  } else html += `<button class="btn wide" id="r-open">＋ ${t("community.add")}</button>`;
   const group = (title, kinds) => {
     const g = near.filter((it) => kinds.includes(it.kind)); if (!g.length) return "";
-    return `<h3>${title}</h3><ul class="reports">` + g.map((it) => `<li data-lat="${it.lat}" data-lon="${it.lon}"><span class="k">${KINDS[it.kind]}</span><div><b>${t("kind." + it.kind)}</b> <span class="muted small">${fmt(it.dist, 1)} km · ${it.when}${it.seed ? " · " + t("community.example") : ""}</span><br>${esc(it.text)}</div></li>`).join("") + `</ul>`;
+    return `<h3>${title}</h3><ul class="rows feed">` + g.map((it) => `<li data-lat="${it.lat}" data-lon="${it.lon}"><span class="k">${KINDS[it.kind]}</span><div><b>${t("kind." + it.kind)}</b><span class="txt">${esc(it.text)}</span><span class="muted small">${it.when}${it.seed ? " · " + t("community.example") : ""}</span></div><span class="dist">${fmt(it.dist, 1)} km</span></li>`).join("") + `</ul>`;
   };
-  html += group(t("community.needs"), ["need", "donate", "partner"]) + group(t("community.seen"), ["flood", "heat", "mosquito", "nowater", "landslide", "smoke"]);
+  html += group(t("community.needs"), HELP) + group(t("community.seen"), ["flood", "heat", "mosquito", "nowater", "landslide", "smoke"]);
   html += `<p class="disclaimer">${t("community.disclaimer")}</p>`;
   box.innerHTML = html;
-  box.querySelectorAll(".reports li").forEach((li) => (li.onclick = () => map.setView([+li.dataset.lat, +li.dataset.lon], 15)));
+  box.querySelectorAll(".feed li").forEach((li) => (li.onclick = () => map.setView([+li.dataset.lat, +li.dataset.lon], 15)));
   const open = $("#r-open"); if (open) open.onclick = () => { const p = state.pin ? state.pin.getLatLng() : map.getCenter(); openReportForm(p.lat, p.lng); };
   const form = $("#report-form");
   if (form) {
+    form.querySelectorAll("input[name=r-kind]").forEach((inp) => (inp.onchange = () => form.querySelectorAll(".pchip").forEach((l) => l.classList.toggle("on", l.contains(inp) && inp.checked || l.querySelector("input").checked))));
     $("#r-cancel").onclick = () => { draft = null; renderCommunity(); };
     form.onsubmit = (e) => {
       e.preventDefault();
       const list = loadReports();
-      list.unshift({ id: "u" + Date.now(), kind: $("#r-kind").value, lat: draft.lat, lon: draft.lon, text: $("#r-text").value.trim(), when: new Date().toISOString().slice(0, 10) });
+      list.unshift({ id: "u" + Date.now(), kind: form.querySelector("input[name=r-kind]:checked").value, lat: draft.lat, lon: draft.lon, text: $("#r-text").value.trim(), when: new Date().toISOString().slice(0, 10) });
       saveReports(list); draft = null; renderCommunity();
     };
   }
@@ -547,13 +555,12 @@ function renderCompare() {
     <form id="cmp-form" class="row"><input id="q2" placeholder="${t("compare.placeholder")}" autocomplete="off"><button class="btn">${t("search.go")}</button></form>`;
   if (!a) html += `<p class="muted">${t("need.place")}</p>`;
   else if (b) {
-    const cell = (s) => (s && !s.waiting ? `${headline(s)}<br>${verdictBadge(s)}` : "…");
+    const cell = (s) => (s && !s.waiting ? `<span class="dv">${headline(s)}</span>${verdictBadge(s)}` : "…");
     const avg = (r, k) => { const s = sig(r, k), x = s && (s.era5 || s.nasa); return x ? fmt(x.recent, s.d) : "…"; };
-    html += `<table class="cmp"><thead><tr><th></th><th>${esc(a.label)}</th><th>${esc(b.label)}</th></tr></thead><tbody>`;
-    html += `<tr><td>${t("compare.elev")}</td><td>${a.terrain ? fmt(a.terrain.elevation, 0) + " m" : "…"}</td><td>${b.terrain ? fmt(b.terrain.elevation, 0) + " m" : "…"}</td></tr>`;
-    for (const s of SIGNALS) html += `<tr><td>${t("sig." + s.key)}<br><small class="muted">${t("compare.recent")}: ${avg(a, s.key)} | ${avg(b, s.key)}</small></td><td>${cell(sig(a, s.key))}</td><td>${cell(sig(b, s.key))}</td></tr>`;
     const tf = (r) => (r.terrain ? [r.terrain.low && t("terrain.low.short"), r.terrain.steep && t("terrain.steep.short")].filter(Boolean).join(", ") || t("terrain.ok.short") : "…");
-    html += `<tr><td>${t("terrain.title")}</td><td>${tf(a)}</td><td>${tf(b)}</td></tr></tbody></table><p class="muted small">${t("compare.note")}</p>`;
+    html += `<div class="duel"><div class="duel-head"><span class="eyebrow">A</span><b>${esc(a.label)}</b></div><div class="duel-head"><span class="eyebrow">B</span><b>${esc(b.label)}</b></div>`;
+    for (const s of SIGNALS) html += `<p class="duel-t">${t("sig." + s.key)} <small class="muted">${t("compare.recent")}: ${avg(a, s.key)} · ${avg(b, s.key)}</small></p><div class="duel-c">${cell(sig(a, s.key))}</div><div class="duel-c">${cell(sig(b, s.key))}</div>`;
+    html += `<p class="duel-t">${t("terrain.title")}</p><div class="duel-c"><span class="dv">${a.terrain ? fmt(a.terrain.elevation, 0) + " m" : "…"}</span><small class="muted">${tf(a)}</small></div><div class="duel-c"><span class="dv">${b.terrain ? fmt(b.terrain.elevation, 0) + " m" : "…"}</span><small class="muted">${tf(b)}</small></div></div><p class="muted small">${t("compare.note")}</p>`;
   }
   box.innerHTML = html + `<div class="capitals-box"></div>`;
   $("#cmp-form").onsubmit = (e) => { e.preventDefault(); const q = $("#q2").value.trim(); if (q) search(q, "other"); };
