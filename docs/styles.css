@@ -402,3 +402,7 @@ input:focus, select:focus, textarea:focus, button:focus-visible { outline: 2px s
 .calc .big { font: 700 1.6rem "Bricolage Grotesque", sans-serif; letter-spacing: -0.02em; margin-right: 4px; }
 
 .badge.l-you { background: #dfe9ee; color: #2c556d; }
+
+.method.spray { margin-top: 16px; } .method.spray summary { color: var(--ink); font-size: 0.92rem; }
+.sprow { display: grid; grid-template-columns: 62px 1fr 78px; align-items: center; gap: 10px; padding: 8px 2px; border-bottom: 1px solid var(--line); font-size: 0.86rem; font-variant-numeric: tabular-nums; }
+.sprow .wbar i { background: var(--forest); } .sph { text-align: right; color: var(--muted); }

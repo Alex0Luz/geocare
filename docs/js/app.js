@@ -189,14 +189,21 @@ async function fetchTerrain(lat, lon) {
 
 async function fetchNow(lat, lon) {
   const [fc, air] = await Promise.all([
-    getJSON(`https://api.open-meteo.com/v1/forecast?latitude=${lat.toFixed(3)}&longitude=${lon.toFixed(3)}&daily=temperature_2m_max,temperature_2m_min,apparent_temperature_max,precipitation_sum&hourly=temperature_2m,relative_humidity_2m&forecast_days=7&timezone=auto`),
+    getJSON(`https://api.open-meteo.com/v1/forecast?latitude=${lat.toFixed(3)}&longitude=${lon.toFixed(3)}&daily=temperature_2m_max,temperature_2m_min,apparent_temperature_max,precipitation_sum&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m&forecast_days=7&timezone=auto`),
     getJSON(`https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${lat.toFixed(3)}&longitude=${lon.toFixed(3)}&current=pm2_5,us_aqi`).catch(() => null),
   ]);
-  const d = fc.daily, hi = {};
+  const d = fc.daily, hi = {}, spray = {};
+  // Daylight hours inside the limits that Paraguay's Law 3742/2009 sets for spraying: up to 32 C, humidity of 60% or more, wind up to 10 km/h.
+  (fc.hourly?.time || []).forEach((tt, i) => {
+    const hr = +tt.slice(11, 13); if (hr < 6 || hr >= 20) return;
+    const T = fc.hourly.temperature_2m[i], R = fc.hourly.relative_humidity_2m[i], W = fc.hourly.wind_speed_10m?.[i];
+    if (![T, R, W].every(Number.isFinite)) return;
+    const s = (spray[tt.slice(0, 10)] ||= { ok: 0, tot: 0 }); s.tot++; if (T <= 32 && R >= 60 && W <= 10) s.ok++;
+  });
   // NOAA heat index (Rothfusz) from hourly temperature and humidity; daily maximum.
   (fc.hourly?.time || []).forEach((tt, i) => { const v = Stats.heatIndex(fc.hourly.temperature_2m[i], fc.hourly.relative_humidity_2m[i]); if (Number.isFinite(v)) hi[tt.slice(0, 10)] = Math.max(hi[tt.slice(0, 10)] ?? -99, v); });
   return {
-    days: d.time.map((day, i) => ({ day, tmax: d.temperature_2m_max[i], tmin: d.temperature_2m_min[i], feels: hi[day] ?? d.apparent_temperature_max[i], rain: d.precipitation_sum[i] })),
+    days: d.time.map((day, i) => ({ day, tmax: d.temperature_2m_max[i], tmin: d.temperature_2m_min[i], feels: hi[day] ?? d.apparent_temperature_max[i], rain: d.precipitation_sum[i], spray: spray[day] })),
     pm25: air?.current?.pm2_5 ?? NaN, aqi: air?.current?.us_aqi ?? NaN,
   };
 }
@@ -520,6 +527,10 @@ function renderNow() {
       const day = new Date(d.day + "T12:00").toLocaleDateString(I18N.locale(), { weekday: "short", day: "numeric" });
       return `<div class="wkrow ${lv} ${i === 0 ? "today" : ""}"><span class="wd">${day}</span><span class="wt">${fmt(d.tmax, 0)}° <small>${fmt(d.tmin, 0)}°</small></span><span class="wbar"><i style="width:${w.toFixed(0)}%"></i></span><span class="whi">${fmt(d.feels, 0)}°</span><span class="wr ${d.rain >= 50 ? "wet" : ""}">${d.rain >= 1 ? fmt(d.rain, 0) + " mm" : "–"}</span></div>`;
     }).join("") + `</div><p class="muted small">${t("now.legend2")}</p>`;
+    if (D.some((d) => d.spray)) html += `<details class="method spray" ${Extras.has("farm") ? "open" : ""}><summary>${t("spray.title")}</summary><p class="muted small">${t("spray.intro")}</p><div class="wk">` + D.filter((d) => d.spray).map((d) => {
+      const day = new Date(d.day + "T12:00").toLocaleDateString(I18N.locale(), { weekday: "short", day: "numeric" }), pct = (d.spray.ok / d.spray.tot) * 100;
+      return `<div class="sprow"><span class="wd">${day}</span><span class="wbar"><i style="width:${pct.toFixed(0)}%"></i></span><span class="sph">${t("spray.hours", { a: d.spray.ok, b: d.spray.tot })}</span></div>`;
+    }).join("") + `</div><p class="muted small">${t("spray.note")}</p></details>`;
     if (Number.isFinite(r.now.pm25)) html += `<h3>${t("now.air")}</h3><div class="factrow ${r.now.pm25 > 15 ? "flag" : ""}"><div class="fact-num">${fmt(r.now.pm25, 0)}<small>µg/m³</small></div><div><p>PM2.5 · AQI ${fmt(r.now.aqi, 0)}</p><p class="muted small">${t("now.air.note")}</p></div></div>`;
   } else html += `<p class="loading">${r.now === undefined ? t("status.loading", { n: 1 }) : t("status.error")}</p>`;
   if (r.river) {
