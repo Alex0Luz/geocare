@@ -1,0 +1,21 @@
+# secrets
+.earthdata_token
+analysis/.earthdata_token
+# internal planning notes (not part of the submission)
+DOSSIE.md
+ESTRATEGIA.md
+CASCATA.md
+FONTES.md
+PLANO-APP.md
+# temporary and bulky downloads
+analysis/ghcnd-stations.txt
+analysis/ghcnd-inventory.txt
+analysis/cache_cidades.json
+analysis/h.txt
+analysis/h2.txt
+analysis/resp.txt
+analysis/ov.json
+analysis/fl.json
+analysis/giovanni_log.txt
+analysis/.gitignore
+__pycache__/
