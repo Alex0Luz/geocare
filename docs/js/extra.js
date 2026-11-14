@@ -7,7 +7,7 @@ I18N.add("en", {
   "tools.grid": "Where is it changing?", "tools.csv": "Export CSV", "tools.gridvar.temp": "Temperature", "tools.gridvar.rain": "Rainfall",
   "grid.loading": "Loading 25 points around this place…", "grid.legend": "Each circle is one NASA POWER grid point (0.5° apart). Red: rising, blue: falling, grey: no significant trend. Stronger colour means a faster change.",
   "quant.total": "Total change over the record: <b>{v}</b>.", "quant.periods": "Average of 2006–2025 compared with 1981–2000: <b>{d}</b> ({pct}%).",
-  "me.title": "My health profile", "me.privacy": "Your answers stay on this device only. No name, ID or e-mail is collected.",
+  "me.edit": "Edit my profile", "me.done": "Done", "me.start": "Answer a few questions to make this personal. Your answers stay on this device.", "place.hero": "climate signals here have changed, with two independent datasets in agreement.", "place.tap": "Tap a signal to see the evidence.", "place.evidence": "Evidence", "place.how": "How we calculate and where the data come from", "me.title": "My health profile", "me.privacy": "Your answers stay on this device only. No name, ID or e-mail is collected.",
   "me.age": "Age", "me.cond": "Health conditions", "me.work": "Work", "me.meds": "Medicines I take (by class)", "me.home": "My home",
   "f.u5": "under 5", "f.5-17": "5–17", "f.18-59": "18–59", "f.60-74": "60–74", "f.75+": "75 or older",
   "f.hta": "High blood pressure", "f.heart": "Heart disease", "f.kidney": "Kidney disease", "f.diabetes": "Diabetes", "f.lung": "Asthma / COPD", "f.bed": "Bedridden or reduced mobility", "f.mental": "Mental health condition", "f.pregnant": "Pregnant",
@@ -38,7 +38,7 @@ I18N.add("es", {
   "tools.grid": "¿Dónde está cambiando?", "tools.csv": "Exportar CSV", "tools.gridvar.temp": "Temperatura", "tools.gridvar.rain": "Lluvia",
   "grid.loading": "Cargando 25 puntos alrededor de este lugar…", "grid.legend": "Cada círculo es un punto de la grilla de NASA POWER (cada 0,5°). Rojo: sube, azul: baja, gris: sin tendencia significativa. Color más fuerte indica cambio más rápido.",
   "quant.total": "Cambio total en el registro: <b>{v}</b>.", "quant.periods": "Promedio de 2006–2025 comparado con 1981–2000: <b>{d}</b> ({pct}%).",
-  "me.title": "Mi perfil de salud", "me.privacy": "Sus respuestas quedan solo en este dispositivo. No se pide nombre, documento ni correo.",
+  "me.edit": "Editar mi perfil", "me.done": "Listo", "me.start": "Responda unas preguntas para personalizar esto. Sus respuestas quedan en este dispositivo.", "place.hero": "señales del clima cambiaron aquí, con dos bases de datos independientes de acuerdo.", "place.tap": "Toque una señal para ver la evidencia.", "place.evidence": "Evidencia", "place.how": "Cómo calculamos y de dónde vienen los datos", "me.title": "Mi perfil de salud", "me.privacy": "Sus respuestas quedan solo en este dispositivo. No se pide nombre, documento ni correo.",
   "me.age": "Edad", "me.cond": "Condiciones de salud", "me.work": "Trabajo", "me.meds": "Medicamentos que tomo (por clase)", "me.home": "Mi casa",
   "f.u5": "menos de 5", "f.5-17": "5–17", "f.18-59": "18–59", "f.60-74": "60–74", "f.75+": "75 o más",
   "f.hta": "Hipertensión", "f.heart": "Enfermedad cardíaca", "f.kidney": "Enfermedad renal", "f.diabetes": "Diabetes", "f.lung": "Asma / EPOC", "f.bed": "Postrado o movilidad reducida", "f.mental": "Condición de salud mental", "f.pregnant": "Embarazada",
@@ -69,7 +69,7 @@ I18N.add("pt", {
   "tools.grid": "Onde está mudando?", "tools.csv": "Exportar CSV", "tools.gridvar.temp": "Temperatura", "tools.gridvar.rain": "Chuva",
   "grid.loading": "Carregando 25 pontos ao redor deste lugar…", "grid.legend": "Cada círculo é um ponto da grade do NASA POWER (a cada 0,5°). Vermelho: subindo, azul: caindo, cinza: sem tendência significativa. Cor mais forte indica mudança mais rápida.",
   "quant.total": "Mudança total no registro: <b>{v}</b>.", "quant.periods": "Média de 2006–2025 comparada com 1981–2000: <b>{d}</b> ({pct}%).",
-  "me.title": "Meu perfil de saúde", "me.privacy": "Suas respostas ficam só neste aparelho. Não pedimos nome, documento nem e-mail.",
+  "me.edit": "Editar meu perfil", "me.done": "Pronto", "me.start": "Responda algumas perguntas para personalizar. Suas respostas ficam neste aparelho.", "place.hero": "sinais do clima mudaram aqui, com duas bases de dados independentes de acordo.", "place.tap": "Toque num sinal para ver a evidência.", "place.evidence": "Evidência", "place.how": "Como calculamos e de onde vêm os dados", "me.title": "Meu perfil de saúde", "me.privacy": "Suas respostas ficam só neste aparelho. Não pedimos nome, documento nem e-mail.",
   "me.age": "Idade", "me.cond": "Condições de saúde", "me.work": "Trabalho", "me.meds": "Remédios que uso (por classe)", "me.home": "Minha casa",
   "f.u5": "menos de 5", "f.5-17": "5–17", "f.18-59": "18–59", "f.60-74": "60–74", "f.75+": "75 ou mais",
   "f.hta": "Hipertensão", "f.heart": "Doença cardíaca", "f.kidney": "Doença renal", "f.diabetes": "Diabetes", "f.lung": "Asma / DPOC", "f.bed": "Acamado ou mobilidade reduzida", "f.mental": "Sofrimento psíquico", "f.pregnant": "Gestante",
@@ -157,7 +157,7 @@ function quantLine(s) {
 
 const Extras = (() => {
   const GROUPS = { age: ["u5", "5-17", "18-59", "60-74", "75+"], cond: ["hta", "heart", "kidney", "diabetes", "lung", "bed", "mental", "pregnant"], work: ["outdoor"], meds: ["diuretic", "acei", "beta", "antichol", "psych", "lithium", "nsaid", "alcohol"], home: ["noceiling", "noventil", "nofan", "alone"] };
-  const SOS = { PY: "911 · SEME 141", BR: "192 (SAMU)", AR: "107 (SAME)" };
+  const SOS = { PY: [["911", ""], ["141", "SEME"]], BR: [["192", "SAMU"], ["193", ""]], AR: [["107", "SAME"], ["911", ""]] };
   const ui = { aud: "city", gridVar: "temp", health: {}, meta: null, playbook: undefined, layers: {} };
   let profile = { age: "", on: [] };
   try { profile = JSON.parse(localStorage.getItem("geocare.profile")) || profile; } catch (_) { /* storage unavailable */ }
@@ -179,21 +179,31 @@ const Extras = (() => {
   }
   function renderMe() {
     const box = document.querySelector("#me-box"); if (!box) return;
-    const r = state.main, L1 = light(r);
+    const r = state.main, L1 = light(r), filled = !!(profile.age || profile.on.length);
     const chip = (group, k) => { const on = group === "age" ? profile.age === k : profile.on.includes(k); return `<label class="pchip ${on ? "on" : ""}"><input type="${group === "age" ? "radio" : "checkbox"}" name="p-${group}" data-g="${group}" value="${k}" ${on ? "checked" : ""}>${t("f." + k)}</label>`; };
     const meds = GROUPS.meds.filter((k) => profile.on.includes(k));
-    let h = `<details class="card plain me" ${profile.age || profile.on.length ? "" : "open"}><summary><span class="card-title">${t("me.title")}</span></summary><p class="muted small">🔒 ${t("me.privacy")}</p>`;
-    for (const g of ["age", "cond", "work", "meds", "home"]) h += `<p class="plabel">${t("me." + g)}</p><div class="pchips">${GROUPS[g].map((k) => chip(g, k)).join("")}</div>`;
-    h += `</details><div class="light light-${L1.level}"><div class="lamp"><span></span></div><div><b>${t("light.title")}: ${t("light." + L1.level)}</b> <span class="muted small">(${L1.score})</span><ul>${L1.why.map((w) => `<li>${w}</li>`).join("")}</ul>${r ? "" : `<p class="muted small">${t("light.need")}</p>`}<p class="muted small">${t("light.rule")}</p></div></div>`;
-    if (meds.length) h += `<div class="card plain v-likely"><p><b>${t("med.title")}</b></p><ul>${meds.map((k) => `<li>${t("m." + k)}</li>`).join("")}</ul><p class="why">${t("med.rule")}</p><p class="muted small">${t("med.src")}</p></div>`;
-    h += `<div class="card plain sos"><p><b>${t("sos.title")}</b> ${t("sos.signs")}</p><p class="call">${t("sos.call")} <b>${SOS[r?.cc] || t("sos.local")}</b></p><p class="muted small">${t("sos.first")}</p></div>`;
-    if (profile.on.includes("bed") || ["u5", "75+"].includes(profile.age)) h += `<div class="card plain"><p><b>${t("care2.title")}</b></p><ul>${t("care2.tips").split("|").map((x) => `<li>${x}</li>`).join("")}</ul></div>`;
+    if (ui.editing === undefined) ui.editing = !filled;
+    let h = `<section class="lighthero light-${L1.level}"><div class="lh-top"><span class="lamp"><span></span></span><div class="lh-t"><p class="eyebrow">${t("light.title")}</p><p class="lh-level">${t("light." + L1.level)} <small>${L1.score}</small></p></div><button class="btn small ghost" id="me-edit">${t(ui.editing ? "me.done" : "me.edit")}</button></div>
+      <ul class="lh-why">${L1.why.map((w) => `<li>${w}</li>`).join("")}</ul>${r ? "" : `<p class="muted small">${t("light.need")}</p>`}${filled ? "" : `<p class="lh-cta">${t("me.start")}</p>`}</section>`;
+    if (ui.editing) {
+      h += `<section class="card plain me"><p class="eyebrow">${t("me.title")}</p><p class="muted small">🔒 ${t("me.privacy")}</p>`;
+      for (const g of ["age", "cond", "work", "meds", "home"]) h += `<p class="plabel">${t("me." + g)}</p><div class="pchips">${GROUPS[g].map((k) => chip(g, k)).join("")}</div>`;
+      h += `<p class="muted small rule">${t("light.rule")}</p></section>`;
+    }
+    if (meds.length) h += `<section class="notice"><p class="eyebrow">${t("med.title")}</p><ul>${meds.map((k) => `<li>${t("m." + k)}</li>`).join("")}</ul><p class="strong">${t("med.rule")}</p><p class="muted small">${t("med.src")}</p></section>`;
+    if (profile.on.includes("bed") || ["u5", "75+"].includes(profile.age)) h += `<section class="notice calm"><p class="eyebrow">${t("care2.title")}</p><ol class="steps">${t("care2.tips").split("|").map((x) => `<li>${x}</li>`).join("")}</ol></section>`;
     box.innerHTML = h;
+    box.querySelector("#me-edit").onclick = () => { ui.editing = !ui.editing; renderMe(); };
     box.querySelectorAll("input").forEach((inp) => (inp.onchange = () => {
       if (inp.dataset.g === "age") profile.age = inp.value;
       else profile.on = inp.checked ? [...new Set([...profile.on, inp.value])] : profile.on.filter((k) => k !== inp.value);
-      saveProfile(); const open = box.querySelector("details.me").open; renderMe(); box.querySelector("details.me").open = open;
+      saveProfile(); renderMe();
     }));
+    const sos = document.querySelector("#sos-box");
+    if (sos) {
+      const nums = SOS[r?.cc];
+      sos.innerHTML = `<section class="sosband"><p class="eyebrow">${t("sos.title")}</p><p>${t("sos.signs")}</p><p class="call">${t("sos.call")} ${nums ? nums.map(([n, l]) => `<a class="tel" href="tel:${n}">${n}${l ? ` <small>${l}</small>` : ""}</a>`).join(" ") : `<b>${t("sos.local")}</b>`}</p><p class="muted small">${t("sos.first")}</p></section>`;
+    }
   }
 
   /* ---------- region health (country indicators) ---------- */

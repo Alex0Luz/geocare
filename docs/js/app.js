@@ -328,36 +328,64 @@ function witnessRow(name, tr, s) {
 
 function renderPlace() {
   const r = state.main, box = $("#p-place");
+  state.detailChart = null;
   if (!r) { box.innerHTML = `<div class="empty">${Extras2.hero()}<div class="chips">${["Ciudad del Este", "Asunción", "São Paulo", "Porto Alegre", "Karachi", "Kathmandu", "Nairobi", "Phoenix"].map((c) => `<button class="chip" data-q="${c}">${c}</button>`).join("")}</div><div class="capitals-box"></div></div>`;
     box.querySelectorAll(".chip").forEach((b) => (b.onclick = () => { $("#q").value = b.dataset.q; search(b.dataset.q); })); return; }
   const sigs = r.signals, done = sigs.filter((s) => !s.waiting);
   const strong = done.filter((s) => ["confirmed", "likely"].includes(s.verdict)).length;
-  let html = `<div class="place-head"><h2>${esc(r.label)}</h2><p class="muted">${r.lat.toFixed(4)}, ${r.lon.toFixed(4)} · ${START}–${END}${r.terrain ? ` · ${fmt(r.terrain.elevation, 0)} m` : ""}</p>`;
+  // which signal is open in the evidence panel: the user's choice, or the strongest verdict
+  const auto = (done.find((s) => s.verdict === "confirmed") || done.find((s) => s.verdict === "likely") || sigs[0]).key;
+  if (r.sel && !sigs.some((s) => s.key === r.sel)) r.sel = null;
+  const sel = r.sel || auto;
+  const arrow = (s) => { const tr = s.era5 || s.nasa; return s.waiting || !tr || ["none", "nodata", "conflict"].includes(s.verdict) ? "→" : tr.direction > 0 ? "↑" : "↓"; };
+
+  let html = `<header class="ph"><h2>${esc(r.label)}</h2><p class="meta">${r.lat.toFixed(3)}, ${r.lon.toFixed(3)}${r.terrain ? ` · ${fmt(r.terrain.elevation, 0)} m` : ""} · ${START}–${END}</p></header>`;
   if (r.era5 === null) html += `<p class="warn-note">${t("era5.down")}</p>`;
   else if (r.era5?.archived) html += `<p class="muted small">${t("era5.archived")}</p>`;
-  html += r.pending ? `<p class="loading">${t("status.loading", { n: r.pending })}</p>` : `<p class="summary">${t("place.summary", { a: strong, b: done.length })}</p>`;
+  html += `<section class="vhero"><div class="vh-num">${done.length ? strong : "…"}<span>/${sigs.length}</span></div><div class="vh-body"><p>${t("place.hero")}</p>
+    <div class="strip">${sigs.map((s) => `<i class="v-${s.waiting ? "wait" : s.verdict}" title="${t("sig." + s.key)}"></i>`).join("")}</div>
+    ${r.pending ? `<p class="loading small">${t("status.loading", { n: r.pending })}</p>` : ""}</div></section>`;
+
+  html += `<h3>${t("place.signals")}</h3><p class="muted small">${t("place.tap")}</p><div class="siggrid">`;
+  for (const s of sigs) {
+    html += `<button class="sigtile v-${s.waiting ? "wait" : s.verdict} ${s.key === sel ? "on" : ""}" data-key="${s.key}">
+      <span class="st-name"><b class="arrow">${arrow(s)}</b>${t("sig." + s.key)}</span>
+      <span class="st-val">${s.waiting ? "…" : headline(s)}</span>${verdictBadge(s)}</button>`;
+  }
+  html += `</div><section id="sig-detail" class="sigdetail"></section>`;
   html += `<div id="place-tools" class="tools"></div>`;
   if (nearestGiov(r)) html += `<p class="giov-badge">${t("giov.badge")}</p>`;
-  html += `</div><h3>${t("place.signals")}</h3><p class="muted small">${t("place.method")}</p><div class="cards">`;
-  for (const s of sigs) {
-    html += `<details class="card v-${s.waiting ? "wait" : s.verdict}" data-key="${s.key}"><summary><div><span class="card-title">${t("sig." + s.key)}</span>${verdictBadge(s)}</div><div class="headline">${s.waiting ? "…" : headline(s)}</div></summary>
-      <p class="muted small">${t("sig." + s.key + ".what", { thr: s.key === "hotdays" && r.era5 ? fmt(r.era5.hotThr, 1) : s.key === "heavyrain" && r.era5 ? fmt(r.era5.wetThr, 0) : "" })}</p>
-      <div class="chart-wrap"><canvas></canvas></div>
-      <table class="wit"><thead><tr><th>${t("wit.source")}</th><th>${START}–${START + 9} → ${END - 9}–${END}</th><th>${t("wit.slope")}</th><th>${t("wit.test")}</th></tr></thead><tbody>
-      ${witnessRow("NASA POWER (MERRA-2)", s.nasa, s)}${witnessRow("ERA5 (Copernicus)", s.era5, s)}${giovWitnesses(r, s.key).map((w) => witnessRow(w.name, w.trend, s)).join("")}</tbody></table>
-      ${giovWitnesses(r, s.key).length ? `<p class="muted small">${t("giov.note." + s.key)}</p>` : ""}
-      ${quantLine(s)}<p class="explain">${s.waiting ? "" : t("explain." + s.verdict)}</p></details>`;
-  }
-  html += `</div><div id="sat-box"></div><div id="calendar-box"></div>`;
+  html += `<div id="sat-box"></div><div id="calendar-box"></div>`;
   if (r.terrain) {
     const tr = r.terrain, flags = [tr.low && t("terrain.low"), tr.steep && t("terrain.steep")].filter(Boolean);
-    html += `<h3>${t("terrain.title")}</h3><div class="card plain ${flags.length ? "v-likely" : ""}"><p><b>${fmt(tr.elevation, 0)} m</b> · ${t("terrain.rel", { a: signed(tr.relNear, 0), b: signed(tr.relFar, 0), s: fmt(tr.slopePct, 0) })}</p><p>${flags.length ? flags.join(" ") : t("terrain.none")}</p><p class="muted small">${t("terrain.disclaimer")}</p></div>`;
+    html += `<h3>${t("terrain.title")}</h3><div class="factrow ${flags.length ? "flag" : ""}"><div class="fact-num">${fmt(tr.elevation, 0)}<small>m</small></div><div><p>${flags.length ? flags.join(" ") : t("terrain.none")}</p><p class="muted small">${t("terrain.rel", { a: signed(tr.relNear, 0), b: signed(tr.relFar, 0), s: fmt(tr.slopePct, 0) })}</p><p class="muted small">${t("terrain.disclaimer")}</p></div></div>`;
   }
   html += dengueBlock(r);
-  html += `<p class="muted small foot">${t("place.sources")}</p>`;
+  html += `<details class="method"><summary>${t("place.how")}</summary><p class="muted small">${t("place.method")}</p><p class="muted small">${t("place.sources")}</p></details>`;
   box.innerHTML = html;
-  box.querySelectorAll("details.card").forEach((d) => d.addEventListener("toggle", () => { if (d.open && !d.dataset.drawn) { d.dataset.drawn = 1; drawSignal(d, sig(r, d.dataset.key), r); } }));
+  box.querySelectorAll(".sigtile").forEach((b) => (b.onclick = () => {
+    r.sel = b.dataset.key;
+    box.querySelectorAll(".sigtile").forEach((x) => x.classList.toggle("on", x === b));
+    drawDetail(r, r.sel); $("#sig-detail").scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }));
+  drawDetail(r, sel);
   drawDengue(r);
+}
+
+// Evidence panel for one signal: chart, how much, the witnesses side by side, and what the verdict means.
+function drawDetail(r, key) {
+  const box = $("#sig-detail"), s = sig(r, key); if (!box || !s) return;
+  if (state.detailChart) { state.charts = state.charts.filter((c) => c !== state.detailChart); state.detailChart.destroy(); state.detailChart = null; }
+  const gw = giovWitnesses(r, s.key);
+  const what = t("sig." + s.key + ".what", { thr: s.key === "hotdays" && r.era5 ? fmt(r.era5.hotThr, 1) : s.key === "heavyrain" && r.era5 ? fmt(r.era5.wetThr, 0) : "" });
+  let h = `<p class="eyebrow">${t("place.evidence")}</p><div class="sd-head"><h4>${t("sig." + s.key)}</h4>${verdictBadge(s)}</div><p class="muted small">${what}</p>`;
+  if (s.waiting) h += `<p class="loading">…</p>`;
+  else h += `<div class="chart-wrap"><canvas></canvas></div>${quantLine(s)}
+    <div class="tblwrap"><table class="wit"><thead><tr><th>${t("wit.source")}</th><th>${START}–${START + 9} → ${END - 9}–${END}</th><th>${t("wit.slope")}</th><th>${t("wit.test")}</th></tr></thead><tbody>
+    ${witnessRow("NASA POWER (MERRA-2)", s.nasa, s)}${witnessRow("ERA5 (Copernicus)", s.era5, s)}${gw.map((w) => witnessRow(w.name, w.trend, s)).join("")}</tbody></table></div>
+    ${gw.length ? `<p class="muted small">${t("giov.note." + s.key)}</p>` : ""}<p class="explain">${t("explain." + s.verdict)}</p>`;
+  box.innerHTML = h;
+  if (!s.waiting) { drawSignal(box, s, r); state.detailChart = state.charts[state.charts.length - 1]; }
 }
 
 function drawSignal(d, s, r) {
@@ -372,7 +400,7 @@ function drawSignal(d, s, r) {
   giovWitnesses(r, s.key).forEach((w) => add(w.name.split(" · ")[0], w.color, w.values, w.trend));
   state.charts.push(new Chart(d.querySelector("canvas"), {
     type: "line", data: { labels: YEARS, datasets: ds },
-    options: { responsive: true, maintainAspectRatio: false, animation: false, plugins: { legend: { labels: { boxWidth: 10, font: { size: 11 } } } }, scales: { x: { ticks: { maxTicksLimit: 8 } } } },
+    options: { responsive: true, maintainAspectRatio: false, animation: false, plugins: { legend: { labels: { boxWidth: 10, font: { size: 11, family: "Manrope" }, filter: (it) => !it.text.includes("· Sen") } } }, scales: { x: { ticks: { maxTicksLimit: 8 }, grid: { display: false } }, y: { grid: { color: "#e6ebe8" } } } },
   }));
 }
 
@@ -412,19 +440,20 @@ function healthTopics(r) {
 }
 function renderHealth() {
   const r = state.main, box = $("#p-health");
-  if (!r) { box.innerHTML = `<div id="me-box"></div><p class="muted">${t("need.place")}</p>`; return; }
-  let html = `<div id="me-box"></div><h2>${t("health.title")}</h2><p class="muted small">${t("health.intro")}</p>`;
-  for (const h of healthTopics(r)) {
+  if (!r) { box.innerHTML = `<div id="me-box"></div><p class="muted">${t("need.place")}</p><div id="sos-box"></div>`; return; }
+  let html = `<div id="me-box"></div><h3>${t("health.title")}</h3><p class="muted small">${t("health.intro")}</p><div class="topics">`;
+  healthTopics(r).forEach((h, i) => {
     const why = h.why.filter(Boolean);
-    html += `<details class="card h-${h.level}" ${h.level === "now" ? "open" : ""}><summary><div><span class="card-title">${t("h." + h.key)}</span><span class="badge l-${h.level}">${t("level." + h.level)}</span></div></summary>
-      ${why.length ? `<p class="why"><b>${t("health.why")}</b> ${why.join(" ")}</p>` : `<p class="why muted">${t("health.nowhy")}</p>`}
-      <ul>${t("h." + h.key + ".steps").split("|").map((x) => `<li>${x}</li>`).join("")}</ul>
-      <p class="muted small">${t("h." + h.key + ".src")}</p></details>`;
-  }
+    html += `<details class="topic lv-${h.level}" ${h.level === "now" || i === 0 ? "open" : ""}><summary><span class="tn">${String(i + 1).padStart(2, "0")}</span><span class="tt">${t("h." + h.key)}</span><span class="badge l-${h.level}">${t("level." + h.level)}</span></summary>
+      <div class="tbody">${why.length ? `<p class="why"><b>${t("health.why")}</b> ${why.join(" ")}</p>` : `<p class="why muted">${t("health.nowhy")}</p>`}
+      <ol class="steps">${t("h." + h.key + ".steps").split("|").map((x) => `<li>${x}</li>`).join("")}</ol>
+      <p class="muted small">${t("h." + h.key + ".src")}</p></div></details>`;
+  });
+  html += `</div><div id="sos-box"></div>`;
   careLayer.clearLayers();
   html += `<h3>${t("care.title")}</h3>`;
   if (r.care?.length) {
-    html += `<ul class="reports care">` + r.care.map((c) => `<li data-lat="${c.lat}" data-lon="${c.lon}"><span class="k">✚</span><div><b>${esc(c.name)}</b><br><span class="muted small">${t("care." + c.kind)} · ${fmt(c.dist, 1)} km</span></div></li>`).join("") + `</ul>`;
+    html += `<ul class="rows care">` + r.care.map((c) => `<li data-lat="${c.lat}" data-lon="${c.lon}"><span class="k">✚</span><div><b>${esc(c.name)}</b><span class="muted small">${t("care." + c.kind)}</span></div><span class="dist">${fmt(c.dist, 1)} km</span></li>`).join("") + `</ul>`;
     r.care.forEach((c) => L.marker([c.lat, c.lon], { icon: L.divIcon({ className: "emoji-pin k-care", html: "✚", iconSize: [26, 26] }) }).bindPopup(`<b>${esc(c.name)}</b><br>${t("care." + c.kind)}`).addTo(careLayer));
   } else html += `<p class="muted">${r.care === undefined ? "…" : t("care.none")}</p>`;
   html += `<p class="muted small">${t("care.note")}</p><p class="disclaimer">${t("health.disclaimer")}</p>`;
