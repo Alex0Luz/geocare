@@ -20,7 +20,9 @@ Type an address anywhere on Earth, tap the map, or use your location. The app is
 8. **World.** A screening of 300 large cities ranked by how far their climate has shifted.
 9. **Compare.** Two addresses side by side.
 
-**Maps in motion.** A control on the map plays NASA GIBS layers through time anywhere in the world: rain, ground heat, smoke and dust, vegetation (month by month) and land use (year by year, 2001–2024). For Paraguay it also plays reported dengue cases by department, month by month from 2019 to 2023.
+**Maps in motion.** A control on the map plays data through time anywhere in the world: rain, ground heat, smoke and dust, vegetation and lightning month by month, the tropical-storm season with the storm tracks, and land use year by year (2001–2024). It also shows where each hazard usually happens (floods, drought, landslides, volcanoes, lightning, tropical storms, tornadoes, earthquakes). For Paraguay it plays reported dengue by department, month by month from 2019 to 2023. Each map has its colour scale in everyday units and the value at the chosen address.
+
+**Guided demonstrations.** The *Demo* button (or `?demo=1&lang=es` in the address) runs seven short demonstrations of the real app with captions, each about fifteen seconds: what a family, someone who takes medicines, a health unit, a farmer, a family choosing where to live and a city hall can find out. Arrow keys change demonstration, Space pauses, Esc closes.
 
 The interface is available in English, Spanish and Portuguese and works on a phone.
 
@@ -47,6 +49,8 @@ While building this we found that one dataset alone can mislead. For Ciudad del 
 | USGS Earthquake Catalog | earthquakes of magnitude 5 or more within 300 km since 1981 | open |
 | World Bank Open Data (WHO, UNICEF, UN agencies) | 31 national health indicators | open |
 | GeoNames | list of world cities for the 300-city panorama | open |
+| NASA LIS lightning climatology (TRMM, 1998–2013) and NASA SEDAC Natural Disaster Hotspots, through NASA GIBS | lightning by address and by month; maps of where floods, drought, landslides and volcanoes happen | open |
+| geoBoundaries (Paraguay ADM1) | department outlines for the dengue map | open (CC BY) |
 | NOAA Storm Prediction Center | tornadoes rated EF1 or stronger since 1981, United States only (`docs/data/tornadoes.json`) | open |
 | FAO via Our World in Data | pesticide use per hectare of cropland, by country | open (CC BY) |
 | PAN International consolidated list of banned pesticides (2024) | number of pesticide ingredients recorded as banned, by country (counts only) | public list |
@@ -65,7 +69,8 @@ Thermal suitability for *Aedes aegypti* follows the temperature curve in Mordeca
 - The "what usually happens here" counts come from a daily record that averages about 50 km. On coasts, in mountains and in city centres it can read cooler or drier than the exact spot; when ERA5 is available the app shows both counts for heavy rain and uses the larger.
 - Seasonal illnesses are expected seasons derived from climate (for respiratory infections, the cold-dry and humid-rainy patterns of Tamerius et al. 2013). They are not surveillance data.
 - Pesticide, water and sewage figures are national. A low count of banned pesticides can mean missing information, not weak rules. River plastic values are model estimates.
-- There is no lightning or wildfire history by address in this version; both appear only from the forecast and from active events.
+- Lightning history comes from NASA's LIS sensor (1998–2013) and is read from the map tile of the layer, so it is a class value, not an exact count. There is no wildfire history by address: fires appear only as active events.
+- The second dataset (ERA5) comes from a free service with a daily request limit. Thirteen demonstration places are archived in `docs/data/era5/`; elsewhere, when the limit is reached, verdicts fall back to one source and the app says so.
 - The terrain flag is a screening from a 90 m elevation model. It is not an official flood or landslide map.
 - River discharge is modelled and does not represent dam operations well.
 - Health guidance is general prevention information, not a diagnosis.
