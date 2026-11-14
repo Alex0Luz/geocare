@@ -267,6 +267,7 @@ const Extras = (() => {
     const box = document.querySelector("#p-act"); if (!box) return;
     if (ui.playbook === undefined) { ui.playbook = null; fetch("data/playbook.json").then((x) => (x.ok ? x.json() : false)).then((j) => { ui.playbook = j; }).catch(() => { ui.playbook = false; }).finally(() => renderAct()); }
     let h = `<h2>${t("act.title")}</h2><p class="muted small">${t("act.intro")} ${t("act.note")}</p>`;
+    h += `<details class="method plans"><summary>${t("plans.title")}</summary><p class="muted small">${t("plans.br")} <a href="https://www.gov.br/saude/pt-br/centrais-de-conteudo/apresentacoes/2025/adaptasus.pdf" target="_blank" rel="noopener">${t("act.source")}</a></p><p class="muted small">${t("plans.py")} <a href="https://unfccc.int/sites/default/files/resource/NAP2_PARAGUAY-July2022.pdf" target="_blank" rel="noopener">${t("act.source")}</a></p><p class="muted small">${t("plans.fit")}</p></details>`;
     const pb = ui.playbook, L2 = I18N.lang, tx = (o) => esc(o?.[L2] || o?.en || "");
     if (!pb) { box.innerHTML = h + `<p class="muted">${pb === null ? "…" : t("act.loading")}</p>`; return; }
     const sigs = placeSignals(state.main);

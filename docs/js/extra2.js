@@ -264,6 +264,84 @@ I18N.add("pt", {
   "w.riv.place": "Foz perto de", "w.riv.t": "t / ano",
 });
 
+I18N.add("en", {
+  "rp.ill.title": "Seasonal illnesses to expect", "rp.ill.intro": "Estimated from the climate of this address, not from local case counts. Your health service knows what is circulating now.", "rp.ill": "Expected from climate",
+  "rp.n.resp": "Flu, colds and respiratory infections", "rp.resp.sub": "more common in the cold or rainy months",
+  "rp.resp.cold": "In these months the mean temperature here stays below 20 °C (coldest month: {a} °C). In many countries flu and other respiratory viruses peak in the cold, dry months, when people spend more time indoors (Tamerius and others, 2013).",
+  "rp.resp.rain": "It is warm all year here. In warm climates flu tends to peak in the rainiest months, those with more than 150 mm of rain (Tamerius and others, 2013).",
+  "rp.resp.flat": "This climate has no clear cold or rainy season, so respiratory infections can circulate in any month.",
+  "rp.n.diarr": "Diarrhoea, leptospirosis and dirty-water diseases", "rp.diarr.sub": "in the weeks after heavy rain and floods",
+  "rp.diarr.why": "After heavy rain, floodwater mixes with sewage and with the urine of rats, which carries leptospirosis. Diarrhoea, leptospirosis and hepatitis A usually rise in the weeks that follow.",
+  "rp.diarr.sew": "In this country {p}% of household sewage is safely treated ({y}, UN indicator 6.3.1), so untreated sewage reaches streets and rivers when it floods.", "rp.diarr.sewok": "In this country {p}% of household sewage is safely treated ({y}, UN indicator 6.3.1).",
+  "rp.n.asthma": "Asthma and breathing trouble from smoke and dust", "rp.asthma.sub": "in the dry months", "rp.asthma.why": "Dry months bring more dust and, where fields or forest are burned, more smoke. Both make asthma, bronchitis and heart disease worse.",
+  "rp.n.lightning": "Thunderstorms and lightning", "rp.lightning.sub": "in this week's forecast", "rp.lightning.why": "This version has no lightning history by address: it shows only what the forecast brings. When you hear thunder, go indoors; no place outside is safe.", "rp.lightning.now": "Thunderstorms are forecast on {n} of the next 7 days.",
+  "rp.n.mosquito": "Dengue, chikungunya and Zika (mosquito season)",
+  "level.season": "In season now", "why.resp.season": "This is the time of year when respiratory infections usually peak here ({m}).",
+  "h.resp": "Flu, colds and respiratory infections", "h.resp.steps": "Keep vaccines up to date: flu every year, and the others your health service recommends for your age.|Wash your hands often and cover coughs and sneezes with your elbow.|Air the rooms: open the windows for a while even on cold days.|If you are sick, rest, drink fluids, stay home if you can and wear a mask near babies, older people and anyone with a chronic disease.|Do not take antibiotics without a prescription: most of these infections are caused by viruses.|Seek care quickly for trouble breathing, chest pain, bluish lips, fever that lasts more than 3 days, or a baby who stops feeding.",
+  "h.resp.src": "General guidance based on WHO and PAHO material on influenza and acute respiratory infections. Vaccine schedules differ by country.",
+});
+I18N.add("es", {
+  "rp.ill.title": "Enfermedades de temporada que esperar", "rp.ill.intro": "Estimadas a partir del clima de esta dirección, no de conteos locales de casos. Su servicio de salud sabe qué está circulando ahora.", "rp.ill": "Esperado por el clima",
+  "rp.n.resp": "Gripe, resfríos e infecciones respiratorias", "rp.resp.sub": "más comunes en los meses fríos o lluviosos",
+  "rp.resp.cold": "En estos meses la temperatura media aquí queda por debajo de 20 °C (mes más frío: {a} °C). En muchos países la gripe y otros virus respiratorios llegan al máximo en los meses fríos y secos, cuando la gente pasa más tiempo en lugares cerrados (Tamerius y otros, 2013).",
+  "rp.resp.rain": "Aquí hace calor todo el año. En climas cálidos la gripe suele llegar al máximo en los meses más lluviosos, los de más de 150 mm de lluvia (Tamerius y otros, 2013).",
+  "rp.resp.flat": "Este clima no tiene una estación fría o lluviosa clara, así que las infecciones respiratorias pueden circular en cualquier mes.",
+  "rp.n.diarr": "Diarrea, leptospirosis y enfermedades del agua sucia", "rp.diarr.sub": "en las semanas posteriores a lluvias fuertes e inundaciones",
+  "rp.diarr.why": "Después de una lluvia fuerte, el agua de inundación se mezcla con aguas servidas y con la orina de ratas, que transmite la leptospirosis. La diarrea, la leptospirosis y la hepatitis A suelen aumentar en las semanas siguientes.",
+  "rp.diarr.sew": "En este país se trata de forma segura el {p}% de las aguas servidas domésticas ({y}, indicador 6.3.1 de la ONU), así que aguas sin tratar llegan a calles y ríos cuando se inunda.", "rp.diarr.sewok": "En este país se trata de forma segura el {p}% de las aguas servidas domésticas ({y}, indicador 6.3.1 de la ONU).",
+  "rp.n.asthma": "Asma y dificultad para respirar por humo y polvo", "rp.asthma.sub": "en los meses secos", "rp.asthma.why": "Los meses secos traen más polvo y, donde se queman campos o bosque, más humo. Ambos empeoran el asma, la bronquitis y las enfermedades del corazón.",
+  "rp.n.lightning": "Tormentas eléctricas y rayos", "rp.lightning.sub": "en el pronóstico de esta semana", "rp.lightning.why": "Esta versión no tiene historial de rayos por dirección: muestra solo lo que trae el pronóstico. Cuando oiga truenos, entre a un lugar cerrado; ningún lugar al aire libre es seguro.", "rp.lightning.now": "Hay tormentas eléctricas previstas en {n} de los próximos 7 días.",
+  "rp.n.mosquito": "Dengue, chikungunya y Zika (temporada del mosquito)",
+  "level.season": "En temporada ahora", "why.resp.season": "Esta es la época del año en que las infecciones respiratorias suelen llegar al máximo aquí ({m}).",
+  "h.resp": "Gripe, resfríos e infecciones respiratorias", "h.resp.steps": "Mantenga las vacunas al día: la de la gripe cada año, y las demás que su servicio de salud recomienda para su edad.|Lávese las manos seguido y cúbrase con el codo al toser o estornudar.|Ventile los ambientes: abra las ventanas un rato aunque haga frío.|Si está enfermo, descanse, tome líquidos, quédese en casa si puede y use tapabocas cerca de bebés, personas mayores y personas con enfermedades crónicas.|No tome antibióticos sin receta: la mayoría de estas infecciones son causadas por virus.|Busque atención rápido si hay dificultad para respirar, dolor en el pecho, labios azulados, fiebre que dura más de 3 días o un bebé que deja de alimentarse.",
+  "h.resp.src": "Orientación general basada en material de la OMS y la OPS sobre influenza e infecciones respiratorias agudas. Los calendarios de vacunación cambian según el país.",
+});
+I18N.add("pt", {
+  "rp.ill.title": "Doenças sazonais para esperar", "rp.ill.intro": "Estimadas a partir do clima deste endereço, não de contagens locais de casos. O seu serviço de saúde sabe o que está circulando agora.", "rp.ill": "Esperado pelo clima",
+  "rp.n.resp": "Gripe, resfriados e infecções respiratórias", "rp.resp.sub": "mais comuns nos meses frios ou chuvosos",
+  "rp.resp.cold": "Nesses meses a temperatura média aqui fica abaixo de 20 °C (mês mais frio: {a} °C). Em muitos países a gripe e outros vírus respiratórios têm pico nos meses frios e secos, quando as pessoas ficam mais em lugares fechados (Tamerius e outros, 2013).",
+  "rp.resp.rain": "Aqui faz calor o ano todo. Em climas quentes a gripe costuma ter pico nos meses mais chuvosos, os de mais de 150 mm de chuva (Tamerius e outros, 2013).",
+  "rp.resp.flat": "Este clima não tem uma estação fria ou chuvosa clara, então as infecções respiratórias podem circular em qualquer mês.",
+  "rp.n.diarr": "Diarreia, leptospirose e doenças da água suja", "rp.diarr.sub": "nas semanas depois de chuva forte e enchente",
+  "rp.diarr.why": "Depois de uma chuva forte, a água da enchente se mistura com esgoto e com a urina de ratos, que transmite a leptospirose. Diarreia, leptospirose e hepatite A costumam aumentar nas semanas seguintes.",
+  "rp.diarr.sew": "Neste país, {p}% do esgoto doméstico é tratado com segurança ({y}, indicador 6.3.1 da ONU), então esgoto sem tratamento chega às ruas e aos rios quando alaga.", "rp.diarr.sewok": "Neste país, {p}% do esgoto doméstico é tratado com segurança ({y}, indicador 6.3.1 da ONU).",
+  "rp.n.asthma": "Asma e falta de ar por fumaça e poeira", "rp.asthma.sub": "nos meses secos", "rp.asthma.why": "Os meses secos trazem mais poeira e, onde se queima lavoura ou mata, mais fumaça. As duas pioram asma, bronquite e doenças do coração.",
+  "rp.n.lightning": "Tempestades com raios", "rp.lightning.sub": "na previsão desta semana", "rp.lightning.why": "Esta versão não tem histórico de raios por endereço: mostra só o que a previsão traz. Quando ouvir trovão, entre num lugar fechado; nenhum lugar ao ar livre é seguro.", "rp.lightning.now": "Há tempestades com raios previstas em {n} dos próximos 7 dias.",
+  "rp.n.mosquito": "Dengue, chikungunya e Zika (temporada do mosquito)",
+  "level.season": "Em temporada agora", "why.resp.season": "Esta é a época do ano em que as infecções respiratórias costumam ter pico aqui ({m}).",
+  "h.resp": "Gripe, resfriados e infecções respiratórias", "h.resp.steps": "Mantenha as vacinas em dia: a da gripe todo ano, e as outras que o serviço de saúde recomenda para a sua idade.|Lave as mãos com frequência e cubra a tosse e o espirro com o cotovelo.|Areje os ambientes: abra as janelas um pouco mesmo em dias frios.|Se estiver doente, descanse, beba líquidos, fique em casa se puder e use máscara perto de bebês, idosos e pessoas com doença crônica.|Não tome antibiótico sem receita: a maioria dessas infecções é causada por vírus.|Procure atendimento rápido se houver falta de ar, dor no peito, lábios arroxeados, febre por mais de 3 dias ou um bebê que para de mamar.",
+  "h.resp.src": "Orientação geral baseada em material da OMS e da OPAS sobre influenza e infecções respiratórias agudas. Os calendários de vacinação mudam de país para país.",
+});
+
+I18N.add("en", {
+  "nat.title": "Nature: forest and threatened species", "nat.forest": "of the land is forest ({y}). In {y0} it was {v0}%.", "nat.forest.trend": "Change of {s} points per decade, Mann-Kendall p = {p}.",
+  "nat.species": "threatened species on the IUCN Red List ({y}): {m} mammals, {b} birds, {f} fish and {p} plants.", "nat.species.note": "The count depends on how many species were assessed in each country, so it does not compare countries. Losing habitat is the main cause.",
+  "nat.prot": "of the land is inside protected areas ({y}).", "nat.watch": "Watch land use change from 2001 to 2024", "nat.src": "World Bank Open Data (FAO, IUCN, UNEP-WCMC).",
+});
+I18N.add("es", {
+  "nat.title": "Naturaleza: bosque y especies amenazadas", "nat.forest": "de la tierra es bosque ({y}). En {y0} era {v0}%.", "nat.forest.trend": "Cambio de {s} puntos por década, Mann-Kendall p = {p}.",
+  "nat.species": "especies amenazadas en la Lista Roja de la UICN ({y}): {m} mamíferos, {b} aves, {f} peces y {p} plantas.", "nat.species.note": "El conteo depende de cuántas especies se evaluaron en cada país, así que no sirve para comparar países. La pérdida de hábitat es la causa principal.",
+  "nat.prot": "de la tierra está dentro de áreas protegidas ({y}).", "nat.watch": "Ver el cambio de uso de la tierra de 2001 a 2024", "nat.src": "Datos abiertos del Banco Mundial (FAO, UICN, UNEP-WCMC).",
+});
+I18N.add("pt", {
+  "nat.title": "Natureza: floresta e espécies ameaçadas", "nat.forest": "da terra é floresta ({y}). Em {y0} era {v0}%.", "nat.forest.trend": "Mudança de {s} pontos por década, Mann-Kendall p = {p}.",
+  "nat.species": "espécies ameaçadas na Lista Vermelha da IUCN ({y}): {m} mamíferos, {b} aves, {f} peixes e {p} plantas.", "nat.species.note": "A contagem depende de quantas espécies foram avaliadas em cada país, então não serve para comparar países. A perda de habitat é a causa principal.",
+  "nat.prot": "da terra está dentro de áreas protegidas ({y}).", "nat.watch": "Ver a mudança de uso da terra de 2001 a 2024", "nat.src": "Dados abertos do Banco Mundial (FAO, IUCN, UNEP-WCMC).",
+});
+
+I18N.add("en", { "plans.title": "How this fits the public plans for climate and health",
+  "plans.br": "Brazil: the health adaptation plan AdaptaSUS (2024–2035) sets as priorities extreme heat and cold, floods, drought, air pollution, diseases carried by vectors, food insecurity, and water, sanitation and hygiene.",
+  "plans.py": "Paraguay: the National Plan for Adaptation to Climate Change 2022–2030 has a health sector with four aims: health response to climate emergencies, epidemiological surveillance of climate impacts, research on diseases carried by vectors, and awareness with citizen participation.",
+  "plans.fit": "GeoCare is not part of these plans. It is a prototype of three things they ask for: guidance that reaches each family, risk at a scale smaller than the city, and a channel for what the community sees." });
+I18N.add("es", { "plans.title": "Cómo encaja esto en los planes públicos de clima y salud",
+  "plans.br": "Brasil: el plan de adaptación en salud AdaptaSUS (2024–2035) pone como prioridades el calor y el frío extremos, las inundaciones, la sequía, la contaminación del aire, las enfermedades transmitidas por vectores, la inseguridad alimentaria, y el agua, saneamiento e higiene.",
+  "plans.py": "Paraguay: el Plan Nacional de Adaptación al Cambio Climático 2022–2030 tiene un sector de salud con cuatro objetivos: respuesta sanitaria a emergencias climáticas, vigilancia epidemiológica de los impactos del clima, investigación en enfermedades transmitidas por vectores, y concienciación con participación ciudadana.",
+  "plans.fit": "GeoCare no forma parte de esos planes. Es un prototipo de tres cosas que ellos piden: orientación que llegue a cada familia, riesgo a una escala menor que la ciudad y un canal para lo que la comunidad ve." });
+I18N.add("pt", { "plans.title": "Como isto se encaixa nos planos públicos de clima e saúde",
+  "plans.br": "Brasil: o plano de adaptação da saúde AdaptaSUS (2024–2035) coloca como prioridades calor e frio extremos, inundações, seca, poluição do ar, doenças transmitidas por vetores, insegurança alimentar, e água, saneamento e higiene.",
+  "plans.py": "Paraguai: o Plano Nacional de Adaptação à Mudança do Clima 2022–2030 tem um setor de saúde com quatro objetivos: resposta sanitária a emergências climáticas, vigilância epidemiológica dos impactos do clima, pesquisa em doenças transmitidas por vetores, e conscientização com participação cidadã.",
+  "plans.fit": "O GeoCare não faz parte desses planos. É um protótipo de três coisas que eles pedem: orientação que chegue a cada família, risco numa escala menor que a cidade e um canal para o que a comunidade vê." });
+
 // Cross-navigation between sections: any element with data-go="tab:anchor" opens that tab and brings the matching block into view.
 function goTo(tab, anchor) {
   showTab(tab);
@@ -391,7 +469,21 @@ const Extras2 = (() => {
     if (!any) h += `<p class="muted">${t("pr.na")}</p>`;
     const nr = nearRivers(r);
     h += `<h3>${t("pr.rivers")}</h3>` + (nr.length ? `<ul class="rows rivs">${nr.map((x) => `<li data-lat="${x.lat}" data-lon="${x.lon}"><span class="k">≈</span><div><b>${t("pr.river.row", { t: fmt(x.t, 0) })}</b><span class="muted small">${t("pr.river.near", { c: esc(x.city) })}</span></div><span class="dist">${fmt(x.dist, 0)} km</span></li>`).join("")}</ul>` : `<p class="muted">${t("pr.river.none")}</p>`);
-    box.innerHTML = h + `<p class="muted small">${t("pr.river.note")} ${src("rivers")}</p>`;
+    h += `<p class="muted small">${t("pr.river.note")} ${src("rivers")}</p>`;
+    if (ui.nat === undefined) { ui.nat = null; fetch("data/nature.json").then((x) => (x.ok ? x.json() : false)).then((j) => { ui.nat = j; }).catch(() => { ui.nat = false; }).finally(() => renderPressures()); }
+    const N = ui.nat && ui.nat.countries[r.cc];
+    if (N) {
+      h += `<h3>${t("nat.title")}</h3>`;
+      const ys = Object.keys(N.forest || {}).map(Number).sort((a, b) => a - b);
+      if (ys.length >= 10) {
+        const vs = ys.map((y) => N.forest[y]), tr = Stats.trend(ys, vs), y1 = ys[ys.length - 1];
+        h += `<div class="factrow ${vs[vs.length - 1] < vs[0] - 1 ? "flag" : ""}"><div class="fact-num">${fmt(vs[vs.length - 1], 0)}<small>%</small></div><div><p>${t("nat.forest", { y: y1, y0: ys[0], v0: fmt(vs[0], 0) })}</p><p class="muted small">${tr ? t("nat.forest.trend", { s: signed(tr.slopeDecade, 1), p: pval(tr.p) }) : ""}</p></div></div>`;
+      }
+      if (N.mam && N.bir) h += `<div class="factrow"><div class="fact-num">${fmt((N.mam[0] || 0) + (N.bir[0] || 0) + (N.fsh?.[0] || 0) + (N.plt?.[0] || 0), 0)}</div><div><p>${t("nat.species", { y: N.mam[1], m: N.mam[0], b: N.bir[0], f: N.fsh?.[0] ?? "–", p: N.plt?.[0] ?? "–" })}</p><p class="muted small">${t("nat.species.note")}</p></div></div>`;
+      if (N.prot) h += `<div class="factrow"><div class="fact-num">${fmt(N.prot[0], 0)}<small>%</small></div><div><p>${t("nat.prot", { y: N.prot[1] })}</p></div></div>`;
+      h += `<div class="golinks"><button type="button" data-tl="land">▶ ${t("nat.watch")}</button></div><p class="muted small">${t("nat.src")}</p>`;
+    }
+    box.innerHTML = h;
     box.querySelectorAll(".rivs li").forEach((li) => (li.onclick = () => map.setView([+li.dataset.lat, +li.dataset.lon], 12)));
     const lay = layer("rivers"); lay.clearLayers();
     nr.forEach((x) => L.circleMarker([x.lat, x.lon], { radius: 4 + Math.sqrt(x.t) / 12, color: "#3d6f8e", weight: 1, fillColor: "#3d6f8e", fillOpacity: 0.5 }).bindPopup(`<b>${t("pr.river.near", { c: esc(x.city) })}</b><br>${t("pr.river.row", { t: fmt(x.t, 0) })}`).addTo(lay));
@@ -446,8 +538,19 @@ const Extras2 = (() => {
         why: [t("rp.drought.why", { s: fmt(A.spell, 0), n: nDry })], trend: tr("drydays"), topic: "wash", guide: "drought", signal: "drydays" });
       const mq = cal.map((c) => c.aedes >= 0.5), nMq = mq.filter(Boolean).length;
       const ml = nMq >= 8 ? 3 : nMq >= 3 ? 2 : nMq >= 1 ? 1 : 0;
-      add({ id: "mosquito", icon: "🦟", level: ml, lab: "rp.mq" + ml, sub: t("rp.mosquito.sub", { n: nMq }), vals: cal.map((c) => c.aedes), mask: mq,
+      add({ id: "mosquito", ill: true, icon: "🦟", level: ml, lab: "rp.mq" + ml, sub: t("rp.mosquito.sub", { n: nMq }), vals: cal.map((c) => c.aedes), mask: mq,
         why: [t("rp.mosquito.why", { n: nMq })], trend: tr("aedes"), topic: "vector", signal: "aedes" });
+      // seasonal illnesses expected from the climate of the address (not from case counts)
+      const rows = r.nasa?.monthlyT?.slice(-10) || [], mT = Array.from({ length: 12 }, (_, m) => { const v = rows.map((x) => x[m]).filter(Number.isFinite); return v.length ? v.reduce((a, b) => a + b, 0) / v.length : NaN; });
+      if (mT.every(Number.isFinite)) {
+        const cold = mT.map((v) => v < 20), nC = cold.filter(Boolean).length, srt = [...mT].sort((a, b) => a - b), rainy = cal.map((c) => c.rain >= 150);
+        const rm = nC > 8 ? mT.map((v) => v <= srt[4]) : nC ? cold : rainy.some(Boolean) ? rainy : null;
+        add({ id: "resp", ill: true, icon: "🤧", level: 2, lab: "rp.ill", sub: t("rp.resp.sub"), vals: !rm ? null : nC ? mT.map((v) => Math.max(0, Math.min(1, (srt[11] - v) / Math.max(1, srt[11] - srt[0])))) : norm(cal.map((c) => c.rain)), mask: rm, noseason: !rm,
+          why: [t(nC ? "rp.resp.cold" : rm ? "rp.resp.rain" : "rp.resp.flat", { a: fmt(srt[0], 0) })], topic: "resp" });
+      }
+      const sw = loadPress()?.countries?.[r.cc]?.wastewater;
+      add({ id: "diarr", ill: true, icon: "🚰", level: 2, lab: "rp.ill", sub: t("rp.diarr.sub"), vals: norm(wetBy), mask: wetMask, why: [t("rp.diarr.why"), sw && t(sw[0] < 70 ? "rp.diarr.sew" : "rp.diarr.sewok", { p: fmt(sw[0], 0), y: sw[1] })], topic: "water", press: true });
+      if (nDry >= 2) add({ id: "asthma", ill: true, icon: "😮‍💨", level: 2, lab: "rp.ill", sub: t("rp.asthma.sub"), vals: cal.map((c) => Math.max(0, Math.min(1, 1 - c.rain / 60))), mask: dryM, why: [t("rp.asthma.why")], topic: "air" });
       const tmin = now ? Math.min(...now.days.map((d) => d.tmin)) : NaN;
       add({ id: "cold", icon: "🥶", level: A.frost >= 30 ? 3 : A.frost >= 1 ? 2 : A.frost > 0 ? 1 : 0, sub: t("rp.cold.sub", { n: f1(A.frost) }), vals: norm(A.mfrost, 25), mask: mk(A.mfrost, 1),
         why: [t("rp.cold.why", { n: f1(A.frost), rec: fmt(A.rec.cold[0], 1), y: A.rec.cold[1] })], now: tmin <= 2 ? t("rp.cold.now", { f: fmt(tmin, 0) }) : "", guide: "cold" });
@@ -465,6 +568,8 @@ const Extras2 = (() => {
     const q = r.quakes;
     if (q) add({ id: "earthquake", icon: "🫨", level: lvl(q.count / 4.5, 10, 1), sub: t("rp.earthquake.sub", { n: fmt(q.count / 4.5, 1) }), noseason: true,
       why: q.count ? [t("rp.earthquake.why", { n: q.count, m: fmt(q.big.m, 1), place: esc(q.big.place), y: new Date(q.big.time).getFullYear() })] : [], now: q.recent.length ? t("rp.earthquake.now", { n: q.recent.length }) : "", guide: "earthquake" });
+    const thN = now ? now.days.filter((d) => d.storm).length : 0;
+    if (thN) add({ id: "lightning", icon: "⚡", level: null, sub: t("rp.lightning.sub"), why: [t("rp.lightning.why")], now: t("rp.lightning.now", { n: thN }), guide: "storm" });
     const fires = ev.filter((e) => /wildfire/i.test(e.cat) && e.dist <= 150);
     if (fires.length || now?.pm25 > 35) add({ id: "wildfire", icon: "🔥", level: null, sub: t("rp.wildfire.sub"),
       why: [fires.length && t("rp.wildfire.why", { n: fires.length, k: fmt(Math.min(...fires.map((e) => e.dist)), 0) }), now?.pm25 > 35 && t("rp.wildfire.air", { p: fmt(now.pm25, 0) }), t("rp.wildfire.nohist")],
@@ -472,12 +577,13 @@ const Extras2 = (() => {
     out.list.sort((a, b) => !!b.now - !!a.now || (b.level ?? 4) - (a.level ?? 4));
     return out;
   }
+  const tlOf = (z) => ({ heat: "heat", flood: "rain", diarr: "rain", drought: "green", asthma: "smoke", wildfire: "smoke", mosquito: state.main?.cc === "PY" ? "dengue" : "" }[z.id] || "");
   const goBtn = (go, label) => `<button type="button" data-go="${go}">${label} →</button>`;
   function rpLinks(z) {
-    return `<div class="golinks">${z.guide ? goBtn("prepare:hz-" + z.guide, t("rp.go.guide")) : ""}${z.topic ? goBtn("health:topic-" + z.topic, `${t("tab.health")}: ${t("h." + z.topic)}`) : ""}${z.signal ? goBtn("place:sig-" + z.signal, `${t("rp.go.sig")}: ${t("sig." + z.signal)}`) : ""}${z.now ? goBtn("now:", t("rp.go.week")) : ""}</div>`;
+    return `<div class="golinks">${z.guide ? goBtn("prepare:hz-" + z.guide, t("rp.go.guide")) : ""}${z.topic ? goBtn("health:topic-" + z.topic, `${t("tab.health")}: ${t("h." + z.topic)}`) : ""}${z.signal ? goBtn("place:sig-" + z.signal, `${t("rp.go.sig")}: ${t("sig." + z.signal)}`) : ""}${z.press ? goBtn("region:pressures", t("pr.go")) : ""}${tlOf(z) ? `<button type="button" data-tl="${tlOf(z)}">▶ ${t("tl.go")}</button>` : ""}${z.now ? goBtn("now:", t("rp.go.week")) : ""}</div>`;
   }
   // links from a health topic back to the pattern of the place and to the step-by-step guide
-  const TOPIC = { vector: ["mosquito", ""], heat: ["heat", "heat"], water: ["flood", "flood"], air: ["", "wildfire"], wash: ["drought", "drought"] };
+  const TOPIC = { resp: ["resp", ""], vector: ["mosquito", ""], heat: ["heat", "heat"], water: ["flood", "flood"], air: ["", "wildfire"], wash: ["drought", "drought"] };
   function links(topic) {
     const m = TOPIC[topic] || ["", ""]; if (!state.main) return "";
     const more = ["agro", "water", "wash"].includes(topic) ? goBtn("region:pressures", t("pr.go")) : "";
@@ -488,7 +594,7 @@ const Extras2 = (() => {
     const P = riskProfile(r), mon = MON(), mNow = new Date().getMonth();
     let h = `<h3>${t("rp.title")}</h3><p class="muted small">${t("rp.intro")}</p>`;
     if (!P.ready && r.nasad === undefined) h += `<p class="loading small">${t("rp.loading")}</p>`;
-    h += `<div class="topics">` + P.list.map((z, i) => {
+    const item = (z, i) => {
       const months = z.mask ? monthText(z.mask) : "";
       return `<details class="topic rpi" data-anchor="rp-${z.id}" ${isOpen("rp-" + z.id, i === 0)}><summary><span class="hz">${z.icon}</span><span class="tt">${t("rp.n." + z.id)}<small>${z.sub}</small></span>${z.now ? `<span class="badge l-now">${t("rp.lnow")}</span>` : ""}${z.level != null ? `<span class="badge rp${z.level}">${t(z.lab || "rp.l" + z.level)}</span>` : ""}</summary>
         <div class="tbody">${z.vals ? `<div class="mbar">${z.vals.map((v, m) => `<span class="${m === mNow ? "now" : ""}"><i style="opacity:${(0.1 + 0.9 * v).toFixed(2)}"></i>${mon[m].slice(0, 3)}</span>`).join("")}</div>` : ""}
@@ -496,15 +602,18 @@ const Extras2 = (() => {
         ${z.why.length ? `<p class="why"><b>${t("rp.why")}</b> ${z.why.join(" ")}</p>` : ""}
         ${z.trend ? `<p class="muted small"><b>${t("rp.trend")}</b> ${z.trend}</p>` : ""}
         ${z.now ? `<p class="nowline"><b>${t("rp.thisweek")}</b> ${z.now}</p>` : ""}${rpLinks(z)}</div></details>`;
-    }).join("") + `</div>`;
+    };
+    const ill = P.list.filter((z) => z.ill);
+    h += `<div class="topics">` + P.list.filter((z) => !z.ill).map(item).join("") + `</div>`;
+    if (ill.length) h += `<h3>${t("rp.ill.title")}</h3><p class="muted small">${t("rp.ill.intro")}</p><div class="topics">` + ill.map((z) => item(z, 1)).join("") + `</div>`;
     if (P.none.length) h += `<p class="muted small">${t("rp.none", { list: P.none.map((k) => t("rp.n." + k).toLowerCase()).join(", ") })}</p>`;
     return h + `<details class="method"><summary>${t("place.how")}</summary><p class="muted small">${t("rp.src")} ${t("hist.note")}</p></details>`;
   }
   function renderExpect() {
     const box = document.querySelector("#expect-box"), r = state.main; if (!box) return;
-    const P = riskProfile(r).list.filter((z) => z.now || z.level >= 2 || z.level == null);
+    const mth = new Date().getMonth(), P = riskProfile(r).list.filter((z) => (z.ill ? z.mask && z.mask[mth] : z.now || z.level >= 2 || z.level == null));
     if (!P.length) { box.innerHTML = ""; return; }
-    box.innerHTML = `<h3>${t("rp.title")}</h3><p class="muted small">${t("rp.short")}</p><div class="xchips">` + P.map((z) => `<button type="button" class="xchip l${z.level ?? "n"} ${z.now ? "now" : ""}" data-go="prepare:rp-${z.id}"><span class="hz">${z.icon}</span><span><b>${t("rp.n." + z.id)}</b><small>${z.noseason ? t("rp.anytime.s") : (z.mask && monthText(z.mask)) || t("rp.l" + (z.level ?? "now"))}${z.now ? ` · ${t("rp.lnow").toLowerCase()}` : ""}</small></span></button>`).join("") + `</div>`;
+    box.innerHTML = `<h3>${t("rp.title")}</h3><p class="muted small">${t("rp.short")}</p><div class="xchips">` + P.map((z) => `<button type="button" class="xchip l${z.level ?? "n"} ${z.now ? "now" : ""}" data-go="prepare:rp-${z.id}"><span class="hz">${z.icon}</span><span><b>${t("rp.n." + z.id)}</b><small>${z.level == null ? t("rp.lnow") : (z.noseason ? t("rp.anytime.s") : (z.mask && monthText(z.mask)) || t(z.lab || "rp.l" + z.level)) + (z.now ? ` · ${t("rp.lnow").toLowerCase()}` : "")}</small></span></button>`).join("") + `</div>`;
   }
   function renderNowContext() {
     const box = document.querySelector("#now-context"), r = state.main; if (!box) return;
@@ -664,7 +773,8 @@ const Extras2 = (() => {
     return `<p class="eyebrow">${t("home.eyebrow")}</p><h2 class="hero">${t("home.title")}</h2><p class="lead">${t("home.lead")}</p><ol class="points">${pt(1)}${pt(2)}${pt(3)}</ol><p class="plabel">${t("home.try")}</p>`;
   }
 
-  function render() { renderWorld(); renderCalendar(); renderPrepare(); renderExpect(); renderNowContext(); renderSat(); renderQuakes(); schedule(); }
+  function render() { renderWorld(); renderCalendar(); renderPrepare(); renderExpect(); renderNowContext(); renderSat(); renderQuakes(); schedule(); if (typeof Timelapse !== "undefined") Timelapse.refresh(); }
   function onTab(name) { ui.tab = name; drawWorld(); if (name === "world" && ui.pano) map.setView([10, 10], 2); }
-  return { render, onTab, hero, links, renderPressures };
+  const seasonOf = (id) => { const z = riskProfile(state.main).list.find((x) => x.id === id); return z && z.mask ? { on: !!z.mask[new Date().getMonth()], months: monthText(z.mask) } : null; };
+  return { render, onTab, hero, links, renderPressures, seasonOf, sewage: () => loadPress()?.countries?.[state.main?.cc]?.wastewater };
 })();

@@ -219,7 +219,7 @@ async function fetchTerrain(lat, lon) {
 
 async function fetchNow(lat, lon) {
   const [fc, air] = await Promise.all([
-    getJSON(`https://api.open-meteo.com/v1/forecast?latitude=${lat.toFixed(3)}&longitude=${lon.toFixed(3)}&daily=temperature_2m_max,temperature_2m_min,apparent_temperature_max,precipitation_sum&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m&forecast_days=7&timezone=auto`),
+    getJSON(`https://api.open-meteo.com/v1/forecast?latitude=${lat.toFixed(3)}&longitude=${lon.toFixed(3)}&daily=temperature_2m_max,temperature_2m_min,apparent_temperature_max,precipitation_sum,weather_code&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m&forecast_days=7&timezone=auto`),
     getJSON(`https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${lat.toFixed(3)}&longitude=${lon.toFixed(3)}&current=pm2_5,us_aqi`).catch(() => null),
   ]);
   const d = fc.daily, hi = {}, spray = {};
@@ -233,7 +233,7 @@ async function fetchNow(lat, lon) {
   // NOAA heat index (Rothfusz) from hourly temperature and humidity; daily maximum.
   (fc.hourly?.time || []).forEach((tt, i) => { const v = Stats.heatIndex(fc.hourly.temperature_2m[i], fc.hourly.relative_humidity_2m[i]); if (Number.isFinite(v)) hi[tt.slice(0, 10)] = Math.max(hi[tt.slice(0, 10)] ?? -99, v); });
   return {
-    days: d.time.map((day, i) => ({ day, tmax: d.temperature_2m_max[i], tmin: d.temperature_2m_min[i], feels: hi[day] ?? d.apparent_temperature_max[i], rain: d.precipitation_sum[i], spray: spray[day] })),
+    days: d.time.map((day, i) => ({ day, tmax: d.temperature_2m_max[i], tmin: d.temperature_2m_min[i], feels: hi[day] ?? d.apparent_temperature_max[i], rain: d.precipitation_sum[i], spray: spray[day], storm: [95, 96, 99].includes(d.weather_code?.[i]) })),
     pm25: air?.current?.pm2_5 ?? NaN, aqi: air?.current?.us_aqi ?? NaN,
   };
 }
@@ -510,14 +510,17 @@ function healthTopics(r) {
   const maxRain = now ? Math.max(...now.days.map((d) => d.rain)) : NaN;
   const out = [];
   const lvl = (nowFlag, trendFlag) => (nowFlag ? "now" : trendFlag ? "rising" : "watch");
+  const resp = Extras2.seasonOf("resp"), sew = Extras2.sewage();
   out.push({ key: "vector", level: lvl(suit >= 0.5, rising(sig(r, "aedes"))), why: [Number.isFinite(suit) && t("why.vector.now", { s: fmt(suit * 100, 0), t: fmt(tMonth, 1) }), rising(sig(r, "aedes")) && t("why.vector.trend")] });
   out.push({ key: "heat", level: lvl(maxFeels >= 32, rising(sig(r, "hotdays")) || rising(sig(r, "temp"))), why: [maxFeels >= 32 && t("why.heat.now", { f: fmt(maxFeels, 0) }), rising(sig(r, "hotdays")) && t("why.heat.trend")] });
-  out.push({ key: "water", level: lvl(maxRain >= 50 || !!riverLevel(r.river), rising(sig(r, "heavyrain")) || r.terrain?.low), why: [riverLevel(r.river) && t("why.water.river"), maxRain >= 50 && t("why.water.now", { r: fmt(maxRain, 0) }), r.terrain?.low && t("why.water.low"), rising(sig(r, "heavyrain")) && t("why.water.trend")] });
+  out.push({ key: "water", level: lvl(maxRain >= 50 || !!riverLevel(r.river), rising(sig(r, "heavyrain")) || r.terrain?.low), why: [riverLevel(r.river) && t("why.water.river"), maxRain >= 50 && t("why.water.now", { r: fmt(maxRain, 0) }), r.terrain?.low && t("why.water.low"), rising(sig(r, "heavyrain")) && t("why.water.trend"), sew && sew[0] < 70 && t("rp.diarr.sew", { p: fmt(sew[0], 0), y: sew[1] })] });
+  // respiratory infections: in season when the climate of the address says so (cold or rainy months)
+  out.push({ key: "resp", level: resp?.on ? "season" : "watch", why: [resp?.on && t("why.resp.season", { m: resp.months })] });
   out.push({ key: "air", level: lvl(now?.pm25 > 15, false), why: [now?.pm25 > 15 && t("why.air.now", { p: fmt(now.pm25, 0) })] });
   out.push({ key: "wash", level: lvl(false, rising(sig(r, "rain"), -1) || rising(sig(r, "drydays"))), why: [rising(sig(r, "rain"), -1) && t("why.wash.rain"), rising(sig(r, "drydays")) && t("why.wash.dry")] });
   // farm chemicals, dust and smoke: general guidance for everyone, first in line for people who live or work near crops
   out.push({ key: "agro", level: Extras.has("farm") ? "you" : "watch", why: [Extras.has("farm") && t("why.agro.me")] });
-  const order = { now: 0, you: 1, rising: 2, watch: 3 };
+  const order = { now: 0, you: 1, season: 2, rising: 3, watch: 4 };
   return out.sort((a, b) => order[a.level] - order[b.level]);
 }
 function renderHealth() {
