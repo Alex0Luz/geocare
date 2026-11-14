@@ -23,6 +23,9 @@ L.control.layers(null, {
   "NASA GPM IMERG · rain rate": gibs("IMERG_Precipitation_Rate", "GoogleMapsCompatible_Level6", "png", 6, 0.7),
   "NASA MODIS · land surface temperature (day)": gibs("MODIS_Terra_Land_Surface_Temp_Day", "GoogleMapsCompatible_Level7", "png", 7, 0.65),
   "NASA MODIS · true colour": gibs("MODIS_Terra_CorrectedReflectance_TrueColor", "GoogleMapsCompatible_Level9", "jpg", 9, 1),
+  "NASA MODIS · flood water (3 days)": gibs("MODIS_Combined_Flood_3-Day", "GoogleMapsCompatible_Level9", "png", 9, 0.8),
+  "NASA MODIS · smoke and dust (aerosols)": gibs("MODIS_Combined_Value_Added_AOD", "GoogleMapsCompatible_Level6", "png", 6, 0.7),
+  "NASA MODIS · vegetation (NDVI)": gibs("MODIS_Terra_NDVI_8Day", "GoogleMapsCompatible_Level9", "png", 9, 0.75),
 }, { collapsed: true }).addTo(map);
 const communityLayer = L.layerGroup().addTo(map);
 const eventLayer = L.layerGroup().addTo(map);
@@ -75,6 +78,37 @@ async function fetchNasa(lat, lon) {
     soil: ann(SW, mean),
     aedes: ann(T, (row) => row.reduce((a, v) => a + Stats.aedes(v), 0)),
   };
+}
+
+// NASA POWER daily record (MERRA-2 temperature, satellite-corrected precipitation), 1981-2025: extremes and the year calendar.
+// It has no hourly request limit, so every place always gets the eight signals, even when ERA5 is unavailable.
+async function fetchNasaDaily(lat, lon) {
+  const key = `geocare.nasad:${round2(lat)}:${round2(lon)}`;
+  try { const c = localStorage.getItem(key); if (c) return JSON.parse(c); } catch (_) { /* storage unavailable */ }
+  const url = `https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M,T2M_MAX,PRECTOTCORR&community=AG&longitude=${round2(lon)}&latitude=${round2(lat)}&start=${START}0101&end=${END}1231&format=JSON`;
+  const p = (await getJSON(url)).properties.parameter;
+  const days = Object.keys(p.T2M_MAX).sort(), n = days.length;
+  const val = (name, d) => { const v = p[name][d]; return v === undefined || v < -900 ? NaN : v; };
+  const yr = days.map((d) => +d.slice(0, 4)), mo = days.map((d) => +d.slice(4, 6) - 1);
+  const tm = days.map((d) => val("T2M", d)), tx = days.map((d) => val("T2M_MAX", d)), pr = days.map((d) => val("PRECTOTCORR", d));
+  const base = (arr) => arr.filter((_, i) => yr[i] <= 2010);
+  const hotThr = Stats.percentile(base(tx), 0.95), wetThr = Math.max(20, Stats.percentile(base(pr), 0.99));
+  const acc = YEARS.map(() => ({ n: 0, hot: 0, heavy: 0, dry: 0 }));
+  const cal = Array.from({ length: 12 }, () => ({ d: 0, hot: 0, heavy: 0, rain: 0, t: 0, nt: 0 }));
+  for (let i = 0; i < n; i++) {
+    const a = acc[yr[i] - START]; if (!a) continue;
+    if (Number.isFinite(tx[i])) { a.n++; if (tx[i] > hotThr) a.hot++; }
+    if (Number.isFinite(pr[i])) { if (pr[i] >= wetThr) a.heavy++; if (pr[i] < 1) a.dry++; }
+    if (yr[i] >= END - 9) { const c = cal[mo[i]]; c.d++; if (tx[i] > hotThr) c.hot++; if (Number.isFinite(pr[i])) { c.rain += pr[i]; if (pr[i] >= wetThr) c.heavy++; } if (Number.isFinite(tm[i])) { c.t += tm[i]; c.nt++; } }
+  }
+  const ok = (a) => a.n >= 360;
+  const out = {
+    hotThr, wetThr,
+    hotdays: acc.map((a) => (ok(a) ? a.hot : NaN)), heavyrain: acc.map((a) => (ok(a) ? a.heavy : NaN)), drydays: acc.map((a) => (ok(a) ? a.dry : NaN)),
+    calendar: cal.map((c) => ({ hot: c.hot / c.d, heavy: (c.heavy / c.d) * 30, rain: c.rain / 10, aedes: Stats.aedes(c.t / c.nt) })),
+  };
+  try { localStorage.setItem(key, JSON.stringify(out)); } catch (_) { /* storage full: skip */ }
+  return out;
 }
 
 // Witness 2: ERA5 reanalysis (ECMWF / Copernicus) through Open-Meteo, daily, 1981-2025.
@@ -241,20 +275,25 @@ function giovWitnesses(r, key) {
 /* ---------------- Signals ---------------- */
 const SIGNALS = [
   { key: "temp", unit: "°C", d: 2, src: ["nasa", "era5"] },
-  { key: "hotdays", unit: "days", d: 1, src: ["era5"] },
+  { key: "hotdays", unit: "days", d: 1, src: ["nasa", "era5"] },
   { key: "rain", unit: "mm", d: 0, src: ["nasa", "era5"] },
-  { key: "heavyrain", unit: "days", d: 1, src: ["era5"] },
-  { key: "drydays", unit: "days", d: 0, src: ["era5"] },
+  { key: "heavyrain", unit: "days", d: 1, src: ["nasa", "era5"] },
+  { key: "drydays", unit: "days", d: 0, src: ["nasa", "era5"] },
   { key: "humidity", unit: "%", d: 1, src: ["nasa"] },
   { key: "soil", unit: "", d: 2, src: ["nasa"] },
   { key: "aedes", unit: "months", d: 2, src: ["nasa", "era5"] },
 ];
 
+// Daily-based signals come from the NASA POWER daily record (r.nasad); the others from the monthly record (r.nasa).
+const DAILY = new Set(["hotdays", "heavyrain", "drydays"]);
+const nasaOf = (r, key) => (DAILY.has(key) ? r.nasad : r.nasa);
+
 function buildSignals(r) {
   return SIGNALS.map((s) => {
-    const a = s.src.includes("nasa") && r.nasa ? Stats.trend(YEARS, r.nasa[s.key]) : null;
+    const N = nasaOf(r, s.key);
+    const a = s.src.includes("nasa") && N ? Stats.trend(YEARS, N[s.key]) : null;
     const b = s.src.includes("era5") && r.era5 ? Stats.trend(YEARS, r.era5[s.key]) : null;
-    const waiting = (s.src.includes("nasa") && r.nasa === undefined) || (s.src.includes("era5") && r.era5 === undefined);
+    const waiting = (s.src.includes("nasa") && N === undefined) || (s.src.includes("era5") && r.era5 === undefined);
     return { ...s, nasa: a, era5: b, waiting, verdict: Stats.verdict(a, b), single: s.src.length === 1 };
   });
 }
@@ -275,9 +314,10 @@ async function analyzeAt(lat, lon, label, slot = "main") {
   geoInfo(lat, lon).then((g) => { r.cc = g.cc; r.country = g.country; if (!label) r.label = g.label; }).catch(() => {})
     .finally(() => { r.pending--; if (state[slot] === r) render(); });
   step("nasa", fetchNasa(lat, lon));
+  step("nasad", fetchNasaDaily(lat, lon));
   step("era5", fetchEra5(lat, lon));
   step("terrain", fetchTerrain(lat, lon));
-  if (slot === "main") { step("now", fetchNow(lat, lon)); step("events", fetchEvents(lat, lon)); step("river", fetchRiver(lat, lon)); step("care", fetchCare(lat, lon)); }
+  if (slot === "main") { step("now", fetchNow(lat, lon)); step("events", fetchEvents(lat, lon)); step("river", fetchRiver(lat, lon)); step("care", fetchCare(lat, lon)); step("quakes", fetchQuakes(lat, lon)); }
   r.signals = buildSignals(r);
   render();
 }
@@ -377,7 +417,8 @@ function drawDetail(r, key) {
   const box = $("#sig-detail"), s = sig(r, key); if (!box || !s) return;
   if (state.detailChart) { state.charts = state.charts.filter((c) => c !== state.detailChart); state.detailChart.destroy(); state.detailChart = null; }
   const gw = giovWitnesses(r, s.key);
-  const what = t("sig." + s.key + ".what", { thr: s.key === "hotdays" && r.era5 ? fmt(r.era5.hotThr, 1) : s.key === "heavyrain" && r.era5 ? fmt(r.era5.wetThr, 0) : "" });
+  const thrSrc = r.era5 || r.nasad;
+  const what = t("sig." + s.key + ".what", { thr: s.key === "hotdays" && thrSrc ? fmt(thrSrc.hotThr, 1) : s.key === "heavyrain" && thrSrc ? fmt(thrSrc.wetThr, 0) : "" });
   let h = `<p class="eyebrow">${t("place.evidence")}</p><div class="sd-head"><h4>${t("sig." + s.key)}</h4>${verdictBadge(s)}</div><p class="muted small">${what}</p>`;
   if (s.waiting) h += `<p class="loading">…</p>`;
   else h += `<div class="chart-wrap"><canvas></canvas></div>${quantLine(s)}
@@ -395,7 +436,7 @@ function drawSignal(d, s, r) {
     ds.push({ label, data: values.map((v) => (Number.isFinite(v) ? v : null)), borderColor: color, backgroundColor: color, pointRadius: 1.5, borderWidth: 1.5, tension: 0.15, spanGaps: true });
     if (tr) ds.push({ label: label + " · Sen", data: YEARS.map((y) => tr.intercept + tr.slope * y), borderColor: color, borderDash: tr.significant ? [] : [5, 4], borderWidth: 2.5, pointRadius: 0 });
   };
-  if (s.src.includes("nasa") && r.nasa) add("NASA", "#b2592a", r.nasa[s.key], s.nasa);
+  if (s.src.includes("nasa") && nasaOf(r, s.key)) add("NASA", "#b2592a", nasaOf(r, s.key)[s.key], s.nasa);
   if (s.src.includes("era5") && r.era5) add("ERA5", "#1f7f5f", r.era5[s.key], s.era5);
   giovWitnesses(r, s.key).forEach((w) => add(w.name.split(" · ")[0], w.color, w.values, w.trend));
   state.charts.push(new Chart(d.querySelector("canvas"), {
@@ -484,7 +525,7 @@ function renderNow() {
       ${rv.trend ? `<p class="muted small">${t("now.river.trend", { s: signed(rv.trend.slopeDecade, 0), v: t("verdict." + (rv.trend.significant ? "single" : "none")), p: rv.trend.p < 0.01 ? "<0.01" : rv.trend.p.toFixed(2) })}</p>` : ""}
       <p class="muted small">${t("now.river.note")}</p></div></div>`;
   }
-  html += `<h3>${t("now.events")}</h3>`;
+  html += `<div id="quake-box"></div><h3>${t("now.events")}</h3>`;
   eventLayer.clearLayers();
   if (r.events?.length) {
     html += `<ul class="rows">` + r.events.map((e) => `<li data-lat="${e.lat}" data-lon="${e.lon}"><span class="k">●</span><div><b>${esc(e.title)}</b><span class="muted small">${esc(e.cat)}${e.date ? " · " + e.date : ""}</span></div><span class="dist">${fmt(e.dist, 0)} km</span></li>`).join("") + `</ul>`;

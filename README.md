@@ -28,7 +28,7 @@ While building this we found that one dataset alone can mislead. For Ciudad del 
 | Source | Used for | Access |
 |---|---|---|
 | **NASA Giovanni Time Series Service** (MERRA-2 daily temperature, AIRS/Aqua surface air temperature, GPM IMERG precipitation) | official NASA series for eight demonstration cities, stored as archived data in `docs/data/giovanni.json` | Earthdata Login |
-| **NASA POWER** (MERRA-2) | live monthly series for any point | open |
+| **NASA POWER** (MERRA-2) | live monthly and daily series for any point; second witness for very hot days, heavy-rain days and dry days | open |
 | **NASA GIBS** (GPM IMERG rain rate, MODIS land surface temperature, MODIS true colour) | map layers | open |
 | **NASA EONET** | natural events nearby | open |
 | ERA5 (ECMWF / Copernicus) via Open-Meteo | independent second dataset, daily | open |
@@ -38,6 +38,10 @@ While building this we found that one dataset alone can mislead. For Ciudad del 
 | NOAA GHCN-Daily (Climate Data Online archive) | station check in the analysis | open |
 | InfoDengue (Fiocruz / FGV, Brazil) | notified dengue cases for ten Brazilian cities | open |
 | OpenStreetMap (Nominatim, Overpass) | address search, health services nearby | open |
+| NOAA IBTrACS v04r01 | tropical storms passing near each point since 1981 (1-degree grid in `docs/data/cyclones.json`) | open |
+| USGS Earthquake Catalog | earthquakes of magnitude 5 or more within 300 km since 1981 | open |
+| World Bank Open Data (WHO, UNICEF, UN agencies) | 31 national health indicators | open |
+| GeoNames | list of world cities for the 300-city panorama | open |
 
 Thermal suitability for *Aedes aegypti* follows the temperature curve in Mordecai et al. (2017), *PLoS Neglected Tropical Diseases* 11(4): e0005568. It describes suitability, not cases.
 

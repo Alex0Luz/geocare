@@ -8,7 +8,7 @@ I18N.add("en", {
   "world.sort": "Order by", "world.s.score": "Change index", "world.s.temp": "Warming", "world.s.rain": "Rain change", "world.s.aedes": "Mosquito season", "world.s.pop": "Population",
   "world.city": "City", "world.idx": "Index", "world.more": "Show all", "world.na": "Panorama not available yet.",
   "world.note": "Change index (0–100): combines the size of the significant trends in temperature, hottest month, rainfall and mosquito season. It measures change in climate, not harm to people.",
-  "cal.title": "Your year at this address", "cal.intro": "What each month usually brings here, from the last 10 years of daily records (ERA5).", "cal.mosq": "Mosquito season", "cal.hot": "Very hot days", "cal.heavy": "Heavy rain", "cal.dry": "Dry spell", "cal.now": "this month",
+  "cal.title": "Your year at this address", "cal.intro": "What each month usually brings here, from the last 10 years of daily records.", "cal.mosq": "Mosquito season", "cal.hot": "Very hot days", "cal.heavy": "Heavy rain", "cal.dry": "Dry spell", "cal.now": "this month",
   "prep.title": "Be ready", "prep.intro": "What to do before, during and after each kind of event, from official civil-protection guidance. The ones that fit this place come first.", "prep.here": "relevant here",
   "prep.shelter": "Where to shelter", "prep.before": "Before", "prep.during": "During", "prep.after": "After", "prep.hazards": "What to do in each kind of event", "world.k.warm": "cities warming significantly", "world.k.mosq": "with a longer mosquito season", "world.k.dry": "with significantly less rain", "prep.kit": "Emergency kit", "prep.plan": "Family plan", "prep.numbers": "Emergency numbers", "prep.na": "Guide not available yet.",
   "safe.title": "Safe places nearby", "safe.btn": "Find shelters and safe places near this address", "safe.loading": "Searching OpenStreetMap…", "safe.none": "Nothing mapped within 5 km. Ask your civil-defence office where the official shelters are.", "safe.route": "walking route",
@@ -25,7 +25,7 @@ I18N.add("es", {
   "world.sort": "Ordenar por", "world.s.score": "Índice de cambio", "world.s.temp": "Calentamiento", "world.s.rain": "Cambio de lluvia", "world.s.aedes": "Temporada del mosquito", "world.s.pop": "Población",
   "world.city": "Ciudad", "world.idx": "Índice", "world.more": "Ver todas", "world.na": "El panorama todavía no está disponible.",
   "world.note": "Índice de cambio (0–100): combina el tamaño de las tendencias significativas de temperatura, mes más caluroso, lluvia y temporada del mosquito. Mide el cambio del clima, no el daño a las personas.",
-  "cal.title": "Su año en esta dirección", "cal.intro": "Lo que suele traer cada mes aquí, según los últimos 10 años de registros diarios (ERA5).", "cal.mosq": "Temporada del mosquito", "cal.hot": "Días muy calurosos", "cal.heavy": "Lluvia fuerte", "cal.dry": "Período seco", "cal.now": "este mes",
+  "cal.title": "Su año en esta dirección", "cal.intro": "Lo que suele traer cada mes aquí, según los últimos 10 años de registros diarios.", "cal.mosq": "Temporada del mosquito", "cal.hot": "Días muy calurosos", "cal.heavy": "Lluvia fuerte", "cal.dry": "Período seco", "cal.now": "este mes",
   "prep.title": "Esté preparado", "prep.intro": "Qué hacer antes, durante y después de cada tipo de evento, según orientaciones oficiales de protección civil. Primero aparecen los que corresponden a este lugar.", "prep.here": "corresponde aquí",
   "prep.shelter": "Dónde refugiarse", "prep.before": "Antes", "prep.during": "Durante", "prep.after": "Después", "prep.hazards": "Qué hacer en cada tipo de evento", "world.k.warm": "ciudades con calentamiento significativo", "world.k.mosq": "con temporada del mosquito más larga", "world.k.dry": "con lluvia significativamente menor", "prep.kit": "Kit de emergencia", "prep.plan": "Plan familiar", "prep.numbers": "Números de emergencia", "prep.na": "La guía todavía no está disponible.",
   "safe.title": "Lugares seguros cercanos", "safe.btn": "Buscar refugios y lugares seguros cerca de esta dirección", "safe.loading": "Buscando en OpenStreetMap…", "safe.none": "No hay nada mapeado a menos de 5 km. Consulte en defensa civil dónde están los refugios oficiales.", "safe.route": "ruta a pie",
@@ -42,7 +42,7 @@ I18N.add("pt", {
   "world.sort": "Ordenar por", "world.s.score": "Índice de mudança", "world.s.temp": "Aquecimento", "world.s.rain": "Mudança na chuva", "world.s.aedes": "Temporada do mosquito", "world.s.pop": "População",
   "world.city": "Cidade", "world.idx": "Índice", "world.more": "Ver todas", "world.na": "O panorama ainda não está disponível.",
   "world.note": "Índice de mudança (0–100): combina o tamanho das tendências significativas de temperatura, mês mais quente, chuva e temporada do mosquito. Mede a mudança do clima, não o dano às pessoas.",
-  "cal.title": "Seu ano neste endereço", "cal.intro": "O que cada mês costuma trazer aqui, pelos últimos 10 anos de registros diários (ERA5).", "cal.mosq": "Temporada do mosquito", "cal.hot": "Dias muito quentes", "cal.heavy": "Chuva forte", "cal.dry": "Estiagem", "cal.now": "este mês",
+  "cal.title": "Seu ano neste endereço", "cal.intro": "O que cada mês costuma trazer aqui, pelos últimos 10 anos de registros diários.", "cal.mosq": "Temporada do mosquito", "cal.hot": "Dias muito quentes", "cal.heavy": "Chuva forte", "cal.dry": "Estiagem", "cal.now": "este mês",
   "prep.title": "Esteja pronto", "prep.intro": "O que fazer antes, durante e depois de cada tipo de evento, pelas orientações oficiais de defesa civil. Os que combinam com este lugar vêm primeiro.", "prep.here": "vale aqui",
   "prep.shelter": "Onde se abrigar", "prep.before": "Antes", "prep.during": "Durante", "prep.after": "Depois", "prep.hazards": "O que fazer em cada tipo de evento", "world.k.warm": "cidades aquecendo de forma significativa", "world.k.mosq": "com temporada do mosquito mais longa", "world.k.dry": "com chuva significativamente menor", "prep.kit": "Kit de emergência", "prep.plan": "Plano da família", "prep.numbers": "Telefones de emergência", "prep.na": "O guia ainda não está disponível.",
   "safe.title": "Lugares seguros por perto", "safe.btn": "Buscar abrigos e lugares seguros perto deste endereço", "safe.loading": "Buscando no OpenStreetMap…", "safe.none": "Nada mapeado a até 5 km. Pergunte à Defesa Civil onde ficam os abrigos oficiais.", "safe.route": "rota a pé",
@@ -79,6 +79,33 @@ I18N.add("pt", {
   "home.3": "Condução, não só gráfico", "home.3d": "Da tendência à sua saúde e à sua cidade. O app aponta o próximo passo.",
   "home.try": "Ou comece por um destes", "step.next": "Próximo",
 });
+
+I18N.add("en", {
+  "hist.title": "What has already happened here", "hist.note": "History helps you choose what to prepare for. Earthquakes are not caused by climate; they are here because being ready is the same habit.",
+  "hist.cy": "tropical storms passed within about 150 km since 1981", "hist.cy.d": "{h} reached hurricane or typhoon strength. Strongest wind on record here: {w} km/h. By period (1981–91, 1992–2002, 2003–13, 2014–24): {p}.", "hist.cy.none": "No tropical storm on record within about 150 km since 1981.", "hist.cy.src": "Source: NOAA IBTrACS.",
+  "hist.eq": "earthquakes of magnitude 5 or more within 300 km since 1981", "hist.eq.d": "Largest: magnitude {m}, {place} ({y}).", "hist.eq.none": "No earthquake of magnitude 5 or more on record within 300 km since 1981.", "hist.eq.src": "Source: USGS Earthquake Catalog.",
+  "eq.recent": "Earthquakes in the last 30 days (within 300 km)", "eq.none30": "None of magnitude 5 or more.",
+});
+I18N.add("es", {
+  "hist.title": "Lo que ya pasó aquí", "hist.note": "La historia ayuda a elegir para qué prepararse. Los terremotos no son causados por el clima; están aquí porque prepararse es el mismo hábito.",
+  "hist.cy": "tormentas tropicales pasaron a unos 150 km desde 1981", "hist.cy.d": "{h} alcanzaron fuerza de huracán o tifón. Viento más fuerte registrado aquí: {w} km/h. Por período (1981–91, 1992–2002, 2003–13, 2014–24): {p}.", "hist.cy.none": "Ninguna tormenta tropical registrada a unos 150 km desde 1981.", "hist.cy.src": "Fuente: NOAA IBTrACS.",
+  "hist.eq": "terremotos de magnitud 5 o más a menos de 300 km desde 1981", "hist.eq.d": "El mayor: magnitud {m}, {place} ({y}).", "hist.eq.none": "Ningún terremoto de magnitud 5 o más registrado a menos de 300 km desde 1981.", "hist.eq.src": "Fuente: catálogo de terremotos del USGS.",
+  "eq.recent": "Terremotos en los últimos 30 días (a menos de 300 km)", "eq.none30": "Ninguno de magnitud 5 o más.",
+});
+I18N.add("pt", {
+  "hist.title": "O que já aconteceu aqui", "hist.note": "A história ajuda a escolher para o que se preparar. Terremotos não são causados pelo clima; estão aqui porque se preparar é o mesmo hábito.",
+  "hist.cy": "tempestades tropicais passaram a cerca de 150 km desde 1981", "hist.cy.d": "{h} chegaram à força de furacão ou tufão. Vento mais forte registrado aqui: {w} km/h. Por período (1981–91, 1992–2002, 2003–13, 2014–24): {p}.", "hist.cy.none": "Nenhuma tempestade tropical registrada a cerca de 150 km desde 1981.", "hist.cy.src": "Fonte: NOAA IBTrACS.",
+  "hist.eq": "terremotos de magnitude 5 ou mais a até 300 km desde 1981", "hist.eq.d": "O maior: magnitude {m}, {place} ({y}).", "hist.eq.none": "Nenhum terremoto de magnitude 5 ou mais registrado a até 300 km desde 1981.", "hist.eq.src": "Fonte: catálogo de terremotos do USGS.",
+  "eq.recent": "Terremotos nos últimos 30 dias (a até 300 km)", "eq.none30": "Nenhum de magnitude 5 ou mais.",
+});
+
+// USGS Earthquake Catalog: magnitude 5 or more within 300 km since 1981 (open, no key).
+async function fetchQuakes(lat, lon) {
+  const j = await getJSON(`https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&latitude=${lat.toFixed(3)}&longitude=${lon.toFixed(3)}&maxradiuskm=300&starttime=1981-01-01&minmagnitude=5&orderby=time&limit=5000`);
+  const ev = j.features.map((f) => ({ m: f.properties.mag, place: f.properties.place || "", time: f.properties.time, lat: f.geometry.coordinates[1], lon: f.geometry.coordinates[0] }));
+  const big = ev.reduce((a, b) => (!a || b.m > a.m ? b : a), null);
+  return { count: ev.length, big, recent: ev.filter((e) => e.time > Date.now() - 30 * 864e5).slice(0, 6) };
+}
 
 const Extras2 = (() => {
   const ui = { pano: undefined, sort: "score", all: false, prep: undefined, layers: {}, tab: "place" };
@@ -121,13 +148,36 @@ const Extras2 = (() => {
   /* ---------- year calendar for the address ---------- */
   function renderCalendar() {
     const box = document.querySelector("#calendar-box"), r = state.main; if (!box) return;
-    const cal = r?.era5?.calendar; if (!cal) { box.innerHTML = ""; return; }
+    const cal = (r?.era5 || r?.nasad)?.calendar; if (!cal) { box.innerHTML = ""; return; }
     const south = r.lat < 0, now = new Date().getMonth();
     const mon = Array.from({ length: 12 }, (_, m) => new Date(2024, m, 15).toLocaleDateString(I18N.locale(), { month: "short" }).replace(".", ""));
     const rowsDef = [["🦟", "cal.mosq", (c) => c.aedes, "#b2592a"], ["🥵", "cal.hot", (c) => Math.min(c.hot / 0.25, 1), "#c08a2e"], ["🌧", "cal.heavy", (c) => Math.min(c.heavy / 1.5, 1), "#3d6f8e"], ["🏜", "cal.dry", (c) => Math.max(0, Math.min(1, 1 - c.rain / 60)), "#8a6d3b"]];
     let h = `<h3>${t("cal.title")}</h3><p class="muted small">${t("cal.intro")}</p><div class="calgrid"><div></div>${mon.map((m, i) => `<div class="calm ${i === now ? "now" : ""}">${m}</div>`).join("")}`;
     for (const [ic, k, f, col] of rowsDef) h += `<div class="callab">${ic} ${t(k)}</div>` + cal.map((c, i) => { const v = f(c); return `<div class="calc ${i === now ? "now" : ""}" style="background:${col};opacity:${(0.08 + 0.92 * v).toFixed(2)}" title="${mon[i]}: ${fmt(v * 100, 0)}%"></div>`; }).join("");
     box.innerHTML = h + `</div>`;
+  }
+
+  /* ---------- hazard history at this place: tropical storms (NOAA IBTrACS grid) and earthquakes (USGS) ---------- */
+  function cycloneAt(r) {
+    if (ui.cy === undefined) { ui.cy = null; fetch("data/cyclones.json").then((x) => (x.ok ? x.json() : false)).then((j) => { ui.cy = j; }).catch(() => { ui.cy = false; }).finally(() => renderPrepare()); }
+    if (!ui.cy || !r) return ui.cy === false ? false : null;
+    const c = ui.cy.cells[`${Math.round(r.lat)},${Math.round(r.lon)}`];
+    return c ? { per: c[0], total: c[0].reduce((a, b) => a + b, 0), hurr: c[1], wind: c[2] } : { per: [0, 0, 0, 0], total: 0, hurr: 0, wind: 0 };
+  }
+  function historyBlock(r) {
+    if (!r) return "";
+    const cy = cycloneAt(r), q = r.quakes;
+    let h = `<h3>${t("hist.title")}</h3>`;
+    if (cy) h += cy.total ? `<div class="factrow ${cy.total >= 5 ? "flag" : ""}"><div class="fact-num">${cy.total}</div><div><p>${t("hist.cy")}</p><p class="muted small">${t("hist.cy.d", { h: cy.hurr, w: fmt(cy.wind * 1.852, 0), p: cy.per.join(" · ") })} ${t("hist.cy.src")}</p></div></div>`
+      : `<div class="factrow"><div class="fact-num">0</div><div><p>${t("hist.cy.none")}</p><p class="muted small">${t("hist.cy.src")}</p></div></div>`;
+    if (q) h += q.count ? `<div class="factrow ${q.count >= 5 ? "flag" : ""}"><div class="fact-num">${q.count}</div><div><p>${t("hist.eq")}</p><p class="muted small">${t("hist.eq.d", { m: fmt(q.big.m, 1), place: esc(q.big.place), y: new Date(q.big.time).getFullYear() })} ${t("hist.eq.src")}</p></div></div>`
+      : `<div class="factrow"><div class="fact-num">0</div><div><p>${t("hist.eq.none")}</p><p class="muted small">${t("hist.eq.src")}</p></div></div>`;
+    return h + `<p class="muted small">${t("hist.note")}</p>`;
+  }
+  function renderQuakes() {
+    const box = document.querySelector("#quake-box"), q = state.main?.quakes; if (!box) return;
+    if (!q || !q.count) { box.innerHTML = ""; return; }
+    box.innerHTML = `<h3>${t("eq.recent")}</h3>` + (q.recent.length ? `<ul class="rows nums">${q.recent.map((e) => `<li><div><b>M ${fmt(e.m, 1)} · ${esc(e.place)}</b><span class="muted small">${new Date(e.time).toLocaleDateString(I18N.locale())}</span></div><span class="dist">${fmt(km(state.main.lat, state.main.lon, e.lat, e.lon), 0)} km</span></li>`).join("")}</ul>` : `<p class="muted">${t("eq.none30")}</p>`);
   }
 
   /* ---------- preparedness ---------- */
@@ -140,6 +190,8 @@ const Extras2 = (() => {
     const ev = (r.events || []).map((e) => e.cat.toLowerCase()).join(" ");
     if (/wildfire/.test(ev) || r.now?.pm25 > 35) s.add("wildfire");
     if (/storm/.test(ev)) { s.add("storm"); s.add("cyclone"); }
+    const cy = cycloneAt(r); if (cy && cy.total >= 3) s.add("cyclone");
+    if (r.quakes?.count >= 3) s.add("earthquake");
     if (r.now?.days?.some((d) => d.rain >= 30)) s.add("storm");
     if (r.now?.days?.some((d) => d.tmin <= 2)) s.add("cold");
     return s;
@@ -169,6 +221,7 @@ const Extras2 = (() => {
     let done = {}; try { done = JSON.parse(localStorage.getItem("geocare.checks") || "{}"); } catch (_) { /* storage unavailable */ }
     const checks = (id, o) => { const items = tx(o) || [], n = items.filter((_, i) => done[id + i]).length; return `<p class="prog"><b>${n}</b>/${items.length}</p><ul class="check">${items.map((x, i) => `<li><label><input type="checkbox" data-c="${id + i}" ${done[id + i] ? "checked" : ""}><span>${esc(x)}</span></label></li>`).join("")}</ul>`; };
     let h = `<h2>${t("prep.title")}</h2><p class="muted small">${t("prep.intro")}</p>`;
+    h += historyBlock(r);
     if (r) {
       h += `<section class="band"><p class="eyebrow">${t("safe.title")}</p>`;
       if (!r.safe) h += `<button class="btn wide" id="safe-btn">${t("safe.btn")}</button>`;
@@ -242,7 +295,7 @@ const Extras2 = (() => {
     return `<p class="eyebrow">${t("home.eyebrow")}</p><h2 class="hero">${t("home.title")}</h2><p class="lead">${t("home.lead")}</p><ol class="points">${pt(1)}${pt(2)}${pt(3)}</ol><p class="plabel">${t("home.try")}</p>`;
   }
 
-  function render() { renderWorld(); renderCalendar(); renderPrepare(); renderSat(); schedule(); }
+  function render() { renderWorld(); renderCalendar(); renderPrepare(); renderSat(); renderQuakes(); schedule(); }
   function onTab(name) { ui.tab = name; drawWorld(); if (name === "world" && ui.pano) map.setView([10, 10], 2); }
   return { render, onTab, hero };
 })();

@@ -1,805 +1,1059 @@
 {
-  "hazards": [
-    {
-      "id": "heat",
-      "icon": "🌡️",
-      "name": {"en": "Extreme heat", "es": "Calor extremo", "pt": "Calor extremo"},
-      "shelter": {
-        "en": "Stay in the coolest room of the house or go to an air-conditioned public place or cooling centre. Do not stay in a parked car or in direct sun in the hottest hours.",
-        "es": "Quédate en la habitación más fresca de la casa o ve a un lugar público con aire acondicionado o a un centro de enfriamiento. No te quedes en un auto estacionado ni al sol en las horas de más calor.",
-        "pt": "Fique no cômodo mais fresco da casa ou vá a um local público com ar-condicionado ou a um centro de resfriamento. Não fique em carro estacionado nem no sol nas horas mais quentes."
-      },
-      "before": {
-        "en": [
-          "Find the nearest cooling centre or air-conditioned public place, such as a library or shopping centre.",
-          "Cover sunny windows with curtains, shades or reflective material. Check that fans and air conditioning work.",
-          "Store drinking water. Plan how to keep cool the medicines that need a refrigerator if the power fails.",
-          "List older, sick or isolated neighbours and relatives to check on during heat waves.",
-          "Make sure pets and farm animals have shade and plenty of fresh water."
-        ],
-        "es": [
-          "Ubica el centro de enfriamiento o lugar público con aire acondicionado más cercano, como una biblioteca o un centro comercial.",
-          "Cubre las ventanas que reciben sol con cortinas, toldos o material reflectante. Revisa que ventiladores y aire funcionen.",
-          "Guarda agua potable. Planifica cómo mantener fríos los medicamentos que necesitan heladera si se corta la luz.",
-          "Anota a los vecinos y familiares mayores, enfermos o que viven solos para visitarlos durante las olas de calor.",
-          "Asegura sombra y abundante agua fresca para las mascotas y los animales de granja."
-        ],
-        "pt": [
-          "Descubra o centro de resfriamento ou local público com ar-condicionado mais próximo, como biblioteca ou shopping.",
-          "Cubra as janelas que pegam sol com cortinas, toldos ou material refletivo. Confira se ventiladores e ar funcionam.",
-          "Guarde água potável. Planeje como manter frios os remédios que precisam de geladeira se faltar energia.",
-          "Liste vizinhos e parentes idosos, doentes ou que moram sozinhos para visitar durante as ondas de calor.",
-          "Garanta sombra e bastante água fresca para os animais de estimação e de criação."
-        ]
-      },
-      "during": {
-        "en": [
-          "Drink water often, even if you are not thirsty. Avoid alcohol and very sugary drinks.",
-          "Stay out of the sun in the hottest hours. Wear light, loose, light-coloured clothes and a hat.",
-          "Never leave children, older people or pets in a parked vehicle, not even for a minute.",
-          "Check on older neighbours, people living alone and the sick at least twice a day.",
-          "Cool down with showers or wet cloths. In very high heat a fan alone does not prevent heat illness."
-        ],
-        "es": [
-          "Toma agua seguido, aunque no tengas sed. Evita el alcohol y las bebidas muy azucaradas.",
-          "Evita el sol en las horas de más calor. Usa ropa liviana, holgada y de color claro, y sombrero.",
-          "Nunca dejes a niños, personas mayores o mascotas en un vehículo estacionado, ni por un minuto.",
-          "Visita o llama a los vecinos mayores, a quienes viven solos y a los enfermos al menos dos veces al día.",
-          "Refréscate con duchas o paños húmedos. Con calor muy intenso, el ventilador solo no evita el golpe de calor."
-        ],
-        "pt": [
-          "Beba água com frequência, mesmo sem sede. Evite álcool e bebidas muito açucaradas.",
-          "Evite o sol nas horas mais quentes. Use roupas leves, folgadas e claras, e chapéu.",
-          "Nunca deixe crianças, idosos ou animais em veículo estacionado, nem por um minuto.",
-          "Visite ou ligue para vizinhos idosos, pessoas que moram sozinhas e doentes pelo menos duas vezes por dia.",
-          "Refresque-se com banhos ou panos úmidos. No calor muito intenso, só o ventilador não evita a doença pelo calor."
-        ]
-      },
-      "after": {
-        "en": [
-          "Heat stroke signs: very high body temperature, confusion, fainting, hot skin. Call emergency services and cool the person at once.",
-          "Heat exhaustion signs: heavy sweating, weakness, dizziness, nausea. Move to a cool place, loosen clothes and sip water.",
-          "Get medical help if heat exhaustion symptoms get worse or last more than one hour.",
-          "If the power failed, throw away refrigerated food that stayed warm for hours. When in doubt, throw it out."
-        ],
-        "es": [
-          "Signos de golpe de calor: temperatura muy alta, confusión, desmayo, piel caliente. Llama a emergencias y enfría a la persona de inmediato.",
-          "Signos de agotamiento por calor: mucho sudor, debilidad, mareo, náuseas. Lleva a la persona a un lugar fresco, afloja la ropa y dale sorbos de agua.",
-          "Busca atención médica si los síntomas de agotamiento por calor empeoran o duran más de una hora.",
-          "Si se cortó la luz, tira los alimentos refrigerados que estuvieron horas sin frío. Ante la duda, tíralos."
-        ],
-        "pt": [
-          "Sinais de insolação grave: temperatura muito alta, confusão, desmaio, pele quente. Ligue para a emergência e resfrie a pessoa na hora.",
-          "Sinais de exaustão pelo calor: muito suor, fraqueza, tontura, náusea. Leve a pessoa a um lugar fresco, afrouxe a roupa e dê goles de água.",
-          "Procure atendimento médico se os sintomas de exaustão pelo calor piorarem ou durarem mais de uma hora.",
-          "Se faltou energia, jogue fora os alimentos refrigerados que ficaram horas sem frio. Na dúvida, descarte."
-        ]
-      },
-      "source_name": "Ready.gov (FEMA) and US CDC",
-      "source": "https://www.ready.gov/heat"
-    },
-    {
-      "id": "flood",
-      "icon": "🌊",
-      "name": {"en": "Flood", "es": "Inundación", "pt": "Enchente e inundação"},
-      "shelter": {
-        "en": "Go to higher ground, the highest floor of a sturdy building or the shelter named by the authorities. Do not shelter in a basement, a closed attic or a vehicle surrounded by water.",
-        "es": "Ve a un terreno alto, al piso más alto de un edificio firme o al albergue indicado por las autoridades. No te refugies en un sótano, en un altillo cerrado ni en un vehículo rodeado de agua.",
-        "pt": "Vá para um terreno alto, para o andar mais alto de um prédio firme ou para o abrigo indicado pelas autoridades. Não se abrigue em porão, em sótão fechado nem em veículo cercado de água."
-      },
-      "before": {
-        "en": [
-          "Find out if your home is in a flood risk area and learn the evacuation route to higher ground.",
-          "Keep documents in a waterproof bag and save copies on your phone or online.",
-          "Clean gutters, drains and ditches on your land. Move valuables and appliances to higher shelves or floors.",
-          "Sign up for local alerts and agree where the family will meet if you must leave.",
-          "Plan where to take animals and vehicles on higher ground."
-        ],
-        "es": [
-          "Averigua si tu casa está en zona de riesgo de inundación y aprende la ruta de evacuación hacia terreno alto.",
-          "Guarda los documentos en una bolsa impermeable y ten copias en el teléfono o en internet.",
-          "Limpia canaletas, desagües y zanjas del terreno. Sube objetos de valor y electrodomésticos a estantes o pisos altos.",
-          "Suscríbete a las alertas locales y acuerda dónde se reunirá la familia si hay que salir.",
-          "Planifica a qué lugar alto llevarás los animales y los vehículos."
-        ],
-        "pt": [
-          "Descubra se sua casa fica em área de risco de inundação e aprenda a rota de saída para um terreno alto.",
-          "Guarde os documentos em saco impermeável e tenha cópias no celular ou na internet.",
-          "Limpe calhas, ralos e valas do terreno. Leve objetos de valor e eletrodomésticos para prateleiras ou andares altos.",
-          "Cadastre-se nos alertas locais e combine onde a família vai se encontrar se for preciso sair.",
-          "Planeje para qual lugar alto levar os animais e os veículos."
-        ]
-      },
-      "during": {
-        "en": [
-          "Leave at once if told to evacuate. Do not wait for the water to reach the house.",
-          "Turn around, don't drown: never walk, swim or drive through floodwater.",
-          "15 cm of fast-moving water can knock an adult down. 30 cm can carry away a small car.",
-          "If water is coming in, switch off the electricity at the main switch if it is safe, and go to the highest floor.",
-          "Stay off bridges over fast-moving water and away from fallen power lines."
-        ],
-        "es": [
-          "Sal de inmediato si ordenan evacuar. No esperes a que el agua llegue a la casa.",
-          "Da la vuelta, no te ahogues: nunca camines, nades ni manejes por agua de inundación.",
-          "15 cm de agua en movimiento pueden derribar a un adulto. 30 cm pueden arrastrar un auto pequeño.",
-          "Si entra agua, corta la electricidad desde la llave general si es seguro hacerlo y sube al piso más alto.",
-          "No cruces puentes sobre agua con corriente fuerte y aléjate de los cables caídos."
-        ],
-        "pt": [
-          "Saia imediatamente se mandarem evacuar. Não espere a água chegar à casa.",
-          "Dê meia-volta, não se afogue: nunca ande, nade ou dirija em água de enchente.",
-          "15 cm de água em movimento podem derrubar um adulto. 30 cm podem arrastar um carro pequeno.",
-          "Se a água entrar, desligue a energia na chave geral se for seguro e suba para o andar mais alto.",
-          "Não atravesse pontes sobre água com correnteza forte e fique longe de fios caídos."
-        ]
-      },
-      "after": {
-        "en": [
-          "Return only when authorities say it is safe. Do not touch electrical equipment that is wet or while standing in water.",
-          "Wear boots and gloves to clean. Wash hands with soap and safe water. Throw away food that touched floodwater.",
-          "Drink only bottled, boiled or treated water until the supply is declared safe.",
-          "Fever, headache or muscle pain in the weeks after contact with floodwater or mud can be leptospirosis. Seek care and mention the flood."
-        ],
-        "es": [
-          "Vuelve solo cuando las autoridades digan que es seguro. No toques equipos eléctricos mojados ni estando parado en agua.",
-          "Usa botas y guantes para limpiar. Lávate las manos con jabón y agua segura. Tira la comida que tocó el agua de inundación.",
-          "Toma solo agua embotellada, hervida o tratada hasta que declaren segura la red.",
-          "Fiebre, dolor de cabeza o dolor muscular en las semanas posteriores al contacto con agua o barro puede ser leptospirosis. Consulta y menciona la inundación."
-        ],
-        "pt": [
-          "Volte só quando as autoridades disserem que é seguro. Não toque em aparelhos elétricos molhados nem com os pés na água.",
-          "Use botas e luvas na limpeza. Lave as mãos com sabão e água segura. Jogue fora a comida que teve contato com a água da enchente.",
-          "Beba só água mineral, fervida ou tratada até a rede ser declarada segura.",
-          "Febre, dor de cabeça ou dor muscular nas semanas após contato com água ou lama pode ser leptospirose. Procure atendimento e conte sobre a enchente."
-        ]
-      },
-      "source_name": "Ready.gov (FEMA), US National Weather Service and US CDC",
-      "source": "https://www.ready.gov/floods"
-    },
-    {
-      "id": "storm",
-      "icon": "⛈️",
-      "name": {"en": "Severe storm, lightning and hail", "es": "Tormenta fuerte, rayos y granizo", "pt": "Tempestade, raios e granizo"},
-      "shelter": {
-        "en": "Go inside a sturdy, closed building or a hard-topped vehicle with the windows shut. Do not shelter under trees, in open sheds or tents, or near water.",
-        "es": "Entra a un edificio firme y cerrado o a un vehículo de techo rígido con las ventanas cerradas. No te refugies bajo árboles, en galpones abiertos o carpas, ni cerca del agua.",
-        "pt": "Entre em um prédio firme e fechado ou em um veículo de teto rígido com os vidros fechados. Não se abrigue debaixo de árvores, em galpões abertos ou barracas, nem perto da água."
-      },
-      "before": {
-        "en": [
-          "Follow the forecast and warnings. Postpone outdoor work, sport and travel if thunderstorms are expected.",
-          "Trim weak branches and remove dead trees near the house. Tie down or bring in loose objects.",
-          "Park vehicles under cover and bring animals into shelter to protect them from hail.",
-          "Charge phones and keep a torch ready for power cuts. Consider surge protectors for appliances."
-        ],
-        "es": [
-          "Sigue el pronóstico y los avisos. Posterga trabajos al aire libre, deportes y viajes si se esperan tormentas.",
-          "Poda las ramas débiles y retira árboles secos cerca de la casa. Ata o guarda los objetos sueltos.",
-          "Guarda los vehículos bajo techo y lleva a los animales a un refugio para protegerlos del granizo.",
-          "Carga los teléfonos y ten una linterna a mano por si se corta la luz. Considera usar protectores de tensión."
-        ],
-        "pt": [
-          "Acompanhe a previsão e os avisos. Adie trabalhos ao ar livre, esportes e viagens se houver previsão de tempestade.",
-          "Pode galhos fracos e retire árvores mortas perto da casa. Amarre ou guarde os objetos soltos.",
-          "Guarde os veículos em local coberto e leve os animais para um abrigo para protegê-los do granizo.",
-          "Carregue os celulares e deixe uma lanterna à mão para falta de energia. Considere usar protetores contra surtos."
-        ]
-      },
-      "during": {
-        "en": [
-          "When thunder roars, go indoors. If you can hear thunder, lightning is close enough to strike you.",
-          "30-30 rule: if thunder follows the flash in under 30 seconds, take shelter. Wait 30 minutes after the last thunder.",
-          "Indoors, stay away from windows. Do not use corded phones, plugged-in appliances, showers or taps.",
-          "Caught outside: leave hilltops, open fields and water. Keep away from trees, fences and poles. Do not lie flat.",
-          "In hail or strong wind stay away from windows and glass doors. If driving, pull over safely and stay in the vehicle."
-        ],
-        "es": [
-          "Si escuchas truenos, entra a un lugar cerrado. Si oyes el trueno, el rayo está lo bastante cerca para alcanzarte.",
-          "Regla 30-30: si el trueno llega menos de 30 segundos después del relámpago, refúgiate. Espera 30 minutos tras el último trueno.",
-          "Adentro, aléjate de las ventanas. No uses teléfonos con cable, aparatos enchufados, duchas ni canillas.",
-          "Si estás afuera: sal de cerros, campos abiertos y del agua. Aléjate de árboles, alambrados y postes. No te acuestes en el suelo.",
-          "Con granizo o viento fuerte, aléjate de ventanas y puertas de vidrio. Si manejas, detente en un lugar seguro y quédate en el vehículo."
-        ],
-        "pt": [
-          "Ouviu trovão, entre em um local fechado. Se dá para ouvir o trovão, o raio está perto o bastante para atingir você.",
-          "Regra 30-30: se o trovão vier menos de 30 segundos depois do clarão, abrigue-se. Espere 30 minutos após o último trovão.",
-          "Dentro de casa, fique longe das janelas. Não use telefone com fio, aparelhos na tomada, chuveiro nem torneiras.",
-          "Se estiver na rua: saia de morros, campos abertos e da água. Fique longe de árvores, cercas e postes. Não deite no chão.",
-          "Com granizo ou vento forte, fique longe de janelas e portas de vidro. Se estiver dirigindo, pare em local seguro e fique no veículo."
-        ]
-      },
-      "after": {
-        "en": [
-          "Stay away from fallen power lines and report them. Treat every fallen line as live.",
-          "A person struck by lightning carries no electrical charge. Call emergency services and give first aid or CPR if you are trained.",
-          "If the power is out, never run a generator or charcoal grill indoors. They produce carbon monoxide, which can kill.",
-          "Check the roof, windows and trees for damage. Take photos for insurance or aid claims."
-        ],
-        "es": [
-          "Aléjate de los cables caídos y avisa a la empresa eléctrica. Considera que todo cable caído tiene corriente.",
-          "Una persona alcanzada por un rayo no tiene carga eléctrica. Llama a emergencias y da primeros auxilios o RCP si sabes hacerlo.",
-          "Si no hay luz, nunca uses un generador ni una parrilla a carbón adentro. Producen monóxido de carbono, que puede matar.",
-          "Revisa los daños en el techo, las ventanas y los árboles. Toma fotos para el seguro o para pedir ayuda."
-        ],
-        "pt": [
-          "Fique longe de fios caídos e avise a companhia de energia. Trate todo fio caído como energizado.",
-          "Uma pessoa atingida por raio não fica com carga elétrica. Ligue para a emergência e faça primeiros socorros ou RCP se tiver treinamento.",
-          "Se faltar energia, nunca use gerador nem churrasqueira a carvão dentro de casa. Eles produzem monóxido de carbono, que pode matar.",
-          "Verifique os danos no telhado, nas janelas e nas árvores. Tire fotos para o seguro ou para pedir auxílio."
-        ]
-      },
-      "source_name": "US National Weather Service (NOAA) and Ready.gov (FEMA)",
-      "source": "https://www.weather.gov/safety/lightning-safety"
-    },
-    {
-      "id": "tornado",
-      "icon": "🌪️",
-      "name": {"en": "Tornado", "es": "Tornado", "pt": "Tornado"},
-      "shelter": {
-        "en": "Go to a basement, a storm shelter or a small interior room without windows on the lowest floor of a sturdy building. Do not stay in a mobile home or a vehicle, and do not shelter under a highway overpass.",
-        "es": "Ve a un sótano, a un refugio contra tormentas o a una habitación interior pequeña y sin ventanas en el piso más bajo de un edificio firme. No te quedes en una casa rodante o prefabricada ni en un vehículo, y no te refugies bajo un puente de autopista.",
-        "pt": "Vá para um porão, um abrigo contra tempestades ou um cômodo interno pequeno e sem janelas no andar mais baixo de um prédio firme. Não fique em casa móvel ou pré-fabricada nem em veículo, e não se abrigue debaixo de viaduto."
-      },
-      "before": {
-        "en": [
-          "Choose your safe place now: a basement, a storm shelter or a windowless interior room on the lowest floor.",
-          "Know the signs: a rotating funnel cloud, an approaching cloud of debris, a loud roar like a freight train.",
-          "Know the difference: a tornado watch means be ready. A tornado warning means take shelter now.",
-          "If you live in a mobile home or a light house, decide in advance which sturdy building you will go to.",
-          "Practise a family tornado drill. Keep sturdy shoes, a torch and a whistle in the safe place."
-        ],
-        "es": [
-          "Elige ya tu lugar seguro: un sótano, un refugio o una habitación interior sin ventanas en el piso más bajo.",
-          "Conoce las señales: nube en forma de embudo que gira, nube de escombros que se acerca, ruido fuerte como de tren de carga.",
-          "Conoce la diferencia: vigilancia de tornado significa estar listo. Aviso de tornado significa refugiarse ya.",
-          "Si vives en una casa rodante o de construcción liviana, decide de antemano a qué edificio firme irás.",
-          "Practica un simulacro de tornado en familia. Deja calzado firme, una linterna y un silbato en el lugar seguro."
-        ],
-        "pt": [
-          "Escolha já o seu lugar seguro: um porão, um abrigo ou um cômodo interno sem janelas no andar mais baixo.",
-          "Conheça os sinais: nuvem em forma de funil girando, nuvem de destroços se aproximando, barulho forte como de trem de carga.",
-          "Saiba a diferença: alerta de vigilância significa ficar pronto. Aviso de tornado significa abrigar-se agora.",
-          "Se você mora em casa móvel ou de construção leve, decida antes para qual prédio firme vai.",
-          "Faça um treino de tornado com a família. Deixe calçado firme, lanterna e apito no lugar seguro."
-        ]
-      },
-      "during": {
-        "en": [
-          "Go to your safe place at once. Do not wait until you see the tornado.",
-          "Stay away from windows, doors and outside walls. Do not waste time opening windows.",
-          "Get under something sturdy and cover your head and neck with your arms, a mattress or blankets.",
-          "Leave mobile homes and vehicles for a sturdy building. Do not shelter under a highway overpass.",
-          "With no building nearby, as a last resort lie in a low spot or stay belted in the car. Cover your head and neck."
-        ],
-        "es": [
-          "Ve a tu lugar seguro de inmediato. No esperes a ver el tornado.",
-          "Aléjate de ventanas, puertas y paredes exteriores. No pierdas tiempo abriendo ventanas.",
-          "Ponte debajo de algo firme y cúbrete la cabeza y el cuello con los brazos, un colchón o mantas.",
-          "Sal de casas rodantes y vehículos y ve a un edificio firme. No te refugies bajo un puente de autopista.",
-          "Sin edificio cerca, como último recurso acuéstate en un lugar bajo o quédate en el auto con cinturón. Cúbrete cabeza y cuello."
-        ],
-        "pt": [
-          "Vá para o seu lugar seguro imediatamente. Não espere ver o tornado.",
-          "Fique longe de janelas, portas e paredes externas. Não perca tempo abrindo janelas.",
-          "Fique debaixo de algo firme e cubra a cabeça e o pescoço com os braços, um colchão ou cobertores.",
-          "Saia de casas móveis e veículos e vá para um prédio firme. Não se abrigue debaixo de viaduto.",
-          "Sem prédio por perto, em último caso deite em um local baixo ou fique no carro com cinto. Cubra cabeça e pescoço."
-        ]
-      },
-      "after": {
-        "en": [
-          "Stay out of damaged buildings. Watch for fallen power lines, broken gas pipes, glass and nails.",
-          "Send text messages instead of calling, so lines stay free for emergencies. Follow official information.",
-          "Wear sturdy shoes, long sleeves and gloves to clean up. Clean wounds and check that your tetanus vaccine is up to date.",
-          "If the power is out, use torches, not candles. Keep generators outdoors and far from windows to avoid carbon monoxide."
-        ],
-        "es": [
-          "No entres a edificios dañados. Cuidado con cables caídos, caños de gas rotos, vidrios y clavos.",
-          "Envía mensajes de texto en vez de llamar, para dejar las líneas libres para emergencias. Sigue la información oficial.",
-          "Usa calzado firme, mangas largas y guantes para limpiar. Limpia las heridas y revisa que tu vacuna antitetánica esté al día.",
-          "Si no hay luz, usa linternas y no velas. Deja los generadores afuera y lejos de las ventanas para evitar el monóxido de carbono."
-        ],
-        "pt": [
-          "Não entre em prédios danificados. Cuidado com fios caídos, canos de gás rompidos, vidros e pregos.",
-          "Mande mensagens de texto em vez de ligar, para deixar as linhas livres para emergências. Siga as informações oficiais.",
-          "Use calçado firme, mangas compridas e luvas na limpeza. Limpe os ferimentos e confira se a vacina antitetânica está em dia.",
-          "Se faltar energia, use lanternas, não velas. Deixe geradores do lado de fora e longe das janelas para evitar monóxido de carbono."
-        ]
-      },
-      "source_name": "US National Weather Service (NOAA) and Ready.gov (FEMA)",
-      "source": "https://www.weather.gov/safety/tornado"
-    },
-    {
-      "id": "cyclone",
-      "icon": "🌀",
-      "name": {"en": "Tropical cyclone, hurricane or typhoon", "es": "Ciclón tropical, huracán o tifón", "pt": "Ciclone tropical, furacão ou tufão"},
-      "shelter": {
-        "en": "If you are in an evacuation zone or a weak house, leave early for an official shelter or a sturdy building inland. If you stay, use an interior room away from windows. Never stay near the shore during storm surge.",
-        "es": "Si estás en una zona de evacuación o en una casa precaria, sal temprano hacia un albergue oficial o un edificio firme tierra adentro. Si te quedas, usa una habitación interior lejos de las ventanas. Nunca te quedes cerca de la costa durante la marejada ciclónica.",
-        "pt": "Se você está em zona de evacuação ou em casa frágil, saia cedo para um abrigo oficial ou um prédio firme longe do litoral. Se ficar, use um cômodo interno longe das janelas. Nunca fique perto da costa durante a maré de tempestade."
-      },
-      "before": {
-        "en": [
-          "Find out your evacuation zone and route. Decide where you will go and how, including pets.",
-          "Cover windows with shutters or plywood. Bring in or tie down loose objects. Trim trees.",
-          "Fill the fuel tank, charge phones and power banks, and stock water, food and medicines for several days.",
-          "Protect documents in a waterproof bag. Clean gutters and drains.",
-          "Follow the forecasts of your national weather service and sign up for official alerts."
-        ],
-        "es": [
-          "Averigua tu zona y tu ruta de evacuación. Decide a dónde irás y cómo, incluidas las mascotas.",
-          "Cubre las ventanas con postigos o madera terciada. Guarda o ata los objetos sueltos. Poda los árboles.",
-          "Llena el tanque de combustible, carga teléfonos y baterías, y reúne agua, comida y medicamentos para varios días.",
-          "Protege los documentos en una bolsa impermeable. Limpia canaletas y desagües.",
-          "Sigue los pronósticos del servicio meteorológico nacional y suscríbete a las alertas oficiales."
-        ],
-        "pt": [
-          "Descubra sua zona e sua rota de evacuação. Decida para onde vai e como, incluindo os animais.",
-          "Proteja as janelas com venezianas ou compensado. Guarde ou amarre os objetos soltos. Pode as árvores.",
-          "Encha o tanque de combustível, carregue celulares e baterias, e junte água, comida e remédios para vários dias.",
-          "Proteja os documentos em saco impermeável. Limpe calhas e ralos.",
-          "Acompanhe as previsões do serviço meteorológico nacional e cadastre-se nos alertas oficiais."
-        ]
-      },
-      "during": {
-        "en": [
-          "Evacuate immediately if the authorities order it. Storm surge is the deadliest part of a tropical cyclone.",
-          "Stay indoors, away from windows and glass doors, in a small interior room or hallway on a floor that will not flood.",
-          "Do not go out when the eye passes. The calm is short and the wind returns from the opposite direction.",
-          "If water rises, go to the highest floor. Do not climb into a closed attic, where you can be trapped.",
-          "Never walk or drive through floodwater."
-        ],
-        "es": [
-          "Evacúa de inmediato si las autoridades lo ordenan. La marejada ciclónica es la parte más mortal de un ciclón tropical.",
-          "Quédate adentro, lejos de ventanas y puertas de vidrio, en una habitación interior o pasillo de un piso que no se inunde.",
-          "No salgas cuando pasa el ojo. La calma dura poco y el viento vuelve desde la dirección contraria.",
-          "Si el agua sube, ve al piso más alto. No subas a un altillo cerrado, donde puedes quedar atrapado.",
-          "Nunca camines ni manejes por agua de inundación."
-        ],
-        "pt": [
-          "Evacue imediatamente se as autoridades mandarem. A maré de tempestade é a parte mais mortal de um ciclone tropical.",
-          "Fique dentro de casa, longe de janelas e portas de vidro, em um cômodo interno ou corredor de um andar que não alague.",
-          "Não saia quando o olho passar. A calmaria dura pouco e o vento volta da direção contrária.",
-          "Se a água subir, vá para o andar mais alto. Não suba em sótão fechado, onde você pode ficar preso.",
-          "Nunca ande nem dirija em água de enchente."
-        ]
-      },
-      "after": {
-        "en": [
-          "Return only when authorities say it is safe. Avoid fallen power lines and damaged buildings.",
-          "Keep generators outdoors, far from windows and doors. Carbon monoxide has no smell and can kill.",
-          "Drink bottled, boiled or treated water. Throw away food that got wet or stayed without refrigeration.",
-          "Empty containers with standing water to stop mosquitoes. Clean wounds and seek care for fever or diarrhoea."
-        ],
-        "es": [
-          "Vuelve solo cuando las autoridades digan que es seguro. Evita los cables caídos y los edificios dañados.",
-          "Deja los generadores afuera, lejos de ventanas y puertas. El monóxido de carbono no tiene olor y puede matar.",
-          "Toma agua embotellada, hervida o tratada. Tira la comida que se mojó o quedó sin refrigeración.",
-          "Vacía los recipientes con agua estancada para frenar a los mosquitos. Limpia las heridas y consulta si hay fiebre o diarrea."
-        ],
-        "pt": [
-          "Volte só quando as autoridades disserem que é seguro. Evite fios caídos e prédios danificados.",
-          "Deixe geradores do lado de fora, longe de janelas e portas. O monóxido de carbono não tem cheiro e pode matar.",
-          "Beba água mineral, fervida ou tratada. Jogue fora a comida que molhou ou ficou sem refrigeração.",
-          "Esvazie recipientes com água parada para barrar os mosquitos. Limpe os ferimentos e procure atendimento se houver febre ou diarreia."
-        ]
-      },
-      "source_name": "Ready.gov (FEMA) and US National Hurricane Center (NOAA)",
-      "source": "https://www.ready.gov/hurricanes"
-    },
-    {
-      "id": "wildfire",
-      "icon": "🔥",
-      "name": {"en": "Wildfire and smoke", "es": "Incendio forestal y humo", "pt": "Incêndio florestal e fumaça"},
-      "shelter": {
-        "en": "Leave early by the route the authorities indicate, to an official shelter or an area away from fire and smoke. Do not wait until you see flames and do not go back for belongings.",
-        "es": "Sal temprano por la ruta que indiquen las autoridades, hacia un albergue oficial o una zona lejos del fuego y del humo. No esperes a ver las llamas ni vuelvas a buscar pertenencias.",
-        "pt": "Saia cedo pela rota indicada pelas autoridades, para um abrigo oficial ou uma área longe do fogo e da fumaça. Não espere ver as chamas nem volte para buscar pertences."
-      },
-      "before": {
-        "en": [
-          "Clear dry leaves, branches and firewood from at least 10 m (30 feet) around the house. Clean the roof and gutters.",
-          "Never burn rubbish or fields on dry, windy days. Follow local burning bans.",
-          "Know at least two ways out of your area. Keep the car fuelled and parked facing the way out.",
-          "Keep N95 or PFF2 masks in the kit and choose a room you can close off from smoke.",
-          "Keep a hose that reaches the whole property. Store documents in a fireproof place and as digital copies."
-        ],
-        "es": [
-          "Retira hojas secas, ramas y leña de al menos 10 m alrededor de la casa. Limpia el techo y las canaletas.",
-          "Nunca quemes basura ni campos en días secos y con viento. Respeta las prohibiciones de quema.",
-          "Conoce al menos dos salidas de tu zona. Mantén el auto con combustible y estacionado mirando hacia la salida.",
-          "Ten mascarillas N95 en el kit y elige una habitación que puedas cerrar para que no entre humo.",
-          "Ten una manguera que alcance todo el terreno. Guarda los documentos en un lugar a prueba de fuego y en copias digitales."
-        ],
-        "pt": [
-          "Retire folhas secas, galhos e lenha de pelo menos 10 m ao redor da casa. Limpe o telhado e as calhas.",
-          "Nunca queime lixo nem pasto em dias secos e com vento. Respeite as proibições de queimada.",
-          "Conheça pelo menos duas saídas da sua região. Mantenha o carro abastecido e estacionado de frente para a saída.",
-          "Tenha máscaras PFF2 ou N95 no kit e escolha um cômodo que dê para fechar contra a fumaça.",
-          "Tenha uma mangueira que alcance todo o terreno. Guarde os documentos em local à prova de fogo e em cópias digitais."
-        ]
-      },
-      "during": {
-        "en": [
-          "Evacuate at once if told to, or earlier if you feel in danger. Tell someone where you are going.",
-          "If there is time: close all windows and doors, shut off the gas and move flammable furniture away from windows.",
-          "With smoke: stay indoors with windows closed, wear an N95 or PFF2 mask outside and avoid physical effort.",
-          "Keep children, older people, pregnant women and people with asthma or heart disease away from smoke.",
-          "If trapped, call emergency services, give your location and turn on lights so rescuers can find you."
-        ],
-        "es": [
-          "Evacúa de inmediato si te lo indican, o antes si te sientes en peligro. Avisa a alguien a dónde vas.",
-          "Si hay tiempo: cierra todas las ventanas y puertas, corta el gas y aleja de las ventanas los muebles inflamables.",
-          "Con humo: quédate adentro con las ventanas cerradas, usa mascarilla N95 afuera y evita el esfuerzo físico.",
-          "Mantén lejos del humo a niños, personas mayores, embarazadas y personas con asma o enfermedad del corazón.",
-          "Si quedas atrapado, llama a emergencias, da tu ubicación y enciende las luces para que los rescatistas te encuentren."
-        ],
-        "pt": [
-          "Evacue imediatamente se mandarem, ou antes se sentir perigo. Avise alguém para onde você vai.",
-          "Se houver tempo: feche todas as janelas e portas, desligue o gás e afaste das janelas os móveis inflamáveis.",
-          "Com fumaça: fique dentro de casa com as janelas fechadas, use máscara PFF2 ou N95 na rua e evite esforço físico.",
-          "Mantenha longe da fumaça crianças, idosos, gestantes e pessoas com asma ou doença do coração.",
-          "Se ficar preso, ligue para a emergência, informe sua localização e acenda as luzes para o resgate encontrar você."
-        ]
-      },
-      "after": {
-        "en": [
-          "Return only when authorities say it is safe. Avoid hot ash, charred trees and smouldering ground, which can burn you or reignite.",
-          "Wet down debris so you do not breathe dust. Wear an N95 or PFF2 mask, gloves, long sleeves and sturdy shoes to clean up.",
-          "Seek care for a cough that does not stop, shortness of breath or chest pain after breathing smoke.",
-          "Do not use water that may be contaminated. Throw away food exposed to heat, smoke or soot."
-        ],
-        "es": [
-          "Vuelve solo cuando las autoridades digan que es seguro. Evita cenizas calientes, árboles quemados y suelo humeante: queman y pueden reavivarse.",
-          "Moja los escombros para no respirar polvo. Usa mascarilla N95, guantes, mangas largas y calzado firme para limpiar.",
-          "Consulta si tienes tos que no cede, falta de aire o dolor en el pecho después de respirar humo.",
-          "No uses agua que pueda estar contaminada. Tira los alimentos expuestos al calor, al humo o al hollín."
-        ],
-        "pt": [
-          "Volte só quando as autoridades disserem que é seguro. Evite cinzas quentes, árvores queimadas e solo fumegante: queimam e podem reacender.",
-          "Molhe os destroços para não respirar poeira. Use máscara PFF2 ou N95, luvas, mangas compridas e calçado firme na limpeza.",
-          "Procure atendimento se tiver tosse que não passa, falta de ar ou dor no peito depois de respirar fumaça.",
-          "Não use água que possa estar contaminada. Jogue fora os alimentos expostos ao calor, à fumaça ou à fuligem."
-        ]
-      },
-      "source_name": "Ready.gov (FEMA), American Red Cross and US CDC",
-      "source": "https://www.ready.gov/wildfires"
-    },
-    {
-      "id": "landslide",
-      "icon": "⛰️",
-      "name": {"en": "Landslide and mudflow", "es": "Deslizamiento de tierra y alud de barro", "pt": "Deslizamento de terra e corrida de lama"},
-      "shelter": {
-        "en": "Move away from the slope and out of the path of the slide, to stable ground or an official shelter. Do not stay in houses at the foot or edge of a slope, or in valleys and stream channels.",
-        "es": "Aléjate de la ladera y sal del camino del deslizamiento, hacia un terreno estable o un albergue oficial. No te quedes en casas al pie o al borde de una ladera, ni en quebradas o cauces de arroyos.",
-        "pt": "Afaste-se da encosta e saia do caminho do deslizamento, para um terreno estável ou um abrigo oficial. Não fique em casas no pé ou na beira de encosta, nem em vales e leitos de córregos."
-      },
-      "before": {
-        "en": [
-          "Ask civil defence if your home is in a landslide risk area.",
-          "Watch for signs: new cracks in the ground or walls, doors that stick, leaning trees or poles, water seeping from the slope.",
-          "Do not cut slopes, remove vegetation or dump rubbish and water on hillsides. Keep drains clear.",
-          "Plan an escape route away from the slope and a meeting point. Practise it with the family.",
-          "Plant ground cover on slopes. Ask a qualified technician about retaining walls and drainage."
-        ],
-        "es": [
-          "Pregunta a defensa civil si tu casa está en una zona de riesgo de deslizamiento.",
-          "Atento a las señales: grietas nuevas en el suelo o las paredes, puertas que se traban, árboles o postes inclinados, agua que brota de la ladera.",
-          "No cortes laderas, no quites la vegetación ni arrojes basura o agua en las pendientes. Mantén limpios los desagües.",
-          "Planifica una ruta de escape lejos de la ladera y un punto de encuentro. Practícala con la familia.",
-          "Planta cobertura vegetal en las laderas. Consulta a un técnico sobre muros de contención y drenaje."
-        ],
-        "pt": [
-          "Pergunte à Defesa Civil se sua casa fica em área de risco de deslizamento.",
-          "Fique atento aos sinais: trincas novas no chão ou nas paredes, portas emperrando, árvores ou postes inclinados, água minando do barranco.",
-          "Não corte barrancos, não retire a vegetação nem jogue lixo ou água nas encostas. Mantenha a drenagem limpa.",
-          "Planeje uma rota de fuga para longe da encosta e um ponto de encontro. Treine com a família.",
-          "Plante vegetação rasteira nas encostas. Consulte um técnico sobre muros de contenção e drenagem."
-        ]
-      },
-      "during": {
-        "en": [
-          "In heavy rain stay awake and alert. Many landslide deaths happen while people sleep.",
-          "Listen for rumbling, cracking trees or boulders knocking together. If you hear them, leave at once.",
-          "Near a stream, a sudden rise or drop of water, or clear water turning muddy, means danger. Move away.",
-          "Get out of the path of the slide as fast as you can and warn neighbours. Call civil defence or the fire service.",
-          "If you cannot escape, curl into a tight ball and protect your head."
-        ],
-        "es": [
-          "Con lluvia fuerte, mantente despierto y alerta. Muchas muertes por deslizamientos ocurren mientras la gente duerme.",
-          "Escucha si hay estruendos, árboles que crujen o rocas que chocan. Si los oyes, sal de inmediato.",
-          "Cerca de un arroyo, una subida o bajada brusca del agua, o agua clara que se vuelve barrosa, es señal de peligro. Aléjate.",
-          "Sal del camino del deslizamiento lo más rápido posible y avisa a los vecinos. Llama a defensa civil o a los bomberos.",
-          "Si no puedes escapar, hazte un ovillo y protégete la cabeza."
-        ],
-        "pt": [
-          "Com chuva forte, fique acordado e atento. Muitas mortes por deslizamento acontecem enquanto as pessoas dormem.",
-          "Preste atenção a estrondos, árvores estalando ou pedras batendo. Se ouvir, saia imediatamente.",
-          "Perto de córrego, subida ou descida repentina da água, ou água limpa que fica barrenta, é sinal de perigo. Afaste-se.",
-          "Saia do caminho do deslizamento o mais rápido possível e avise os vizinhos. Ligue para a Defesa Civil ou os Bombeiros.",
-          "Se não der para escapar, encolha o corpo e proteja a cabeça."
-        ]
-      },
-      "after": {
-        "en": [
-          "Stay away from the slide area. More slides can follow. Go back only after civil defence inspects the land.",
-          "Look for injured or trapped people near the slide without entering it, and guide rescuers to them.",
-          "Report broken power lines, gas pipes and water pipes. Watch for flooding, which often follows a slide.",
-          "Clean wounds with soap and safe water and check your tetanus vaccine. Drink only safe water."
-        ],
-        "es": [
-          "Mantente lejos de la zona del deslizamiento. Puede haber otros. Vuelve solo después de que defensa civil revise el terreno.",
-          "Busca personas heridas o atrapadas cerca del deslizamiento sin entrar en él, y guía a los rescatistas.",
-          "Avisa si hay cables, caños de gas o de agua rotos. Atento a las inundaciones, que suelen seguir a un deslizamiento.",
-          "Limpia las heridas con jabón y agua segura y revisa tu vacuna antitetánica. Toma solo agua segura."
-        ],
-        "pt": [
-          "Fique longe da área do deslizamento. Podem ocorrer outros. Volte só depois que a Defesa Civil vistoriar o terreno.",
-          "Procure pessoas feridas ou presas perto do deslizamento sem entrar nele, e oriente as equipes de resgate.",
-          "Avise sobre fios, canos de gás ou de água rompidos. Fique atento a inundações, que costumam vir depois do deslizamento.",
-          "Limpe os ferimentos com sabão e água segura e confira a vacina antitetânica. Beba só água segura."
-        ]
-      },
-      "source_name": "Ready.gov (FEMA), US Geological Survey and Defesa Civil (Brazil)",
-      "source": "https://www.ready.gov/landslides-debris-flow"
-    },
-    {
-      "id": "drought",
-      "icon": "🏜️",
-      "name": {"en": "Drought and water shortage", "es": "Sequía y falta de agua", "pt": "Seca e falta de água"},
-      "shelter": {
-        "en": "You do not need to take shelter, but protect yourself from heat and dust and keep safe drinking water at home. Do not drink from unsafe sources without boiling or treating the water.",
-        "es": "No hace falta refugiarse, pero protégete del calor y del polvo y ten agua potable segura en casa. No tomes agua de fuentes inseguras sin hervirla o tratarla.",
-        "pt": "Não é preciso se abrigar, mas proteja-se do calor e da poeira e tenha água potável segura em casa. Não beba água de fontes inseguras sem ferver ou tratar."
-      },
-      "before": {
-        "en": [
-          "Fix leaks in taps, pipes and tanks. A dripping tap wastes many litres a day.",
-          "Store drinking water in clean, covered containers used only for water. Never reuse containers that held chemicals.",
-          "Collect rainwater where it is allowed and keep tanks covered so mosquitoes cannot get in.",
-          "On the land, choose drought-resistant plants, use mulch and water in the early morning or evening.",
-          "Follow local water restrictions and find out where emergency water will be distributed."
-        ],
-        "es": [
-          "Repara las pérdidas en canillas, caños y tanques. Una canilla que gotea desperdicia muchos litros por día.",
-          "Guarda el agua para tomar en recipientes limpios, tapados y usados solo para agua. Nunca reutilices envases de productos químicos.",
-          "Junta agua de lluvia donde esté permitido y mantén los tanques tapados para que no entren mosquitos.",
-          "En el terreno, elige plantas resistentes a la sequía, usa cobertura vegetal y riega temprano o al atardecer.",
-          "Respeta las restricciones locales de agua y averigua dónde se distribuirá agua de emergencia."
-        ],
-        "pt": [
-          "Conserte vazamentos em torneiras, canos e caixas d'água. Uma torneira pingando desperdiça muitos litros por dia.",
-          "Guarde a água de beber em recipientes limpos, tampados e usados só para água. Nunca reutilize embalagens de produtos químicos.",
-          "Capte água da chuva onde for permitido e mantenha os reservatórios tampados para o mosquito não entrar.",
-          "No terreno, escolha plantas resistentes à seca, use cobertura morta e regue de manhã cedo ou no fim da tarde.",
-          "Respeite as restrições locais de água e descubra onde haverá distribuição de água de emergência."
-        ]
-      },
-      "during": {
-        "en": [
-          "Use less water: take short showers, turn off the tap while soaping, run washing machines only when full.",
-          "Reuse water from washing vegetables or clothes to water plants and clean floors.",
-          "Keep washing hands with soap. Poor hygiene during drought leads to diarrhoea and skin and eye infections.",
-          "If you doubt the water quality, boil, filter or chlorinate it as the health authorities instruct.",
-          "Do not burn rubbish or fields. Dry vegetation catches fire easily."
-        ],
-        "es": [
-          "Usa menos agua: duchas cortas, cierra la canilla mientras te enjabonas, usa el lavarropas solo con carga completa.",
-          "Reutiliza el agua de lavar verduras o ropa para regar plantas y limpiar pisos.",
-          "No dejes de lavarte las manos con jabón. La falta de higiene en la sequía causa diarrea e infecciones de piel y ojos.",
-          "Si dudas de la calidad del agua, hiérvela, fíltrala o clórala como indiquen las autoridades de salud.",
-          "No quemes basura ni campos. La vegetación seca se enciende con facilidad."
-        ],
-        "pt": [
-          "Use menos água: banhos curtos, feche a torneira ao se ensaboar, ligue a máquina de lavar só com carga cheia.",
-          "Reaproveite a água de lavar verduras ou roupas para regar plantas e limpar o chão.",
-          "Não deixe de lavar as mãos com sabão. A falta de higiene na seca causa diarreia e infecções de pele e olhos.",
-          "Se tiver dúvida sobre a qualidade da água, ferva, filtre ou clore conforme orientação das autoridades de saúde.",
-          "Não queime lixo nem pasto. A vegetação seca pega fogo com facilidade."
-        ]
-      },
-      "after": {
-        "en": [
-          "Diarrhoea, above all in children and older people, needs fluids and prompt care at a health service.",
-          "Clean and disinfect tanks and containers before refilling them.",
-          "Keep water containers covered and scrub them every week so dengue mosquitoes cannot breed.",
-          "Keep the water-saving habits and repair or expand water storage before the next dry season."
-        ],
-        "es": [
-          "La diarrea, sobre todo en niños y personas mayores, requiere líquidos y atención rápida en un servicio de salud.",
-          "Limpia y desinfecta tanques y recipientes antes de volver a llenarlos.",
-          "Mantén tapados los recipientes de agua y cepíllalos cada semana para que no se críe el mosquito del dengue.",
-          "Conserva los hábitos de ahorro y repara o amplía el almacenamiento de agua antes de la próxima temporada seca."
-        ],
-        "pt": [
-          "Diarreia, principalmente em crianças e idosos, exige líquidos e atendimento rápido em um serviço de saúde.",
-          "Limpe e desinfete caixas d'água e recipientes antes de encher de novo.",
-          "Mantenha os recipientes de água tampados e escove-os toda semana para o mosquito da dengue não se criar.",
-          "Mantenha os hábitos de economia e conserte ou amplie o armazenamento de água antes da próxima estação seca."
-        ]
-      },
-      "source_name": "Ready.gov (FEMA), WHO and PAHO",
-      "source": "https://www.ready.gov/drought"
-    },
-    {
-      "id": "cold",
-      "icon": "❄️",
-      "name": {"en": "Cold wave and frost", "es": "Ola de frío y heladas", "pt": "Onda de frio e geada"},
-      "shelter": {
-        "en": "Stay indoors in one heated room and close off the rooms you do not use, or go to a public warming shelter. Do not sleep in a closed room with a charcoal brazier, gas stove or generator running.",
-        "es": "Quédate adentro en una sola habitación calefaccionada y cierra las que no uses, o ve a un albergue de abrigo. No duermas en una habitación cerrada con un brasero, una cocina a gas o un generador encendidos.",
-        "pt": "Fique dentro de casa em um único cômodo aquecido e feche os que não usa, ou vá a um abrigo público contra o frio. Não durma em cômodo fechado com braseiro, fogão a gás ou gerador ligados."
-      },
-      "before": {
-        "en": [
-          "Seal gaps in doors and windows. Have blankets and warm clothes in layers for everyone.",
-          "Have heaters, stoves and chimneys checked and cleaned. Install a carbon monoxide alarm if you can.",
-          "Protect water pipes from freezing and cover sensitive plants and seedlings before frost.",
-          "Give animals shelter from the wind, dry bedding and water that is not frozen.",
-          "Find out where warming shelters are and list neighbours who may need help."
-        ],
-        "es": [
-          "Sella las rendijas de puertas y ventanas. Ten frazadas y ropa de abrigo en capas para todos.",
-          "Haz revisar y limpiar estufas, cocinas y chimeneas. Instala una alarma de monóxido de carbono si puedes.",
-          "Protege los caños de agua del congelamiento y cubre las plantas sensibles y los almácigos antes de la helada.",
-          "Da a los animales refugio del viento, cama seca y agua que no esté congelada.",
-          "Averigua dónde hay albergues de abrigo y anota a los vecinos que pueden necesitar ayuda."
-        ],
-        "pt": [
-          "Vede as frestas de portas e janelas. Tenha cobertores e roupas quentes em camadas para todos.",
-          "Mande revisar e limpar aquecedores, fogões e chaminés. Instale um alarme de monóxido de carbono, se puder.",
-          "Proteja os canos de água do congelamento e cubra plantas sensíveis e mudas antes da geada.",
-          "Dê aos animais abrigo do vento, cama seca e água que não esteja congelada.",
-          "Descubra onde há abrigos contra o frio e liste os vizinhos que podem precisar de ajuda."
-        ]
-      },
-      "during": {
-        "en": [
-          "Wear several loose layers, a hat, gloves and dry socks. Change wet clothes at once.",
-          "Never heat the house with a gas oven, charcoal grill or camp stove. Keep heaters 1 m away from anything that burns.",
-          "Keep some ventilation when using fuel heaters or braziers, and turn them off before going to sleep.",
-          "Check on older neighbours, babies and people living alone. Tell local services about people sleeping outdoors.",
-          "Eat warm meals and drink warm liquids. Avoid alcohol, which makes the body lose heat faster."
-        ],
-        "es": [
-          "Usa varias capas de ropa holgada, gorro, guantes y medias secas. Cambia la ropa mojada de inmediato.",
-          "Nunca calientes la casa con el horno a gas, una parrilla a carbón o un anafe. Deja las estufas a 1 m de todo lo que pueda arder.",
-          "Mantén algo de ventilación al usar estufas a combustible o braseros, y apágalos antes de dormir.",
-          "Visita a los vecinos mayores, a los bebés y a quienes viven solos. Avisa a los servicios locales si hay personas durmiendo en la calle.",
-          "Come comidas calientes y toma líquidos tibios. Evita el alcohol, que hace perder calor más rápido."
-        ],
-        "pt": [
-          "Use várias camadas de roupa folgada, gorro, luvas e meias secas. Troque a roupa molhada imediatamente.",
-          "Nunca aqueça a casa com forno a gás, churrasqueira a carvão ou fogareiro. Deixe aquecedores a 1 m de tudo que possa queimar.",
-          "Mantenha alguma ventilação ao usar aquecedores a combustível ou braseiros, e apague-os antes de dormir.",
-          "Visite vizinhos idosos, bebês e pessoas que moram sozinhas. Avise os serviços locais sobre pessoas dormindo na rua.",
-          "Faça refeições quentes e tome líquidos mornos. Evite álcool, que faz o corpo perder calor mais rápido."
-        ]
-      },
-      "after": {
-        "en": [
-          "Carbon monoxide signs: headache, dizziness, nausea, sleepiness. Go to fresh air at once and call emergency services.",
-          "Hypothermia signs: shivering, confusion, slurred speech, drowsiness. Warm the person slowly and get medical help.",
-          "Frostbite signs: numb, white or greyish skin. Warm gently with body heat or warm water. Do not rub and do not use direct heat.",
-          "Check pipes, roof, plants and animals for damage after the frost."
-        ],
-        "es": [
-          "Signos de intoxicación por monóxido de carbono: dolor de cabeza, mareo, náuseas, sueño. Sal al aire libre de inmediato y llama a emergencias.",
-          "Signos de hipotermia: temblores, confusión, habla arrastrada, somnolencia. Abriga a la persona de a poco y busca atención médica.",
-          "Signos de congelación: piel entumecida, blanca o grisácea. Calienta suavemente con el cuerpo o agua tibia. No frotes ni uses calor directo.",
-          "Revisa los daños en caños, techo, plantas y animales después de la helada."
-        ],
-        "pt": [
-          "Sinais de intoxicação por monóxido de carbono: dor de cabeça, tontura, náusea, sono. Vá para o ar livre na hora e ligue para a emergência.",
-          "Sinais de hipotermia: tremores, confusão, fala arrastada, sonolência. Aqueça a pessoa aos poucos e procure atendimento médico.",
-          "Sinais de congelamento da pele: dormência, pele branca ou acinzentada. Aqueça devagar com o corpo ou água morna. Não esfregue nem use calor direto.",
-          "Verifique os danos em canos, telhado, plantas e animais depois da geada."
-        ]
-      },
-      "source_name": "Ready.gov (FEMA) and US CDC",
-      "source": "https://www.ready.gov/winter-weather"
-    }
+ "hazards": [
+  {
+   "id": "heat",
+   "icon": "🌡️",
+   "name": {
+    "en": "Extreme heat",
+    "es": "Calor extremo",
+    "pt": "Calor extremo"
+   },
+   "shelter": {
+    "en": "Stay in the coolest room of the house or go to an air-conditioned public place or cooling centre. Do not stay in a parked car or in direct sun in the hottest hours.",
+    "es": "Quédate en la habitación más fresca de la casa o ve a un lugar público con aire acondicionado o a un centro de enfriamiento. No te quedes en un auto estacionado ni al sol en las horas de más calor.",
+    "pt": "Fique no cômodo mais fresco da casa ou vá a um local público com ar-condicionado ou a um centro de resfriamento. Não fique em carro estacionado nem no sol nas horas mais quentes."
+   },
+   "before": {
+    "en": [
+     "Find the nearest cooling centre or air-conditioned public place, such as a library or shopping centre.",
+     "Cover sunny windows with curtains, shades or reflective material. Check that fans and air conditioning work.",
+     "Store drinking water. Plan how to keep cool the medicines that need a refrigerator if the power fails.",
+     "List older, sick or isolated neighbours and relatives to check on during heat waves.",
+     "Make sure pets and farm animals have shade and plenty of fresh water."
+    ],
+    "es": [
+     "Ubica el centro de enfriamiento o lugar público con aire acondicionado más cercano, como una biblioteca o un centro comercial.",
+     "Cubre las ventanas que reciben sol con cortinas, toldos o material reflectante. Revisa que ventiladores y aire funcionen.",
+     "Guarda agua potable. Planifica cómo mantener fríos los medicamentos que necesitan heladera si se corta la luz.",
+     "Anota a los vecinos y familiares mayores, enfermos o que viven solos para visitarlos durante las olas de calor.",
+     "Asegura sombra y abundante agua fresca para las mascotas y los animales de granja."
+    ],
+    "pt": [
+     "Descubra o centro de resfriamento ou local público com ar-condicionado mais próximo, como biblioteca ou shopping.",
+     "Cubra as janelas que pegam sol com cortinas, toldos ou material refletivo. Confira se ventiladores e ar funcionam.",
+     "Guarde água potável. Planeje como manter frios os remédios que precisam de geladeira se faltar energia.",
+     "Liste vizinhos e parentes idosos, doentes ou que moram sozinhos para visitar durante as ondas de calor.",
+     "Garanta sombra e bastante água fresca para os animais de estimação e de criação."
+    ]
+   },
+   "during": {
+    "en": [
+     "Drink water often, even if you are not thirsty. Avoid alcohol and very sugary drinks.",
+     "Stay out of the sun in the hottest hours. Wear light, loose, light-coloured clothes and a hat.",
+     "Never leave children, older people or pets in a parked vehicle, not even for a minute.",
+     "Check on older neighbours, people living alone and the sick at least twice a day.",
+     "Cool down with showers or wet cloths. In very high heat a fan alone does not prevent heat illness."
+    ],
+    "es": [
+     "Toma agua seguido, aunque no tengas sed. Evita el alcohol y las bebidas muy azucaradas.",
+     "Evita el sol en las horas de más calor. Usa ropa liviana, holgada y de color claro, y sombrero.",
+     "Nunca dejes a niños, personas mayores o mascotas en un vehículo estacionado, ni por un minuto.",
+     "Visita o llama a los vecinos mayores, a quienes viven solos y a los enfermos al menos dos veces al día.",
+     "Refréscate con duchas o paños húmedos. Con calor muy intenso, el ventilador solo no evita el golpe de calor."
+    ],
+    "pt": [
+     "Beba água com frequência, mesmo sem sede. Evite álcool e bebidas muito açucaradas.",
+     "Evite o sol nas horas mais quentes. Use roupas leves, folgadas e claras, e chapéu.",
+     "Nunca deixe crianças, idosos ou animais em veículo estacionado, nem por um minuto.",
+     "Visite ou ligue para vizinhos idosos, pessoas que moram sozinhas e doentes pelo menos duas vezes por dia.",
+     "Refresque-se com banhos ou panos úmidos. No calor muito intenso, só o ventilador não evita a doença pelo calor."
+    ]
+   },
+   "after": {
+    "en": [
+     "Heat stroke signs: very high body temperature, confusion, fainting, hot skin. Call emergency services and cool the person at once.",
+     "Heat exhaustion signs: heavy sweating, weakness, dizziness, nausea. Move to a cool place, loosen clothes and sip water.",
+     "Get medical help if heat exhaustion symptoms get worse or last more than one hour.",
+     "If the power failed, throw away refrigerated food that stayed warm for hours. When in doubt, throw it out."
+    ],
+    "es": [
+     "Signos de golpe de calor: temperatura muy alta, confusión, desmayo, piel caliente. Llama a emergencias y enfría a la persona de inmediato.",
+     "Signos de agotamiento por calor: mucho sudor, debilidad, mareo, náuseas. Lleva a la persona a un lugar fresco, afloja la ropa y dale sorbos de agua.",
+     "Busca atención médica si los síntomas de agotamiento por calor empeoran o duran más de una hora.",
+     "Si se cortó la luz, tira los alimentos refrigerados que estuvieron horas sin frío. Ante la duda, tíralos."
+    ],
+    "pt": [
+     "Sinais de insolação grave: temperatura muito alta, confusão, desmaio, pele quente. Ligue para a emergência e resfrie a pessoa na hora.",
+     "Sinais de exaustão pelo calor: muito suor, fraqueza, tontura, náusea. Leve a pessoa a um lugar fresco, afrouxe a roupa e dê goles de água.",
+     "Procure atendimento médico se os sintomas de exaustão pelo calor piorarem ou durarem mais de uma hora.",
+     "Se faltou energia, jogue fora os alimentos refrigerados que ficaram horas sem frio. Na dúvida, descarte."
+    ]
+   },
+   "source_name": "Ready.gov (FEMA) and US CDC",
+   "source": "https://www.ready.gov/heat"
+  },
+  {
+   "id": "flood",
+   "icon": "🌊",
+   "name": {
+    "en": "Flood",
+    "es": "Inundación",
+    "pt": "Enchente e inundação"
+   },
+   "shelter": {
+    "en": "Go to higher ground, the highest floor of a sturdy building or the shelter named by the authorities. Do not shelter in a basement, a closed attic or a vehicle surrounded by water.",
+    "es": "Ve a un terreno alto, al piso más alto de un edificio firme o al albergue indicado por las autoridades. No te refugies en un sótano, en un altillo cerrado ni en un vehículo rodeado de agua.",
+    "pt": "Vá para um terreno alto, para o andar mais alto de um prédio firme ou para o abrigo indicado pelas autoridades. Não se abrigue em porão, em sótão fechado nem em veículo cercado de água."
+   },
+   "before": {
+    "en": [
+     "Find out if your home is in a flood risk area and learn the evacuation route to higher ground.",
+     "Keep documents in a waterproof bag and save copies on your phone or online.",
+     "Clean gutters, drains and ditches on your land. Move valuables and appliances to higher shelves or floors.",
+     "Sign up for local alerts and agree where the family will meet if you must leave.",
+     "Plan where to take animals and vehicles on higher ground."
+    ],
+    "es": [
+     "Averigua si tu casa está en zona de riesgo de inundación y aprende la ruta de evacuación hacia terreno alto.",
+     "Guarda los documentos en una bolsa impermeable y ten copias en el teléfono o en internet.",
+     "Limpia canaletas, desagües y zanjas del terreno. Sube objetos de valor y electrodomésticos a estantes o pisos altos.",
+     "Suscríbete a las alertas locales y acuerda dónde se reunirá la familia si hay que salir.",
+     "Planifica a qué lugar alto llevarás los animales y los vehículos."
+    ],
+    "pt": [
+     "Descubra se sua casa fica em área de risco de inundação e aprenda a rota de saída para um terreno alto.",
+     "Guarde os documentos em saco impermeável e tenha cópias no celular ou na internet.",
+     "Limpe calhas, ralos e valas do terreno. Leve objetos de valor e eletrodomésticos para prateleiras ou andares altos.",
+     "Cadastre-se nos alertas locais e combine onde a família vai se encontrar se for preciso sair.",
+     "Planeje para qual lugar alto levar os animais e os veículos."
+    ]
+   },
+   "during": {
+    "en": [
+     "Leave at once if told to evacuate. Do not wait for the water to reach the house.",
+     "Turn around, don't drown: never walk, swim or drive through floodwater.",
+     "15 cm of fast-moving water can knock an adult down. 30 cm can carry away a small car.",
+     "If water is coming in, switch off the electricity at the main switch if it is safe, and go to the highest floor.",
+     "Stay off bridges over fast-moving water and away from fallen power lines."
+    ],
+    "es": [
+     "Sal de inmediato si ordenan evacuar. No esperes a que el agua llegue a la casa.",
+     "Da la vuelta, no te ahogues: nunca camines, nades ni manejes por agua de inundación.",
+     "15 cm de agua en movimiento pueden derribar a un adulto. 30 cm pueden arrastrar un auto pequeño.",
+     "Si entra agua, corta la electricidad desde la llave general si es seguro hacerlo y sube al piso más alto.",
+     "No cruces puentes sobre agua con corriente fuerte y aléjate de los cables caídos."
+    ],
+    "pt": [
+     "Saia imediatamente se mandarem evacuar. Não espere a água chegar à casa.",
+     "Dê meia-volta, não se afogue: nunca ande, nade ou dirija em água de enchente.",
+     "15 cm de água em movimento podem derrubar um adulto. 30 cm podem arrastar um carro pequeno.",
+     "Se a água entrar, desligue a energia na chave geral se for seguro e suba para o andar mais alto.",
+     "Não atravesse pontes sobre água com correnteza forte e fique longe de fios caídos."
+    ]
+   },
+   "after": {
+    "en": [
+     "Return only when authorities say it is safe. Do not touch electrical equipment that is wet or while standing in water.",
+     "Wear boots and gloves to clean. Wash hands with soap and safe water. Throw away food that touched floodwater.",
+     "Drink only bottled, boiled or treated water until the supply is declared safe.",
+     "Fever, headache or muscle pain in the weeks after contact with floodwater or mud can be leptospirosis. Seek care and mention the flood."
+    ],
+    "es": [
+     "Vuelve solo cuando las autoridades digan que es seguro. No toques equipos eléctricos mojados ni estando parado en agua.",
+     "Usa botas y guantes para limpiar. Lávate las manos con jabón y agua segura. Tira la comida que tocó el agua de inundación.",
+     "Toma solo agua embotellada, hervida o tratada hasta que declaren segura la red.",
+     "Fiebre, dolor de cabeza o dolor muscular en las semanas posteriores al contacto con agua o barro puede ser leptospirosis. Consulta y menciona la inundación."
+    ],
+    "pt": [
+     "Volte só quando as autoridades disserem que é seguro. Não toque em aparelhos elétricos molhados nem com os pés na água.",
+     "Use botas e luvas na limpeza. Lave as mãos com sabão e água segura. Jogue fora a comida que teve contato com a água da enchente.",
+     "Beba só água mineral, fervida ou tratada até a rede ser declarada segura.",
+     "Febre, dor de cabeça ou dor muscular nas semanas após contato com água ou lama pode ser leptospirose. Procure atendimento e conte sobre a enchente."
+    ]
+   },
+   "source_name": "Ready.gov (FEMA), US National Weather Service and US CDC",
+   "source": "https://www.ready.gov/floods"
+  },
+  {
+   "id": "storm",
+   "icon": "⛈️",
+   "name": {
+    "en": "Severe storm, lightning and hail",
+    "es": "Tormenta fuerte, rayos y granizo",
+    "pt": "Tempestade, raios e granizo"
+   },
+   "shelter": {
+    "en": "Go inside a sturdy, closed building or a hard-topped vehicle with the windows shut. Do not shelter under trees, in open sheds or tents, or near water.",
+    "es": "Entra a un edificio firme y cerrado o a un vehículo de techo rígido con las ventanas cerradas. No te refugies bajo árboles, en galpones abiertos o carpas, ni cerca del agua.",
+    "pt": "Entre em um prédio firme e fechado ou em um veículo de teto rígido com os vidros fechados. Não se abrigue debaixo de árvores, em galpões abertos ou barracas, nem perto da água."
+   },
+   "before": {
+    "en": [
+     "Follow the forecast and warnings. Postpone outdoor work, sport and travel if thunderstorms are expected.",
+     "Trim weak branches and remove dead trees near the house. Tie down or bring in loose objects.",
+     "Park vehicles under cover and bring animals into shelter to protect them from hail.",
+     "Charge phones and keep a torch ready for power cuts. Consider surge protectors for appliances."
+    ],
+    "es": [
+     "Sigue el pronóstico y los avisos. Posterga trabajos al aire libre, deportes y viajes si se esperan tormentas.",
+     "Poda las ramas débiles y retira árboles secos cerca de la casa. Ata o guarda los objetos sueltos.",
+     "Guarda los vehículos bajo techo y lleva a los animales a un refugio para protegerlos del granizo.",
+     "Carga los teléfonos y ten una linterna a mano por si se corta la luz. Considera usar protectores de tensión."
+    ],
+    "pt": [
+     "Acompanhe a previsão e os avisos. Adie trabalhos ao ar livre, esportes e viagens se houver previsão de tempestade.",
+     "Pode galhos fracos e retire árvores mortas perto da casa. Amarre ou guarde os objetos soltos.",
+     "Guarde os veículos em local coberto e leve os animais para um abrigo para protegê-los do granizo.",
+     "Carregue os celulares e deixe uma lanterna à mão para falta de energia. Considere usar protetores contra surtos."
+    ]
+   },
+   "during": {
+    "en": [
+     "When thunder roars, go indoors. If you can hear thunder, lightning is close enough to strike you.",
+     "30-30 rule: if thunder follows the flash in under 30 seconds, take shelter. Wait 30 minutes after the last thunder.",
+     "Indoors, stay away from windows. Do not use corded phones, plugged-in appliances, showers or taps.",
+     "Caught outside: leave hilltops, open fields and water. Keep away from trees, fences and poles. Do not lie flat.",
+     "In hail or strong wind stay away from windows and glass doors. If driving, pull over safely and stay in the vehicle."
+    ],
+    "es": [
+     "Si escuchas truenos, entra a un lugar cerrado. Si oyes el trueno, el rayo está lo bastante cerca para alcanzarte.",
+     "Regla 30-30: si el trueno llega menos de 30 segundos después del relámpago, refúgiate. Espera 30 minutos tras el último trueno.",
+     "Adentro, aléjate de las ventanas. No uses teléfonos con cable, aparatos enchufados, duchas ni canillas.",
+     "Si estás afuera: sal de cerros, campos abiertos y del agua. Aléjate de árboles, alambrados y postes. No te acuestes en el suelo.",
+     "Con granizo o viento fuerte, aléjate de ventanas y puertas de vidrio. Si manejas, detente en un lugar seguro y quédate en el vehículo."
+    ],
+    "pt": [
+     "Ouviu trovão, entre em um local fechado. Se dá para ouvir o trovão, o raio está perto o bastante para atingir você.",
+     "Regra 30-30: se o trovão vier menos de 30 segundos depois do clarão, abrigue-se. Espere 30 minutos após o último trovão.",
+     "Dentro de casa, fique longe das janelas. Não use telefone com fio, aparelhos na tomada, chuveiro nem torneiras.",
+     "Se estiver na rua: saia de morros, campos abertos e da água. Fique longe de árvores, cercas e postes. Não deite no chão.",
+     "Com granizo ou vento forte, fique longe de janelas e portas de vidro. Se estiver dirigindo, pare em local seguro e fique no veículo."
+    ]
+   },
+   "after": {
+    "en": [
+     "Stay away from fallen power lines and report them. Treat every fallen line as live.",
+     "A person struck by lightning carries no electrical charge. Call emergency services and give first aid or CPR if you are trained.",
+     "If the power is out, never run a generator or charcoal grill indoors. They produce carbon monoxide, which can kill.",
+     "Check the roof, windows and trees for damage. Take photos for insurance or aid claims."
+    ],
+    "es": [
+     "Aléjate de los cables caídos y avisa a la empresa eléctrica. Considera que todo cable caído tiene corriente.",
+     "Una persona alcanzada por un rayo no tiene carga eléctrica. Llama a emergencias y da primeros auxilios o RCP si sabes hacerlo.",
+     "Si no hay luz, nunca uses un generador ni una parrilla a carbón adentro. Producen monóxido de carbono, que puede matar.",
+     "Revisa los daños en el techo, las ventanas y los árboles. Toma fotos para el seguro o para pedir ayuda."
+    ],
+    "pt": [
+     "Fique longe de fios caídos e avise a companhia de energia. Trate todo fio caído como energizado.",
+     "Uma pessoa atingida por raio não fica com carga elétrica. Ligue para a emergência e faça primeiros socorros ou RCP se tiver treinamento.",
+     "Se faltar energia, nunca use gerador nem churrasqueira a carvão dentro de casa. Eles produzem monóxido de carbono, que pode matar.",
+     "Verifique os danos no telhado, nas janelas e nas árvores. Tire fotos para o seguro ou para pedir auxílio."
+    ]
+   },
+   "source_name": "US National Weather Service (NOAA) and Ready.gov (FEMA)",
+   "source": "https://www.weather.gov/safety/lightning-safety"
+  },
+  {
+   "id": "tornado",
+   "icon": "🌪️",
+   "name": {
+    "en": "Tornado",
+    "es": "Tornado",
+    "pt": "Tornado"
+   },
+   "shelter": {
+    "en": "Go to a basement, a storm shelter or a small interior room without windows on the lowest floor of a sturdy building. Do not stay in a mobile home or a vehicle, and do not shelter under a highway overpass.",
+    "es": "Ve a un sótano, a un refugio contra tormentas o a una habitación interior pequeña y sin ventanas en el piso más bajo de un edificio firme. No te quedes en una casa rodante o prefabricada ni en un vehículo, y no te refugies bajo un puente de autopista.",
+    "pt": "Vá para um porão, um abrigo contra tempestades ou um cômodo interno pequeno e sem janelas no andar mais baixo de um prédio firme. Não fique em casa móvel ou pré-fabricada nem em veículo, e não se abrigue debaixo de viaduto."
+   },
+   "before": {
+    "en": [
+     "Choose your safe place now: a basement, a storm shelter or a windowless interior room on the lowest floor.",
+     "Know the signs: a rotating funnel cloud, an approaching cloud of debris, a loud roar like a freight train.",
+     "Know the difference: a tornado watch means be ready. A tornado warning means take shelter now.",
+     "If you live in a mobile home or a light house, decide in advance which sturdy building you will go to.",
+     "Practise a family tornado drill. Keep sturdy shoes, a torch and a whistle in the safe place."
+    ],
+    "es": [
+     "Elige ya tu lugar seguro: un sótano, un refugio o una habitación interior sin ventanas en el piso más bajo.",
+     "Conoce las señales: nube en forma de embudo que gira, nube de escombros que se acerca, ruido fuerte como de tren de carga.",
+     "Conoce la diferencia: vigilancia de tornado significa estar listo. Aviso de tornado significa refugiarse ya.",
+     "Si vives en una casa rodante o de construcción liviana, decide de antemano a qué edificio firme irás.",
+     "Practica un simulacro de tornado en familia. Deja calzado firme, una linterna y un silbato en el lugar seguro."
+    ],
+    "pt": [
+     "Escolha já o seu lugar seguro: um porão, um abrigo ou um cômodo interno sem janelas no andar mais baixo.",
+     "Conheça os sinais: nuvem em forma de funil girando, nuvem de destroços se aproximando, barulho forte como de trem de carga.",
+     "Saiba a diferença: alerta de vigilância significa ficar pronto. Aviso de tornado significa abrigar-se agora.",
+     "Se você mora em casa móvel ou de construção leve, decida antes para qual prédio firme vai.",
+     "Faça um treino de tornado com a família. Deixe calçado firme, lanterna e apito no lugar seguro."
+    ]
+   },
+   "during": {
+    "en": [
+     "Go to your safe place at once. Do not wait until you see the tornado.",
+     "Stay away from windows, doors and outside walls. Do not waste time opening windows.",
+     "Get under something sturdy and cover your head and neck with your arms, a mattress or blankets.",
+     "Leave mobile homes and vehicles for a sturdy building. Do not shelter under a highway overpass.",
+     "With no building nearby, as a last resort lie in a low spot or stay belted in the car. Cover your head and neck."
+    ],
+    "es": [
+     "Ve a tu lugar seguro de inmediato. No esperes a ver el tornado.",
+     "Aléjate de ventanas, puertas y paredes exteriores. No pierdas tiempo abriendo ventanas.",
+     "Ponte debajo de algo firme y cúbrete la cabeza y el cuello con los brazos, un colchón o mantas.",
+     "Sal de casas rodantes y vehículos y ve a un edificio firme. No te refugies bajo un puente de autopista.",
+     "Sin edificio cerca, como último recurso acuéstate en un lugar bajo o quédate en el auto con cinturón. Cúbrete cabeza y cuello."
+    ],
+    "pt": [
+     "Vá para o seu lugar seguro imediatamente. Não espere ver o tornado.",
+     "Fique longe de janelas, portas e paredes externas. Não perca tempo abrindo janelas.",
+     "Fique debaixo de algo firme e cubra a cabeça e o pescoço com os braços, um colchão ou cobertores.",
+     "Saia de casas móveis e veículos e vá para um prédio firme. Não se abrigue debaixo de viaduto.",
+     "Sem prédio por perto, em último caso deite em um local baixo ou fique no carro com cinto. Cubra cabeça e pescoço."
+    ]
+   },
+   "after": {
+    "en": [
+     "Stay out of damaged buildings. Watch for fallen power lines, broken gas pipes, glass and nails.",
+     "Send text messages instead of calling, so lines stay free for emergencies. Follow official information.",
+     "Wear sturdy shoes, long sleeves and gloves to clean up. Clean wounds and check that your tetanus vaccine is up to date.",
+     "If the power is out, use torches, not candles. Keep generators outdoors and far from windows to avoid carbon monoxide."
+    ],
+    "es": [
+     "No entres a edificios dañados. Cuidado con cables caídos, caños de gas rotos, vidrios y clavos.",
+     "Envía mensajes de texto en vez de llamar, para dejar las líneas libres para emergencias. Sigue la información oficial.",
+     "Usa calzado firme, mangas largas y guantes para limpiar. Limpia las heridas y revisa que tu vacuna antitetánica esté al día.",
+     "Si no hay luz, usa linternas y no velas. Deja los generadores afuera y lejos de las ventanas para evitar el monóxido de carbono."
+    ],
+    "pt": [
+     "Não entre em prédios danificados. Cuidado com fios caídos, canos de gás rompidos, vidros e pregos.",
+     "Mande mensagens de texto em vez de ligar, para deixar as linhas livres para emergências. Siga as informações oficiais.",
+     "Use calçado firme, mangas compridas e luvas na limpeza. Limpe os ferimentos e confira se a vacina antitetânica está em dia.",
+     "Se faltar energia, use lanternas, não velas. Deixe geradores do lado de fora e longe das janelas para evitar monóxido de carbono."
+    ]
+   },
+   "source_name": "US National Weather Service (NOAA) and Ready.gov (FEMA)",
+   "source": "https://www.weather.gov/safety/tornado"
+  },
+  {
+   "id": "cyclone",
+   "icon": "🌀",
+   "name": {
+    "en": "Tropical cyclone, hurricane or typhoon",
+    "es": "Ciclón tropical, huracán o tifón",
+    "pt": "Ciclone tropical, furacão ou tufão"
+   },
+   "shelter": {
+    "en": "If you are in an evacuation zone or a weak house, leave early for an official shelter or a sturdy building inland. If you stay, use an interior room away from windows. Never stay near the shore during storm surge.",
+    "es": "Si estás en una zona de evacuación o en una casa precaria, sal temprano hacia un albergue oficial o un edificio firme tierra adentro. Si te quedas, usa una habitación interior lejos de las ventanas. Nunca te quedes cerca de la costa durante la marejada ciclónica.",
+    "pt": "Se você está em zona de evacuação ou em casa frágil, saia cedo para um abrigo oficial ou um prédio firme longe do litoral. Se ficar, use um cômodo interno longe das janelas. Nunca fique perto da costa durante a maré de tempestade."
+   },
+   "before": {
+    "en": [
+     "Find out your evacuation zone and route. Decide where you will go and how, including pets.",
+     "Cover windows with shutters or plywood. Bring in or tie down loose objects. Trim trees.",
+     "Fill the fuel tank, charge phones and power banks, and stock water, food and medicines for several days.",
+     "Protect documents in a waterproof bag. Clean gutters and drains.",
+     "Follow the forecasts of your national weather service and sign up for official alerts."
+    ],
+    "es": [
+     "Averigua tu zona y tu ruta de evacuación. Decide a dónde irás y cómo, incluidas las mascotas.",
+     "Cubre las ventanas con postigos o madera terciada. Guarda o ata los objetos sueltos. Poda los árboles.",
+     "Llena el tanque de combustible, carga teléfonos y baterías, y reúne agua, comida y medicamentos para varios días.",
+     "Protege los documentos en una bolsa impermeable. Limpia canaletas y desagües.",
+     "Sigue los pronósticos del servicio meteorológico nacional y suscríbete a las alertas oficiales."
+    ],
+    "pt": [
+     "Descubra sua zona e sua rota de evacuação. Decida para onde vai e como, incluindo os animais.",
+     "Proteja as janelas com venezianas ou compensado. Guarde ou amarre os objetos soltos. Pode as árvores.",
+     "Encha o tanque de combustível, carregue celulares e baterias, e junte água, comida e remédios para vários dias.",
+     "Proteja os documentos em saco impermeável. Limpe calhas e ralos.",
+     "Acompanhe as previsões do serviço meteorológico nacional e cadastre-se nos alertas oficiais."
+    ]
+   },
+   "during": {
+    "en": [
+     "Evacuate immediately if the authorities order it. Storm surge is the deadliest part of a tropical cyclone.",
+     "Stay indoors, away from windows and glass doors, in a small interior room or hallway on a floor that will not flood.",
+     "Do not go out when the eye passes. The calm is short and the wind returns from the opposite direction.",
+     "If water rises, go to the highest floor. Do not climb into a closed attic, where you can be trapped.",
+     "Never walk or drive through floodwater."
+    ],
+    "es": [
+     "Evacúa de inmediato si las autoridades lo ordenan. La marejada ciclónica es la parte más mortal de un ciclón tropical.",
+     "Quédate adentro, lejos de ventanas y puertas de vidrio, en una habitación interior o pasillo de un piso que no se inunde.",
+     "No salgas cuando pasa el ojo. La calma dura poco y el viento vuelve desde la dirección contraria.",
+     "Si el agua sube, ve al piso más alto. No subas a un altillo cerrado, donde puedes quedar atrapado.",
+     "Nunca camines ni manejes por agua de inundación."
+    ],
+    "pt": [
+     "Evacue imediatamente se as autoridades mandarem. A maré de tempestade é a parte mais mortal de um ciclone tropical.",
+     "Fique dentro de casa, longe de janelas e portas de vidro, em um cômodo interno ou corredor de um andar que não alague.",
+     "Não saia quando o olho passar. A calmaria dura pouco e o vento volta da direção contrária.",
+     "Se a água subir, vá para o andar mais alto. Não suba em sótão fechado, onde você pode ficar preso.",
+     "Nunca ande nem dirija em água de enchente."
+    ]
+   },
+   "after": {
+    "en": [
+     "Return only when authorities say it is safe. Avoid fallen power lines and damaged buildings.",
+     "Keep generators outdoors, far from windows and doors. Carbon monoxide has no smell and can kill.",
+     "Drink bottled, boiled or treated water. Throw away food that got wet or stayed without refrigeration.",
+     "Empty containers with standing water to stop mosquitoes. Clean wounds and seek care for fever or diarrhoea."
+    ],
+    "es": [
+     "Vuelve solo cuando las autoridades digan que es seguro. Evita los cables caídos y los edificios dañados.",
+     "Deja los generadores afuera, lejos de ventanas y puertas. El monóxido de carbono no tiene olor y puede matar.",
+     "Toma agua embotellada, hervida o tratada. Tira la comida que se mojó o quedó sin refrigeración.",
+     "Vacía los recipientes con agua estancada para frenar a los mosquitos. Limpia las heridas y consulta si hay fiebre o diarrea."
+    ],
+    "pt": [
+     "Volte só quando as autoridades disserem que é seguro. Evite fios caídos e prédios danificados.",
+     "Deixe geradores do lado de fora, longe de janelas e portas. O monóxido de carbono não tem cheiro e pode matar.",
+     "Beba água mineral, fervida ou tratada. Jogue fora a comida que molhou ou ficou sem refrigeração.",
+     "Esvazie recipientes com água parada para barrar os mosquitos. Limpe os ferimentos e procure atendimento se houver febre ou diarreia."
+    ]
+   },
+   "source_name": "Ready.gov (FEMA) and US National Hurricane Center (NOAA)",
+   "source": "https://www.ready.gov/hurricanes"
+  },
+  {
+   "id": "wildfire",
+   "icon": "🔥",
+   "name": {
+    "en": "Wildfire and smoke",
+    "es": "Incendio forestal y humo",
+    "pt": "Incêndio florestal e fumaça"
+   },
+   "shelter": {
+    "en": "Leave early by the route the authorities indicate, to an official shelter or an area away from fire and smoke. Do not wait until you see flames and do not go back for belongings.",
+    "es": "Sal temprano por la ruta que indiquen las autoridades, hacia un albergue oficial o una zona lejos del fuego y del humo. No esperes a ver las llamas ni vuelvas a buscar pertenencias.",
+    "pt": "Saia cedo pela rota indicada pelas autoridades, para um abrigo oficial ou uma área longe do fogo e da fumaça. Não espere ver as chamas nem volte para buscar pertences."
+   },
+   "before": {
+    "en": [
+     "Clear dry leaves, branches and firewood from at least 10 m (30 feet) around the house. Clean the roof and gutters.",
+     "Never burn rubbish or fields on dry, windy days. Follow local burning bans.",
+     "Know at least two ways out of your area. Keep the car fuelled and parked facing the way out.",
+     "Keep N95 or PFF2 masks in the kit and choose a room you can close off from smoke.",
+     "Keep a hose that reaches the whole property. Store documents in a fireproof place and as digital copies."
+    ],
+    "es": [
+     "Retira hojas secas, ramas y leña de al menos 10 m alrededor de la casa. Limpia el techo y las canaletas.",
+     "Nunca quemes basura ni campos en días secos y con viento. Respeta las prohibiciones de quema.",
+     "Conoce al menos dos salidas de tu zona. Mantén el auto con combustible y estacionado mirando hacia la salida.",
+     "Ten mascarillas N95 en el kit y elige una habitación que puedas cerrar para que no entre humo.",
+     "Ten una manguera que alcance todo el terreno. Guarda los documentos en un lugar a prueba de fuego y en copias digitales."
+    ],
+    "pt": [
+     "Retire folhas secas, galhos e lenha de pelo menos 10 m ao redor da casa. Limpe o telhado e as calhas.",
+     "Nunca queime lixo nem pasto em dias secos e com vento. Respeite as proibições de queimada.",
+     "Conheça pelo menos duas saídas da sua região. Mantenha o carro abastecido e estacionado de frente para a saída.",
+     "Tenha máscaras PFF2 ou N95 no kit e escolha um cômodo que dê para fechar contra a fumaça.",
+     "Tenha uma mangueira que alcance todo o terreno. Guarde os documentos em local à prova de fogo e em cópias digitais."
+    ]
+   },
+   "during": {
+    "en": [
+     "Evacuate at once if told to, or earlier if you feel in danger. Tell someone where you are going.",
+     "If there is time: close all windows and doors, shut off the gas and move flammable furniture away from windows.",
+     "With smoke: stay indoors with windows closed, wear an N95 or PFF2 mask outside and avoid physical effort.",
+     "Keep children, older people, pregnant women and people with asthma or heart disease away from smoke.",
+     "If trapped, call emergency services, give your location and turn on lights so rescuers can find you."
+    ],
+    "es": [
+     "Evacúa de inmediato si te lo indican, o antes si te sientes en peligro. Avisa a alguien a dónde vas.",
+     "Si hay tiempo: cierra todas las ventanas y puertas, corta el gas y aleja de las ventanas los muebles inflamables.",
+     "Con humo: quédate adentro con las ventanas cerradas, usa mascarilla N95 afuera y evita el esfuerzo físico.",
+     "Mantén lejos del humo a niños, personas mayores, embarazadas y personas con asma o enfermedad del corazón.",
+     "Si quedas atrapado, llama a emergencias, da tu ubicación y enciende las luces para que los rescatistas te encuentren."
+    ],
+    "pt": [
+     "Evacue imediatamente se mandarem, ou antes se sentir perigo. Avise alguém para onde você vai.",
+     "Se houver tempo: feche todas as janelas e portas, desligue o gás e afaste das janelas os móveis inflamáveis.",
+     "Com fumaça: fique dentro de casa com as janelas fechadas, use máscara PFF2 ou N95 na rua e evite esforço físico.",
+     "Mantenha longe da fumaça crianças, idosos, gestantes e pessoas com asma ou doença do coração.",
+     "Se ficar preso, ligue para a emergência, informe sua localização e acenda as luzes para o resgate encontrar você."
+    ]
+   },
+   "after": {
+    "en": [
+     "Return only when authorities say it is safe. Avoid hot ash, charred trees and smouldering ground, which can burn you or reignite.",
+     "Wet down debris so you do not breathe dust. Wear an N95 or PFF2 mask, gloves, long sleeves and sturdy shoes to clean up.",
+     "Seek care for a cough that does not stop, shortness of breath or chest pain after breathing smoke.",
+     "Do not use water that may be contaminated. Throw away food exposed to heat, smoke or soot."
+    ],
+    "es": [
+     "Vuelve solo cuando las autoridades digan que es seguro. Evita cenizas calientes, árboles quemados y suelo humeante: queman y pueden reavivarse.",
+     "Moja los escombros para no respirar polvo. Usa mascarilla N95, guantes, mangas largas y calzado firme para limpiar.",
+     "Consulta si tienes tos que no cede, falta de aire o dolor en el pecho después de respirar humo.",
+     "No uses agua que pueda estar contaminada. Tira los alimentos expuestos al calor, al humo o al hollín."
+    ],
+    "pt": [
+     "Volte só quando as autoridades disserem que é seguro. Evite cinzas quentes, árvores queimadas e solo fumegante: queimam e podem reacender.",
+     "Molhe os destroços para não respirar poeira. Use máscara PFF2 ou N95, luvas, mangas compridas e calçado firme na limpeza.",
+     "Procure atendimento se tiver tosse que não passa, falta de ar ou dor no peito depois de respirar fumaça.",
+     "Não use água que possa estar contaminada. Jogue fora os alimentos expostos ao calor, à fumaça ou à fuligem."
+    ]
+   },
+   "source_name": "Ready.gov (FEMA), American Red Cross and US CDC",
+   "source": "https://www.ready.gov/wildfires"
+  },
+  {
+   "id": "landslide",
+   "icon": "⛰️",
+   "name": {
+    "en": "Landslide and mudflow",
+    "es": "Deslizamiento de tierra y alud de barro",
+    "pt": "Deslizamento de terra e corrida de lama"
+   },
+   "shelter": {
+    "en": "Move away from the slope and out of the path of the slide, to stable ground or an official shelter. Do not stay in houses at the foot or edge of a slope, or in valleys and stream channels.",
+    "es": "Aléjate de la ladera y sal del camino del deslizamiento, hacia un terreno estable o un albergue oficial. No te quedes en casas al pie o al borde de una ladera, ni en quebradas o cauces de arroyos.",
+    "pt": "Afaste-se da encosta e saia do caminho do deslizamento, para um terreno estável ou um abrigo oficial. Não fique em casas no pé ou na beira de encosta, nem em vales e leitos de córregos."
+   },
+   "before": {
+    "en": [
+     "Ask civil defence if your home is in a landslide risk area.",
+     "Watch for signs: new cracks in the ground or walls, doors that stick, leaning trees or poles, water seeping from the slope.",
+     "Do not cut slopes, remove vegetation or dump rubbish and water on hillsides. Keep drains clear.",
+     "Plan an escape route away from the slope and a meeting point. Practise it with the family.",
+     "Plant ground cover on slopes. Ask a qualified technician about retaining walls and drainage."
+    ],
+    "es": [
+     "Pregunta a defensa civil si tu casa está en una zona de riesgo de deslizamiento.",
+     "Atento a las señales: grietas nuevas en el suelo o las paredes, puertas que se traban, árboles o postes inclinados, agua que brota de la ladera.",
+     "No cortes laderas, no quites la vegetación ni arrojes basura o agua en las pendientes. Mantén limpios los desagües.",
+     "Planifica una ruta de escape lejos de la ladera y un punto de encuentro. Practícala con la familia.",
+     "Planta cobertura vegetal en las laderas. Consulta a un técnico sobre muros de contención y drenaje."
+    ],
+    "pt": [
+     "Pergunte à Defesa Civil se sua casa fica em área de risco de deslizamento.",
+     "Fique atento aos sinais: trincas novas no chão ou nas paredes, portas emperrando, árvores ou postes inclinados, água minando do barranco.",
+     "Não corte barrancos, não retire a vegetação nem jogue lixo ou água nas encostas. Mantenha a drenagem limpa.",
+     "Planeje uma rota de fuga para longe da encosta e um ponto de encontro. Treine com a família.",
+     "Plante vegetação rasteira nas encostas. Consulte um técnico sobre muros de contenção e drenagem."
+    ]
+   },
+   "during": {
+    "en": [
+     "In heavy rain stay awake and alert. Many landslide deaths happen while people sleep.",
+     "Listen for rumbling, cracking trees or boulders knocking together. If you hear them, leave at once.",
+     "Near a stream, a sudden rise or drop of water, or clear water turning muddy, means danger. Move away.",
+     "Get out of the path of the slide as fast as you can and warn neighbours. Call civil defence or the fire service.",
+     "If you cannot escape, curl into a tight ball and protect your head."
+    ],
+    "es": [
+     "Con lluvia fuerte, mantente despierto y alerta. Muchas muertes por deslizamientos ocurren mientras la gente duerme.",
+     "Escucha si hay estruendos, árboles que crujen o rocas que chocan. Si los oyes, sal de inmediato.",
+     "Cerca de un arroyo, una subida o bajada brusca del agua, o agua clara que se vuelve barrosa, es señal de peligro. Aléjate.",
+     "Sal del camino del deslizamiento lo más rápido posible y avisa a los vecinos. Llama a defensa civil o a los bomberos.",
+     "Si no puedes escapar, hazte un ovillo y protégete la cabeza."
+    ],
+    "pt": [
+     "Com chuva forte, fique acordado e atento. Muitas mortes por deslizamento acontecem enquanto as pessoas dormem.",
+     "Preste atenção a estrondos, árvores estalando ou pedras batendo. Se ouvir, saia imediatamente.",
+     "Perto de córrego, subida ou descida repentina da água, ou água limpa que fica barrenta, é sinal de perigo. Afaste-se.",
+     "Saia do caminho do deslizamento o mais rápido possível e avise os vizinhos. Ligue para a Defesa Civil ou os Bombeiros.",
+     "Se não der para escapar, encolha o corpo e proteja a cabeça."
+    ]
+   },
+   "after": {
+    "en": [
+     "Stay away from the slide area. More slides can follow. Go back only after civil defence inspects the land.",
+     "Look for injured or trapped people near the slide without entering it, and guide rescuers to them.",
+     "Report broken power lines, gas pipes and water pipes. Watch for flooding, which often follows a slide.",
+     "Clean wounds with soap and safe water and check your tetanus vaccine. Drink only safe water."
+    ],
+    "es": [
+     "Mantente lejos de la zona del deslizamiento. Puede haber otros. Vuelve solo después de que defensa civil revise el terreno.",
+     "Busca personas heridas o atrapadas cerca del deslizamiento sin entrar en él, y guía a los rescatistas.",
+     "Avisa si hay cables, caños de gas o de agua rotos. Atento a las inundaciones, que suelen seguir a un deslizamiento.",
+     "Limpia las heridas con jabón y agua segura y revisa tu vacuna antitetánica. Toma solo agua segura."
+    ],
+    "pt": [
+     "Fique longe da área do deslizamento. Podem ocorrer outros. Volte só depois que a Defesa Civil vistoriar o terreno.",
+     "Procure pessoas feridas ou presas perto do deslizamento sem entrar nele, e oriente as equipes de resgate.",
+     "Avise sobre fios, canos de gás ou de água rompidos. Fique atento a inundações, que costumam vir depois do deslizamento.",
+     "Limpe os ferimentos com sabão e água segura e confira a vacina antitetânica. Beba só água segura."
+    ]
+   },
+   "source_name": "Ready.gov (FEMA), US Geological Survey and Defesa Civil (Brazil)",
+   "source": "https://www.ready.gov/landslides-debris-flow"
+  },
+  {
+   "id": "drought",
+   "icon": "🏜️",
+   "name": {
+    "en": "Drought and water shortage",
+    "es": "Sequía y falta de agua",
+    "pt": "Seca e falta de água"
+   },
+   "shelter": {
+    "en": "You do not need to take shelter, but protect yourself from heat and dust and keep safe drinking water at home. Do not drink from unsafe sources without boiling or treating the water.",
+    "es": "No hace falta refugiarse, pero protégete del calor y del polvo y ten agua potable segura en casa. No tomes agua de fuentes inseguras sin hervirla o tratarla.",
+    "pt": "Não é preciso se abrigar, mas proteja-se do calor e da poeira e tenha água potável segura em casa. Não beba água de fontes inseguras sem ferver ou tratar."
+   },
+   "before": {
+    "en": [
+     "Fix leaks in taps, pipes and tanks. A dripping tap wastes many litres a day.",
+     "Store drinking water in clean, covered containers used only for water. Never reuse containers that held chemicals.",
+     "Collect rainwater where it is allowed and keep tanks covered so mosquitoes cannot get in.",
+     "On the land, choose drought-resistant plants, use mulch and water in the early morning or evening.",
+     "Follow local water restrictions and find out where emergency water will be distributed."
+    ],
+    "es": [
+     "Repara las pérdidas en canillas, caños y tanques. Una canilla que gotea desperdicia muchos litros por día.",
+     "Guarda el agua para tomar en recipientes limpios, tapados y usados solo para agua. Nunca reutilices envases de productos químicos.",
+     "Junta agua de lluvia donde esté permitido y mantén los tanques tapados para que no entren mosquitos.",
+     "En el terreno, elige plantas resistentes a la sequía, usa cobertura vegetal y riega temprano o al atardecer.",
+     "Respeta las restricciones locales de agua y averigua dónde se distribuirá agua de emergencia."
+    ],
+    "pt": [
+     "Conserte vazamentos em torneiras, canos e caixas d'água. Uma torneira pingando desperdiça muitos litros por dia.",
+     "Guarde a água de beber em recipientes limpos, tampados e usados só para água. Nunca reutilize embalagens de produtos químicos.",
+     "Capte água da chuva onde for permitido e mantenha os reservatórios tampados para o mosquito não entrar.",
+     "No terreno, escolha plantas resistentes à seca, use cobertura morta e regue de manhã cedo ou no fim da tarde.",
+     "Respeite as restrições locais de água e descubra onde haverá distribuição de água de emergência."
+    ]
+   },
+   "during": {
+    "en": [
+     "Use less water: take short showers, turn off the tap while soaping, run washing machines only when full.",
+     "Reuse water from washing vegetables or clothes to water plants and clean floors.",
+     "Keep washing hands with soap. Poor hygiene during drought leads to diarrhoea and skin and eye infections.",
+     "If you doubt the water quality, boil, filter or chlorinate it as the health authorities instruct.",
+     "Do not burn rubbish or fields. Dry vegetation catches fire easily."
+    ],
+    "es": [
+     "Usa menos agua: duchas cortas, cierra la canilla mientras te enjabonas, usa el lavarropas solo con carga completa.",
+     "Reutiliza el agua de lavar verduras o ropa para regar plantas y limpiar pisos.",
+     "No dejes de lavarte las manos con jabón. La falta de higiene en la sequía causa diarrea e infecciones de piel y ojos.",
+     "Si dudas de la calidad del agua, hiérvela, fíltrala o clórala como indiquen las autoridades de salud.",
+     "No quemes basura ni campos. La vegetación seca se enciende con facilidad."
+    ],
+    "pt": [
+     "Use menos água: banhos curtos, feche a torneira ao se ensaboar, ligue a máquina de lavar só com carga cheia.",
+     "Reaproveite a água de lavar verduras ou roupas para regar plantas e limpar o chão.",
+     "Não deixe de lavar as mãos com sabão. A falta de higiene na seca causa diarreia e infecções de pele e olhos.",
+     "Se tiver dúvida sobre a qualidade da água, ferva, filtre ou clore conforme orientação das autoridades de saúde.",
+     "Não queime lixo nem pasto. A vegetação seca pega fogo com facilidade."
+    ]
+   },
+   "after": {
+    "en": [
+     "Diarrhoea, above all in children and older people, needs fluids and prompt care at a health service.",
+     "Clean and disinfect tanks and containers before refilling them.",
+     "Keep water containers covered and scrub them every week so dengue mosquitoes cannot breed.",
+     "Keep the water-saving habits and repair or expand water storage before the next dry season."
+    ],
+    "es": [
+     "La diarrea, sobre todo en niños y personas mayores, requiere líquidos y atención rápida en un servicio de salud.",
+     "Limpia y desinfecta tanques y recipientes antes de volver a llenarlos.",
+     "Mantén tapados los recipientes de agua y cepíllalos cada semana para que no se críe el mosquito del dengue.",
+     "Conserva los hábitos de ahorro y repara o amplía el almacenamiento de agua antes de la próxima temporada seca."
+    ],
+    "pt": [
+     "Diarreia, principalmente em crianças e idosos, exige líquidos e atendimento rápido em um serviço de saúde.",
+     "Limpe e desinfete caixas d'água e recipientes antes de encher de novo.",
+     "Mantenha os recipientes de água tampados e escove-os toda semana para o mosquito da dengue não se criar.",
+     "Mantenha os hábitos de economia e conserte ou amplie o armazenamento de água antes da próxima estação seca."
+    ]
+   },
+   "source_name": "Ready.gov (FEMA), WHO and PAHO",
+   "source": "https://www.ready.gov/drought"
+  },
+  {
+   "id": "cold",
+   "icon": "❄️",
+   "name": {
+    "en": "Cold wave and frost",
+    "es": "Ola de frío y heladas",
+    "pt": "Onda de frio e geada"
+   },
+   "shelter": {
+    "en": "Stay indoors in one heated room and close off the rooms you do not use, or go to a public warming shelter. Do not sleep in a closed room with a charcoal brazier, gas stove or generator running.",
+    "es": "Quédate adentro en una sola habitación calefaccionada y cierra las que no uses, o ve a un albergue de abrigo. No duermas en una habitación cerrada con un brasero, una cocina a gas o un generador encendidos.",
+    "pt": "Fique dentro de casa em um único cômodo aquecido e feche os que não usa, ou vá a um abrigo público contra o frio. Não durma em cômodo fechado com braseiro, fogão a gás ou gerador ligados."
+   },
+   "before": {
+    "en": [
+     "Seal gaps in doors and windows. Have blankets and warm clothes in layers for everyone.",
+     "Have heaters, stoves and chimneys checked and cleaned. Install a carbon monoxide alarm if you can.",
+     "Protect water pipes from freezing and cover sensitive plants and seedlings before frost.",
+     "Give animals shelter from the wind, dry bedding and water that is not frozen.",
+     "Find out where warming shelters are and list neighbours who may need help."
+    ],
+    "es": [
+     "Sella las rendijas de puertas y ventanas. Ten frazadas y ropa de abrigo en capas para todos.",
+     "Haz revisar y limpiar estufas, cocinas y chimeneas. Instala una alarma de monóxido de carbono si puedes.",
+     "Protege los caños de agua del congelamiento y cubre las plantas sensibles y los almácigos antes de la helada.",
+     "Da a los animales refugio del viento, cama seca y agua que no esté congelada.",
+     "Averigua dónde hay albergues de abrigo y anota a los vecinos que pueden necesitar ayuda."
+    ],
+    "pt": [
+     "Vede as frestas de portas e janelas. Tenha cobertores e roupas quentes em camadas para todos.",
+     "Mande revisar e limpar aquecedores, fogões e chaminés. Instale um alarme de monóxido de carbono, se puder.",
+     "Proteja os canos de água do congelamento e cubra plantas sensíveis e mudas antes da geada.",
+     "Dê aos animais abrigo do vento, cama seca e água que não esteja congelada.",
+     "Descubra onde há abrigos contra o frio e liste os vizinhos que podem precisar de ajuda."
+    ]
+   },
+   "during": {
+    "en": [
+     "Wear several loose layers, a hat, gloves and dry socks. Change wet clothes at once.",
+     "Never heat the house with a gas oven, charcoal grill or camp stove. Keep heaters 1 m away from anything that burns.",
+     "Keep some ventilation when using fuel heaters or braziers, and turn them off before going to sleep.",
+     "Check on older neighbours, babies and people living alone. Tell local services about people sleeping outdoors.",
+     "Eat warm meals and drink warm liquids. Avoid alcohol, which makes the body lose heat faster."
+    ],
+    "es": [
+     "Usa varias capas de ropa holgada, gorro, guantes y medias secas. Cambia la ropa mojada de inmediato.",
+     "Nunca calientes la casa con el horno a gas, una parrilla a carbón o un anafe. Deja las estufas a 1 m de todo lo que pueda arder.",
+     "Mantén algo de ventilación al usar estufas a combustible o braseros, y apágalos antes de dormir.",
+     "Visita a los vecinos mayores, a los bebés y a quienes viven solos. Avisa a los servicios locales si hay personas durmiendo en la calle.",
+     "Come comidas calientes y toma líquidos tibios. Evita el alcohol, que hace perder calor más rápido."
+    ],
+    "pt": [
+     "Use várias camadas de roupa folgada, gorro, luvas e meias secas. Troque a roupa molhada imediatamente.",
+     "Nunca aqueça a casa com forno a gás, churrasqueira a carvão ou fogareiro. Deixe aquecedores a 1 m de tudo que possa queimar.",
+     "Mantenha alguma ventilação ao usar aquecedores a combustível ou braseiros, e apague-os antes de dormir.",
+     "Visite vizinhos idosos, bebês e pessoas que moram sozinhas. Avise os serviços locais sobre pessoas dormindo na rua.",
+     "Faça refeições quentes e tome líquidos mornos. Evite álcool, que faz o corpo perder calor mais rápido."
+    ]
+   },
+   "after": {
+    "en": [
+     "Carbon monoxide signs: headache, dizziness, nausea, sleepiness. Go to fresh air at once and call emergency services.",
+     "Hypothermia signs: shivering, confusion, slurred speech, drowsiness. Warm the person slowly and get medical help.",
+     "Frostbite signs: numb, white or greyish skin. Warm gently with body heat or warm water. Do not rub and do not use direct heat.",
+     "Check pipes, roof, plants and animals for damage after the frost."
+    ],
+    "es": [
+     "Signos de intoxicación por monóxido de carbono: dolor de cabeza, mareo, náuseas, sueño. Sal al aire libre de inmediato y llama a emergencias.",
+     "Signos de hipotermia: temblores, confusión, habla arrastrada, somnolencia. Abriga a la persona de a poco y busca atención médica.",
+     "Signos de congelación: piel entumecida, blanca o grisácea. Calienta suavemente con el cuerpo o agua tibia. No frotes ni uses calor directo.",
+     "Revisa los daños en caños, techo, plantas y animales después de la helada."
+    ],
+    "pt": [
+     "Sinais de intoxicação por monóxido de carbono: dor de cabeça, tontura, náusea, sono. Vá para o ar livre na hora e ligue para a emergência.",
+     "Sinais de hipotermia: tremores, confusão, fala arrastada, sonolência. Aqueça a pessoa aos poucos e procure atendimento médico.",
+     "Sinais de congelamento da pele: dormência, pele branca ou acinzentada. Aqueça devagar com o corpo ou água morna. Não esfregue nem use calor direto.",
+     "Verifique os danos em canos, telhado, plantas e animais depois da geada."
+    ]
+   },
+   "source_name": "Ready.gov (FEMA) and US CDC",
+   "source": "https://www.ready.gov/winter-weather"
+  },
+  {
+   "id": "earthquake",
+   "icon": "🌐",
+   "name": {
+    "en": "Earthquake",
+    "es": "Terremoto",
+    "pt": "Terremoto"
+   },
+   "shelter": {
+    "en": "Drop, cover and hold on: get under a sturdy table, away from windows and anything that can fall. Do not run outside or use lifts while the ground is shaking.",
+    "es": "Agáchese, cúbrase y sujétese: póngase bajo una mesa firme, lejos de ventanas y de objetos que puedan caer. No corra hacia afuera ni use ascensores mientras tiembla.",
+    "pt": "Abaixe-se, cubra-se e segure-se: fique sob uma mesa firme, longe de janelas e de objetos que possam cair. Não corra para fora nem use elevador enquanto estiver tremendo."
+   },
+   "before": {
+    "en": [
+     "Fix tall furniture, shelves and the water heater to the wall.",
+     "Keep heavy objects on low shelves and away from beds.",
+     "Choose a safe spot in each room and practise drop, cover and hold on.",
+     "Know how to turn off gas, water and electricity.",
+     "Keep shoes and a torch next to the bed."
+    ],
+    "es": [
+     "Fije a la pared los muebles altos, estantes y el termotanque.",
+     "Guarde los objetos pesados en estantes bajos y lejos de las camas.",
+     "Elija un lugar seguro en cada ambiente y practique agacharse, cubrirse y sujetarse.",
+     "Sepa cómo cortar el gas, el agua y la electricidad.",
+     "Tenga calzado y una linterna junto a la cama."
+    ],
+    "pt": [
+     "Prenda na parede os móveis altos, as estantes e o aquecedor de água.",
+     "Guarde objetos pesados em prateleiras baixas e longe das camas.",
+     "Escolha um ponto seguro em cada cômodo e treine abaixar, cobrir e segurar.",
+     "Saiba como fechar o gás, a água e a energia.",
+     "Deixe calçado e lanterna ao lado da cama."
+    ]
+   },
+   "during": {
+    "en": [
+     "Indoors: drop, cover your head and neck, and hold on until the shaking stops.",
+     "Outdoors: move away from buildings, walls, poles and power lines.",
+     "Driving: pull over away from bridges and overpasses and stay in the car.",
+     "In bed: stay there and protect your head with a pillow.",
+     "Near the sea: after strong or long shaking, go to high ground at once."
+    ],
+    "es": [
+     "En interiores: agáchese, cubra cabeza y cuello y sujétese hasta que deje de temblar.",
+     "Al aire libre: aléjese de edificios, muros, postes y cables.",
+     "En vehículo: deténgase lejos de puentes y viaductos y quédese adentro.",
+     "En la cama: quédese allí y proteja la cabeza con una almohada.",
+     "Cerca del mar: tras un temblor fuerte o largo, vaya de inmediato a un lugar alto."
+    ],
+    "pt": [
+     "Em ambiente fechado: abaixe-se, cubra cabeça e pescoço e segure-se até parar de tremer.",
+     "Ao ar livre: afaste-se de prédios, muros, postes e fios.",
+     "Dirigindo: pare longe de pontes e viadutos e fique dentro do carro.",
+     "Na cama: fique nela e proteja a cabeça com um travesseiro.",
+     "Perto do mar: depois de um tremor forte ou longo, vá na hora para um lugar alto."
+    ]
+   },
+   "after": {
+    "en": [
+     "Expect aftershocks and be ready to drop, cover and hold on again.",
+     "Check for injuries and give first aid; call for help for serious injuries.",
+     "If you smell gas, open windows, leave and report it. Do not light flames.",
+     "Stay out of damaged buildings and follow official information."
+    ],
+    "es": [
+     "Espere réplicas y esté listo para agacharse, cubrirse y sujetarse otra vez.",
+     "Revise si hay heridos y dé primeros auxilios; pida ayuda si hay lesiones graves.",
+     "Si huele a gas, abra las ventanas, salga y avise. No encienda llamas.",
+     "No entre en edificios dañados y siga la información oficial."
+    ],
+    "pt": [
+     "Espere réplicas e esteja pronto para abaixar, cobrir e segurar de novo.",
+     "Veja se há feridos e preste primeiros socorros; peça ajuda em caso de ferimento grave.",
+     "Se sentir cheiro de gás, abra as janelas, saia e avise. Não acenda chamas.",
+     "Não entre em prédios danificados e siga as informações oficiais."
+    ]
+   },
+   "source_name": "Ready.gov (FEMA) and USGS",
+   "source": "https://www.ready.gov/earthquakes"
+  }
+ ],
+ "kit": {
+  "en": [
+   "Water: about 4 litres (1 gallon) per person per day for at least 3 days, and a week if you can.",
+   "Non-perishable food for at least 3 days, and a manual can opener.",
+   "Battery or hand-crank radio, torch and spare batteries.",
+   "First aid kit and a 7-day supply of regular medicines, with a written list of what each person takes.",
+   "Copies of IDs, property papers, prescriptions and vaccination cards in a waterproof bag, plus digital copies.",
+   "Phone charger, charged power bank and a written list of emergency contacts.",
+   "Cash in small notes, spare keys and a whistle to call for help.",
+   "Soap, hand sanitiser, toilet paper, sanitary pads, rubbish bags and N95 or PFF2 masks.",
+   "Warm clothes, sturdy shoes, a raincoat and one blanket per person.",
+   "Items for babies, older people and pets: nappies, formula, glasses, hearing aid batteries, pet food and leash."
   ],
-  "kit": {
-    "en": [
-      "Water: about 4 litres (1 gallon) per person per day for at least 3 days, and a week if you can.",
-      "Non-perishable food for at least 3 days, and a manual can opener.",
-      "Battery or hand-crank radio, torch and spare batteries.",
-      "First aid kit and a 7-day supply of regular medicines, with a written list of what each person takes.",
-      "Copies of IDs, property papers, prescriptions and vaccination cards in a waterproof bag, plus digital copies.",
-      "Phone charger, charged power bank and a written list of emergency contacts.",
-      "Cash in small notes, spare keys and a whistle to call for help.",
-      "Soap, hand sanitiser, toilet paper, sanitary pads, rubbish bags and N95 or PFF2 masks.",
-      "Warm clothes, sturdy shoes, a raincoat and one blanket per person.",
-      "Items for babies, older people and pets: nappies, formula, glasses, hearing aid batteries, pet food and leash."
-    ],
-    "es": [
-      "Agua: unos 4 litros (1 galón) por persona por día para al menos 3 días, y una semana si puedes.",
-      "Alimentos no perecederos para al menos 3 días y un abrelatas manual.",
-      "Radio a pilas o a manivela, linterna y pilas de repuesto.",
-      "Botiquín de primeros auxilios y medicamentos habituales para 7 días, con una lista escrita de lo que toma cada persona.",
-      "Copias de documentos de identidad, títulos, recetas y carnets de vacunación en una bolsa impermeable, más copias digitales.",
-      "Cargador de teléfono, batería portátil cargada y una lista escrita de contactos de emergencia.",
-      "Dinero en efectivo en billetes chicos, llaves de repuesto y un silbato para pedir ayuda.",
-      "Jabón, alcohol en gel, papel higiénico, toallas higiénicas, bolsas de basura y mascarillas N95.",
-      "Ropa de abrigo, calzado firme, un impermeable y una frazada por persona.",
-      "Artículos para bebés, personas mayores y mascotas: pañales, leche de fórmula, anteojos, pilas de audífono, alimento y correa."
-    ],
-    "pt": [
-      "Água: cerca de 4 litros (1 galão) por pessoa por dia para pelo menos 3 dias, e uma semana se puder.",
-      "Alimentos não perecíveis para pelo menos 3 dias e um abridor de latas manual.",
-      "Rádio a pilha ou a manivela, lanterna e pilhas de reserva.",
-      "Kit de primeiros socorros e remédios de uso contínuo para 7 dias, com uma lista escrita do que cada pessoa toma.",
-      "Cópias de documentos de identidade, escrituras, receitas e carteiras de vacinação em saco impermeável, mais cópias digitais.",
-      "Carregador de celular, bateria portátil carregada e uma lista escrita de contatos de emergência.",
-      "Dinheiro em notas pequenas, chaves reserva e um apito para pedir ajuda.",
-      "Sabão, álcool em gel, papel higiênico, absorventes, sacos de lixo e máscaras PFF2 ou N95.",
-      "Roupas quentes, calçado firme, capa de chuva e um cobertor por pessoa.",
-      "Itens para bebês, idosos e animais: fraldas, fórmula infantil, óculos, pilhas de aparelho auditivo, ração e guia."
-    ]
-  },
-  "kit_source": "https://www.ready.gov/kit",
-  "plan": {
-    "en": [
-      "Agree two meeting points: one right outside the home and one outside the neighbourhood.",
-      "Choose one contact who lives in another city. Everyone calls or texts that person to say they are safe.",
-      "Know how you receive official alerts, and the evacuation routes and shelters from home, work and school.",
-      "Decide who helps older people, bedridden people, babies and people with disabilities, and what they need to take.",
-      "Include pets: a carrier, food and a place that accepts animals.",
-      "Write the plan and phone numbers on paper for each person, and practise it at least once a year."
-    ],
-    "es": [
-      "Acuerden dos puntos de encuentro: uno justo afuera de la casa y otro fuera del barrio.",
-      "Elijan un contacto que viva en otra ciudad. Todos lo llaman o le escriben para avisar que están bien.",
-      "Sepan cómo reciben las alertas oficiales y cuáles son las rutas de evacuación y los albergues desde la casa, el trabajo y la escuela.",
-      "Decidan quién ayuda a las personas mayores, postradas, bebés y personas con discapacidad, y qué necesitan llevar.",
-      "Incluyan a las mascotas: transportadora, alimento y un lugar que acepte animales.",
-      "Escriban el plan y los teléfonos en papel para cada persona, y practíquenlo al menos una vez al año."
-    ],
-    "pt": [
-      "Combinem dois pontos de encontro: um logo em frente à casa e outro fora do bairro.",
-      "Escolham um contato que more em outra cidade. Todos ligam ou mandam mensagem para ele avisando que estão bem.",
-      "Saibam como recebem os alertas oficiais e quais são as rotas de saída e os abrigos a partir de casa, do trabalho e da escola.",
-      "Definam quem ajuda idosos, acamados, bebês e pessoas com deficiência, e o que eles precisam levar.",
-      "Incluam os animais: caixa de transporte, ração e um lugar que aceite animais.",
-      "Escrevam o plano e os telefones em papel para cada pessoa, e treinem pelo menos uma vez por ano."
-    ]
-  },
-  "plan_source": "https://www.ready.gov/plan",
-  "numbers": [
-    {"cc": "PY", "label": "Police and emergencies (Sistema 911)", "number": "911"},
-    {"cc": "PY", "label": "Volunteer fire service (Bomberos Voluntarios)", "number": "132"},
-    {"cc": "PY", "label": "Ambulance (SEME, Ministry of Health)", "number": "141"},
-    {"cc": "BR", "label": "Ambulance (SAMU)", "number": "192"},
-    {"cc": "BR", "label": "Fire and rescue (Corpo de Bombeiros)", "number": "193"},
-    {"cc": "BR", "label": "Police (Polícia Militar)", "number": "190"},
-    {"cc": "BR", "label": "Civil defence (Defesa Civil)", "number": "199"},
-    {"cc": "AR", "label": "Emergencies: police and ambulance", "number": "911"},
-    {"cc": "AR", "label": "Fire service (Bomberos)", "number": "100"},
-    {"cc": "AR", "label": "Ambulance (SAME, Buenos Aires area)", "number": "107"},
-    {"cc": "AR", "label": "Civil defence (Defensa Civil)", "number": "103"},
-    {"cc": "US", "label": "All emergencies: ambulance, fire, police", "number": "911"},
-    {"cc": "JP", "label": "Fire and ambulance", "number": "119"},
-    {"cc": "JP", "label": "Police", "number": "110"},
-    {"cc": "JP", "label": "Disaster message dial (leave and hear safety messages)", "number": "171"},
-    {"cc": "MX", "label": "All emergencies: ambulance, fire, police, civil protection", "number": "911"},
-    {"cc": "IN", "label": "All emergencies (ERSS)", "number": "112"},
-    {"cc": "IN", "label": "Police", "number": "100"},
-    {"cc": "IN", "label": "Fire and rescue", "number": "101"},
-    {"cc": "IN", "label": "Ambulance (most states)", "number": "108"},
-    {"cc": "ID", "label": "All emergencies (where available)", "number": "112"},
-    {"cc": "ID", "label": "Police", "number": "110"},
-    {"cc": "ID", "label": "Fire service", "number": "113"},
-    {"cc": "ID", "label": "Ambulance and medical emergencies", "number": "119"},
-    {"cc": "ID", "label": "Disaster agency (BNPB)", "number": "117"},
-    {"cc": "PK", "label": "Rescue and ambulance (Rescue 1122, coverage varies by province)", "number": "1122"},
-    {"cc": "PK", "label": "Police", "number": "15"},
-    {"cc": "PK", "label": "Fire brigade", "number": "16"},
-    {"cc": "PK", "label": "Ambulance (Edhi Foundation)", "number": "115"},
-    {"cc": "NG", "label": "All emergencies (toll-free)", "number": "112"},
-    {"cc": "BD", "label": "All emergencies: police, fire, ambulance", "number": "999"},
-    {"cc": "ET", "label": "Police", "number": "991"},
-    {"cc": "ET", "label": "Ambulance", "number": "907"},
-    {"cc": "ET", "label": "Fire service", "number": "939"}
+  "es": [
+   "Agua: unos 4 litros (1 galón) por persona por día para al menos 3 días, y una semana si puedes.",
+   "Alimentos no perecederos para al menos 3 días y un abrelatas manual.",
+   "Radio a pilas o a manivela, linterna y pilas de repuesto.",
+   "Botiquín de primeros auxilios y medicamentos habituales para 7 días, con una lista escrita de lo que toma cada persona.",
+   "Copias de documentos de identidad, títulos, recetas y carnets de vacunación en una bolsa impermeable, más copias digitales.",
+   "Cargador de teléfono, batería portátil cargada y una lista escrita de contactos de emergencia.",
+   "Dinero en efectivo en billetes chicos, llaves de repuesto y un silbato para pedir ayuda.",
+   "Jabón, alcohol en gel, papel higiénico, toallas higiénicas, bolsas de basura y mascarillas N95.",
+   "Ropa de abrigo, calzado firme, un impermeable y una frazada por persona.",
+   "Artículos para bebés, personas mayores y mascotas: pañales, leche de fórmula, anteojos, pilas de audífono, alimento y correa."
+  ],
+  "pt": [
+   "Água: cerca de 4 litros (1 galão) por pessoa por dia para pelo menos 3 dias, e uma semana se puder.",
+   "Alimentos não perecíveis para pelo menos 3 dias e um abridor de latas manual.",
+   "Rádio a pilha ou a manivela, lanterna e pilhas de reserva.",
+   "Kit de primeiros socorros e remédios de uso contínuo para 7 dias, com uma lista escrita do que cada pessoa toma.",
+   "Cópias de documentos de identidade, escrituras, receitas e carteiras de vacinação em saco impermeável, mais cópias digitais.",
+   "Carregador de celular, bateria portátil carregada e uma lista escrita de contatos de emergência.",
+   "Dinheiro em notas pequenas, chaves reserva e um apito para pedir ajuda.",
+   "Sabão, álcool em gel, papel higiênico, absorventes, sacos de lixo e máscaras PFF2 ou N95.",
+   "Roupas quentes, calçado firme, capa de chuva e um cobertor por pessoa.",
+   "Itens para bebês, idosos e animais: fraldas, fórmula infantil, óculos, pilhas de aparelho auditivo, ração e guia."
   ]
+ },
+ "kit_source": "https://www.ready.gov/kit",
+ "plan": {
+  "en": [
+   "Agree two meeting points: one right outside the home and one outside the neighbourhood.",
+   "Choose one contact who lives in another city. Everyone calls or texts that person to say they are safe.",
+   "Know how you receive official alerts, and the evacuation routes and shelters from home, work and school.",
+   "Decide who helps older people, bedridden people, babies and people with disabilities, and what they need to take.",
+   "Include pets: a carrier, food and a place that accepts animals.",
+   "Write the plan and phone numbers on paper for each person, and practise it at least once a year."
+  ],
+  "es": [
+   "Acuerden dos puntos de encuentro: uno justo afuera de la casa y otro fuera del barrio.",
+   "Elijan un contacto que viva en otra ciudad. Todos lo llaman o le escriben para avisar que están bien.",
+   "Sepan cómo reciben las alertas oficiales y cuáles son las rutas de evacuación y los albergues desde la casa, el trabajo y la escuela.",
+   "Decidan quién ayuda a las personas mayores, postradas, bebés y personas con discapacidad, y qué necesitan llevar.",
+   "Incluyan a las mascotas: transportadora, alimento y un lugar que acepte animales.",
+   "Escriban el plan y los teléfonos en papel para cada persona, y practíquenlo al menos una vez al año."
+  ],
+  "pt": [
+   "Combinem dois pontos de encontro: um logo em frente à casa e outro fora do bairro.",
+   "Escolham um contato que more em outra cidade. Todos ligam ou mandam mensagem para ele avisando que estão bem.",
+   "Saibam como recebem os alertas oficiais e quais são as rotas de saída e os abrigos a partir de casa, do trabalho e da escola.",
+   "Definam quem ajuda idosos, acamados, bebês e pessoas com deficiência, e o que eles precisam levar.",
+   "Incluam os animais: caixa de transporte, ração e um lugar que aceite animais.",
+   "Escrevam o plano e os telefones em papel para cada pessoa, e treinem pelo menos uma vez por ano."
+  ]
+ },
+ "plan_source": "https://www.ready.gov/plan",
+ "numbers": [
+  {
+   "cc": "PY",
+   "label": "Police and emergencies (Sistema 911)",
+   "number": "911"
+  },
+  {
+   "cc": "PY",
+   "label": "Volunteer fire service (Bomberos Voluntarios)",
+   "number": "132"
+  },
+  {
+   "cc": "PY",
+   "label": "Ambulance (SEME, Ministry of Health)",
+   "number": "141"
+  },
+  {
+   "cc": "BR",
+   "label": "Ambulance (SAMU)",
+   "number": "192"
+  },
+  {
+   "cc": "BR",
+   "label": "Fire and rescue (Corpo de Bombeiros)",
+   "number": "193"
+  },
+  {
+   "cc": "BR",
+   "label": "Police (Polícia Militar)",
+   "number": "190"
+  },
+  {
+   "cc": "BR",
+   "label": "Civil defence (Defesa Civil)",
+   "number": "199"
+  },
+  {
+   "cc": "AR",
+   "label": "Emergencies: police and ambulance",
+   "number": "911"
+  },
+  {
+   "cc": "AR",
+   "label": "Fire service (Bomberos)",
+   "number": "100"
+  },
+  {
+   "cc": "AR",
+   "label": "Ambulance (SAME, Buenos Aires area)",
+   "number": "107"
+  },
+  {
+   "cc": "AR",
+   "label": "Civil defence (Defensa Civil)",
+   "number": "103"
+  },
+  {
+   "cc": "US",
+   "label": "All emergencies: ambulance, fire, police",
+   "number": "911"
+  },
+  {
+   "cc": "JP",
+   "label": "Fire and ambulance",
+   "number": "119"
+  },
+  {
+   "cc": "JP",
+   "label": "Police",
+   "number": "110"
+  },
+  {
+   "cc": "JP",
+   "label": "Disaster message dial (leave and hear safety messages)",
+   "number": "171"
+  },
+  {
+   "cc": "MX",
+   "label": "All emergencies: ambulance, fire, police, civil protection",
+   "number": "911"
+  },
+  {
+   "cc": "IN",
+   "label": "All emergencies (ERSS)",
+   "number": "112"
+  },
+  {
+   "cc": "IN",
+   "label": "Police",
+   "number": "100"
+  },
+  {
+   "cc": "IN",
+   "label": "Fire and rescue",
+   "number": "101"
+  },
+  {
+   "cc": "IN",
+   "label": "Ambulance (most states)",
+   "number": "108"
+  },
+  {
+   "cc": "ID",
+   "label": "All emergencies (where available)",
+   "number": "112"
+  },
+  {
+   "cc": "ID",
+   "label": "Police",
+   "number": "110"
+  },
+  {
+   "cc": "ID",
+   "label": "Fire service",
+   "number": "113"
+  },
+  {
+   "cc": "ID",
+   "label": "Ambulance and medical emergencies",
+   "number": "119"
+  },
+  {
+   "cc": "ID",
+   "label": "Disaster agency (BNPB)",
+   "number": "117"
+  },
+  {
+   "cc": "PK",
+   "label": "Rescue and ambulance (Rescue 1122, coverage varies by province)",
+   "number": "1122"
+  },
+  {
+   "cc": "PK",
+   "label": "Police",
+   "number": "15"
+  },
+  {
+   "cc": "PK",
+   "label": "Fire brigade",
+   "number": "16"
+  },
+  {
+   "cc": "PK",
+   "label": "Ambulance (Edhi Foundation)",
+   "number": "115"
+  },
+  {
+   "cc": "NG",
+   "label": "All emergencies (toll-free)",
+   "number": "112"
+  },
+  {
+   "cc": "BD",
+   "label": "All emergencies: police, fire, ambulance",
+   "number": "999"
+  },
+  {
+   "cc": "ET",
+   "label": "Police",
+   "number": "991"
+  },
+  {
+   "cc": "ET",
+   "label": "Ambulance",
+   "number": "907"
+  },
+  {
+   "cc": "ET",
+   "label": "Fire service",
+   "number": "939"
+  }
+ ]
 }

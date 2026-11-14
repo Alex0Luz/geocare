@@ -308,7 +308,7 @@ const Extras = (() => {
   }
   function exportCSV(r) {
     const rows = [["year", ...r.signals.flatMap((s) => s.src.map((src) => `${s.key}_${src}`))]];
-    YEARS.forEach((y, i) => rows.push([y, ...r.signals.flatMap((s) => s.src.map((src) => { const v = r[src]?.[s.key]?.[i]; return Number.isFinite(v) ? +v.toFixed(3) : ""; }))]));
+    YEARS.forEach((y, i) => rows.push([y, ...r.signals.flatMap((s) => s.src.map((src) => { const v = (src === "nasa" ? nasaOf(r, s.key) : r[src])?.[s.key]?.[i]; return Number.isFinite(v) ? +v.toFixed(3) : ""; }))]));
     rows.push([], ["signal", "source", "slope_per_decade", "ci95_low", "ci95_high", "mann_kendall_p", "significant", "verdict"]);
     for (const s of r.signals) for (const src of s.src) { const tr = s[src]; if (tr) rows.push([s.key, src === "nasa" ? "NASA POWER (MERRA-2)" : "ERA5", tr.slopeDecade.toFixed(4), tr.loDecade.toFixed(4), tr.hiDecade.toFixed(4), tr.p.toExponential(3), tr.significant, s.verdict]); }
     rows.push([], ["place", r.label.replace(/,/g, " ")], ["lat", r.lat], ["lon", r.lon], ["method", "Mann-Kendall + Theil-Sen on yearly values 1981-2025"]);
