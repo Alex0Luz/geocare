@@ -11,7 +11,7 @@ I18N.add("en", {
   "me.age": "Age", "me.cond": "Health conditions", "me.work": "Work", "me.meds": "Medicines I take (by class)", "me.home": "My home",
   "f.u5": "under 5", "f.5-17": "5–17", "f.18-59": "18–59", "f.60-74": "60–74", "f.75+": "75 or older",
   "f.hta": "High blood pressure", "f.heart": "Heart disease", "f.kidney": "Kidney disease", "f.diabetes": "Diabetes", "f.lung": "Asthma / COPD", "f.bed": "Bedridden or reduced mobility", "f.mental": "Mental health condition", "f.pregnant": "Pregnant",
-  "f.outdoor": "I work outdoors",
+  "f.outdoor": "I work outdoors", "f.farm": "I live or work near crops",
   "f.diuretic": "Diuretics (hydrochlorothiazide, furosemide)", "f.acei": "ACE inhibitors / ARBs (enalapril, losartan)", "f.beta": "Beta-blockers", "f.antichol": "Anticholinergic antihistamines (promethazine, dexchlorpheniramine)", "f.psych": "Antipsychotics or tricyclic antidepressants", "f.lithium": "Lithium", "f.nsaid": "Anti-inflammatories (NSAIDs)", "f.alcohol": "Alcohol or stimulants",
   "f.noceiling": "Roof without ceiling lining", "f.noventil": "Little ventilation", "f.nofan": "No fan", "f.alone": "Lives alone",
   "light.title": "GeoCare traffic light: heat", "light.low": "Low", "light.mid": "Moderate", "light.high": "High",
@@ -42,7 +42,7 @@ I18N.add("es", {
   "me.age": "Edad", "me.cond": "Condiciones de salud", "me.work": "Trabajo", "me.meds": "Medicamentos que tomo (por clase)", "me.home": "Mi casa",
   "f.u5": "menos de 5", "f.5-17": "5–17", "f.18-59": "18–59", "f.60-74": "60–74", "f.75+": "75 o más",
   "f.hta": "Hipertensión", "f.heart": "Enfermedad cardíaca", "f.kidney": "Enfermedad renal", "f.diabetes": "Diabetes", "f.lung": "Asma / EPOC", "f.bed": "Postrado o movilidad reducida", "f.mental": "Condición de salud mental", "f.pregnant": "Embarazada",
-  "f.outdoor": "Trabajo al aire libre",
+  "f.outdoor": "Trabajo al aire libre", "f.farm": "Vivo o trabajo cerca de cultivos",
   "f.diuretic": "Diuréticos (hidroclorotiazida, furosemida)", "f.acei": "IECA / ARA II (enalapril, losartán)", "f.beta": "Betabloqueantes", "f.antichol": "Antihistamínicos anticolinérgicos (prometazina, dexclorfeniramina)", "f.psych": "Antipsicóticos o antidepresivos tricíclicos", "f.lithium": "Litio", "f.nsaid": "Antiinflamatorios (AINE)", "f.alcohol": "Alcohol o estimulantes",
   "f.noceiling": "Techo sin cielorraso", "f.noventil": "Poca ventilación", "f.nofan": "Sin ventilador", "f.alone": "Vive solo/a",
   "light.title": "Semáforo GeoCare: calor", "light.low": "Bajo", "light.mid": "Moderado", "light.high": "Alto",
@@ -73,7 +73,7 @@ I18N.add("pt", {
   "me.age": "Idade", "me.cond": "Condições de saúde", "me.work": "Trabalho", "me.meds": "Remédios que uso (por classe)", "me.home": "Minha casa",
   "f.u5": "menos de 5", "f.5-17": "5–17", "f.18-59": "18–59", "f.60-74": "60–74", "f.75+": "75 ou mais",
   "f.hta": "Hipertensão", "f.heart": "Doença cardíaca", "f.kidney": "Doença renal", "f.diabetes": "Diabetes", "f.lung": "Asma / DPOC", "f.bed": "Acamado ou mobilidade reduzida", "f.mental": "Sofrimento psíquico", "f.pregnant": "Gestante",
-  "f.outdoor": "Trabalho ao ar livre",
+  "f.outdoor": "Trabalho ao ar livre", "f.farm": "Moro ou trabalho perto de lavoura",
   "f.diuretic": "Diuréticos (hidroclorotiazida, furosemida)", "f.acei": "IECA / BRA (enalapril, losartana)", "f.beta": "Betabloqueadores", "f.antichol": "Anti-histamínicos anticolinérgicos (prometazina, dexclorfeniramina)", "f.psych": "Antipsicóticos ou antidepressivos tricíclicos", "f.lithium": "Lítio", "f.nsaid": "Anti-inflamatórios (AINE)", "f.alcohol": "Álcool ou estimulantes",
   "f.noceiling": "Telhado sem forro", "f.noventil": "Pouca ventilação", "f.nofan": "Sem ventilador", "f.alone": "Mora sozinho(a)",
   "light.title": "Semáforo GeoCare: calor", "light.low": "Baixo", "light.mid": "Moderado", "light.high": "Alto",
@@ -156,7 +156,7 @@ function quantLine(s) {
 }
 
 const Extras = (() => {
-  const GROUPS = { age: ["u5", "5-17", "18-59", "60-74", "75+"], cond: ["hta", "heart", "kidney", "diabetes", "lung", "bed", "mental", "pregnant"], work: ["outdoor"], meds: ["diuretic", "acei", "beta", "antichol", "psych", "lithium", "nsaid", "alcohol"], home: ["noceiling", "noventil", "nofan", "alone"] };
+  const GROUPS = { age: ["u5", "5-17", "18-59", "60-74", "75+"], cond: ["hta", "heart", "kidney", "diabetes", "lung", "bed", "mental", "pregnant"], work: ["outdoor", "farm"], meds: ["diuretic", "acei", "beta", "antichol", "psych", "lithium", "nsaid", "alcohol"], home: ["noceiling", "noventil", "nofan", "alone"] };
   const SOS = { PY: [["911", ""], ["141", "SEME"]], BR: [["192", "SAMU"], ["193", ""]], AR: [["107", "SAME"], ["911", ""]] };
   const ui = { aud: "city", gridVar: "temp", health: {}, meta: null, playbook: undefined, layers: {} };
   let profile = { age: "", on: [] };
@@ -166,7 +166,7 @@ const Extras = (() => {
 
   /* ---------- profile + traffic light ---------- */
   function light(r) {
-    const personal = [...profile.on];
+    const personal = profile.on.filter((k) => k !== "farm"); // living near crops is not a heat factor
     if (["u5", "60-74", "75+"].includes(profile.age)) personal.unshift(profile.age);
     let score = personal.length; const why = [];
     why.push(personal.length ? t("light.r.factors", { n: personal.length, list: personal.map((k) => t("f." + k).split(" (")[0]).join(", ") }) : t("light.r.none"));
@@ -348,5 +348,5 @@ const Extras = (() => {
     renderMe(); renderTools(); renderRegion(); renderAct(); renderCapitals();
     if (!Array.isArray(state.main?.grid) && ui.layers.grid) ui.layers.grid.clearLayers();
   }
-  return { render };
+  return { render, has: (k) => profile.on.includes(k) };
 })();

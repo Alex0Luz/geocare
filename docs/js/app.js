@@ -478,7 +478,9 @@ function healthTopics(r) {
   out.push({ key: "water", level: lvl(maxRain >= 50 || !!riverLevel(r.river), rising(sig(r, "heavyrain")) || r.terrain?.low), why: [riverLevel(r.river) && t("why.water.river"), maxRain >= 50 && t("why.water.now", { r: fmt(maxRain, 0) }), r.terrain?.low && t("why.water.low"), rising(sig(r, "heavyrain")) && t("why.water.trend")] });
   out.push({ key: "air", level: lvl(now?.pm25 > 15, false), why: [now?.pm25 > 15 && t("why.air.now", { p: fmt(now.pm25, 0) })] });
   out.push({ key: "wash", level: lvl(false, rising(sig(r, "rain"), -1) || rising(sig(r, "drydays"))), why: [rising(sig(r, "rain"), -1) && t("why.wash.rain"), rising(sig(r, "drydays")) && t("why.wash.dry")] });
-  const order = { now: 0, rising: 1, watch: 2 };
+  // farm chemicals, dust and smoke: general guidance for everyone, first in line for people who live or work near crops
+  out.push({ key: "agro", level: Extras.has("farm") ? "you" : "watch", why: [Extras.has("farm") && t("why.agro.me")] });
+  const order = { now: 0, you: 1, rising: 2, watch: 3 };
   return out.sort((a, b) => order[a.level] - order[b.level]);
 }
 function renderHealth() {
@@ -487,7 +489,7 @@ function renderHealth() {
   let html = `<div id="me-box"></div><h3>${t("health.title")}</h3><p class="muted small">${t("health.intro")}</p><div class="topics">`;
   healthTopics(r).forEach((h, i) => {
     const why = h.why.filter(Boolean);
-    html += `<details class="topic lv-${h.level}" ${h.level === "now" || i === 0 ? "open" : ""}><summary><span class="tn">${String(i + 1).padStart(2, "0")}</span><span class="tt">${t("h." + h.key)}</span><span class="badge l-${h.level}">${t("level." + h.level)}</span></summary>
+    html += `<details class="topic lv-${h.level}" ${["now", "you"].includes(h.level) || i === 0 ? "open" : ""}><summary><span class="tn">${String(i + 1).padStart(2, "0")}</span><span class="tt">${t("h." + h.key)}</span><span class="badge l-${h.level}">${t("level." + h.level)}</span></summary>
       <div class="tbody">${why.length ? `<p class="why"><b>${t("health.why")}</b> ${why.join(" ")}</p>` : `<p class="why muted">${t("health.nowhy")}</p>`}
       <ol class="steps">${t("h." + h.key + ".steps").split("|").map((x) => `<li>${x}</li>`).join("")}</ol>
       <p class="muted small">${t("h." + h.key + ".src")}</p></div></details>`;
@@ -539,7 +541,7 @@ function renderNow() {
 }
 
 /* ---------------- Community (prototype: stored on this device only) ---------------- */
-const KINDS = { flood: "🌊", heat: "🥵", mosquito: "🦟", nowater: "🚱", landslide: "⛰️", smoke: "🌫️", need: "🆘", donate: "📦", partner: "🤝", animal: "🐾" };
+const KINDS = { flood: "🌊", heat: "🥵", mosquito: "🦟", nowater: "🚱", landslide: "⛰️", smoke: "🌫️", need: "🆘", donate: "📦", partner: "🤝", animal: "🐾", spray: "🚜" };
 const SEED = [
   { id: "s1", kind: "flood", lat: -25.5215, lon: -54.6205, text: "Street flooded after last night's storm; water entered ground-floor homes.", when: "2026-11-13", seed: true },
   { id: "s2", kind: "need", lat: -25.5231, lon: -54.6188, text: "Families need cleaning supplies, mattresses and drinking water.", when: "2026-11-13", seed: true },
@@ -573,7 +575,7 @@ function renderCommunity() {
     const g = near.filter((it) => kinds.includes(it.kind)); if (!g.length) return "";
     return `<h3>${title}</h3><ul class="rows feed">` + g.map((it) => `<li data-lat="${it.lat}" data-lon="${it.lon}"><span class="k">${KINDS[it.kind]}</span><div><b>${t("kind." + it.kind)}</b><span class="txt">${esc(it.text)}</span><span class="muted small">${it.when}${it.seed ? " · " + t("community.example") : ""}</span></div><span class="dist">${fmt(it.dist, 1)} km</span></li>`).join("") + `</ul>`;
   };
-  html += group(t("community.needs"), HELP) + group(t("community.seen"), ["flood", "heat", "mosquito", "nowater", "landslide", "smoke", "animal"]);
+  html += group(t("community.needs"), HELP) + group(t("community.seen"), ["flood", "heat", "mosquito", "nowater", "landslide", "smoke", "spray", "animal"]);
   html += `<p class="muted small">🐾 ${t("community.animal")}</p><p class="disclaimer">${t("community.disclaimer")}</p>`;
   box.innerHTML = html;
   box.querySelectorAll(".feed li").forEach((li) => (li.onclick = () => map.setView([+li.dataset.lat, +li.dataset.lon], 15)));

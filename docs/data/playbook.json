@@ -527,6 +527,30 @@
     "pt": "Os agricultores passaram a proteger as árvores que rebrotam naturalmente nas lavouras. Cerca de 5 milhões de hectares foram recuperados e hoje produzem mais de 500 mil toneladas extras de cereais por ano."
    },
    "source": "https://www.usgs.gov/centers/eros/science/landscape-restoration-and-re-greening"
+  },
+  {
+   "id": "canindeyu-hair-study",
+   "place": "Colonia San Juan, Canindeyú, Paraguay",
+   "lat": -24.3,
+   "lon": -55.2,
+   "theme": "farm",
+   "status": "warning",
+   "title": {
+    "en": "Children near soy fields carry traces of many farm chemicals",
+    "es": "Niños junto a cultivos de soja tienen rastros de muchos agroquímicos",
+    "pt": "Crianças ao lado de lavouras de soja têm traços de muitos agroquímicos"
+   },
+   "what_happened": {
+    "en": "Researchers analysed hair from 51 children aged 2 to 14 in a community surrounded by soy fields, testing for 152 pesticides and other chemicals, and reported exposure to several of them at once.",
+    "es": "Investigadores analizaron el cabello de 51 niños de 2 a 14 años de una comunidad rodeada de soja, buscando 152 plaguicidas y otros químicos, e informaron exposición a varios a la vez.",
+    "pt": "Pesquisadores analisaram o cabelo de 51 crianças de 2 a 14 anos de uma comunidade cercada por soja, procurando 152 agrotóxicos e outros químicos, e relataram exposição a vários ao mesmo tempo."
+   },
+   "what_changed": {
+    "en": "The study shows exposure in that group. It does not prove that the chemicals caused any disease and cannot be extended to all children in the country. What is still missing: routine monitoring of water, food and health in farming areas.",
+    "es": "El estudio muestra exposición en ese grupo. No prueba que los químicos hayan causado una enfermedad ni puede extenderse a todos los niños del país. Lo que falta: vigilancia regular de agua, alimentos y salud en zonas agrícolas.",
+    "pt": "O estudo mostra exposição naquele grupo. Não prova que os químicos causaram doença nem pode ser estendido a todas as crianças do país. O que falta: vigilância regular de água, alimentos e saúde em áreas agrícolas."
+   },
+   "source": "https://doi.org/10.1002/dta.70020"
   }
  ],
  "actions": [
