@@ -514,3 +514,20 @@ body.tour-on .tl-now { margin-top: 0; padding-top: 0; border-top: 0; } body.tour
 .tl-label, .tl-stamp span { text-transform: none; } .tl-label::first-letter, .tl-stamp span::first-letter { text-transform: uppercase; }
 .tl-more { float: right; font: 600 0.72rem "Manrope", sans-serif; border: 1px solid var(--line); background: #fff; color: var(--forest); border-radius: 999px; padding: 4px 10px; cursor: pointer; } .tl-more + .tl-now { margin-top: 0; padding-top: 0; border-top: 0; }
 body.tour-on .tl-more { display: none; }
+
+/* health calendar of the address */
+.illnext { background: var(--sand); border-radius: 10px; padding: 12px 14px; margin: 10px 0 14px; } .illnext .eyebrow { margin: 0 0 8px; text-transform: none; }
+.illchips { display: flex; flex-wrap: wrap; gap: 6px; }
+.illchip { display: inline-flex; align-items: center; gap: 7px; text-align: left; font: inherit; color: var(--ink); background: #fff; border: 1px solid var(--line); border-left: 3px solid var(--line); border-radius: 8px; padding: 6px 10px; cursor: pointer; }
+.illchip .ic { width: 17px; height: 17px; color: var(--muted); } .illchip b { display: block; font-size: 0.8rem; line-height: 1.2; } .illchip small { display: block; font-size: 0.7rem; color: var(--muted); }
+.illchip.hi { border-left-color: var(--earth); } .illchip.hi .ic, .illchip.hi small { color: var(--earth); } .illchip.hi small { font-weight: 700; } .illchip.mid { border-left-color: var(--amber); } .illchip.lo { opacity: .75; }
+.illcal { margin: 4px 0 8px; }
+.illhead, .illrow > summary { display: grid; grid-template-columns: minmax(150px, 2.6fr) repeat(12, minmax(0, 1fr)); gap: 3px; align-items: center; }
+.illhead span { text-align: center; font-size: 0.64rem; color: var(--muted); text-transform: capitalize; } .illhead span.now { color: var(--ink); font-weight: 700; }
+.illrow { border-top: 1px solid var(--line); } .illrow:last-child { border-bottom: 1px solid var(--line); }
+.illrow > summary { list-style: none; cursor: pointer; padding: 9px 0; } .illrow > summary::-webkit-details-marker { display: none; }
+.illname { display: flex; align-items: center; gap: 7px; font-size: 0.8rem; font-weight: 600; line-height: 1.2; padding-right: 6px; } .illname .ic { width: 18px; height: 18px; color: var(--forest); }
+.illrow i { display: block; height: 22px; border-radius: 4px; background: var(--earth); } .illrow i.now { box-shadow: inset 0 0 0 2px var(--ink); }
+.illrow[open] > summary .illname { color: var(--earth); } .illrow:hover > summary i { filter: brightness(0.92); }
+.illbody { padding: 2px 0 14px; font-size: 0.86rem; } .illbody p { margin: 0 0 8px; } .illbody .why { margin-top: 0; }
+@media (max-width: 420px) { .illhead, .illrow > summary { grid-template-columns: 96px repeat(12, minmax(0, 1fr)); gap: 2px; } .illname { font-size: 0.72rem; } .illname .ic { display: none; } }

@@ -7,7 +7,7 @@
    Where it happens: floods, drought, landslides, volcanoes (NASA SEDAC), lightning (NASA LIS), storm tracks (NOAA),
    tornadoes (NOAA), earthquakes (USGS). (code written with AI support) */
 I18N.add("en", {
-  "tl.open": "Maps in motion", "tl.what": "What am I seeing?", "tl.play": "Play", "tl.pause": "Pause", "tl.py": "Paraguay", "tl.here": "My address", "tl.close": "Close", "tl.src": "NASA GIBS · base map © OpenStreetMap, © CARTO", "tl.more": "Other maps", "tl.go": "See it on the map in motion", "tl.where": "See on the map where it happens",
+  "tl.open": "Maps in motion", "tl.what": "What am I seeing?", "tl.play": "Play", "tl.pause": "Pause", "tl.py": "Paraguay", "tl.here": "My address", "tl.close": "Close", "tl.src": "NASA GIBS · base map © OpenStreetMap contributors", "tl.more": "Other maps", "tl.go": "See it on the map in motion", "tl.where": "See on the map where it happens",
   "tl.g.time": "Through time", "tl.g.where": "Where it usually happens", "tl.center": "Centre of the map", "tl.nodata": "no data",
   "tl.rain": "Rain", "tl.rain.u": "mm of rain in the month", "tl.rain.d": "Total rain of each month of 2025. Watch the wet season arrive and leave. NASA MERRA-2, corrected with rain gauges and satellites; cells of about 50 km, softened for display.",
   "tl.heat": "Ground heat", "tl.heat.u": "°C at the surface, by day", "tl.heat.d": "Temperature of the land surface by day in each month of 2025, measured by the MODIS instrument on NASA's Terra satellite. It is the heat of the ground, which is higher than the air temperature.",
@@ -29,7 +29,7 @@ I18N.add("en", {
   "tl.lc.forest": "forest", "tl.lc.savanna": "savanna and shrubs", "tl.lc.grass": "grassland", "tl.lc.crop": "cropland", "tl.lc.urban": "city", "tl.lc.wet": "wetland", "tl.lc.water": "water", "tl.lc.bare": "bare ground",
 });
 I18N.add("es", {
-  "tl.open": "Mapas en movimiento", "tl.what": "¿Qué estoy viendo?", "tl.play": "Reproducir", "tl.pause": "Pausar", "tl.py": "Paraguay", "tl.here": "Mi dirección", "tl.close": "Cerrar", "tl.src": "NASA GIBS · mapa base © OpenStreetMap, © CARTO", "tl.more": "Otros mapas", "tl.go": "Verlo en el mapa en movimiento", "tl.where": "Ver en el mapa dónde ocurre",
+  "tl.open": "Mapas en movimiento", "tl.what": "¿Qué estoy viendo?", "tl.play": "Reproducir", "tl.pause": "Pausar", "tl.py": "Paraguay", "tl.here": "Mi dirección", "tl.close": "Cerrar", "tl.src": "NASA GIBS · mapa base © colaboradores de OpenStreetMap", "tl.more": "Otros mapas", "tl.go": "Verlo en el mapa en movimiento", "tl.where": "Ver en el mapa dónde ocurre",
   "tl.g.time": "A lo largo del tiempo", "tl.g.where": "Dónde suele ocurrir", "tl.center": "Centro del mapa", "tl.nodata": "sin datos",
   "tl.rain": "Lluvia", "tl.rain.u": "mm de lluvia en el mes", "tl.rain.d": "Lluvia total de cada mes de 2025. Vea llegar y salir la temporada de lluvias. NASA MERRA-2, corregido con pluviómetros y satélites; celdas de unos 50 km, suavizadas para mostrar.",
   "tl.heat": "Calor del suelo", "tl.heat.u": "°C en la superficie, de día", "tl.heat.d": "Temperatura de la superficie del suelo de día en cada mes de 2025, medida por el instrumento MODIS del satélite Terra de la NASA. Es el calor del suelo, mayor que la temperatura del aire.",
@@ -51,7 +51,7 @@ I18N.add("es", {
   "tl.lc.forest": "bosque", "tl.lc.savanna": "sabana y arbustos", "tl.lc.grass": "pastizal", "tl.lc.crop": "cultivos", "tl.lc.urban": "ciudad", "tl.lc.wet": "humedal", "tl.lc.water": "agua", "tl.lc.bare": "suelo desnudo",
 });
 I18N.add("pt", {
-  "tl.open": "Mapa em movimento", "tl.what": "O que estou vendo?", "tl.play": "Tocar", "tl.pause": "Pausar", "tl.py": "Paraguai", "tl.here": "Meu endereço", "tl.close": "Fechar", "tl.src": "NASA GIBS · mapa base © OpenStreetMap, © CARTO", "tl.more": "Outros mapas", "tl.go": "Ver no mapa em movimento", "tl.where": "Ver no mapa onde acontece",
+  "tl.open": "Mapa em movimento", "tl.what": "O que estou vendo?", "tl.play": "Tocar", "tl.pause": "Pausar", "tl.py": "Paraguai", "tl.here": "Meu endereço", "tl.close": "Fechar", "tl.src": "NASA GIBS · mapa base © colaboradores do OpenStreetMap", "tl.more": "Outros mapas", "tl.go": "Ver no mapa em movimento", "tl.where": "Ver no mapa onde acontece",
   "tl.g.time": "Ao longo do tempo", "tl.g.where": "Onde costuma acontecer", "tl.center": "Centro do mapa", "tl.nodata": "sem dado",
   "tl.rain": "Chuva", "tl.rain.u": "mm de chuva no mês", "tl.rain.d": "Chuva total de cada mês de 2025. Veja a estação chuvosa chegar e ir embora. NASA MERRA-2, corrigido com pluviômetros e satélites; células de uns 50 km, suavizadas para exibir.",
   "tl.heat": "Calor do solo", "tl.heat.u": "°C na superfície, de dia", "tl.heat.d": "Temperatura da superfície do solo de dia em cada mês de 2025, medida pelo instrumento MODIS do satélite Terra da NASA. É o calor do chão, maior do que a temperatura do ar.",

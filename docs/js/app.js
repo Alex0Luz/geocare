@@ -544,7 +544,7 @@ function healthTopics(r) {
 function renderHealth() {
   const r = state.main, box = $("#p-health");
   if (!r) { box.innerHTML = `<div id="me-box"></div><p class="muted">${t("need.place")}</p><div id="sos-box"></div>`; return; }
-  let html = `<div id="me-box"></div><h3>${t("health.title")}</h3><p class="muted small">${t("health.intro")}</p><div class="topics">`;
+  let html = `<div id="me-box"></div><div id="ill-next-box"></div><h3>${t("health.title")}</h3><p class="muted small">${t("health.intro")}</p><div class="topics">`;
   healthTopics(r).forEach((h, i) => {
     const why = h.why.filter(Boolean);
     html += `<details class="topic lv-${h.level}" data-anchor="topic-${h.key}" ${["now", "you"].includes(h.level) || i === 0 ? "open" : ""}><summary><span class="tn">${String(i + 1).padStart(2, "0")}</span><span class="tt">${t("h." + h.key)}</span><span class="badge l-${h.level}">${t("level." + h.level)}</span></summary>

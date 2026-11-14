@@ -346,6 +346,61 @@ I18N.add("en", { "rp.lightning.sub2": "{n} lightning flashes per km² a year", "
 I18N.add("es", { "rp.lightning.sub2": "{n} rayos por km² al año", "rp.lightning.hist": "Los sensores de rayos de la NASA en órbita contaron unos {n} rayos por km² al año en este punto. Los lugares más activos del planeta pasan de 100.", "rp.lightning.src.lis": "Sensor LIS en el satélite TRMM, 1998–2013.", "rp.lightning.src.both": "Sensores LIS y OTD combinados, 1995–2014, en una grilla más gruesa.", "rp.lightning.rule": "Cuando oiga truenos, entre a un lugar cerrado; ningún lugar al aire libre es seguro." });
 I18N.add("pt", { "rp.lightning.sub2": "{n} raios por km² por ano", "rp.lightning.hist": "Os sensores de raios da NASA em órbita contaram cerca de {n} raios por km² por ano neste ponto. Os lugares mais ativos do planeta passam de 100.", "rp.lightning.src.lis": "Sensor LIS no satélite TRMM, 1998–2013.", "rp.lightning.src.both": "Sensores LIS e OTD combinados, 1995–2014, numa grade mais grossa.", "rp.lightning.rule": "Quando ouvir trovão, entre num lugar fechado; nenhum lugar ao ar livre é seguro." });
 I18N.add("en", { "home.demo": "Watch the demo (2 minutes)" }); I18N.add("es", { "home.demo": "Ver la demostración (2 minutos)" }); I18N.add("pt", { "home.demo": "Ver a demonstração (2 minutos)" });
+I18N.add("en", {
+  "ill.title": "Health calendar of this address", "ill.intro": "What the climate of this address tends to bring in each month, starting from this month. Estimated from temperature and rain, not from local case counts: your health service knows what is circulating now.",
+  "ill.next": "Next 3 months", "ill.hi": "high season", "ill.mid": "moderate", "ill.lo": "low", "ill.leg": "The first column is this month. Darker means the climate favours it more. Tap a line for the reasons, who is most at risk, what helps and the warning signs.",
+  "ill.why": "Why in these months:", "ill.who": "Most at risk:", "ill.do": "What helps:", "ill.signs": "Go to a health service if:", "ill.src": "Based on WHO and PAHO guidance on dengue, heat and health, influenza, diarrhoeal disease, leptospirosis and food safety, and on Mordecai and others (2017) and Tamerius and others (2013). General information, not a diagnosis. To be reviewed by the team's physician.",
+  "ill.n.diarr": "Diarrhoea and hepatitis A (dirty water)", "ill.n.lepto": "Leptospirosis (floods and rats)", "ill.n.food": "Food poisoning (food spoils in the heat)", "ill.n.cold": "Cold: heart, blood pressure and lungs",
+  "ill.heat.why": "About {n} days a year reach a heat index of 32 °C or more at this address, most of them in the darker months.",
+  "ill.lepto.why": "The bacteria come in the urine of rats and enter through skin that touches floodwater or mud. Cases appear one to three weeks after heavy rain and floods.",
+  "ill.food.why": "In the darker months the mean temperature passes 24 °C, and bacteria multiply faster in food left out of the fridge.",
+  "ill.cold.why": "In the darker months the mean temperature drops below 15 °C. Cold raises blood pressure and the risk of heart attack, stroke and pneumonia.",
+  "ill.mosquito.who": "babies, older people, pregnant women and people with chronic disease; a second dengue infection can be more severe.", "ill.mosquito.do": "empty or cover anything that holds water once a week; use repellent and window screens.", "ill.mosquito.signs": "strong belly pain, vomiting that does not stop, bleeding from gums or nose, drowsiness or fainting. Do not take aspirin or ibuprofen when dengue is suspected.",
+  "ill.heatill.who": "people over 65, babies, pregnant women, people who work outdoors and people who take diuretics or blood-pressure medicines.", "ill.heatill.do": "drink water before feeling thirsty; stay in the shade from 11:00 to 16:00; check on older neighbours.", "ill.heatill.signs": "confusion, fainting, hot and dry skin or seizures. That is heat stroke: call the emergency number.",
+  "ill.resp.who": "babies under 2, people over 60, pregnant women and people with asthma, heart or lung disease.", "ill.resp.do": "get the flu vaccine before the season; wash hands often; air the rooms.", "ill.resp.signs": "trouble breathing, bluish lips, chest pain, fever for more than 3 days, or a baby who stops feeding.",
+  "ill.diarr.who": "children under 5 and older people, who dehydrate fastest.", "ill.diarr.do": "drink treated or boiled water; wash hands with soap; keep oral rehydration salts at home.", "ill.diarr.signs": "blood in the stool, no urine for 8 hours, sunken eyes or a very sleepy child. Start oral rehydration salts right away.",
+  "ill.lepto.who": "anyone who walked in floodwater or cleaned mud, and people who work with sewage or waste.", "ill.lepto.do": "wear boots and gloves in floodwater and mud; keep rubbish closed so rats find no food.", "ill.lepto.signs": "high fever, strong pain in the calves, yellow skin or eyes, or little urine after contact with floodwater. Tell the health service about the contact.",
+  "ill.asthma.who": "people with asthma, chronic lung disease or heart disease, children and older people.", "ill.asthma.do": "keep the rescue inhaler at hand; close the windows on smoky days; a well-fitted N95 or PFF2 mask helps outdoors.", "ill.asthma.signs": "the rescue inhaler is needed more than every 4 hours, it is hard to speak, or the lips turn bluish.",
+  "ill.food.who": "babies, older people and pregnant women.", "ill.food.do": "put cooked food in the fridge within 2 hours; reheat it well; wash hands, knives and boards.", "ill.food.signs": "blood in the stool, high fever or signs of dehydration, as for diarrhoea.",
+  "ill.cold.who": "people over 65, people with heart disease, babies and people living on the street.", "ill.cold.do": "dress in layers and keep one room warm; never heat a closed room with charcoal or a gas stove.", "ill.cold.signs": "chest pain, weakness on one side of the body, slurred speech, or shivering that stops and gives way to drowsiness.",
+});
+I18N.add("es", {
+  "ill.title": "Calendario de salud de esta dirección", "ill.intro": "Lo que el clima de esta dirección suele traer en cada mes, empezando por este mes. Estimado a partir de la temperatura y la lluvia, no de conteos locales de casos: su servicio de salud sabe qué está circulando ahora.",
+  "ill.next": "Próximos 3 meses", "ill.hi": "en temporada alta", "ill.mid": "moderado", "ill.lo": "bajo", "ill.leg": "La primera columna es este mes. Más oscuro significa que el clima lo favorece más. Toque una línea para ver las razones, quién corre más riesgo, qué ayuda y las señales de alarma.",
+  "ill.why": "Por qué en estos meses:", "ill.who": "Quién corre más riesgo:", "ill.do": "Qué ayuda:", "ill.signs": "Vaya a un servicio de salud si hay:", "ill.src": "Basado en orientaciones de la OMS y la OPS sobre dengue, calor y salud, influenza, enfermedades diarreicas, leptospirosis e inocuidad de los alimentos, y en Mordecai y otros (2017) y Tamerius y otros (2013). Información general, no un diagnóstico. A revisar por la médica del equipo.",
+  "ill.n.diarr": "Diarrea y hepatitis A (agua sucia)", "ill.n.lepto": "Leptospirosis (inundaciones y ratas)", "ill.n.food": "Intoxicación alimentaria (la comida se echa a perder con el calor)", "ill.n.cold": "Frío: corazón, presión y pulmones",
+  "ill.heat.why": "Unos {n} días al año llegan a un índice de calor de 32 °C o más en esta dirección, la mayoría en los meses más oscuros.",
+  "ill.lepto.why": "La bacteria viene en la orina de las ratas y entra por la piel que toca agua de inundación o barro. Los casos aparecen de una a tres semanas después de lluvias fuertes e inundaciones.",
+  "ill.food.why": "En los meses más oscuros la temperatura media pasa de 24 °C, y las bacterias se multiplican más rápido en la comida que queda fuera de la heladera.",
+  "ill.cold.why": "En los meses más oscuros la temperatura media baja de 15 °C. El frío sube la presión arterial y el riesgo de infarto, derrame cerebral y neumonía.",
+  "ill.mosquito.who": "bebés, personas mayores, embarazadas y personas con enfermedades crónicas; una segunda infección de dengue puede ser más grave.", "ill.mosquito.do": "vaciar o tapar una vez por semana todo lo que junte agua; usar repelente y mosquiteros.", "ill.mosquito.signs": "dolor fuerte de barriga, vómitos que no paran, sangrado de encías o nariz, somnolencia o desmayo. No tome aspirina ni ibuprofeno si se sospecha dengue.",
+  "ill.heatill.who": "mayores de 65 años, bebés, embarazadas, quienes trabajan al aire libre y quienes toman diuréticos o remedios para la presión.", "ill.heatill.do": "tomar agua antes de sentir sed; quedarse a la sombra de 11:00 a 16:00; estar atento a los vecinos mayores.", "ill.heatill.signs": "confusión, desmayo, piel caliente y seca o convulsiones. Eso es un golpe de calor: llame al número de emergencia.",
+  "ill.resp.who": "bebés menores de 2 años, mayores de 60, embarazadas y personas con asma o enfermedades del corazón o los pulmones.", "ill.resp.do": "vacunarse contra la gripe antes de la temporada; lavarse las manos seguido; ventilar los ambientes.", "ill.resp.signs": "dificultad para respirar, labios azulados, dolor en el pecho, fiebre por más de 3 días o un bebé que deja de alimentarse.",
+  "ill.diarr.who": "niños menores de 5 años y personas mayores, que se deshidratan más rápido.", "ill.diarr.do": "tomar agua tratada o hervida; lavarse las manos con jabón; tener sales de rehidratación oral en casa.", "ill.diarr.signs": "sangre en las heces, 8 horas sin orinar, ojos hundidos o un niño muy dormido. Empiece las sales de rehidratación oral enseguida.",
+  "ill.lepto.who": "quien caminó en agua de inundación o limpió barro, y quienes trabajan con cloacas o basura.", "ill.lepto.do": "usar botas y guantes en el agua de inundación y el barro; mantener la basura cerrada para que las ratas no encuentren comida.", "ill.lepto.signs": "fiebre alta, dolor fuerte en las pantorrillas, piel u ojos amarillos, o poca orina después del contacto con agua de inundación. Cuente ese contacto en el servicio de salud.",
+  "ill.asthma.who": "personas con asma, enfermedad pulmonar crónica o del corazón, niños y personas mayores.", "ill.asthma.do": "tener a mano el inhalador de rescate; cerrar las ventanas en días de humo; un tapabocas N95 o PFF2 bien ajustado ayuda al aire libre.", "ill.asthma.signs": "el inhalador de rescate hace falta más que cada 4 horas, cuesta hablar o los labios se ponen azulados.",
+  "ill.food.who": "bebés, personas mayores y embarazadas.", "ill.food.do": "guardar la comida cocida en la heladera antes de 2 horas; recalentarla bien; lavar manos, cuchillos y tablas.", "ill.food.signs": "sangre en las heces, fiebre alta o señales de deshidratación, como en la diarrea.",
+  "ill.cold.who": "mayores de 65 años, personas con enfermedades del corazón, bebés y personas en situación de calle.", "ill.cold.do": "abrigarse en capas y mantener un ambiente cálido; nunca calentar un ambiente cerrado con carbón o con la cocina a gas.", "ill.cold.signs": "dolor en el pecho, debilidad de un lado del cuerpo, dificultad para hablar, o temblores que paran y dan paso a somnolencia.",
+});
+I18N.add("pt", {
+  "ill.title": "Calendário de saúde deste endereço", "ill.intro": "O que o clima deste endereço costuma trazer em cada mês, começando por este mês. Estimado pela temperatura e pela chuva, não por contagens locais de casos: o seu serviço de saúde sabe o que está circulando agora.",
+  "ill.next": "Próximos 3 meses", "ill.hi": "em alta", "ill.mid": "moderado", "ill.lo": "em baixa", "ill.leg": "A primeira coluna é este mês. Mais escuro significa que o clima favorece mais. Toque numa linha para ver os motivos, quem corre mais risco, o que ajuda e os sinais de alerta.",
+  "ill.why": "Por que nesses meses:", "ill.who": "Quem corre mais risco:", "ill.do": "O que ajuda:", "ill.signs": "Procure um serviço de saúde se houver:", "ill.src": "Baseado em orientações da OMS e da OPAS sobre dengue, calor e saúde, influenza, doenças diarreicas, leptospirose e segurança dos alimentos, e em Mordecai e outros (2017) e Tamerius e outros (2013). Informação geral, não é diagnóstico. A ser revisado pela médica da equipe.",
+  "ill.n.diarr": "Diarreia e hepatite A (água suja)", "ill.n.lepto": "Leptospirose (enchentes e ratos)", "ill.n.food": "Intoxicação alimentar (comida estraga no calor)", "ill.n.cold": "Frio: coração, pressão e pulmões",
+  "ill.heat.why": "Cerca de {n} dias por ano chegam a um índice de calor de 32 °C ou mais neste endereço, a maioria nos meses mais escuros.",
+  "ill.lepto.why": "A bactéria vem na urina dos ratos e entra pela pele que encosta em água de enchente ou lama. Os casos aparecem de uma a três semanas depois de chuva forte e enchente.",
+  "ill.food.why": "Nos meses mais escuros a temperatura média passa de 24 °C, e as bactérias se multiplicam mais rápido na comida que fica fora da geladeira.",
+  "ill.cold.why": "Nos meses mais escuros a temperatura média cai abaixo de 15 °C. O frio sobe a pressão arterial e o risco de infarto, AVC e pneumonia.",
+  "ill.mosquito.who": "bebês, idosos, gestantes e pessoas com doença crônica; uma segunda infecção de dengue pode ser mais grave.", "ill.mosquito.do": "esvaziar ou tampar uma vez por semana tudo que acumula água; usar repelente e telas nas janelas.", "ill.mosquito.signs": "dor forte na barriga, vômito que não para, sangramento na gengiva ou no nariz, sonolência ou desmaio. Não tome aspirina nem ibuprofeno se houver suspeita de dengue.",
+  "ill.heatill.who": "maiores de 65 anos, bebês, gestantes, quem trabalha ao ar livre e quem toma diurético ou remédio para pressão.", "ill.heatill.do": "beber água antes de sentir sede; ficar na sombra das 11h às 16h; ficar de olho nos vizinhos idosos.", "ill.heatill.signs": "confusão, desmaio, pele quente e seca ou convulsão. Isso é insolação: ligue para a emergência.",
+  "ill.resp.who": "bebês com menos de 2 anos, maiores de 60, gestantes e pessoas com asma ou doença do coração ou do pulmão.", "ill.resp.do": "tomar a vacina da gripe antes da temporada; lavar as mãos com frequência; arejar os ambientes.", "ill.resp.signs": "falta de ar, lábios arroxeados, dor no peito, febre por mais de 3 dias ou um bebê que para de mamar.",
+  "ill.diarr.who": "crianças com menos de 5 anos e idosos, que desidratam mais rápido.", "ill.diarr.do": "beber água tratada ou fervida; lavar as mãos com sabão; ter soro de reidratação oral em casa.", "ill.diarr.signs": "sangue nas fezes, 8 horas sem urinar, olhos fundos ou criança muito sonolenta. Comece o soro de reidratação oral na hora.",
+  "ill.lepto.who": "quem andou em água de enchente ou limpou lama, e quem trabalha com esgoto ou lixo.", "ill.lepto.do": "usar botas e luvas na água de enchente e na lama; manter o lixo fechado para os ratos não acharem comida.", "ill.lepto.signs": "febre alta, dor forte nas panturrilhas, pele ou olhos amarelados, ou pouca urina depois de contato com água de enchente. Conte esse contato no serviço de saúde.",
+  "ill.asthma.who": "pessoas com asma, doença pulmonar crônica ou doença do coração, crianças e idosos.", "ill.asthma.do": "deixar a bombinha de resgate à mão; fechar as janelas em dias de fumaça; uma máscara N95 ou PFF2 bem ajustada ajuda ao ar livre.", "ill.asthma.signs": "a bombinha de resgate é necessária mais do que a cada 4 horas, fica difícil falar ou os lábios ficam arroxeados.",
+  "ill.food.who": "bebês, idosos e gestantes.", "ill.food.do": "guardar a comida pronta na geladeira em até 2 horas; reaquecer bem; lavar mãos, facas e tábuas.", "ill.food.signs": "sangue nas fezes, febre alta ou sinais de desidratação, como na diarreia.",
+  "ill.cold.who": "maiores de 65 anos, pessoas com doença do coração, bebês e pessoas em situação de rua.", "ill.cold.do": "vestir camadas e manter um cômodo aquecido; nunca aquecer ambiente fechado com carvão ou com o fogão a gás.", "ill.cold.signs": "dor no peito, fraqueza de um lado do corpo, fala enrolada, ou tremor que para e dá lugar à sonolência.",
+});
+
 // Cross-navigation between sections: any element with data-go="tab:anchor" opens that tab and brings the matching block into view.
 function goTo(tab, anchor) {
   showTab(tab);
@@ -651,10 +706,60 @@ const Extras2 = (() => {
     };
     const ill = P.list.filter((z) => z.ill);
     h += `<div class="topics">` + P.list.filter((z) => !z.ill).map(item).join("") + `</div>`;
-    if (ill.length) h += `<h3>${t("rp.ill.title")}</h3><p class="muted small">${t("rp.ill.intro")}</p><div class="topics">` + ill.map((z) => item(z, 1)).join("") + `</div>`;
+    h += illBlock(r, isOpen); // the seasonal illnesses are shown as a calendar that starts in the current month
     if (P.none.length) h += `<p class="muted small">${t("rp.none", { list: P.none.map((k) => t("rp.n." + k).toLowerCase()).join(", ") })}</p>`;
     return h + `<details class="method"><summary>${t("place.how")}</summary><p class="muted small">${t("rp.src")} ${t("hist.note")}</p></details>`;
   }
+  /* ---------- health calendar: what the climate of the address favours in each month, from this month on ---------- */
+  function illRows(r) {
+    const A = r?.nasad?.abs, cal = r?.nasad?.calendar; if (!A || !cal) return [];
+    const cl = (v) => Math.max(0, Math.min(1, v)), sum = (v) => v.reduce((a, b) => a + b, 0), sm3 = (v) => v.map((_, i) => (v[(i + 11) % 12] + v[i] + v[(i + 1) % 12]) / 3);
+    const last = r.nasa?.monthlyT?.slice(-10) || [], mT = Array.from({ length: 12 }, (_, m) => { const v = last.map((x) => x[m]).filter(Number.isFinite); return v.length ? sum(v) / v.length : NaN; }), okT = mT.every(Number.isFinite);
+    const E = r.era5?.abs, s50 = E && sum(E.s50) > sum(A.s50) ? E.s50 : A.s50, // heavy-rain days per month in absolute terms (one such day every other year in that month counts as full), or monthly rain when those days are too few
+      wet = sum(s50) >= 12 ? sm3(s50).map((v) => cl(v / (END - START + 1) / 0.55)) : sm3(cal.map((c) => c.rain)).map((v) => cl(v / 260));
+    const sw = loadPress()?.countries?.[r.cc]?.wastewater, rows = [], add = (o) => { if (o.vals.some((v) => v >= 0.35)) rows.push(o); };
+    add({ id: "mosquito", icon: "mosquito", name: t("h.vector"), vals: cal.map((c) => cl(c.aedes)), why: t("rp.mosquito.why", { n: cal.filter((c) => c.aedes >= 0.5).length }), topic: "vector", tl: r.cc === "PY" ? "dengue" : "" });
+    add({ id: "heatill", icon: "heat", name: t("h.heat"), vals: A.m32.map((v) => cl(v / 20)), why: t("ill.heat.why", { n: fmt(A.d32, 0) }), topic: "heat", tl: "heat" });
+    if (okT) {
+      const cold = mT.some((v) => v < 20), rainy = cal.some((c) => c.rain >= 150);
+      add({ id: "resp", icon: "lungs", name: t("rp.n.resp"), vals: cold ? mT.map((v) => (v < 20 ? cl(0.3 + (20 - v) / 8) : 0)) : rainy ? cal.map((c) => cl(c.rain / 300)) : Array(12).fill(0.4),
+        why: t(cold ? "rp.resp.cold" : rainy ? "rp.resp.rain" : "rp.resp.flat", { a: fmt(Math.min(...mT), 0) }), topic: "resp" });
+    }
+    add({ id: "diarr", icon: "drop", name: t("ill.n.diarr"), vals: wet, why: t("rp.diarr.why") + (sw ? " " + t(sw[0] < 70 ? "rp.diarr.sew" : "rp.diarr.sewok", { p: fmt(sw[0], 0), y: sw[1] }) : ""), topic: "water", tl: "rain", press: true });
+    add({ id: "lepto", icon: "flood", name: t("ill.n.lepto"), vals: wet.map((v, m) => cl(0.5 * v + 0.5 * wet[(m + 11) % 12])), why: t("ill.lepto.why"), topic: "water", where: "w-flood" });
+    add({ id: "asthma", icon: "wind", name: t("rp.n.asthma"), vals: cal.map((c) => cl(1 - c.rain / 60)), why: t("rp.asthma.why"), topic: "air", tl: "smoke" });
+    if (okT) {
+      add({ id: "food", icon: "alert", name: t("ill.n.food"), vals: mT.map((v) => cl((v - 20) / 8)), why: t("ill.food.why"), topic: "water" });
+      if (mT.some((v) => v < 15)) add({ id: "coldill", icon: "cold", name: t("ill.n.cold"), vals: mT.map((v) => (v < 15 ? cl(0.35 + (15 - v) / 12) : 0)), why: t("ill.cold.why") });
+    }
+    const m0 = new Date().getMonth();
+    for (const o of rows) o.next = (o.vals[m0] + o.vals[(m0 + 1) % 12] + o.vals[(m0 + 2) % 12]) / 3;
+    return rows;
+  }
+  const illLevel = (v) => (v >= 0.5 ? "hi" : v >= 0.25 ? "mid" : "lo");
+  function illBlock(r, isOpen) {
+    const rows = illRows(r); if (!rows.length) return "";
+    const m0 = new Date().getMonth(), mon = MON(), order = Array.from({ length: 12 }, (_, k) => (m0 + k) % 12), key = (o) => "ill." + (o.id === "coldill" ? "cold" : o.id);
+    const next = [...rows].sort((a, b) => b.next - a.next);
+    let h = `<h3>${t("ill.title")}</h3><p class="muted small">${t("ill.intro")}</p>
+      <section class="illnext"><p class="eyebrow">${t("ill.next")} · ${mon[m0]}–${mon[(m0 + 2) % 12]}</p><div class="illchips">${next.map((o) => `<button type="button" class="illchip ${illLevel(o.next)}" data-go="prepare:rp-${o.id}">${ICON(o.icon)}<span><b>${o.name}</b><small>${t("ill." + illLevel(o.next))}</small></span></button>`).join("")}</div></section>
+      <div class="illcal"><div class="illhead"><span></span>${order.map((m, k) => `<span class="${k === 0 ? "now" : ""}">${mon[m].slice(0, 3)}</span>`).join("")}</div>`;
+    for (const o of rows) {
+      h += `<details class="illrow" data-anchor="rp-${o.id}" ${isOpen("rp-" + o.id, false)}><summary><span class="illname">${ICON(o.icon)}<span>${o.name}</span></span>${order.map((m, k) => `<i class="${k === 0 ? "now" : ""}" style="opacity:${(0.07 + 0.93 * o.vals[m]).toFixed(2)}" title="${mon[m]}"></i>`).join("")}</summary>
+        <div class="illbody"><p class="why"><b>${t("ill.why")}</b> ${o.why}</p><p><b>${t("ill.who")}</b> ${t(key(o) + ".who")}</p><p><b>${t("ill.do")}</b> ${t(key(o) + ".do")}</p><p class="nowline"><b>${t("ill.signs")}</b> ${t(key(o) + ".signs")}</p>
+        <div class="golinks">${o.topic ? goBtn("health:topic-" + o.topic, `${t("tab.health")}: ${t("h." + o.topic)}`) : ""}${o.press ? goBtn("region:pressures", t("pr.go")) : ""}${o.where ? `<button type="button" data-tl="${o.where}">${ICON("pin")} ${t("tl.where")}</button>` : ""}${o.tl ? `<button type="button" data-tl="${o.tl}">${ICON("play")} ${t("tl.go")}</button>` : ""}</div></div></details>`;
+    }
+    return h + `</div><p class="muted small">${t("ill.leg")}</p><p class="muted small">${t("ill.src")}</p>`;
+  }
+  // short version for the Health tab: what the next three months tend to bring
+  function renderIllNext() {
+    const box = document.querySelector("#ill-next-box"), r = state.main; if (!box) return;
+    const rows = r ? illRows(r).filter((o) => o.next >= 0.25).sort((a, b) => b.next - a.next) : [];
+    if (!rows.length) { box.innerHTML = ""; return; }
+    const m0 = new Date().getMonth(), mon = MON();
+    box.innerHTML = `<section class="illnext"><p class="eyebrow">${t("ill.next")} · ${mon[m0]}–${mon[(m0 + 2) % 12]}</p><div class="illchips">${rows.map((o) => `<button type="button" class="illchip ${illLevel(o.next)}" data-go="prepare:rp-${o.id}">${ICON(o.icon)}<span><b>${o.name}</b><small>${t("ill." + illLevel(o.next))}</small></span></button>`).join("")}</div></section>`;
+  }
+
   function renderExpect() {
     const box = document.querySelector("#expect-box"), r = state.main; if (!box) return;
     const mth = new Date().getMonth(), P = riskProfile(r).list.filter((z) => (z.ill ? z.mask && z.mask[mth] : z.now || z.level >= 2 || z.level == null));
@@ -819,7 +924,7 @@ const Extras2 = (() => {
     return `<p class="eyebrow">${t("home.eyebrow")}</p><h2 class="hero">${t("home.title")}</h2><p class="lead">${t("home.lead")}</p><ol class="points">${pt(1)}${pt(2)}${pt(3)}</ol><p><button type="button" class="btn" data-demo="1">${ICON("play")} ${t("home.demo")}</button></p><p class="plabel">${t("home.try")}</p>`;
   }
 
-  function render() { renderWorld(); renderCalendar(); renderPrepare(); renderExpect(); renderNowContext(); renderSat(); renderQuakes(); schedule(); if (typeof Timelapse !== "undefined") Timelapse.refresh(); }
+  function render() { renderWorld(); renderCalendar(); renderPrepare(); renderExpect(); renderNowContext(); renderIllNext(); renderSat(); renderQuakes(); schedule(); if (typeof Timelapse !== "undefined") Timelapse.refresh(); }
   function onTab(name) { ui.tab = name; drawWorld(); if (name === "world" && ui.pano) map.setView([10, 10], 2); }
   const seasonOf = (id) => { const z = riskProfile(state.main).list.find((x) => x.id === id); return z && z.mask ? { on: !!z.mask[new Date().getMonth()], months: monthText(z.mask) } : null; };
   return { render, onTab, hero, links, renderPressures, seasonOf, sewage: () => loadPress()?.countries?.[state.main?.cc]?.wastewater };
