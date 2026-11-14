@@ -394,3 +394,9 @@ input:focus, select:focus, textarea:focus, button:focus-visible { outline: 2px s
 .check input { width: 18px; height: 18px; margin: 2px 0 0; accent-color: var(--forest); flex: none; padding: 0; }
 .check input:checked + span { color: var(--muted); text-decoration: line-through; }
 @media (max-width: 420px) { .wkrow { grid-template-columns: 54px 56px 1fr 34px 48px; gap: 6px; font-size: 0.8rem; } .stats3 b { font-size: 1.6rem; } }
+
+.hg { margin: 4px 0 10px; font-size: 0.9rem; } .hg .btn { margin-left: 6px; }
+.route-info { font-weight: 600; color: var(--forest); margin: 8px 0 4px; min-height: 1em; }
+.calc { border: 1px solid var(--line); border-radius: var(--radius); background: #fff; padding: 12px 14px; margin: 6px 0 12px; }
+.calc label { flex: 1; font-size: 0.78rem; color: var(--muted); display: grid; gap: 4px; } .calc p { margin: 10px 0 0; font-size: 0.9rem; }
+.calc .big { font: 700 1.6rem "Bricolage Grotesque", sans-serif; letter-spacing: -0.02em; margin-right: 4px; }

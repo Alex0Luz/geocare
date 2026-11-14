@@ -178,8 +178,10 @@ async function fetchTerrain(lat, lon) {
   const c = e[0], near = e.slice(1, 9), far = e.slice(9);
   const avg = (a) => a.reduce((p, v) => p + v, 0) / a.length;
   const slope = Math.max(...near.map((v) => Math.abs(v - c))) / 300;
+  let hi = 1; for (let i = 2; i < e.length; i++) if (e[i] > e[hi]) hi = i;
+  const high = { lat: +lats[hi], lon: +lons[hi], gain: e[hi] - c, dist: hi <= 8 ? 0.3 : 1.5, dir: (hi - 1) % 8 };
   return {
-    elevation: c, relNear: c - avg(near), relFar: c - avg(far), slopePct: slope * 100,
+    high, elevation: c, relNear: c - avg(near), relFar: c - avg(far), slopePct: slope * 100,
     low: c <= Math.min(...near) + 1 && avg(far) - c >= 8,
     steep: slope >= 0.18,
   };
@@ -537,7 +539,7 @@ function renderNow() {
 }
 
 /* ---------------- Community (prototype: stored on this device only) ---------------- */
-const KINDS = { flood: "🌊", heat: "🥵", mosquito: "🦟", nowater: "🚱", landslide: "⛰️", smoke: "🌫️", need: "🆘", donate: "📦", partner: "🤝" };
+const KINDS = { flood: "🌊", heat: "🥵", mosquito: "🦟", nowater: "🚱", landslide: "⛰️", smoke: "🌫️", need: "🆘", donate: "📦", partner: "🤝", animal: "🐾" };
 const SEED = [
   { id: "s1", kind: "flood", lat: -25.5215, lon: -54.6205, text: "Street flooded after last night's storm; water entered ground-floor homes.", when: "2026-11-13", seed: true },
   { id: "s2", kind: "need", lat: -25.5231, lon: -54.6188, text: "Families need cleaning supplies, mattresses and drinking water.", when: "2026-11-13", seed: true },
@@ -571,8 +573,8 @@ function renderCommunity() {
     const g = near.filter((it) => kinds.includes(it.kind)); if (!g.length) return "";
     return `<h3>${title}</h3><ul class="rows feed">` + g.map((it) => `<li data-lat="${it.lat}" data-lon="${it.lon}"><span class="k">${KINDS[it.kind]}</span><div><b>${t("kind." + it.kind)}</b><span class="txt">${esc(it.text)}</span><span class="muted small">${it.when}${it.seed ? " · " + t("community.example") : ""}</span></div><span class="dist">${fmt(it.dist, 1)} km</span></li>`).join("") + `</ul>`;
   };
-  html += group(t("community.needs"), HELP) + group(t("community.seen"), ["flood", "heat", "mosquito", "nowater", "landslide", "smoke"]);
-  html += `<p class="disclaimer">${t("community.disclaimer")}</p>`;
+  html += group(t("community.needs"), HELP) + group(t("community.seen"), ["flood", "heat", "mosquito", "nowater", "landslide", "smoke", "animal"]);
+  html += `<p class="muted small">🐾 ${t("community.animal")}</p><p class="disclaimer">${t("community.disclaimer")}</p>`;
   box.innerHTML = html;
   box.querySelectorAll(".feed li").forEach((li) => (li.onclick = () => map.setView([+li.dataset.lat, +li.dataset.lon], 15)));
   const open = $("#r-open"); if (open) open.onclick = () => { const p = state.pin ? state.pin.getLatLng() : map.getCenter(); openReportForm(p.lat, p.lng); };

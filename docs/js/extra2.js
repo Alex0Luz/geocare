@@ -99,6 +99,25 @@ I18N.add("pt", {
   "eq.recent": "Terremotos nos últimos 30 dias (a até 300 km)", "eq.none30": "Nenhum de magnitude 5 ou mais.",
 });
 
+I18N.add("en", {
+  "safe.high": "Higher ground nearby: {g} m above this spot, about {d} km to the {dir}.", "safe.show": "Show route", "safe.tap": "Tap a place to draw the walking route on the map.",
+  "route.info": "Walking route to {name}: {km} km, about {min} min.", "route.fail": "Could not calculate a route. Use the link to open it in OpenStreetMap.", "route.loading": "Calculating route…",
+  "dir": "east|north-east|north|north-west|west|south-west|south|south-east",
+  "kit.calc": "How much water to store", "kit.people": "People at home", "kit.days": "Days", "kit.water": "of drinking water ({p} × {d} days × 4 L). Keep at least 3 days, and non-perishable food for the same period.",
+});
+I18N.add("es", {
+  "safe.high": "Terreno más alto cerca: {g} m por encima de este punto, a unos {d} km hacia el {dir}.", "safe.show": "Ver ruta", "safe.tap": "Toque un lugar para dibujar la ruta a pie en el mapa.",
+  "route.info": "Ruta a pie hasta {name}: {km} km, unos {min} min.", "route.fail": "No se pudo calcular una ruta. Use el enlace para abrirla en OpenStreetMap.", "route.loading": "Calculando ruta…",
+  "dir": "este|noreste|norte|noroeste|oeste|suroeste|sur|sureste",
+  "kit.calc": "Cuánta agua guardar", "kit.people": "Personas en casa", "kit.days": "Días", "kit.water": "de agua para beber ({p} × {d} días × 4 L). Guarde al menos 3 días, y comida no perecedera para el mismo período.",
+});
+I18N.add("pt", {
+  "safe.high": "Terreno mais alto por perto: {g} m acima deste ponto, a cerca de {d} km para o {dir}.", "safe.show": "Ver rota", "safe.tap": "Toque num lugar para desenhar a rota a pé no mapa.",
+  "route.info": "Rota a pé até {name}: {km} km, cerca de {min} min.", "route.fail": "Não foi possível calcular uma rota. Use o link para abrir no OpenStreetMap.", "route.loading": "Calculando rota…",
+  "dir": "leste|nordeste|norte|noroeste|oeste|sudoeste|sul|sudeste",
+  "kit.calc": "Quanta água guardar", "kit.people": "Pessoas em casa", "kit.days": "Dias", "kit.water": "de água para beber ({p} × {d} dias × 4 L). Guarde pelo menos 3 dias, e comida não perecível para o mesmo período.",
+});
+
 // USGS Earthquake Catalog: magnitude 5 or more within 300 km since 1981 (open, no key).
 async function fetchQuakes(lat, lon) {
   const j = await getJSON(`https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&latitude=${lat.toFixed(3)}&longitude=${lon.toFixed(3)}&maxradiuskm=300&starttime=1981-01-01&minmagnitude=5&orderby=time&limit=5000`);
@@ -180,6 +199,23 @@ const Extras2 = (() => {
     box.innerHTML = `<h3>${t("eq.recent")}</h3>` + (q.recent.length ? `<ul class="rows nums">${q.recent.map((e) => `<li><div><b>M ${fmt(e.m, 1)} · ${esc(e.place)}</b><span class="muted small">${new Date(e.time).toLocaleDateString(I18N.locale())}</span></div><span class="dist">${fmt(km(state.main.lat, state.main.lon, e.lat, e.lon), 0)} km</span></li>`).join("")}</ul>` : `<p class="muted">${t("eq.none30")}</p>`);
   }
 
+  /* ---------- walking route drawn on the map (OpenStreetMap routing; pedestrian first, road network as fallback) ---------- */
+  async function routeTo(r, lat, lon, name) {
+    const info = document.querySelector("#route-info"); if (info) info.textContent = t("route.loading");
+    const straight = km(r.lat, r.lon, lat, lon), pair = `${r.lon.toFixed(5)},${r.lat.toFixed(5)};${lon.toFixed(5)},${lat.toFixed(5)}?overview=full&geometries=geojson`;
+    let best = null;
+    for (const u of [`https://routing.openstreetmap.de/routed-foot/route/v1/foot/${pair}`, `https://router.project-osrm.org/route/v1/driving/${pair}`]) {
+      try { const j = await (await fetch(u)).json(), rt = j.routes?.[0]; if (rt && rt.distance / 1000 <= Math.max(1, straight) * 6) { best = rt; break; } } catch (_) { /* next service */ }
+    }
+    const lay = layer("route"); lay.clearLayers();
+    if (!best) { if (info) info.textContent = t("route.fail"); map.setView([lat, lon], 15); return; }
+    const line = L.polyline(best.geometry.coordinates.map(([x, y]) => [y, x]), { color: "#1f7f5f", weight: 5, opacity: 0.85 }).addTo(lay);
+    L.circleMarker([lat, lon], { radius: 8, color: "#1f7f5f", fillColor: "#fff", fillOpacity: 1, weight: 3 }).addTo(lay);
+    map.fitBounds(line.getBounds(), { padding: [40, 40] });
+    r.route = { name, km: best.distance / 1000, min: (best.distance / 1000 / 4.5) * 60 };
+    if (info) info.textContent = t("route.info", { name, km: fmt(r.route.km, 1), min: fmt(r.route.min, 0) });
+  }
+
   /* ---------- preparedness ---------- */
   function hazardsHere(r) {
     const s = new Set(); if (!r) return s;
@@ -224,11 +260,13 @@ const Extras2 = (() => {
     h += historyBlock(r);
     if (r) {
       h += `<section class="band"><p class="eyebrow">${t("safe.title")}</p>`;
+      const hg = r.terrain?.high;
+      if (hg && hg.gain >= 3) h += `<p class="hg">⛰ ${t("safe.high", { g: fmt(hg.gain, 0), d: fmt(hg.dist, 1), dir: t("dir").split("|")[hg.dir] })} <button class="btn small ghost" id="hg-btn">${t("safe.show")}</button></p>`;
       if (!r.safe) h += `<button class="btn wide" id="safe-btn">${t("safe.btn")}</button>`;
       else if (r.safe === "loading") h += `<p class="loading">${t("safe.loading")}</p>`;
       else if (!r.safe.length) h += `<p class="muted">${t("safe.none")}</p>`;
       else h += `<ul class="rows safe">` + r.safe.map((s) => `<li data-lat="${s.lat}" data-lon="${s.lon}"><span class="k">⛑</span><div><b>${esc(s.name || t("k." + s.kind))}</b><span class="muted small">${t("k." + s.kind)} · <a target="_blank" rel="noopener" href="https://www.openstreetmap.org/directions?engine=fossgis_osrm_foot&route=${r.lat.toFixed(5)}%2C${r.lon.toFixed(5)}%3B${s.lat.toFixed(5)}%2C${s.lon.toFixed(5)}">${t("safe.route")} →</a></span></div><span class="dist">${fmt(s.dist, 1)} km</span></li>`).join("") + `</ul>`;
-      h += `<p class="muted small">${t("safe.note")}</p></section>`;
+      h += `${Array.isArray(r.safe) && r.safe.length ? `<p class="muted small">${t("safe.tap")}</p>` : ""}<p id="route-info" class="route-info">${r.route ? t("route.info", { name: esc(r.route.name), km: fmt(r.route.km, 1), min: fmt(r.route.min, 0) }) : ""}</p><p class="muted small">${t("safe.note")}</p></section>`;
     }
     const lay = layer("safe"); lay.clearLayers();
     if (Array.isArray(r?.safe)) r.safe.forEach((s) => L.marker([s.lat, s.lon], { icon: L.divIcon({ className: "emoji-pin k-safe", html: "⛑", iconSize: [28, 28] }) }).bindPopup(`<b>${esc(s.name || t("k." + s.kind))}</b><br>${t("k." + s.kind)}`).addTo(lay));
@@ -239,13 +277,19 @@ const Extras2 = (() => {
       h += `<h3>${t("prep.hazards")}</h3><div class="topics">` + hz.map((z) => `<details class="topic"><summary><span class="hz">${z.icon}</span><span class="tt">${esc(tx(z.name))}</span>${here.has(z.id) ? `<span class="badge v-confirmed">${t("prep.here")}</span>` : ""}</summary>
         <div class="tbody"><p class="why"><b>${t("prep.shelter")}:</b> ${esc(tx(z.shelter))}</p><p class="phase">${t("prep.before")}</p>${steps(z.before)}<p class="phase">${t("prep.during")}</p>${steps(z.during)}<p class="phase">${t("prep.after")}</p>${steps(z.after)}
         <p class="muted small">${esc(z.source_name || "")} · <a href="${esc(z.source)}" target="_blank" rel="noopener">${t("act.source")}</a></p></div></details>`).join("") + `</div>`;
-      h += `<h3>${t("prep.kit")}</h3>${checks("k", P.kit)}<h3>${t("prep.plan")}</h3>${checks("p", P.plan)}`;
+      const ppl = Math.max(1, +done.people || 4), dys = Math.max(1, +done.days || 3);
+      h += `<h3>${t("prep.kit")}</h3><div class="calc"><p class="eyebrow">${t("kit.calc")}</p><div class="row"><label>${t("kit.people")}<input type="number" id="kit-p" min="1" max="40" value="${ppl}"></label><label>${t("kit.days")}<input type="number" id="kit-d" min="1" max="30" value="${dys}"></label></div><p><b class="big">${fmt(ppl * dys * 4, 0)} L</b> ${t("kit.water", { p: ppl, d: dys })}</p></div>${checks("k", P.kit)}<h3>${t("prep.plan")}</h3>${checks("p", P.plan)}`;
       const nums = (P.numbers || []).filter((x) => x.cc === r?.cc);
       if (nums.length) h += `<h3>${t("prep.numbers")}</h3><ul class="rows nums">${nums.map((x) => `<li><div><b>${esc(x.label)}</b></div><a class="tel" href="tel:${esc(x.number)}">${esc(x.number)}</a></li>`).join("")}</ul>`;
     }
     box.innerHTML = h;
     const b = box.querySelector("#safe-btn"); if (b) b.onclick = () => findSafe(r);
-    box.querySelectorAll(".safe li").forEach((li) => (li.onclick = (e) => { if (e.target.tagName !== "A") map.setView([+li.dataset.lat, +li.dataset.lon], 16); }));
+    box.querySelectorAll(".safe li").forEach((li) => (li.onclick = (e) => { if (e.target.tagName !== "A") routeTo(r, +li.dataset.lat, +li.dataset.lon, li.querySelector("b").textContent); }));
+    const hb = box.querySelector("#hg-btn"); if (hb) hb.onclick = () => routeTo(r, r.terrain.high.lat, r.terrain.high.lon, t("safe.high", { g: fmt(r.terrain.high.gain, 0), d: fmt(r.terrain.high.dist, 1), dir: t("dir").split("|")[r.terrain.high.dir] }).split(":")[0]);
+    const save = () => { try { localStorage.setItem("geocare.checks", JSON.stringify(done)); } catch (_) { /* ignore */ } };
+    const kp = box.querySelector("#kit-p"), kd = box.querySelector("#kit-d");
+    if (kp) kp.onchange = () => { done.people = +kp.value; save(); renderPrepare(); };
+    if (kd) kd.onchange = () => { done.days = +kd.value; save(); renderPrepare(); };
     box.querySelectorAll(".check input").forEach((inp) => (inp.onchange = () => { done[inp.dataset.c] = inp.checked; try { localStorage.setItem("geocare.checks", JSON.stringify(done)); } catch (_) { /* ignore */ } renderPrepare(); }));
   }
 
