@@ -4,7 +4,10 @@ import csv, glob, json, os, collections
 import numpy as np, pymannkendall as mk
 AQUI = os.path.dirname(os.path.abspath(__file__))
 NOMES = {"ciudad_del_este": ("Ciudad del Este", -25.51, -54.61), "porto_alegre": ("Porto Alegre", -30.03, -51.23), "karachi": ("Karachi", 24.86, 67.0),
-         "asuncion": ("Asunción", -25.28, -57.63), "sao_paulo": ("São Paulo", -23.55, -46.63), "kathmandu": ("Kathmandu", 27.72, 85.32), "phoenix": ("Phoenix", 33.45, -112.07), "nairobi": ("Nairobi", -1.29, 36.82)}
+         "asuncion": ("Asunción", -25.28, -57.63), "sao_paulo": ("São Paulo", -23.55, -46.63), "kathmandu": ("Kathmandu", 27.72, 85.32), "phoenix": ("Phoenix", 33.45, -112.07), "nairobi": ("Nairobi", -1.29, 36.82),
+         "new_delhi": ("New Delhi", 28.61, 77.21), "washington": ("Washington, D.C.", 38.90, -77.04), "jakarta": ("Jakarta", -6.20, 106.85), "islamabad": ("Islamabad", 33.69, 73.05),
+         "abuja": ("Abuja", 9.06, 7.49), "brasilia": ("Brasília", -15.79, -47.88), "dhaka": ("Dhaka", 23.81, 90.41), "addis_ababa": ("Addis Ababa", 9.03, 38.74),
+         "mexico_city": ("Mexico City", 19.43, -99.13), "tokyo": ("Tokyo", 35.68, 139.69)}
 def ler(path):
     meta, rows, dados = {}, [], False
     for r in csv.reader(open(path, encoding="utf-8")):
@@ -67,4 +70,4 @@ for slug, (nome, lat, lon) in NOMES.items():
     saida[slug] = {"nome": nome, "lat": lat, "lon": lon, "series": {k: {str(y): round(v, 3) for y, v in s.items()} for k, s in S.items()}, "tendencias": T}
 os.makedirs(f"{AQUI}/../docs/data", exist_ok=True)
 json.dump(saida, open(f"{AQUI}/../docs/data/giovanni.json", "w", encoding="utf-8"), ensure_ascii=False)
-print("\ngravado app/data/giovanni.json")
+print("\ngravado docs/data/giovanni.json")

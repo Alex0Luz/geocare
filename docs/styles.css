@@ -150,3 +150,11 @@ input:focus, select:focus, textarea:focus, button:focus-visible { outline: 2px s
 .card.st-recovering { border-left-color: #3f8f5f; } .card.st-still_critical { border-left-color: var(--earth); } .card.st-warning { border-left-color: var(--amber); }
 .badge.st-recovering { background: #d8ecdf; color: #1f4d3a; } .badge.st-still_critical { background: var(--earth); color: #fff; } .badge.st-warning { background: #f3dfb4; color: #6b4a05; }
 a { color: var(--sky); }
+
+.tblwrap { overflow-x: auto; }
+.caps td, .caps th { white-space: nowrap; font-size: 0.8rem; }
+.caps th small { font-weight: 400; color: var(--muted); font-family: "DM Sans", sans-serif; }
+.caps tbody tr { cursor: pointer; } .caps tbody tr:hover { background: var(--sand); }
+.vdot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 5px; background: #c9cfca; vertical-align: baseline; }
+.vdot.v-confirmed { background: var(--earth); } .vdot.v-likely { background: var(--amber); } .vdot.v-single { background: var(--sky); } .vdot.v-conflict { background: #6b4fa3; }
+.capitals-box { margin-top: 22px; }

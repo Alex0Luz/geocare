@@ -19,3 +19,4 @@ analysis/fl.json
 analysis/giovanni_log.txt
 analysis/.gitignore
 __pycache__/
+analysis/cache_capitais/

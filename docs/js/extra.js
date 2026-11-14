@@ -3,6 +3,7 @@
 // Code written with AI assistance; scoring rule and health content defined and reviewed by the team.
 I18N.add("en", {
   "tab.region": "Region's health", "tab.act": "Cities & companies",
+  "cap.title": "Ten capitals at a glance", "cap.intro": "Capitals of the ten most populous countries selected by the team, analysed with the same method (change per decade, 1981–2025). The colour is the verdict. Tap a row to open that city.", "cap.city": "Capital", "cap.na": "Panel not available yet.",
   "tools.grid": "Where is it changing?", "tools.csv": "Export CSV", "tools.gridvar.temp": "Temperature", "tools.gridvar.rain": "Rainfall",
   "grid.loading": "Loading 25 points around this place…", "grid.legend": "Each circle is one NASA POWER grid point (0.5° apart). Red: rising, blue: falling, grey: no significant trend. Stronger colour means a faster change.",
   "quant.total": "Total change over the record: <b>{v}</b>.", "quant.periods": "Average of 2006–2025 compared with 1981–2000: <b>{d}</b> ({pct}%).",
@@ -33,6 +34,7 @@ I18N.add("en", {
 });
 I18N.add("es", {
   "tab.region": "Salud de la región", "tab.act": "Municipios y empresas",
+  "cap.title": "Diez capitales de un vistazo", "cap.intro": "Capitales de los diez países más poblados elegidos por el equipo, analizadas con el mismo método (cambio por década, 1981–2025). El color es el veredicto. Toque una fila para abrir esa ciudad.", "cap.city": "Capital", "cap.na": "El panel todavía no está disponible.",
   "tools.grid": "¿Dónde está cambiando?", "tools.csv": "Exportar CSV", "tools.gridvar.temp": "Temperatura", "tools.gridvar.rain": "Lluvia",
   "grid.loading": "Cargando 25 puntos alrededor de este lugar…", "grid.legend": "Cada círculo es un punto de la grilla de NASA POWER (cada 0,5°). Rojo: sube, azul: baja, gris: sin tendencia significativa. Color más fuerte indica cambio más rápido.",
   "quant.total": "Cambio total en el registro: <b>{v}</b>.", "quant.periods": "Promedio de 2006–2025 comparado con 1981–2000: <b>{d}</b> ({pct}%).",
@@ -63,6 +65,7 @@ I18N.add("es", {
 });
 I18N.add("pt", {
   "tab.region": "Saúde da região", "tab.act": "Prefeituras e empresas",
+  "cap.title": "Dez capitais em um olhar", "cap.intro": "Capitais dos dez países mais populosos escolhidos pela equipe, analisadas com o mesmo método (mudança por década, 1981–2025). A cor é o veredito. Toque numa linha para abrir a cidade.", "cap.city": "Capital", "cap.na": "O painel ainda não está disponível.",
   "tools.grid": "Onde está mudando?", "tools.csv": "Exportar CSV", "tools.gridvar.temp": "Temperatura", "tools.gridvar.rain": "Chuva",
   "grid.loading": "Carregando 25 pontos ao redor deste lugar…", "grid.legend": "Cada círculo é um ponto da grade do NASA POWER (a cada 0,5°). Vermelho: subindo, azul: caindo, cinza: sem tendência significativa. Cor mais forte indica mudança mais rápida.",
   "quant.total": "Mudança total no registro: <b>{v}</b>.", "quant.periods": "Média de 2006–2025 comparada com 1981–2000: <b>{d}</b> ({pct}%).",
@@ -310,8 +313,25 @@ const Extras = (() => {
     box.querySelectorAll(".seg button").forEach((b) => (b.onclick = () => { ui.gridVar = b.dataset.v; renderTools(); drawGrid(r); }));
   }
 
+  /* ---------- ten capitals panel (precomputed with the same method) ---------- */
+  function renderCapitals() {
+    const boxes = document.querySelectorAll(".capitals-box"); if (!boxes.length) return;
+    if (ui.capitals === undefined) { ui.capitals = null; fetch("data/capitals.json").then((x) => (x.ok ? x.json() : false)).then((j) => { ui.capitals = j; }).catch(() => { ui.capitals = false; }).finally(() => renderCapitals()); }
+    const c = ui.capitals;
+    let h = `<h3>${t("cap.title")}</h3>`;
+    if (!c) h += `<p class="muted small">${c === null ? "…" : t("cap.na")}</p>`;
+    else {
+      const cols = [["temp", 2], ["hotdays", 1], ["rain", 0], ["aedes", 2]];
+      const cell = (s, d) => { const tr = s.era5 || s.nasa; return `<td><span class="vdot v-${s.verdict}"></span>${tr ? signed(tr.slope, d) : "–"}</td>`; };
+      h += `<p class="muted small">${t("cap.intro")}</p><div class="tblwrap"><table class="cmp caps"><thead><tr><th>${t("cap.city")}</th>${cols.map(([k]) => `<th>${t("sig." + k)}<br><small>${t("unit." + SIGNALS.find((x) => x.key === k).unit)}</small></th>`).join("")}</tr></thead><tbody>`;
+      c.capitals.forEach((p, i) => { h += `<tr data-i="${i}"><td><b>${esc(p.name)}</b><br><small class="muted">${esc(p.country)}</small></td>${cols.map(([k, d]) => cell(p.signals[k], d)).join("")}</tr>`; });
+      h += `</tbody></table></div><p class="muted small"><span class="vdot v-confirmed"></span>${t("verdict.confirmed")} <span class="vdot v-likely"></span>${t("verdict.likely")} <span class="vdot v-single"></span>${t("verdict.single")} <span class="vdot v-conflict"></span>${t("verdict.conflict")} <span class="vdot v-none"></span>${t("verdict.none")}</p>`;
+    }
+    boxes.forEach((b) => { b.innerHTML = h; b.querySelectorAll("tr[data-i]").forEach((tr) => (tr.onclick = () => { const p = c.capitals[+tr.dataset.i]; document.querySelector("#q").value = p.name; analyzeAt(p.lat, p.lon, `${p.name}, ${p.country}`); })); });
+  }
+
   function render() {
-    renderMe(); renderTools(); renderRegion(); renderAct();
+    renderMe(); renderTools(); renderRegion(); renderAct(); renderCapitals();
     if (!Array.isArray(state.main?.grid) && ui.layers.grid) ui.layers.grid.clearLayers();
   }
   return { render };

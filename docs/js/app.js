@@ -301,7 +301,7 @@ function witnessRow(name, tr, s) {
 
 function renderPlace() {
   const r = state.main, box = $("#p-place");
-  if (!r) { box.innerHTML = `<div class="empty"><h2>${t("empty.title")}</h2><p>${t("empty.text")}</p><div class="chips">${["Ciudad del Este", "Asunción", "São Paulo", "Porto Alegre", "Karachi", "Kathmandu", "Nairobi", "Phoenix"].map((c) => `<button class="chip" data-q="${c}">${c}</button>`).join("")}</div></div>`;
+  if (!r) { box.innerHTML = `<div class="empty"><h2>${t("empty.title")}</h2><p>${t("empty.text")}</p><div class="chips">${["Ciudad del Este", "Asunción", "São Paulo", "Porto Alegre", "Karachi", "Kathmandu", "Nairobi", "Phoenix"].map((c) => `<button class="chip" data-q="${c}">${c}</button>`).join("")}</div><div class="capitals-box"></div></div>`;
     box.querySelectorAll(".chip").forEach((b) => (b.onclick = () => { $("#q").value = b.dataset.q; search(b.dataset.q); })); return; }
   const sigs = r.signals, done = sigs.filter((s) => !s.waiting);
   const strong = done.filter((s) => ["confirmed", "likely"].includes(s.verdict)).length;
@@ -497,7 +497,7 @@ function renderCompare() {
     const tf = (r) => (r.terrain ? [r.terrain.low && t("terrain.low.short"), r.terrain.steep && t("terrain.steep.short")].filter(Boolean).join(", ") || t("terrain.ok.short") : "…");
     html += `<tr><td>${t("terrain.title")}</td><td>${tf(a)}</td><td>${tf(b)}</td></tr></tbody></table><p class="muted small">${t("compare.note")}</p>`;
   }
-  box.innerHTML = html;
+  box.innerHTML = html + `<div class="capitals-box"></div>`;
   $("#cmp-form").onsubmit = (e) => { e.preventDefault(); const q = $("#q2").value.trim(); if (q) search(q, "other"); };
 }
 
