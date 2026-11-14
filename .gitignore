@@ -25,3 +25,6 @@ analysis/cache_panorama/
 analysis/cache_era5/
 PAGINA-DO-PROJETO.md
 analysis/cache_ibtracs/
+analysis/cache_pressoes/
+analysis/cache_tornados/
+analysis/cache_paraguai/

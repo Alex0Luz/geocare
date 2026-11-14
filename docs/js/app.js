@@ -82,10 +82,34 @@ async function fetchNasa(lat, lon) {
 
 // NASA POWER daily record (MERRA-2 temperature, satellite-corrected precipitation), 1981-2025: extremes and the year calendar.
 // It has no hourly request limit, so every place always gets the eight signals, even when ERA5 is unavailable.
+// How often things happen in absolute terms, from the last 10 years of the daily record, plus the records of the whole period.
+// Heat index of each day: maximum temperature with the humidity implied by the day's dew point.
+function absStats(yr, mo, tx, tn, td, pr) {
+  const sat = (x) => Math.exp((17.625 * x) / (243.04 + x)), z = () => Array(12).fill(0);
+  const A = { d32: 0, d41: 0, d50: 0, frost: 0, m32: z(), m50: z(), mfrost: z() }, s50 = z(), rec = { hot: [-99, 0], wet: [0, 0], cold: [99, 0] }, runMax = {};
+  let run = 0;
+  for (let i = 0; i < yr.length; i++) {
+    if (tx[i] > rec.hot[0]) rec.hot = [tx[i], yr[i]];
+    if (pr[i] > rec.wet[0]) rec.wet = [pr[i], yr[i]];
+    if (tn[i] < rec.cold[0]) rec.cold = [tn[i], yr[i]];
+    if (pr[i] >= 50) s50[mo[i]]++; // season of heavy rain: counted over the whole record, because these days are few
+    if (yr[i] < END - 9 || yr[i] > END) continue;
+    const hi = Number.isFinite(tx[i]) && Number.isFinite(td[i]) ? Stats.heatIndex(tx[i], Math.min(100, (100 * sat(td[i])) / sat(tx[i]))) : tx[i];
+    if (hi >= 32) { A.d32++; A.m32[mo[i]]++; } if (hi >= 41) A.d41++;
+    if (pr[i] >= 50) { A.d50++; A.m50[mo[i]]++; }
+    if (tn[i] <= 0) { A.frost++; A.mfrost[mo[i]]++; }
+    run = pr[i] < 1 ? run + 1 : 0; runMax[yr[i]] = Math.max(runMax[yr[i]] || 0, run);
+  }
+  const spells = Object.values(runMax), r1 = (v) => Math.round(v * 10) / 10;
+  return { d32: A.d32 / 10, d41: A.d41 / 10, d50: A.d50 / 10, frost: A.frost / 10, m32: A.m32.map((v) => v / 10), m50: A.m50.map((v) => v / 10), mfrost: A.mfrost.map((v) => v / 10), s50,
+    spell: spells.length ? spells.reduce((a, b) => a + b, 0) / spells.length : NaN, rec: { hot: [r1(rec.hot[0]), rec.hot[1]], wet: [r1(rec.wet[0]), rec.wet[1]], cold: [r1(rec.cold[0]), rec.cold[1]] } };
+}
+
 async function fetchNasaDaily(lat, lon) {
-  const key = `geocare.nasad:${round2(lat)}:${round2(lon)}`;
+  const key = `geocare.nasad3:${round2(lat)}:${round2(lon)}`;
+  try { for (const k of ["nasad", "nasad2"]) localStorage.removeItem(`geocare.${k}:${round2(lat)}:${round2(lon)}`); } catch (_) { /* storage unavailable */ }
   try { const c = localStorage.getItem(key); if (c) return JSON.parse(c); } catch (_) { /* storage unavailable */ }
-  const url = `https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M,T2M_MAX,PRECTOTCORR&community=AG&longitude=${round2(lon)}&latitude=${round2(lat)}&start=${START}0101&end=${END}1231&format=JSON`;
+  const url = `https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M,T2M_MAX,T2M_MIN,T2MDEW,PRECTOTCORR&community=AG&longitude=${round2(lon)}&latitude=${round2(lat)}&start=${START}0101&end=${END}1231&format=JSON`;
   const p = (await getJSON(url)).properties.parameter;
   const days = Object.keys(p.T2M_MAX).sort(), n = days.length;
   const val = (name, d) => { const v = p[name][d]; return v === undefined || v < -900 ? NaN : v; };
@@ -107,6 +131,7 @@ async function fetchNasaDaily(lat, lon) {
     hotdays: acc.map((a) => (ok(a) ? a.hot : NaN)), heavyrain: acc.map((a) => (ok(a) ? a.heavy : NaN)), drydays: acc.map((a) => (ok(a) ? a.dry : NaN)),
     calendar: cal.map((c) => ({ hot: c.hot / c.d, heavy: (c.heavy / c.d) * 30, rain: c.rain / 10, aedes: Stats.aedes(c.t / c.nt) })),
   };
+  out.abs = absStats(yr, mo, tx, days.map((d) => val("T2M_MIN", d)), days.map((d) => val("T2MDEW", d)), pr);
   try { localStorage.setItem(key, JSON.stringify(out)); } catch (_) { /* storage full: skip */ }
   return out;
 }
@@ -116,7 +141,7 @@ async function fetchNasaDaily(lat, lon) {
 // live request, then an archived file shipped with the app for demonstration places.
 async function fetchEra5(lat, lon) {
   const key = `geocare.era5:${round2(lat)}:${round2(lon)}`;
-  try { const c = localStorage.getItem(key); if (c) return JSON.parse(c); } catch (_) { /* storage unavailable */ }
+  try { const c = localStorage.getItem(key), v = c && JSON.parse(c); if (v && v.abs) return v; } catch (_) { /* storage unavailable */ }
   try {
     const live = await fetchEra5Live(lat, lon);
     try { localStorage.setItem(key, JSON.stringify(live)); } catch (_) { /* storage full: skip */ }
@@ -157,7 +182,11 @@ async function fetchEra5Live(lat, lon) {
   const calendar = cal.map((c) => ({ hot: c.hot / c.d, heavy: (c.heavy / c.d) * 30, rain: c.rain / 10, aedes: Stats.aedes(c.t / c.nt) }));
   const ok = (a) => a.n >= 360;
   const monthlyT = acc.map((a) => a.mT.map((s, m) => (a.mN[m] ? s / a.mN[m] : NaN)));
+  // heavy rain in absolute terms, as a second witness for the "what usually happens here" profile (finer grid than the NASA record)
+  const s50 = Array(12).fill(0); let d50 = 0, wet = [0, 0];
+  for (let i = 0; i < n; i++) { if (pr[i] > wet[0]) wet = [Math.round(pr[i]), yr[i]]; if (pr[i] >= 50) { s50[mo[i]]++; if (yr[i] >= END - 9 && yr[i] <= END) d50++; } }
   return {
+    abs: { d50: d50 / 10, s50, wet },
     hotThr, wetThr, monthlyT, calendar,
     temp: acc.map((a) => (ok(a) ? a.t / a.n : NaN)),
     rain: acc.map((a) => (ok(a) ? a.p : NaN)),
@@ -183,7 +212,8 @@ async function fetchTerrain(lat, lon) {
   return {
     high, elevation: c, relNear: c - avg(near), relFar: c - avg(far), slopePct: slope * 100,
     low: c <= Math.min(...near) + 1 && avg(far) - c >= 8,
-    steep: slope >= 0.18,
+    // the elevation model is a surface model, so a tall building can look like a cliff: also ask for real relief 1.5 km around
+    steep: slope >= 0.18 && (() => { const s = [...far].sort((a, b) => a - b); return s[6] - s[1] >= 50; })(),
   };
 }
 
@@ -395,9 +425,9 @@ function renderPlace() {
     <div class="strip">${sigs.map((s) => `<i class="v-${s.waiting ? "wait" : s.verdict}" title="${t("sig." + s.key)}"></i>`).join("")}</div>
     ${r.pending ? `<p class="loading small">${t("status.loading", { n: r.pending })}</p>` : ""}</div></section>`;
 
-  html += `<h3>${t("place.signals")}</h3><p class="muted small">${t("place.tap")}</p><div class="siggrid">`;
+  html += `<div id="expect-box"></div><h3>${t("place.signals")}</h3><p class="muted small">${t("place.tap")}</p><div class="siggrid">`;
   for (const s of sigs) {
-    html += `<button class="sigtile v-${s.waiting ? "wait" : s.verdict} ${s.key === sel ? "on" : ""}" data-key="${s.key}">
+    html += `<button class="sigtile v-${s.waiting ? "wait" : s.verdict} ${s.key === sel ? "on" : ""}" data-key="${s.key}" data-anchor="sig-${s.key}">
       <span class="st-name"><b class="arrow">${arrow(s)}</b>${t("sig." + s.key)}</span>
       <span class="st-val">${s.waiting ? "…" : headline(s)}</span>${verdictBadge(s)}</button>`;
   }
@@ -496,10 +526,10 @@ function renderHealth() {
   let html = `<div id="me-box"></div><h3>${t("health.title")}</h3><p class="muted small">${t("health.intro")}</p><div class="topics">`;
   healthTopics(r).forEach((h, i) => {
     const why = h.why.filter(Boolean);
-    html += `<details class="topic lv-${h.level}" ${["now", "you"].includes(h.level) || i === 0 ? "open" : ""}><summary><span class="tn">${String(i + 1).padStart(2, "0")}</span><span class="tt">${t("h." + h.key)}</span><span class="badge l-${h.level}">${t("level." + h.level)}</span></summary>
+    html += `<details class="topic lv-${h.level}" data-anchor="topic-${h.key}" ${["now", "you"].includes(h.level) || i === 0 ? "open" : ""}><summary><span class="tn">${String(i + 1).padStart(2, "0")}</span><span class="tt">${t("h." + h.key)}</span><span class="badge l-${h.level}">${t("level." + h.level)}</span></summary>
       <div class="tbody">${why.length ? `<p class="why"><b>${t("health.why")}</b> ${why.join(" ")}</p>` : `<p class="why muted">${t("health.nowhy")}</p>`}
       <ol class="steps">${t("h." + h.key + ".steps").split("|").map((x) => `<li>${x}</li>`).join("")}</ol>
-      <p class="muted small">${t("h." + h.key + ".src")}</p></div></details>`;
+      ${Extras2.links(h.key)}<p class="muted small">${t("h." + h.key + ".src")}</p></div></details>`;
   });
   html += `</div><div id="sos-box"></div>`;
   careLayer.clearLayers();
@@ -526,7 +556,7 @@ function renderNow() {
       const lv = d.feels >= 41 ? "danger" : d.feels >= 32 ? "warn" : "", w = Math.max(6, Math.min(100, ((d.feels - 10) / 38) * 100));
       const day = new Date(d.day + "T12:00").toLocaleDateString(I18N.locale(), { weekday: "short", day: "numeric" });
       return `<div class="wkrow ${lv} ${i === 0 ? "today" : ""}"><span class="wd">${day}</span><span class="wt">${fmt(d.tmax, 0)}° <small>${fmt(d.tmin, 0)}°</small></span><span class="wbar"><i style="width:${w.toFixed(0)}%"></i></span><span class="whi">${fmt(d.feels, 0)}°</span><span class="wr ${d.rain >= 50 ? "wet" : ""}">${d.rain >= 1 ? fmt(d.rain, 0) + " mm" : "–"}</span></div>`;
-    }).join("") + `</div><p class="muted small">${t("now.legend2")}</p>`;
+    }).join("") + `</div><p class="muted small">${t("now.legend2")}</p><div id="now-context"></div>`;
     if (D.some((d) => d.spray)) html += `<details class="method spray" ${Extras.has("farm") ? "open" : ""}><summary>${t("spray.title")}</summary><p class="muted small">${t("spray.intro")}</p><div class="wk">` + D.filter((d) => d.spray).map((d) => {
       const day = new Date(d.day + "T12:00").toLocaleDateString(I18N.locale(), { weekday: "short", day: "numeric" }), pct = (d.spray.ok / d.spray.tot) * 100;
       return `<div class="sprow"><span class="wd">${day}</span><span class="wbar"><i style="width:${pct.toFixed(0)}%"></i></span><span class="sph">${t("spray.hours", { a: d.spray.ok, b: d.spray.tot })}</span></div>`;

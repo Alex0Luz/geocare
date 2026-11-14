@@ -242,8 +242,9 @@ const Extras = (() => {
       h += `</div>`;
       if (g === "vaccines") h += `<p class="why">${t("region.vax")}</p>`;
     }
-    h += `<p class="muted small foot">${t("region.src")}</p>`;
+    h += `<div id="pressure-box" data-anchor="pressures"></div><p class="muted small foot">${t("region.src")}</p>`;
     box.innerHTML = h;
+    Extras2.renderPressures();
     box.querySelectorAll("details.irow").forEach((el2) => el2.addEventListener("toggle", () => {
       if (!el2.open || el2.dataset.drawn) return; el2.dataset.drawn = 1;
       const c = el2.dataset.ind, { ys, vs } = series(c);
