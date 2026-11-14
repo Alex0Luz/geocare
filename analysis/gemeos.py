@@ -43,8 +43,6 @@ C = {
  "Mumbai IN": (19.08, 72.88), "Dhaka BD": (23.81, 90.41), "Kathmandu NP": (27.72, 85.32), "Yangon MM": (16.84, 96.17),
  "Bangkok TH": (13.76, 100.5), "Hanoi VN": (21.03, 105.85), "Ho Chi Minh VN": (10.82, 106.63),
  "Phnom Penh KH": (11.56, 104.92), "Singapore SG": (1.35, 103.82), "Jakarta ID": (-6.2, 106.85),
- "Yogyakarta ID": (-7.8, 110.36), "Manila PH": (14.6, 120.98), "Hong Kong HK": (22.32, 114.17),
- "Guangzhou CN": (23.13, 113.26), "Wuhan CN": (30.59, 114.31), "Shanghai CN": (31.23, 121.47),
  "Taipei TW": (25.03, 121.57), "Tokyo JP": (35.68, 139.69), "Brisbane AU": (-27.47, 153.03),
  "Darwin AU": (-12.46, 130.84), "Sydney AU": (-33.87, 151.21), "Townsville AU": (-19.26, 146.82),
 }

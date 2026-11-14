@@ -6,7 +6,7 @@ C = {'Ciudad del Este':(-25.51,-54.61),'Sao Paulo':(-23.55,-46.63),'Buenos Aires
  'Madrid':(40.42,-3.7),'Paris':(48.86,2.35),'Rome':(41.9,12.5),'Athens':(37.98,23.73),'Cairo':(30.04,31.24),'Lagos':(6.52,3.38),
  'Nairobi':(-1.29,36.82),'Addis Ababa':(9.03,38.74),'Johannesburg':(-26.2,28.05),'Karachi':(24.86,67.0),'Delhi':(28.61,77.21),
  'Dhaka':(23.81,90.41),'Kathmandu':(27.72,85.32),'Bangkok':(13.76,100.5),'Jakarta':(-6.2,106.85),'Manila':(14.6,120.98),
- 'Tokyo':(35.68,139.69),'Shanghai':(31.23,121.47),'Sydney':(-33.87,151.21),'Niamey':(13.51,2.11),'Baghdad':(33.31,44.36)}
+ 'Tokyo':(35.68,139.69),'Sydney':(-33.87,151.21),'Niamey':(13.51,2.11),'Baghdad':(33.31,44.36)}
 def briere(T,a=17.8,b=34.5):
     return np.where((T>a)&(T<b),T*(T-a)*np.sqrt(np.clip(b-T,0,None)),0)
 REF = briere(np.linspace(17.8,34.5,2000)).max()

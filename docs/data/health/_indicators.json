@@ -1,0 +1,157 @@
+{
+"SP.DYN.LE00.IN": {
+"group": "life",
+"name": "Life expectancy at birth, total (years)",
+"digits": 1
+},
+"SH.DYN.NMRT": {
+"group": "life",
+"name": "Mortality rate, neonatal (per 1,000 live births)",
+"digits": 1
+},
+"SP.DYN.IMRT.IN": {
+"group": "life",
+"name": "Mortality rate, infant (per 1,000 live births)",
+"digits": 1
+},
+"SH.DYN.MORT": {
+"group": "life",
+"name": "Mortality rate, under-5 (per 1,000 live births)",
+"digits": 1
+},
+"SH.DYN.1014": {
+"group": "life",
+"name": "Probability of dying among adolescents ages 10-14 years (per 1,000)",
+"digits": 1
+},
+"SH.DYN.1519": {
+"group": "life",
+"name": "Probability of dying among adolescents ages 15-19 years (per 1,000)",
+"digits": 1
+},
+"SH.DYN.2024": {
+"group": "life",
+"name": "Probability of dying among youth ages 20-24 years (per 1,000)",
+"digits": 1
+},
+"SP.DYN.AMRT.MA": {
+"group": "life",
+"name": "Mortality rate, adult, male (per 1,000 male adults)",
+"digits": 0
+},
+"SP.DYN.AMRT.FE": {
+"group": "life",
+"name": "Mortality rate, adult, female (per 1,000 female adults)",
+"digits": 0
+},
+"SH.STA.MMRT": {
+"group": "life",
+"name": "Maternal mortality ratio (modeled estimate, per 100,000 live births)",
+"digits": 0
+},
+"SH.DTH.COMM.ZS": {
+"group": "causes",
+"name": "Cause of death, by communicable diseases and maternal, prenatal and nutrition conditions (% of total)",
+"digits": 1
+},
+"SH.DTH.NCOM.ZS": {
+"group": "causes",
+"name": "Cause of death, by non-communicable diseases (% of total)",
+"digits": 1
+},
+"SH.DTH.INJR.ZS": {
+"group": "causes",
+"name": "Cause of death, by injury (% of total)",
+"digits": 1
+},
+"SH.DYN.NCOM.ZS": {
+"group": "causes",
+"name": "Mortality from CVD, cancer, diabetes or CRD between exact ages 30 and 70 (%)",
+"digits": 1
+},
+"SH.STA.AIRP.P5": {
+"group": "causes",
+"name": "Mortality rate attributed to household and ambient air pollution, age-standardized (per 100,000 population)",
+"digits": 1
+},
+"SH.STA.WASH.P5": {
+"group": "causes",
+"name": "Mortality rate attributed to unsafe water, unsafe sanitation and lack of hygiene (per 100,000 population)",
+"digits": 1
+},
+"SH.TBS.INCD": {
+"group": "causes",
+"name": "Incidence of tuberculosis (per 100,000 people)",
+"digits": 0
+},
+"SH.MLR.INCD.P3": {
+"group": "causes",
+"name": "Incidence of malaria (per 1,000 population at risk)",
+"digits": 1
+},
+"SH.IMM.IDPT": {
+"group": "vaccines",
+"name": "Immunization, DPT (% of children ages 12-23 months)",
+"digits": 0
+},
+"SH.IMM.MEAS": {
+"group": "vaccines",
+"name": "Immunization, measles (% of children ages 12-23 months)",
+"digits": 0
+},
+"SH.IMM.HEPB": {
+"group": "vaccines",
+"name": "Immunization, HepB3 (% of one-year-old children)",
+"digits": 0
+},
+"SH.MED.BEDS.ZS": {
+"group": "system",
+"name": "Hospital beds (per 1,000 people)",
+"digits": 2
+},
+"SH.MED.PHYS.ZS": {
+"group": "system",
+"name": "Physicians (per 1,000 people)",
+"digits": 2
+},
+"SH.MED.NUMW.P3": {
+"group": "system",
+"name": "Nurses and midwives (per 1,000 people)",
+"digits": 2
+},
+"SH.XPD.CHEX.PC.CD": {
+"group": "system",
+"name": "Current health expenditure per capita (current US$)",
+"digits": 0
+},
+"SH.H2O.SMDW.ZS": {
+"group": "wash",
+"name": "People using safely managed drinking water services (% of population)",
+"digits": 1
+},
+"SH.H2O.BASW.ZS": {
+"group": "wash",
+"name": "People using at least basic drinking water services (% of population)",
+"digits": 1
+},
+"SH.STA.SMSS.ZS": {
+"group": "wash",
+"name": "People using safely managed sanitation services (% of population)",
+"digits": 1
+},
+"SH.STA.BASS.ZS": {
+"group": "wash",
+"name": "People using at least basic sanitation services (% of population)",
+"digits": 1
+},
+"SN.ITK.DEFC.ZS": {
+"group": "food",
+"name": "Prevalence of undernourishment (% of population)",
+"digits": 1
+},
+"SN.ITK.MSFI.ZS": {
+"group": "food",
+"name": "Prevalence of moderate or severe food insecurity in the population (%)",
+"digits": 1
+}
+}

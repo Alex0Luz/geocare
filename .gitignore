@@ -20,3 +20,4 @@ analysis/giovanni_log.txt
 analysis/.gitignore
 __pycache__/
 analysis/cache_capitais/
+analysis/geonames/
