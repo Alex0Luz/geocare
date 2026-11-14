@@ -448,3 +448,5 @@ input:focus, select:focus, textarea:focus, button:focus-visible { outline: 2px s
 
 .badge.l-season { background: #f3e9cf; color: #6f5413; }
 @media (max-width: 820px) { body.tl-open #map { height: 82vh; } .tl-panel { padding: 8px 10px; } .tl-legend { max-height: 40px; } .tl-src { display: none; } }
+.tl-h { font: 700 0.62rem "Manrope", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 6px 0 4px; } .tl-h:first-child { margin-top: 0; }
+.tl-leg i.sq { border-radius: 3px; width: 14px; height: 14px; border: 0; } .tl-panel { max-height: 78vh; overflow-y: auto; }

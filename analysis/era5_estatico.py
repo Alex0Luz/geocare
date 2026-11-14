@@ -44,8 +44,11 @@ for arq in brutos:
         s = (yr >= Y1 - 9) & (mo == m); n = int(s.sum())
         tmean = float(np.nanmean(tm[s]))
         cal.append({"hot": num(np.nansum(tx[s] > hot) / n, 4), "heavy": num(np.nansum(pr[s] >= wet) / n * 30, 3), "rain": num(np.nansum(pr[s]) / 10, 1), "aedes": num(float(briere([tmean])[0] / BMAX), 3)})
+    # chuva forte em numeros absolutos (segunda testemunha do perfil "o que costuma acontecer aqui")
+    forte = pr >= 50; iw = int(np.nanargmax(pr))
+    absd = {"d50": round(float(np.sum(forte & (yr >= Y1 - 9) & (yr <= Y1))) / 10, 1), "s50": [int(np.sum(forte & (mo == m))) for m in range(12)], "wet": [int(round(float(pr[iw]))), int(yr[iw])]}
     nome = f"{d['latitude']:.2f}_{d['longitude']:.2f}.json"
-    json.dump({"hotThr": num(hot, 2), "wetThr": num(wet, 1), "monthlyT": monthlyT, "calendar": cal, **o}, open(os.path.join(SAIDA, nome), "w"), separators=(",", ":"))
+    json.dump({"abs": absd, "hotThr": num(hot, 2), "wetThr": num(wet, 1), "monthlyT": monthlyT, "calendar": cal, **o}, open(os.path.join(SAIDA, nome), "w"), separators=(",", ":"))
     index.append({"lat": round(d["latitude"], 3), "lon": round(d["longitude"], 3), "file": nome})
 json.dump(index, open(os.path.join(SAIDA, "index.json"), "w"))
 print("gravados", len(index), "arquivos de reserva do ERA5")

@@ -342,6 +342,9 @@ I18N.add("pt", { "plans.title": "Como isto se encaixa nos planos públicos de cl
   "plans.py": "Paraguai: o Plano Nacional de Adaptação à Mudança do Clima 2022–2030 tem um setor de saúde com quatro objetivos: resposta sanitária a emergências climáticas, vigilância epidemiológica dos impactos do clima, pesquisa em doenças transmitidas por vetores, e conscientização com participação cidadã.",
   "plans.fit": "O GeoCare não faz parte desses planos. É um protótipo de três coisas que eles pedem: orientação que chegue a cada família, risco numa escala menor que a cidade e um canal para o que a comunidade vê." });
 
+I18N.add("en", { "rp.lightning.sub2": "{n} lightning flashes per km² a year", "rp.lightning.hist": "NASA's lightning sensors in orbit counted about {n} flashes per km² a year at this spot. The most active places on Earth pass 100.", "rp.lightning.src.lis": "Lightning Imaging Sensor on the TRMM satellite, 1998–2013.", "rp.lightning.src.both": "LIS and OTD sensors combined, 1995–2014, on a coarser grid.", "rp.lightning.rule": "When you hear thunder, go indoors; no place outside is safe." });
+I18N.add("es", { "rp.lightning.sub2": "{n} rayos por km² al año", "rp.lightning.hist": "Los sensores de rayos de la NASA en órbita contaron unos {n} rayos por km² al año en este punto. Los lugares más activos del planeta pasan de 100.", "rp.lightning.src.lis": "Sensor LIS en el satélite TRMM, 1998–2013.", "rp.lightning.src.both": "Sensores LIS y OTD combinados, 1995–2014, en una grilla más gruesa.", "rp.lightning.rule": "Cuando oiga truenos, entre a un lugar cerrado; ningún lugar al aire libre es seguro." });
+I18N.add("pt", { "rp.lightning.sub2": "{n} raios por km² por ano", "rp.lightning.hist": "Os sensores de raios da NASA em órbita contaram cerca de {n} raios por km² por ano neste ponto. Os lugares mais ativos do planeta passam de 100.", "rp.lightning.src.lis": "Sensor LIS no satélite TRMM, 1998–2013.", "rp.lightning.src.both": "Sensores LIS e OTD combinados, 1995–2014, numa grade mais grossa.", "rp.lightning.rule": "Quando ouvir trovão, entre num lugar fechado; nenhum lugar ao ar livre é seguro." });
 // Cross-navigation between sections: any element with data-go="tab:anchor" opens that tab and brings the matching block into view.
 function goTo(tab, anchor) {
   showTab(tab);
@@ -354,6 +357,43 @@ function goTo(tab, anchor) {
   }, 30);
 }
 document.addEventListener("click", (ev) => { const b = ev.target.closest("[data-go]"); if (!b) return; ev.preventDefault(); const [tab, anchor] = b.dataset.go.split(":"); goTo(tab, anchor); });
+
+// Lightning history for a point, from NASA's Lightning Imaging Sensor climatology (TRMM, 1998-2013; LIS and OTD combined outside its band).
+// The value is read from the NASA GIBS map tile: the colour of the pixel at the address is looked up in the layer's own colour table.
+async function fetchLightning(lat, lon) {
+  const key = `geocare.lis:${lat.toFixed(2)}:${lon.toFixed(2)}`;
+  try { const c = localStorage.getItem(key); if (c) return JSON.parse(c); } catch (_) { /* storage unavailable */ }
+  const G = "https://gibs.earthdata.nasa.gov", z = 6, n = 2 ** z, rad = (lat * Math.PI) / 180;
+  const xf = ((lon + 180) / 360) * n, yf = ((1 - Math.log(Math.tan(rad) + 1 / Math.cos(rad)) / Math.PI) / 2) * n;
+  const tx = Math.floor(xf), ty = Math.floor(yf), px = Math.floor((xf - tx) * 256), py = Math.floor((yf - ty) * 256);
+  const table = async (name) => {
+    const x = await (await fetch(`${G}/colormaps/v1.0/${name}.xml`)).text(), m = [];
+    for (const e of x.matchAll(/rgb="(\d+),(\d+),(\d+)"[^>]*?value="[\[(]([\d.]+),([\d.]+|\+INF)[\])]"/g)) m.push([+e[1], +e[2], +e[3], e[5] === "+INF" ? +e[4] : (+e[4] + +e[5]) / 2]);
+    return m;
+  };
+  // null = transparent pixel (no lightning recorded or outside the sensor's band); undefined = tile could not be read
+  const pixel = (layer, time) => new Promise((res) => {
+    const im = new Image(); im.crossOrigin = "anonymous";
+    im.onload = () => { try { const c = document.createElement("canvas"); c.width = c.height = 256; const g = c.getContext("2d", { willReadFrequently: true }); g.drawImage(im, 0, 0); const d = g.getImageData(px, py, 1, 1).data; res(d[3] < 128 ? null : [d[0], d[1], d[2]]); } catch (_) { res(undefined); } };
+    im.onerror = () => res(undefined);
+    im.src = `${G}/wmts/epsg3857/best/${layer}/default/${time}/GoogleMapsCompatible_Level6/${z}/${ty}/${tx}.png`;
+  });
+  const value = (tab, rgb) => {
+    if (rgb === undefined) return NaN; if (rgb === null) return 0;
+    let best = NaN, bd = 40; for (const [r, g, b, v] of tab) { const d = Math.abs(r - rgb[0]) + Math.abs(g - rgb[1]) + Math.abs(b - rgb[2]); if (d < bd) { bd = d; best = v; } }
+    return best;
+  };
+  const inBand = Math.abs(lat) <= 37.5, VH = "LIS_Very_High_Resolution_Lightning_", CB = "LIS_High_Resolution_Full_Climatology_Combined_Flash_Rate_Climatology";
+  const out = { src: inBand ? "lis" : "both", rate: NaN, m: null };
+  if (inBand) {
+    const [tabY, tabM] = await Promise.all([table(VH + "Full_Climatology_LIS_Mean_Flash_Rate"), table(VH + "Monthly_Climatology_LIS_Mean_Flash_Rate")]);
+    out.rate = value(tabY, await pixel(VH + "Full_Climatology_LIS_Mean_Flash_Rate", "1998-01-01"));
+    const ms = await Promise.all(Array.from({ length: 12 }, (_, i) => pixel(VH + "Monthly_Climatology_LIS_Mean_Flash_Rate", `2013-${String(i + 1).padStart(2, "0")}-01`)));
+    const mv = ms.map((p) => value(tabM, p)); if (mv.every(Number.isFinite) && mv.some((v) => v > 0)) out.m = mv;
+  } else out.rate = value(await table(CB), await pixel(CB, "1995-05-04"));
+  if (Number.isFinite(out.rate)) { try { localStorage.setItem(key, JSON.stringify(out)); } catch (_) { /* storage full: skip */ } }
+  return out;
+}
 
 // USGS Earthquake Catalog: magnitude 5 or more within 300 km since 1981 (open, no key).
 async function fetchQuakes(lat, lon) {
@@ -435,7 +475,7 @@ const Extras2 = (() => {
   /* ---------- hazard history at this place: tropical storms (NOAA IBTrACS grid) and earthquakes (USGS) ---------- */
   function cycloneAt(r) {
     if (ui.cy === undefined) { ui.cy = null; fetch("data/cyclones.json").then((x) => (x.ok ? x.json() : false)).then((j) => { ui.cy = j; }).catch(() => { ui.cy = false; }).finally(() => { renderPrepare(); renderExpect(); renderNowContext(); }); }
-    if (!ui.cy || !r) return ui.cy === false ? false : null;
+    if (!ui.cy || !r) return ui.cy === false ? false : null; // eslint-disable-line
     const c = ui.cy.cells[`${Math.round(r.lat)},${Math.round(r.lon)}`];
     return c ? { per: c[0], total: c[0].reduce((a, b) => a + b, 0), hurr: c[1], wind: c[2], m: c[3], basin: c[4] } : { per: [0, 0, 0, 0], total: 0, hurr: 0, wind: 0 };
   }
@@ -569,7 +609,10 @@ const Extras2 = (() => {
     if (q) add({ id: "earthquake", icon: "🫨", level: lvl(q.count / 4.5, 10, 1), sub: t("rp.earthquake.sub", { n: fmt(q.count / 4.5, 1) }), noseason: true,
       why: q.count ? [t("rp.earthquake.why", { n: q.count, m: fmt(q.big.m, 1), place: esc(q.big.place), y: new Date(q.big.time).getFullYear() })] : [], now: q.recent.length ? t("rp.earthquake.now", { n: q.recent.length }) : "", guide: "earthquake" });
     const thN = now ? now.days.filter((d) => d.storm).length : 0;
-    if (thN) add({ id: "lightning", icon: "⚡", level: null, sub: t("rp.lightning.sub"), why: [t("rp.lightning.why")], now: t("rp.lightning.now", { n: thN }), guide: "storm" });
+    const Lg = r.lightning && Number.isFinite(r.lightning.rate) ? r.lightning : null;
+    if (Lg) add({ id: "lightning", icon: "⚡", level: Lg.rate >= 10 ? 3 : Lg.rate >= 2 ? 2 : Lg.rate > 0 ? 1 : 0, sub: t("rp.lightning.sub2", { n: fmt(Lg.rate, Lg.rate < 10 ? 1 : 0) }), vals: Lg.m ? norm(Lg.m) : null, mask: Lg.m ? mk(smooth(Lg.m), 0, 0.4) : null,
+      why: [t("rp.lightning.hist", { n: fmt(Lg.rate, Lg.rate < 10 ? 1 : 0) }), t("rp.lightning.src." + Lg.src), t("rp.lightning.rule")], now: thN ? t("rp.lightning.now", { n: thN }) : "", guide: "storm" });
+    else if (thN) add({ id: "lightning", icon: "⚡", level: null, sub: t("rp.lightning.sub"), why: [t("rp.lightning.why")], now: t("rp.lightning.now", { n: thN }), guide: "storm" });
     const fires = ev.filter((e) => /wildfire/i.test(e.cat) && e.dist <= 150);
     if (fires.length || now?.pm25 > 35) add({ id: "wildfire", icon: "🔥", level: null, sub: t("rp.wildfire.sub"),
       why: [fires.length && t("rp.wildfire.why", { n: fires.length, k: fmt(Math.min(...fires.map((e) => e.dist)), 0) }), now?.pm25 > 35 && t("rp.wildfire.air", { p: fmt(now.pm25, 0) }), t("rp.wildfire.nohist")],
@@ -577,10 +620,12 @@ const Extras2 = (() => {
     out.list.sort((a, b) => !!b.now - !!a.now || (b.level ?? 4) - (a.level ?? 4));
     return out;
   }
-  const tlOf = (z) => ({ heat: "heat", flood: "rain", diarr: "rain", drought: "green", asthma: "smoke", wildfire: "smoke", mosquito: state.main?.cc === "PY" ? "dengue" : "" }[z.id] || "");
+  const tlOf = (z) => ({ heat: "heat", flood: "rain", diarr: "rain", drought: "green", asthma: "smoke", wildfire: "smoke", lightning: state.main && Math.abs(state.main.lat) <= 37.5 ? "lightning" : "", mosquito: state.main?.cc === "PY" ? "dengue" : "" }[z.id] || "");
+  // map that shows where each kind of event usually happens (NASA SEDAC, NASA LIS, NOAA and USGS catalogues)
+  const whereOf = (z) => ({ flood: "w-flood", drought: "w-drought", landslide: "w-landslide", cyclone: "w-cyclone", earthquake: "w-quake", lightning: state.main && Math.abs(state.main.lat) <= 37.5 ? "w-lightning" : "", tornado: "w-tornado" }[z.id] || "");
   const goBtn = (go, label) => `<button type="button" data-go="${go}">${label} →</button>`;
   function rpLinks(z) {
-    return `<div class="golinks">${z.guide ? goBtn("prepare:hz-" + z.guide, t("rp.go.guide")) : ""}${z.topic ? goBtn("health:topic-" + z.topic, `${t("tab.health")}: ${t("h." + z.topic)}`) : ""}${z.signal ? goBtn("place:sig-" + z.signal, `${t("rp.go.sig")}: ${t("sig." + z.signal)}`) : ""}${z.press ? goBtn("region:pressures", t("pr.go")) : ""}${tlOf(z) ? `<button type="button" data-tl="${tlOf(z)}">▶ ${t("tl.go")}</button>` : ""}${z.now ? goBtn("now:", t("rp.go.week")) : ""}</div>`;
+    return `<div class="golinks">${z.guide ? goBtn("prepare:hz-" + z.guide, t("rp.go.guide")) : ""}${z.topic ? goBtn("health:topic-" + z.topic, `${t("tab.health")}: ${t("h." + z.topic)}`) : ""}${z.signal ? goBtn("place:sig-" + z.signal, `${t("rp.go.sig")}: ${t("sig." + z.signal)}`) : ""}${z.press ? goBtn("region:pressures", t("pr.go")) : ""}${whereOf(z) ? `<button type="button" data-tl="${whereOf(z)}">◉ ${t("tl.where")}</button>` : ""}${tlOf(z) ? `<button type="button" data-tl="${tlOf(z)}">▶ ${t("tl.go")}</button>` : ""}${z.now ? goBtn("now:", t("rp.go.week")) : ""}</div>`;
   }
   // links from a health topic back to the pattern of the place and to the step-by-step guide
   const TOPIC = { resp: ["resp", ""], vector: ["mosquito", ""], heat: ["heat", "heat"], water: ["flood", "flood"], air: ["", "wildfire"], wash: ["drought", "drought"] };

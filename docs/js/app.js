@@ -142,16 +142,15 @@ async function fetchNasaDaily(lat, lon) {
 async function fetchEra5(lat, lon) {
   const key = `geocare.era5:${round2(lat)}:${round2(lon)}`;
   try { const c = localStorage.getItem(key), v = c && JSON.parse(c); if (v && v.abs) return v; } catch (_) { /* storage unavailable */ }
+  // an archived copy of the same ERA5 series within 25 km is used first: it is instant and spares the hourly limit of the free service
   try {
-    const live = await fetchEra5Live(lat, lon);
-    try { localStorage.setItem(key, JSON.stringify(live)); } catch (_) { /* storage full: skip */ }
-    return live;
-  } catch (e) {
     const idx = await getJSON("data/era5/index.json", "era5idx");
     const near = idx.map((p) => ({ ...p, dist: km(lat, lon, p.lat, p.lon) })).sort((a, b) => a.dist - b.dist)[0];
-    if (!near || near.dist > 25) throw e;
-    return { ...(await getJSON("data/era5/" + near.file)), archived: true };
-  }
+    if (near && near.dist <= 25) return { ...(await getJSON("data/era5/" + near.file)), archived: true };
+  } catch (_) { /* no archive: ask the live service */ }
+  const live = await fetchEra5Live(lat, lon);
+  try { localStorage.setItem(key, JSON.stringify(live)); } catch (_) { /* storage full: skip */ }
+  return live;
 }
 async function fetchEra5Live(lat, lon) {
   const url = `https://archive-api.open-meteo.com/v1/archive?latitude=${round2(lat)}&longitude=${round2(lon)}&start_date=${START}-01-01&end_date=${END}-12-31&daily=temperature_2m_mean,temperature_2m_max,precipitation_sum&timezone=auto`;
@@ -356,7 +355,7 @@ async function analyzeAt(lat, lon, label, slot = "main") {
   step("nasad", fetchNasaDaily(lat, lon));
   step("era5", fetchEra5(lat, lon));
   step("terrain", fetchTerrain(lat, lon));
-  if (slot === "main") { step("now", fetchNow(lat, lon)); step("events", fetchEvents(lat, lon)); step("river", fetchRiver(lat, lon)); step("care", fetchCare(lat, lon)); step("quakes", fetchQuakes(lat, lon)); }
+  if (slot === "main") { step("now", fetchNow(lat, lon)); step("events", fetchEvents(lat, lon)); step("river", fetchRiver(lat, lon)); step("care", fetchCare(lat, lon)); step("quakes", fetchQuakes(lat, lon)); step("lightning", fetchLightning(lat, lon)); }
   r.signals = buildSignals(r);
   render();
 }
