@@ -531,3 +531,13 @@ body.tour-on .tl-more { display: none; }
 .illrow[open] > summary .illname { color: var(--earth); } .illrow:hover > summary i { filter: brightness(0.92); }
 .illbody { padding: 2px 0 14px; font-size: 0.86rem; } .illbody p { margin: 0 0 8px; } .illbody .why { margin-top: 0; }
 @media (max-width: 420px) { .illhead, .illrow > summary { grid-template-columns: 96px repeat(12, minmax(0, 1fr)); gap: 2px; } .illname { font-size: 0.72rem; } .illname .ic { display: none; } }
+
+/* contrast: discrete classes in the maps and in the health calendar */
+.tl-steps { display: flex; gap: 2px; margin: 6px 0 20px; } .tl-steps i { position: relative; flex: 1; height: 14px; border-radius: 2px; border: 1px solid rgba(0,0,0,.18); }
+.tl-steps em { position: absolute; right: -1px; top: 17px; transform: translateX(50%); font: 600 0.68rem "Manrope", sans-serif; font-style: normal; color: var(--ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tl-chart i { background: #b4c0bb; } .tl-chart i.on { background: #a3410f; }
+.tl-val, .tl-unit { color: var(--ink); } .tl-leg { color: var(--ink); } .tl-leg i.sq { border: 1px solid rgba(0,0,0,.25); }
+.leaflet-layer.tl-base { filter: grayscale(1) contrast(0.9) brightness(1.02); }
+.illrow i { background: #ebe6dd; opacity: 1; } .illrow i.l1 { background: #f6cfa4; } .illrow i.l2 { background: #dd7a35; } .illrow i.l3 { background: #7a3010; }
+.illkey { display: flex; align-items: center; gap: 6px; font-size: 0.74rem; margin: 6px 0; } .illkey i { display: inline-block; width: 16px; height: 12px; border-radius: 3px; margin-left: 8px; } .illkey i:first-child { margin-left: 0; }
+.illkey .l1 { background: #f6cfa4; } .illkey .l2 { background: #dd7a35; } .illkey .l3 { background: #7a3010; }

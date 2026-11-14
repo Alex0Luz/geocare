@@ -676,7 +676,7 @@ const Extras2 = (() => {
     out.list.sort((a, b) => !!b.now - !!a.now || (b.level ?? 4) - (a.level ?? 4));
     return out;
   }
-  const tlOf = (z) => ({ heat: "heat", flood: "rain", diarr: "rain", drought: "green", asthma: "smoke", wildfire: "smoke", lightning: state.main && Math.abs(state.main.lat) <= 37.5 ? "lightning" : "", mosquito: state.main?.cc === "PY" ? "dengue" : "" }[z.id] || "");
+  const tlOf = (z) => ({ heat: "heat", flood: "rain", diarr: "rain", drought: "green", asthma: "smoke", wildfire: "smoke", lightning: state.main && Math.abs(state.main.lat) <= 37.5 ? "lightning" : "", tornado: "twisters", cyclone: "storms", mosquito: state.main?.cc === "PY" ? "dengue" : "" }[z.id] || "");
   // map that shows where each kind of event usually happens (NASA SEDAC, NASA LIS, NOAA and USGS catalogues)
   const whereOf = (z) => ({ flood: "w-flood", drought: "w-drought", landslide: "w-landslide", cyclone: "w-cyclone", earthquake: "w-quake", lightning: state.main && Math.abs(state.main.lat) <= 37.5 ? "w-lightning" : "", tornado: "w-tornado" }[z.id] || "");
   const goBtn = (go, label) => `<button type="button" data-go="${go}">${label} →</button>`;
@@ -745,11 +745,11 @@ const Extras2 = (() => {
       <section class="illnext"><p class="eyebrow">${t("ill.next")} · ${mon[m0]}–${mon[(m0 + 2) % 12]}</p><div class="illchips">${next.map((o) => `<button type="button" class="illchip ${illLevel(o.next)}" data-go="prepare:rp-${o.id}">${ICON(o.icon)}<span><b>${o.name}</b><small>${t("ill." + illLevel(o.next))}</small></span></button>`).join("")}</div></section>
       <div class="illcal"><div class="illhead"><span></span>${order.map((m, k) => `<span class="${k === 0 ? "now" : ""}">${mon[m].slice(0, 3)}</span>`).join("")}</div>`;
     for (const o of rows) {
-      h += `<details class="illrow" data-anchor="rp-${o.id}" ${isOpen("rp-" + o.id, false)}><summary><span class="illname">${ICON(o.icon)}<span>${o.name}</span></span>${order.map((m, k) => `<i class="${k === 0 ? "now" : ""}" style="opacity:${(0.07 + 0.93 * o.vals[m]).toFixed(2)}" title="${mon[m]}"></i>`).join("")}</summary>
+      h += `<details class="illrow" data-anchor="rp-${o.id}" ${isOpen("rp-" + o.id, false)}><summary><span class="illname">${ICON(o.icon)}<span>${o.name}</span></span>${order.map((m, k) => `<i class="l${o.vals[m] >= 0.7 ? 3 : o.vals[m] >= 0.45 ? 2 : o.vals[m] >= 0.2 ? 1 : 0}${k === 0 ? " now" : ""}" title="${mon[m]}"></i>`).join("")}</summary>
         <div class="illbody"><p class="why"><b>${t("ill.why")}</b> ${o.why}</p><p><b>${t("ill.who")}</b> ${t(key(o) + ".who")}</p><p><b>${t("ill.do")}</b> ${t(key(o) + ".do")}</p><p class="nowline"><b>${t("ill.signs")}</b> ${t(key(o) + ".signs")}</p>
         <div class="golinks">${o.topic ? goBtn("health:topic-" + o.topic, `${t("tab.health")}: ${t("h." + o.topic)}`) : ""}${o.press ? goBtn("region:pressures", t("pr.go")) : ""}${o.where ? `<button type="button" data-tl="${o.where}">${ICON("pin")} ${t("tl.where")}</button>` : ""}${o.tl ? `<button type="button" data-tl="${o.tl}">${ICON("play")} ${t("tl.go")}</button>` : ""}</div></div></details>`;
     }
-    return h + `</div><p class="muted small">${t("ill.leg")}</p><p class="muted small">${t("ill.src")}</p>`;
+    return h + `</div><p class="illkey"><i class="l1"></i>${t("ill.lo")}<i class="l2"></i>${t("ill.mid")}<i class="l3"></i>${t("ill.hi")}</p><p class="muted small">${t("ill.leg")}</p><p class="muted small">${t("ill.src")}</p>`;
   }
   // short version for the Health tab: what the next three months tend to bring
   function renderIllNext() {

@@ -84,3 +84,27 @@ json.dump({"note": "Tracks of tropical storms (maximum wind of 34 kt or more), 1
            "storms": out}, open(os.path.join(DOCS, "tracks.json"), "w", encoding="utf-8"), separators=(",", ":"))
 print("tempestades:", len(out), "pontos:", sum(len(s[2]) // 2 for s in out), "bytes:", os.path.getsize(os.path.join(DOCS, "tracks.json")))
 print("por mes:", [sum(1 for s in out if s[0] == m) for m in range(1, 13)])
+
+# ---- 3) tornados (EUA): grade de meio grau com total e meses, e trajetoria dos mais fortes (EF3 ou mais)
+ARQT = os.path.join(AQUI, "cache_tornados", "tor2024.csv")
+celt = collections.defaultdict(lambda: [0] * 13); fortes = []; mes_total = [0] * 12
+with open(ARQT, encoding="utf-8", errors="ignore") as f:
+    for r in csv.DictReader(f):
+        try:
+            ano = int(r["yr"]); mes = int(r["mo"]) - 1; mag = int(r["mag"]); la = float(r["slat"]); lo = float(r["slon"]); ela = float(r["elat"]); elo = float(r["elon"])
+        except ValueError:
+            continue
+        if ano < 1981 or ano > 2024 or mag < 1 or la == 0 or lo == 0:
+            continue
+        c = celt[(round(la * 2) / 2, round(lo * 2) / 2)]; c[0] += 1; c[1 + mes] += 1; mes_total[mes] += 1
+        if mag >= 3:
+            fortes.append([round(la, 2), round(lo, 2), round(ela, 2) if ela else 0, round(elo, 2) if elo else 0, mag, mes + 1])
+cells = {f"{la:g},{lo:g}": v for (la, lo), v in celt.items()}
+json.dump({"note": "Tornadoes rated EF1 or stronger, United States, 1981-2024 (NOAA Storm Prediction Center). cells: half-degree cell (centre lat,lon) -> [total, Jan..Dec] counted where each tornado started. strong: tornadoes rated EF3 or stronger as [start lat, start lon, end lat, end lon (0 when not recorded), EF rating, month]. months: all tornadoes by month.",
+           "cells": cells, "strong": fortes, "months": mes_total}, open(os.path.join(DOCS, "tornado_map.json"), "w", encoding="utf-8"), separators=(",", ":"))
+tot = sorted(v[0] for v in cells.values())
+q = lambda p: tot[int(p * (len(tot) - 1))]
+print("celulas de tornado:", len(cells), "fortes:", len(fortes), "bytes:", os.path.getsize(os.path.join(DOCS, "tornado_map.json")))
+print("total por celula - mediana, p75, p90, p97, max:", q(.5), q(.75), q(.9), q(.97), tot[-1], "| por mes:", mes_total)
+mm = sorted(x for v in cells.values() for x in v[1:] if x)
+print("por celula e mes (so > 0) - mediana, p75, p90, p97, max:", mm[len(mm) // 2], mm[int(.75 * len(mm))], mm[int(.9 * len(mm))], mm[int(.97 * len(mm))], mm[-1])

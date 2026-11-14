@@ -9,7 +9,7 @@
 I18N.add("en", {
   "tl.open": "Maps in motion", "tl.what": "What am I seeing?", "tl.play": "Play", "tl.pause": "Pause", "tl.py": "Paraguay", "tl.here": "My address", "tl.close": "Close", "tl.src": "NASA GIBS · base map © OpenStreetMap contributors", "tl.more": "Other maps", "tl.go": "See it on the map in motion", "tl.where": "See on the map where it happens",
   "tl.g.time": "Through time", "tl.g.where": "Where it usually happens", "tl.center": "Centre of the map", "tl.nodata": "no data",
-  "tl.rain": "Rain", "tl.rain.u": "mm of rain in the month", "tl.rain.d": "Total rain of each month of 2025. Watch the wet season arrive and leave. NASA MERRA-2, corrected with rain gauges and satellites; cells of about 50 km, softened for display.",
+  "tl.twisters": "Tornado season", "tl.twisters.d": "Tornadoes rated EF1 or stronger in each month of the year, added up from 1981 to 2024, in cells of about 50 km; the dark lines are the paths of the EF3 or stronger ones. NOAA Storm Prediction Center; United States only. Watch the season move north from spring to summer.", "tl.twisters.u": "tornadoes in that month, 1981–2024, per cell of about 50 km", "tl.twisters.v": "United States: {n} tornadoes in this month, 1981–2024", "tl.w-tornado.u": "tornadoes since 1981 in each cell of about 50 km", "tl.tor.strong": "path of a tornado rated EF3 or stronger", "tl.rain": "Rain", "tl.rain.u": "mm of rain in the month", "tl.rain.d": "Total rain of each month of 2025. Watch the wet season arrive and leave. NASA MERRA-2, corrected with rain gauges and satellites; cells of about 50 km, softened for display.",
   "tl.heat": "Ground heat", "tl.heat.u": "°C at the surface, by day", "tl.heat.d": "Temperature of the land surface by day in each month of 2025, measured by the MODIS instrument on NASA's Terra satellite. It is the heat of the ground, which is higher than the air temperature.",
   "tl.smoke": "Smoke and dust", "tl.smoke.u": "smoke and dust in the air (optical thickness)", "tl.smoke.d": "How much smoke, dust and haze the air holds in each month of 2024 (aerosol optical thickness, NASA MERRA-2). In South America it peaks in the burning season, from August to October.",
   "tl.green": "Vegetation", "tl.green.u": "vegetation index (0 bare ground, 1 dense green)", "tl.green.d": "Vegetation index (NDVI) in each month of 2024, from MODIS on NASA's Terra satellite. Greener means more live plants: it follows rain, drought and harvest.",
@@ -23,7 +23,7 @@ I18N.add("en", {
   "tl.w-volcano": "Volcanoes", "tl.w-volcano.d": "Where volcanoes were active between 1979 and 2000 (NASA SEDAC, Natural Disaster Hotspots).",
   "tl.w-lightning": "Lightning", "tl.w-lightning.u": "lightning flashes per km² per year", "tl.w-lightning.d": "Average lightning flashes per km² per year, counted from orbit by NASA's Lightning Imaging Sensor (TRMM satellite, 1998–2013), between 38° north and 38° south.",
   "tl.w-cyclone": "Tropical storms", "tl.w-cyclone.d": "The track of every tropical storm from 1981 to 2024 (NOAA IBTrACS): where the lines pile up is where storms usually pass.",
-  "tl.w-tornado": "Tornadoes", "tl.w-tornado.d": "Tornadoes rated EF1 or stronger from 1981 to 2024: the darker the area, the more tornadoes started nearby. NOAA Storm Prediction Center; United States only.", "tl.w-tornado.leg": "few|many",
+  "tl.w-tornado": "Tornadoes", "tl.w-tornado.d": "Tornadoes rated EF1 or stronger that started in each cell of about 50 km from 1981 to 2024; the dark lines are the paths of the EF3 or stronger ones. NOAA Storm Prediction Center; United States only.",
   "tl.w-quake": "Earthquakes", "tl.w-quake.d": "Earthquakes of magnitude 5 or more since 1981 within 800 km of the centre of the map (USGS catalogue). Bigger circle, stronger earthquake.", "tl.w-quake.leg": "magnitude",
   "tl.k.ts": "tropical storm", "tl.k.hu": "hurricane or typhoon", "tl.k.mh": "major (178 km/h or more)",
   "tl.lc.forest": "forest", "tl.lc.savanna": "savanna and shrubs", "tl.lc.grass": "grassland", "tl.lc.crop": "cropland", "tl.lc.urban": "city", "tl.lc.wet": "wetland", "tl.lc.water": "water", "tl.lc.bare": "bare ground",
@@ -31,7 +31,7 @@ I18N.add("en", {
 I18N.add("es", {
   "tl.open": "Mapas en movimiento", "tl.what": "¿Qué estoy viendo?", "tl.play": "Reproducir", "tl.pause": "Pausar", "tl.py": "Paraguay", "tl.here": "Mi dirección", "tl.close": "Cerrar", "tl.src": "NASA GIBS · mapa base © colaboradores de OpenStreetMap", "tl.more": "Otros mapas", "tl.go": "Verlo en el mapa en movimiento", "tl.where": "Ver en el mapa dónde ocurre",
   "tl.g.time": "A lo largo del tiempo", "tl.g.where": "Dónde suele ocurrir", "tl.center": "Centro del mapa", "tl.nodata": "sin datos",
-  "tl.rain": "Lluvia", "tl.rain.u": "mm de lluvia en el mes", "tl.rain.d": "Lluvia total de cada mes de 2025. Vea llegar y salir la temporada de lluvias. NASA MERRA-2, corregido con pluviómetros y satélites; celdas de unos 50 km, suavizadas para mostrar.",
+  "tl.twisters": "Temporada de tornados", "tl.twisters.d": "Tornados de categoría EF1 o más en cada mes del año, sumados de 1981 a 2024, en celdas de unos 50 km; las líneas oscuras son las trayectorias de los EF3 o más fuertes. NOAA Storm Prediction Center; solo Estados Unidos. Vea cómo la temporada sube hacia el norte de la primavera al verano.", "tl.twisters.u": "tornados en ese mes, 1981–2024, por celda de unos 50 km", "tl.twisters.v": "Estados Unidos: {n} tornados en este mes, 1981–2024", "tl.w-tornado.u": "tornados desde 1981 en cada celda de unos 50 km", "tl.tor.strong": "trayectoria de un tornado EF3 o más fuerte", "tl.rain": "Lluvia", "tl.rain.u": "mm de lluvia en el mes", "tl.rain.d": "Lluvia total de cada mes de 2025. Vea llegar y salir la temporada de lluvias. NASA MERRA-2, corregido con pluviómetros y satélites; celdas de unos 50 km, suavizadas para mostrar.",
   "tl.heat": "Calor del suelo", "tl.heat.u": "°C en la superficie, de día", "tl.heat.d": "Temperatura de la superficie del suelo de día en cada mes de 2025, medida por el instrumento MODIS del satélite Terra de la NASA. Es el calor del suelo, mayor que la temperatura del aire.",
   "tl.smoke": "Humo y polvo", "tl.smoke.u": "humo y polvo en el aire (espesor óptico)", "tl.smoke.d": "Cuánto humo, polvo y bruma tiene el aire en cada mes de 2024 (espesor óptico de aerosoles, NASA MERRA-2). En Sudamérica llega al máximo en la temporada de quemas, de agosto a octubre.",
   "tl.green": "Vegetación", "tl.green.u": "índice de vegetación (0 suelo desnudo, 1 verde denso)", "tl.green.d": "Índice de vegetación (NDVI) en cada mes de 2024, de MODIS en el satélite Terra de la NASA. Más verde significa más plantas vivas: sigue la lluvia, la sequía y la cosecha.",
@@ -45,7 +45,7 @@ I18N.add("es", {
   "tl.w-volcano": "Volcanes", "tl.w-volcano.d": "Dónde hubo volcanes activos entre 1979 y 2000 (NASA SEDAC, Natural Disaster Hotspots).",
   "tl.w-lightning": "Rayos", "tl.w-lightning.u": "rayos por km² por año", "tl.w-lightning.d": "Promedio de rayos por km² por año, contados desde la órbita por el sensor LIS de la NASA (satélite TRMM, 1998–2013), entre 38° norte y 38° sur.",
   "tl.w-cyclone": "Tormentas tropicales", "tl.w-cyclone.d": "La trayectoria de cada tormenta tropical de 1981 a 2024 (NOAA IBTrACS): donde las líneas se amontonan es por donde suelen pasar las tormentas.",
-  "tl.w-tornado": "Tornados", "tl.w-tornado.d": "Tornados de categoría EF1 o más de 1981 a 2024: cuanto más oscura la zona, más tornados comenzaron cerca. NOAA Storm Prediction Center; solo Estados Unidos.", "tl.w-tornado.leg": "pocos|muchos",
+  "tl.w-tornado": "Tornados", "tl.w-tornado.d": "Tornados de categoría EF1 o más que comenzaron en cada celda de unos 50 km de 1981 a 2024; las líneas oscuras son las trayectorias de los EF3 o más fuertes. NOAA Storm Prediction Center; solo Estados Unidos.",
   "tl.w-quake": "Terremotos", "tl.w-quake.d": "Terremotos de magnitud 5 o más desde 1981 a menos de 800 km del centro del mapa (catálogo del USGS). Círculo más grande, terremoto más fuerte.", "tl.w-quake.leg": "magnitud",
   "tl.k.ts": "tormenta tropical", "tl.k.hu": "huracán o tifón", "tl.k.mh": "mayor (178 km/h o más)",
   "tl.lc.forest": "bosque", "tl.lc.savanna": "sabana y arbustos", "tl.lc.grass": "pastizal", "tl.lc.crop": "cultivos", "tl.lc.urban": "ciudad", "tl.lc.wet": "humedal", "tl.lc.water": "agua", "tl.lc.bare": "suelo desnudo",
@@ -53,7 +53,7 @@ I18N.add("es", {
 I18N.add("pt", {
   "tl.open": "Mapa em movimento", "tl.what": "O que estou vendo?", "tl.play": "Tocar", "tl.pause": "Pausar", "tl.py": "Paraguai", "tl.here": "Meu endereço", "tl.close": "Fechar", "tl.src": "NASA GIBS · mapa base © colaboradores do OpenStreetMap", "tl.more": "Outros mapas", "tl.go": "Ver no mapa em movimento", "tl.where": "Ver no mapa onde acontece",
   "tl.g.time": "Ao longo do tempo", "tl.g.where": "Onde costuma acontecer", "tl.center": "Centro do mapa", "tl.nodata": "sem dado",
-  "tl.rain": "Chuva", "tl.rain.u": "mm de chuva no mês", "tl.rain.d": "Chuva total de cada mês de 2025. Veja a estação chuvosa chegar e ir embora. NASA MERRA-2, corrigido com pluviômetros e satélites; células de uns 50 km, suavizadas para exibir.",
+  "tl.twisters": "Temporada de tornados", "tl.twisters.d": "Tornados de categoria EF1 ou mais em cada mês do ano, somados de 1981 a 2024, em células de uns 50 km; as linhas escuras são as trajetórias dos EF3 ou mais fortes. NOAA Storm Prediction Center; só Estados Unidos. Veja a temporada subir para o norte da primavera ao verão.", "tl.twisters.u": "tornados naquele mês, 1981–2024, por célula de uns 50 km", "tl.twisters.v": "Estados Unidos: {n} tornados neste mês, 1981–2024", "tl.w-tornado.u": "tornados desde 1981 em cada célula de uns 50 km", "tl.tor.strong": "trajetória de um tornado EF3 ou mais forte", "tl.rain": "Chuva", "tl.rain.u": "mm de chuva no mês", "tl.rain.d": "Chuva total de cada mês de 2025. Veja a estação chuvosa chegar e ir embora. NASA MERRA-2, corrigido com pluviômetros e satélites; células de uns 50 km, suavizadas para exibir.",
   "tl.heat": "Calor do solo", "tl.heat.u": "°C na superfície, de dia", "tl.heat.d": "Temperatura da superfície do solo de dia em cada mês de 2025, medida pelo instrumento MODIS do satélite Terra da NASA. É o calor do chão, maior do que a temperatura do ar.",
   "tl.smoke": "Fumaça e poeira", "tl.smoke.u": "fumaça e poeira no ar (espessura óptica)", "tl.smoke.d": "Quanta fumaça, poeira e névoa o ar carrega em cada mês de 2024 (espessura óptica de aerossóis, NASA MERRA-2). Na América do Sul o pico é na temporada de queimadas, de agosto a outubro.",
   "tl.green": "Vegetação", "tl.green.u": "índice de vegetação (0 solo nu, 1 verde denso)", "tl.green.d": "Índice de vegetação (NDVI) em cada mês de 2024, do MODIS no satélite Terra da NASA. Mais verde significa mais planta viva: acompanha a chuva, a seca e a colheita.",
@@ -67,7 +67,7 @@ I18N.add("pt", {
   "tl.w-volcano": "Vulcões", "tl.w-volcano.d": "Onde houve vulcões ativos entre 1979 e 2000 (NASA SEDAC, Natural Disaster Hotspots).",
   "tl.w-lightning": "Raios", "tl.w-lightning.u": "raios por km² por ano", "tl.w-lightning.d": "Média de raios por km² por ano, contados da órbita pelo sensor LIS da NASA (satélite TRMM, 1998–2013), entre 38° norte e 38° sul.",
   "tl.w-cyclone": "Tempestades tropicais", "tl.w-cyclone.d": "A trajetória de cada tempestade tropical de 1981 a 2024 (NOAA IBTrACS): onde as linhas se amontoam é por onde as tempestades costumam passar.",
-  "tl.w-tornado": "Tornados", "tl.w-tornado.d": "Tornados de categoria EF1 ou mais de 1981 a 2024: quanto mais escura a área, mais tornados começaram por perto. NOAA Storm Prediction Center; só Estados Unidos.", "tl.w-tornado.leg": "poucos|muitos",
+  "tl.w-tornado": "Tornados", "tl.w-tornado.d": "Tornados de categoria EF1 ou mais que começaram em cada célula de uns 50 km de 1981 a 2024; as linhas escuras são as trajetórias dos EF3 ou mais fortes. NOAA Storm Prediction Center; só Estados Unidos.",
   "tl.w-quake": "Terremotos", "tl.w-quake.d": "Terremotos de magnitude 5 ou mais desde 1981 a até 800 km do centro do mapa (catálogo do USGS). Círculo maior, terremoto mais forte.", "tl.w-quake.leg": "magnitude",
   "tl.k.ts": "tempestade tropical", "tl.k.hu": "furacão ou tufão", "tl.k.mh": "grande (178 km/h ou mais)",
   "tl.lc.forest": "floresta", "tl.lc.savanna": "cerrado e arbustos", "tl.lc.grass": "campo", "tl.lc.crop": "lavoura", "tl.lc.urban": "cidade", "tl.lc.wet": "área úmida", "tl.lc.water": "água", "tl.lc.bare": "solo nu",
@@ -147,21 +147,36 @@ const Timelapse = (() => {
   const data = (o) => ({ g: "time", kind: "month", z: 6, set: L6, op: 1, zmax: 7, paint: ramp(o.stops), ...o });
   const still = (id, layer) => ({ id, g: "where", layer, set: L7, z: 7, zmax: 6, frames: [""], kind: "still", legend: layer, op: 0.85 });
   const LIGHT = [[0.05, 255, 237, 160, 0], [0.4, 254, 217, 118, 190], [1.5, 253, 141, 60, 228], [4, 227, 26, 28, 242], [9, 122, 1, 119, 250]];
-  const windCol = (w) => (w >= 96 ? "#b2592a" : w >= 64 ? "#1f5f8b" : "#74a9cf");
+  const windCol = (w) => (w >= 96 ? "#d7301f" : w >= 64 ? "#0b4f8a" : "#6b9bc3");
   let RD = null; const canvas = () => (RD ||= L.canvas({ padding: 0.3 }));
   // storm tracks: every storm as a line, split where it crosses the date line
   async function tracks(g, month, opacity) {
-    const J = await load("data/tracks.json");
-    for (const [m, w, f] of J.storms) {
-      if (month && m !== month) continue;
+    const J = await load("data/tracks.json"), list = J.storms.filter(([m]) => !month || m === month).sort((x, y) => x[1] - y[1]);
+    for (const [, w, f] of list) {
       let seg = [];
-      const flush = () => { if (seg.length > 1) L.polyline(seg, { renderer: canvas(), color: windCol(w), weight: w >= 96 ? 1.9 : w >= 64 ? 1.4 : 1, opacity, interactive: false }).addTo(g); seg = []; };
-      for (let i = 0; i < f.length; i += 2) { const p = [f[i] / 10, f[i + 1] / 10]; if (seg.length && Math.abs(p[1] - seg[seg.length - 1][1]) > 180) flush(); seg.push(p); }
+      const flush = () => { if (seg.length > 1) L.polyline(seg, { renderer: canvas(), color: windCol(w), weight: w >= 96 ? 2.6 : w >= 64 ? 1.7 : 1.1, opacity: w >= 96 ? Math.min(1, opacity + 0.25) : opacity, interactive: false }).addTo(g); seg = []; };
+      for (let i = 0; i < f.length; i += 2) { const q = [f[i] / 10, f[i + 1] / 10]; if (seg.length && Math.abs(q[1] - seg[seg.length - 1][1]) > 180) flush(); seg.push(q); }
       flush();
     }
   }
+  // tornadoes (United States): half-degree cells in discrete classes, and the path of every EF3 or stronger tornado
+  const US = [[25, -105], [48, -75]];
+  const TOR = [[5, "#fff3b0"], [10, "#fec44f"], [20, "#f47a1f"], [30, "#c2410c"], [Infinity, "#5c1d06"]], TORM = [[2, "#fff3b0"], [4, "#fec44f"], [7, "#f47a1f"], [Infinity, "#c2410c"]];
+  const torLeg = (cls) => () => `<div class="tl-steps">${cls.map(([lim, c], i) => `<i style="background:${c}">${i < cls.length - 1 ? `<em>${lim}</em>` : ""}</i>`).join("")}</div><div class="tl-leg"><i class="ln" style="background:#1b1033"></i>${tt("tl.tor.strong")}</div>`;
+  async function tornadoes(g, month) {
+    const J = await load("data/tornado_map.json"), cls = month ? TORM : TOR;
+    for (const k in J.cells) {
+      const [la, lo] = k.split(",").map(Number), v = J.cells[k][month || 0]; if (!v) continue;
+      L.rectangle([[la - 0.25, lo - 0.25], [la + 0.25, lo + 0.25]], { renderer: canvas(), stroke: false, fillColor: (cls.find(([lim]) => v < lim) || cls[cls.length - 1])[1], fillOpacity: 0.88, interactive: false }).addTo(g);
+    }
+    for (const [la, lo, ela, elo, mag, m] of J.strong) {
+      if (month && m !== month) continue;
+      if (ela && elo) L.polyline([[la, lo], [ela, elo]], { renderer: canvas(), color: "#1b1033", weight: mag >= 4 ? 2.4 : 1, opacity: mag >= 4 ? 0.95 : 0.6, interactive: false }).addTo(g);
+      else L.circleMarker([la, lo], { renderer: canvas(), radius: 1.3, color: "#1b1033", weight: 0.6, fillColor: "#1b1033", fillOpacity: 0.7, interactive: false }).addTo(g);
+    }
+  }
   const trackLeg = () => `<div class="tl-leg wrap">${[[40, "tl.k.ts"], [70, "tl.k.hu"], [100, "tl.k.mh"]].map(([w, k]) => `<span><i class="ln" style="background:${windCol(w)}"></i>${tt(k)}</span>`).join("")}</div>`;
-  const DENGUE = [[0, "#f4ede4"], [20, "#f6d3b8"], [100, "#eba97c"], [500, "#d9793f"], [2000, "#b2592a"], [Infinity, "#6e2f12"]];
+  const DENGUE = [[0, "#f1f1ec"], [20, "#fff3b0"], [100, "#fec44f"], [500, "#f47a1f"], [2000, "#c2410c"], [Infinity, "#5c1d06"]];
   const dCol = (r) => (r <= 0 ? DENGUE[0][1] : DENGUE.find(([lim]) => r < lim)[1]);
   const THEMES = [
     data({ id: "rain", layer: "MERRA2_Precipitation_Bias_Corrected_Monthly", cm: "MERRA2_Precipitation_Bias_Corrected_Monthly", frames: months(2025), conv: (v) => v * 86400 * 30.4, cell: 0.56, zmax: 5, ticks: [0, 100, 200, 350, 550], unit: "mm",
@@ -174,8 +189,11 @@ const Timelapse = (() => {
       stops: [[0.05, 166, 97, 26, 205], [0.25, 223, 194, 125, 205], [0.45, 217, 239, 139, 212], [0.65, 102, 189, 99, 228], [0.85, 26, 152, 80, 238], [0.95, 0, 68, 27, 242]] }),
     data({ id: "lightning", layer: "LIS_Very_High_Resolution_Lightning_Monthly_Climatology_LIS_Mean_Flash_Rate", cm: "LIS_Very_High_Resolution_Lightning_Monthly_Climatology_LIS_Mean_Flash_Rate", frames: months(2013), kind: "clim", conv: (v) => v * 30.4, cell: 0.1, zmax: 6, zero: true, ticks: [0.5, 2, 5, 9], unit: "", dec: 1, stops: LIGHT }),
     { id: "storms", g: "time", frames: months(2013), kind: "clim", wait: 900, zmax: 5, unit: "", legendHtml: trackLeg,
-      draw: (i, g) => tracks(g, i + 1, 0.55),
+      draw: (i, g) => tracks(g, i + 1, 0.7),
       series: async (lat, lon) => { const J = await load("data/cyclones.json"), c = J.cells[`${Math.round(lat)},${Math.round(lon)}`]; return c && c[3] ? c[3] : Array(12).fill(0); } },
+    { id: "twisters", g: "time", frames: months(2013), kind: "clim", wait: 1000, zmax: 6, bounds: US, unit: "", legendHtml: torLeg(TORM),
+      draw: (i, g) => tornadoes(g, i + 1), series: async () => (await load("data/tornado_map.json")).months,
+      value: (i) => (ser && ser.id === "twisters" && ser.vals ? tt("tl.twisters.v", { n: nf(ser.vals[i]) }) : "") },
     { id: "land", g: "time", layer: "MODIS_Combined_L3_IGBP_Land_Cover_Type_Annual", cm: "MODIS_IGBP_Land_Cover_Type", set: "GoogleMapsCompatible_Level8", z: 8, zmax: 8, frames: years(2001, 2024), kind: "year", cat: true, op: 1, wait: 800,
       legendHtml: () => `<div class="tl-leg wrap">${["forest", "savanna", "grass", "crop", "urban", "water"].map((k) => `<span><i class="sq" style="background:rgb(${LC[k].slice(0, 3)})"></i>${tt("tl.lc." + k)}</span>`).join("")}</div>` },
     { id: "dengue", g: "time", frames: [], kind: "custom", wait: 480, keep: true, zmax: 7, bounds: PY, unit: "",
@@ -185,13 +203,8 @@ const Timelapse = (() => {
     still("w-landslide", "NDH_Landslide_Hazard_Distribution_2000"),
     data({ id: "w-lightning", g: "where", kind: "still", layer: "LIS_Very_High_Resolution_Lightning_Full_Climatology_LIS_Mean_Flash_Rate", cm: "LIS_Very_High_Resolution_Lightning_Full_Climatology_LIS_Mean_Flash_Rate", frames: ["1998-01-01"], cell: 0.1, zmax: 6, zero: true, ticks: [5, 20, 50, 100], unit: "", dec: 0,
       stops: [[0.5, 255, 237, 160, 0], [4, 254, 217, 118, 190], [15, 253, 141, 60, 228], [40, 227, 26, 28, 242], [100, 122, 1, 119, 250]] }),
-    { id: "w-cyclone", g: "where", frames: [""], kind: "still", zmax: 5, draw: (i, g) => tracks(g, 0, 0.22), legendHtml: trackLeg },
-    { id: "w-tornado", g: "where", frames: [""], kind: "still", zmax: 6, bounds: [[25, -105], [48, -75]],
-      draw: async (_, g, soft) => {
-        const J = await load("data/tornadoes.json"), rd = L.canvas({ pane: "tlSoft" });
-        for (const k in J.cells) { const [la, lo] = k.split(",").map(Number), v = J.cells[k][0].reduce((a, b) => a + b, 0) / 4.4; if (v > 0) L.rectangle([[la - 0.5, lo - 0.5], [la + 0.5, lo + 0.5]], { renderer: rd, pane: "tlSoft", stroke: false, fillColor: "#5b2a86", fillOpacity: Math.min(0.9, 0.08 + v / 110), interactive: false }).addTo(soft); }
-      },
-      legendHtml: () => { const [a, b] = tt("tl.w-tornado.leg").split("|"); return `<div class="tl-scale"><span class="tl-grad" style="background:linear-gradient(90deg,rgba(91,42,134,.08),rgba(91,42,134,.9))"></span><div class="tl-ticks"><span>${a}</span><span>${b}</span></div></div>`; } },
+    { id: "w-cyclone", g: "where", frames: [""], kind: "still", zmax: 5, draw: (i, g) => tracks(g, 0, 0.32), legendHtml: trackLeg },
+    { id: "w-tornado", g: "where", frames: [""], kind: "still", zmax: 6, bounds: US, draw: (i, g) => tornadoes(g, 0), legendHtml: torLeg(TOR) },
     { id: "w-quake", g: "where", frames: [""], kind: "still", zmax: 6,
       draw: async (_, g) => {
         const c = map.getCenter();
@@ -202,6 +215,21 @@ const Timelapse = (() => {
     still("w-volcano", "NDH_Volcano_Hazard_Frequency_Distribution_1979-2000"),
   ];
   const byId = (id) => THEMES.find((x) => x.id === id);
+  // Discrete classes instead of a continuous ramp: neighbouring values must look different, and the legend prints
+  // exactly the limits used to paint. "min" is the value below which nothing is painted.
+  const CLASSES = {
+    rain: { steps: [[25, "#dbe9f6"], [75, "#9ecae1"], [150, "#4292c6"], [250, "#08519c"], [400, "#08306b"], [Infinity, "#3f007d"]] },
+    heat: { steps: [[15, "#4575b4"], [22, "#91bfdb"], [28, "#fee090"], [34, "#fc8d59"], [40, "#d73027"], [Infinity, "#7f0000"]] },
+    smoke: { steps: [[0.1, "#fff7bc"], [0.2, "#fec44f"], [0.35, "#fe9929"], [0.5, "#d95f0e"], [0.8, "#993404"], [Infinity, "#4d1a02"]] },
+    green: { steps: [[0.2, "#8c510a"], [0.4, "#d8b365"], [0.6, "#b8e186"], [0.8, "#4dac26"], [Infinity, "#00441b"]] },
+    lightning: { min: 0.05, steps: [[0.5, "#ffffb2"], [2, "#fecc5c"], [5, "#fd8d3c"], [9, "#e31a1c"], [Infinity, "#7a0177"]] },
+    "w-lightning": { min: 1, steps: [[5, "#ffffb2"], [20, "#fecc5c"], [50, "#fd8d3c"], [100, "#e31a1c"], [Infinity, "#7a0177"]] },
+  };
+  for (const id in CLASSES) {
+    const th = byId(id), c = CLASSES[id], st = c.steps.map(([lim, hex]) => [lim, parseInt(hex.slice(1, 3), 16), parseInt(hex.slice(3, 5), 16), parseInt(hex.slice(5, 7), 16)]);
+    th.steps = st; delete th.stops;
+    th.paint = (v) => { if (!(v >= (c.min ?? -Infinity))) return [0, 0, 0, 0]; const k = st.find(([lim]) => v < lim) || st[st.length - 1]; return [k[1], k[2], k[3], 236]; };
+  }
 
   /* ---------- dengue by department: painted map, national curve as the timeline ---------- */
   Promise.all([fetch("data/paraguay.json").then((x) => x.json()), fetch("data/paraguay_geo.json").then((x) => x.json())]).then(([D, GEO]) => {
@@ -212,7 +240,7 @@ const Timelapse = (() => {
     th.value = (i) => { const m = D.monthly[keys[i]], top = D.departments.reduce((a, d) => ((m[d.id] || 0) > (m[a.id] || 0) ? d : a)); return tt("tl.dengue.v", { n: nf(Object.values(m).reduce((a, b) => a + b, 0)), d: `${safe(top.name)} (${nf(m[top.id] || 0)})` }); };
     th.draw = (i, g) => {
       const m = D.monthly[keys[i]];
-      if (!g.getLayers().length) for (const d of D.departments) polys[d.id] = L.polygon(GEO.departments[d.id] || [], { color: "#fff", weight: 1, fillOpacity: 0.86 }).addTo(g);
+      if (!g.getLayers().length) for (const d of D.departments) polys[d.id] = L.polygon(GEO.departments[d.id] || [], { color: "#2b2b2b", weight: 1.2, opacity: 0.9, fillOpacity: 0.92 }).addTo(g);
       for (const d of D.departments) { const c = m[d.id] || 0, rate = d.pop ? (c / d.pop) * 1e5 : 0; polys[d.id].setStyle({ fillColor: dCol(rate) }); polys[d.id].bindTooltip(`<b>${safe(d.name)}</b><br>${nf(c)} · ${nf(rate)} / 100.000`); }
     };
     paint();
@@ -221,9 +249,11 @@ const Timelapse = (() => {
   /* ---------- state and drawing ---------- */
   // frame an area in the part of the map that the panel leaves free
   const frame = (b, zmax = 8) => {
-    map.invalidateSize(); const w = map.getSize().x, left = open && w > 620 ? 350 : 10;
-    map.fitBounds(b, { paddingTopLeft: [left, 20], paddingBottomRight: [10, w > 620 ? 30 : 10], maxZoom: zmax, animate: false });
-    if (map.getZoom() < 3) map.setZoom(4);
+    map.invalidateSize(); const w = map.getSize().x, want = open && w > 620 ? 170 : 0;
+    const z0 = Math.max(3, Math.min(zmax, map.getBoundsZoom(b, false, [0, 40]))), z1 = Math.max(3, Math.min(zmax, map.getBoundsZoom(b, false, [want * 2, 40])));
+    // centre the area in the part of the map that the panel leaves free, unless that would cost a zoom level
+    const shift = z1 === z0 ? want : 0;
+    map.setView(map.unproject(map.project(L.latLngBounds(b).getCenter(), z0).subtract([shift, 0]), z0), z0, { animate: false });
   };
   let box, stamp, cur = null, shown = null, pre = null, timer = null, idx = 0, playing = false, token = 0, open = false, pick = false, base = null, labels = null, ser = null;
   const vec = L.layerGroup(), soft = L.layerGroup();
@@ -256,6 +286,10 @@ const Timelapse = (() => {
   function legend() {
     if (!cur) return "";
     if (cur.legendHtml) return cur.legendHtml();
+    if (cur.steps) {
+      const st = cur.steps, d = (v) => nf(v, v < 1 ? (v * 10) % 1 ? 2 : 1 : 0);
+      return `<div class="tl-steps">${st.map(([lim, r, g, b], i) => `<i style="background:rgb(${r},${g},${b})">${i < st.length - 1 ? `<em>${d(lim)}</em>` : ""}</i>`).join("")}</div>`;
+    }
     if (cur.stops) {
       const t0 = cur.ticks[0], t1 = cur.ticks[cur.ticks.length - 1], pos = (v) => Math.max(0, Math.min(100, ((v - t0) / (t1 - t0)) * 100));
       const grad = Array.from({ length: 21 }, (_, k) => { const c = cur.paint(t0 + ((t1 - t0) * k) / 20); return `rgba(${c[0]},${c[1]},${c[2]},${Math.max(0.12, c[3] / 255).toFixed(2)}) ${k * 5}%`; }).join(",");
@@ -305,7 +339,7 @@ const Timelapse = (() => {
     if (playing && cur.frames.length > 1) timer = setTimeout(() => show((idx + 1) % cur.frames.length), cur.wait || 1050);
   }
   // coarse grids (about 50 km) are softened so the eye reads a field and not squares
-  function soften(lay, th) { const c = lay.getContainer && lay.getContainer(); if (!c || !th.cell || th.cell < 0.3) return; const px = (th.cell * 256 * 2 ** map.getZoom()) / 360; c.style.filter = `blur(${Math.max(1.5, Math.min(18, px * 0.42)).toFixed(1)}px)`; }
+  function soften(lay, th) { const c = lay.getContainer && lay.getContainer(); if (!c || !th.cell || th.cell < 0.3) return; const px = (th.cell * 256 * 2 ** map.getZoom()) / 360; c.style.filter = `blur(${Math.max(1.5, Math.min(18, px * 0.26)).toFixed(1)}px)`; }
   function make(th, i, table) {
     const lay = th.cm ? new DataLayer({ theme: th, table, time: th.frames[i], maxNativeZoom: th.z, maxZoom: 19, opacity: 0, zIndex: 210, className: "tl-data", attribution: "NASA GIBS" })
       : L.tileLayer(`${G}/wmts/epsg3857/best/${th.layer}/default/${th.frames[i] ? th.frames[i] + "/" : ""}${th.set}/{z}/{y}/{x}.png`, { maxNativeZoom: th.z, maxZoom: 19, opacity: 0, zIndex: 210, className: "tl-data tl-mult", attribution: "NASA GIBS" });
@@ -339,7 +373,7 @@ const Timelapse = (() => {
     if (!th || (th.id === "dengue" && !th.ready)) return; stop(); cur = th; playing = th.frames.length > 1; idx = 0;
     // a quiet base map under the data and the place names on top of it
     // (no key needed: the OpenStreetMap tiles the app already uses, greyed by CSS, and NASA GIBS borders and place names on top)
-    base = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19, zIndex: 200, opacity: 0.55, className: "tl-base", attribution: "© OpenStreetMap" }).addTo(map);
+    base = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19, zIndex: 200, opacity: 0.4, className: "tl-base", attribution: "© OpenStreetMap" }).addTo(map);
     labels = L.layerGroup(["Reference_Features", "Reference_Labels"].map((n) => L.tileLayer(`${G}/wmts/epsg3857/best/${n}/default/GoogleMapsCompatible_Level9/{z}/{y}/{x}.png`, { pane: "tlLabels", maxNativeZoom: 9, maxZoom: 19, opacity: 0.9, attribution: "NASA GIBS" }))).addTo(map);
     if (th.draw) { vec.addTo(map); soft.addTo(map); }
     const p = typeof state !== "undefined" && state.main ? [state.main.lat, state.main.lon] : null;
@@ -351,7 +385,7 @@ const Timelapse = (() => {
   }
   function init() {
     if (typeof map === "undefined") return;
-    map.createPane("tlLabels").style.zIndex = 450; map.getPane("tlLabels").style.pointerEvents = "none";
+    map.createPane("tlLabels").style.zIndex = 450; map.getPane("tlLabels").style.pointerEvents = "none"; map.getPane("tlLabels").style.filter = "brightness(0.45) contrast(1.6)"; // borders and names in dark ink
     map.createPane("tlSoft").style.zIndex = 390; map.getPane("tlSoft").style.pointerEvents = "none"; map.getPane("tlSoft").style.filter = "blur(9px)";
     map.on("zoomend", () => { for (const l of [shown, pre]) if (l && cur) soften(l, cur); });
     stamp = L.DomUtil.create("div", "tl-stamp", map.getContainer()); stamp.hidden = true;
@@ -360,6 +394,8 @@ const Timelapse = (() => {
       box = L.DomUtil.create("div", "tl");
       box.innerHTML = `<button type="button" class="tl-toggle"></button><div class="tl-panel" hidden></div>`;
       L.DomEvent.disableClickPropagation(box); L.DomEvent.disableScrollPropagation(box);
+      // the panel redraws itself on a click, so the clicked button is gone before Leaflet looks at it: stop the click here, or the map takes it as a click on the map
+      L.DomEvent.on(box, "click", L.DomEvent.stopPropagation);
       box.querySelector(".tl-toggle").onclick = () => { open = !open; if (!open) stop(); else if (typeof state !== "undefined" && !state.main) frame(PY, 6); paint(); };
       return box;
     };
