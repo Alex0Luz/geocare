@@ -52,6 +52,34 @@ I18N.add("pt", {
   "sat.u.omi_no2": "10¹⁵ moléculas/cm²", "sat.u.grace_gws": "percentil", "sat.u.gldas_soil": "kg/m²",
 });
 
+I18N.add("en", {
+  "nav.g.detect": "Detect", "nav.g.care": "Care", "nav.g.context": "Understand",
+  "home.eyebrow": "NASA data, tested and turned into care", "home.title": "What is the climate doing where you live?",
+  "home.lead": "Search any address on Earth. GeoCare shows 45 years of records for that spot, tells you which changes are statistically real, and what they mean for your health, your week and your home.",
+  "home.1": "Real records", "home.1d": "45 years of NASA data for any point on the planet.",
+  "home.2": "Honest", "home.2d": "A change is only called confirmed when two independent datasets agree. When the data cannot prove it, we say so.",
+  "home.3": "Guidance, not just charts", "home.3d": "From the trend to your health and your city. The app points to the next step.",
+  "home.try": "Or start with one of these", "step.next": "Next",
+});
+I18N.add("es", {
+  "nav.g.detect": "Detectar", "nav.g.care": "Cuidar", "nav.g.context": "Entender",
+  "home.eyebrow": "Datos de la NASA, evaluados y convertidos en cuidado", "home.title": "¿Qué está haciendo el clima donde usted vive?",
+  "home.lead": "Busque cualquier dirección del planeta. GeoCare muestra 45 años de registros de ese punto, le dice qué cambios son estadísticamente reales y qué significan para su salud, su semana y su casa.",
+  "home.1": "Registros reales", "home.1d": "45 años de datos de la NASA para cualquier punto del planeta.",
+  "home.2": "Honesto", "home.2d": "Un cambio solo se llama confirmado cuando dos bases independientes coinciden. Cuando los datos no alcanzan para probarlo, lo decimos.",
+  "home.3": "Orientación, no solo gráficos", "home.3d": "De la tendencia a su salud y su ciudad. La app indica el próximo paso.",
+  "home.try": "O empiece por uno de estos", "step.next": "Siguiente",
+});
+I18N.add("pt", {
+  "nav.g.detect": "Detectar", "nav.g.care": "Cuidar", "nav.g.context": "Entender",
+  "home.eyebrow": "Dados da NASA, testados e transformados em cuidado", "home.title": "O que o clima está fazendo onde você mora?",
+  "home.lead": "Busque qualquer endereço do planeta. O GeoCare mostra 45 anos de registros daquele ponto, diz quais mudanças são estatisticamente reais e o que elas significam para a sua saúde, a sua semana e a sua casa.",
+  "home.1": "Registros reais", "home.1d": "45 anos de dados da NASA para qualquer ponto do planeta.",
+  "home.2": "Honesto", "home.2d": "Uma mudança só é chamada de confirmada quando duas bases independentes concordam. Quando o dado não prova, a gente diz.",
+  "home.3": "Condução, não só gráfico", "home.3d": "Da tendência à sua saúde e à sua cidade. O app aponta o próximo passo.",
+  "home.try": "Ou comece por um destes", "step.next": "Próximo",
+});
+
 const Extras2 = (() => {
   const ui = { pano: undefined, sort: "score", all: false, prep: undefined, layers: {}, tab: "place" };
   const layer = (n) => (ui.layers[n] ||= L.layerGroup().addTo(map));
@@ -62,7 +90,7 @@ const Extras2 = (() => {
     const lay = layer("world"); lay.clearLayers();
     if (ui.tab !== "world" || !ui.pano) return;
     for (const c of ui.pano.cities) {
-      const tr = c.sig.temp, col = !tr.sig ? "#8a948e" : tr.s > 0 ? "#b5452c" : "#2f6f8f";
+      const tr = c.sig.temp, col = !tr.sig ? "#8b9692" : tr.s > 0 ? "#b2592a" : "#3d6f8e";
       L.circleMarker([c.lat, c.lon], { radius: 4 + c.score / 14, color: col, weight: 1, fillColor: col, fillOpacity: 0.55 })
         .bindPopup(`<b>${esc(c.name)}</b> (${c.cc})<br>${t("world.s.temp")}: ${signed(tr.s, 2)} °C ${t("per.decade")} · p = ${pval(tr.p)}<br>${t("world.idx")}: ${fmt(c.score, 0)}`)
         .on("click", () => {}).addTo(lay);
@@ -95,7 +123,7 @@ const Extras2 = (() => {
     const cal = r?.era5?.calendar; if (!cal) { box.innerHTML = ""; return; }
     const south = r.lat < 0, now = new Date().getMonth();
     const mon = Array.from({ length: 12 }, (_, m) => new Date(2024, m, 15).toLocaleDateString(I18N.locale(), { month: "short" }).replace(".", ""));
-    const rowsDef = [["🦟", "cal.mosq", (c) => c.aedes, "#b5452c"], ["🥵", "cal.hot", (c) => Math.min(c.hot / 0.25, 1), "#c98a1b"], ["🌧", "cal.heavy", (c) => Math.min(c.heavy / 1.5, 1), "#2f6f8f"], ["🏜", "cal.dry", (c) => Math.max(0, Math.min(1, 1 - c.rain / 60)), "#8a6d3b"]];
+    const rowsDef = [["🦟", "cal.mosq", (c) => c.aedes, "#b2592a"], ["🥵", "cal.hot", (c) => Math.min(c.hot / 0.25, 1), "#c08a2e"], ["🌧", "cal.heavy", (c) => Math.min(c.heavy / 1.5, 1), "#3d6f8e"], ["🏜", "cal.dry", (c) => Math.max(0, Math.min(1, 1 - c.rain / 60)), "#8a6d3b"]];
     let h = `<h3>${t("cal.title")}</h3><p class="muted small">${t("cal.intro")}</p><div class="calgrid"><div></div>${mon.map((m, i) => `<div class="calm ${i === now ? "now" : ""}">${m}</div>`).join("")}`;
     for (const [ic, k, f, col] of rowsDef) h += `<div class="callab">${ic} ${t(k)}</div>` + cal.map((c, i) => { const v = f(c); return `<div class="calc ${i === now ? "now" : ""}" style="background:${col};opacity:${(0.08 + 0.92 * v).toFixed(2)}" title="${mon[i]}: ${fmt(v * 100, 0)}%"></div>`; }).join("");
     box.innerHTML = h + `</div>`;
@@ -178,11 +206,38 @@ const Extras2 = (() => {
     box.querySelectorAll("details.card").forEach((d) => d.addEventListener("toggle", () => {
       if (!d.open || d.dataset.drawn) return; d.dataset.drawn = 1;
       const k = d.dataset.k, ys = Object.keys(g.series[k]).map(Number).sort((a, b) => a - b);
-      state.charts.push(new Chart(d.querySelector("canvas"), { type: "line", data: { labels: ys, datasets: [{ label: t("sat." + k), data: ys.map((y) => g.series[k][y]), borderColor: "#2f6f8f", backgroundColor: "#2f6f8f", pointRadius: 2, borderWidth: 2, tension: 0.2 }] }, options: { responsive: true, maintainAspectRatio: false, animation: false, plugins: { legend: { display: false } } } }));
+      state.charts.push(new Chart(d.querySelector("canvas"), { type: "line", data: { labels: ys, datasets: [{ label: t("sat." + k), data: ys.map((y) => g.series[k][y]), borderColor: "#3d6f8e", backgroundColor: "#3d6f8e", pointRadius: 2, borderWidth: 2, tension: 0.2 }] }, options: { responsive: true, maintainAspectRatio: false, animation: false, plugins: { legend: { display: false } } } }));
     }));
   }
 
-  function render() { renderWorld(); renderCalendar(); renderPrepare(); renderSat(); }
+  /* ---------- guided navigation: section label on top, next step at the bottom of every panel ---------- */
+  const ORDER = ["place", "now", "health", "prepare", "community", "region", "act", "world", "compare"];
+  const GROUP = { place: "detect", now: "detect", health: "care", prepare: "care", community: "care", region: "context", act: "context", world: "context", compare: "context" };
+  const nn = (i) => String(i + 1).padStart(2, "0");
+  function decorate() {
+    ORDER.forEach((k, i) => {
+      const p = document.querySelector("#p-" + k); if (!p || !p.firstElementChild) return;
+      const first = p.firstElementChild, last = p.lastElementChild;
+      if (first.dataset.lang === I18N.lang && first.classList.contains("auto") && last.classList.contains("stepnav")) return;
+      p.querySelectorAll(":scope > .eyebrow.auto, :scope > .stepnav").forEach((e) => e.remove());
+      const eb = el("p", "eyebrow auto", `<b>${nn(i)}</b> ${t("nav.g." + GROUP[k])}`); eb.dataset.lang = I18N.lang; p.prepend(eb);
+      const nav = el("div", "stepnav");
+      const go = (j) => () => { showTab(ORDER[j]); document.querySelector(".panels").scrollTop = 0; window.scrollTo({ top: 0 }); };
+      if (i > 0) { const b = el("button", "btn small ghost", `← ${t("tab." + ORDER[i - 1])}`); b.onclick = go(i - 1); nav.append(b); } else nav.append(el("span"));
+      if (i < ORDER.length - 1) { const b = el("button", "btn small", `<small>${t("step.next")} · ${nn(i + 1)}</small> ${t("tab." + ORDER[i + 1])} →`); b.onclick = go(i + 1); nav.append(b); }
+      p.append(nav);
+    });
+  }
+  let pending = false;
+  const schedule = () => { if (pending) return; pending = true; requestAnimationFrame(() => { pending = false; decorate(); }); };
+  document.addEventListener("DOMContentLoaded", () => { const ps = document.querySelector(".panels"); if (ps) new MutationObserver(schedule).observe(ps, { childList: true, subtree: true }); });
+
+  function hero() {
+    const pt = (n) => `<li><span class="n">0${n}</span><div><b>${t("home." + n)}</b><p>${t("home." + n + "d")}</p></div></li>`;
+    return `<p class="eyebrow">${t("home.eyebrow")}</p><h2 class="hero">${t("home.title")}</h2><p class="lead">${t("home.lead")}</p><ol class="points">${pt(1)}${pt(2)}${pt(3)}</ol><p class="plabel">${t("home.try")}</p>`;
+  }
+
+  function render() { renderWorld(); renderCalendar(); renderPrepare(); renderSat(); schedule(); }
   function onTab(name) { ui.tab = name; drawWorld(); if (name === "world" && ui.pano) map.setView([10, 10], 2); }
-  return { render, onTab };
+  return { render, onTab, hero };
 })();

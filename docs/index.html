@@ -5,56 +5,64 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>GeoCare · Climate & Health where you are</title>
 <meta name="description" content="Climate trends, health consequences and community help for any address on Earth. NASA Space Apps Challenge 2026.">
+<meta name="theme-color" content="#eef1ef">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <div class="app">
-  <aside class="side">
-    <header class="top">
-      <div class="brand">
-        <span class="logo" aria-hidden="true">◐</span>
-        <div><h1>GeoCare</h1><p data-i18n="app.tagline"></p></div>
-      </div>
+  <nav class="rail" aria-label="Sections">
+    <div class="rbrand">
+      <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 1.5l1.35 9.15L22.5 12l-9.15 1.35L12 22.5l-1.35-9.15L1.5 12l9.15-1.35z" fill="#1f7f5f"/><circle cx="12" cy="12" r="1.7" fill="#eef1ef"/></svg>
+      <span>GeoCare</span>
+    </div>
+    <p class="rail-tag" data-i18n="app.tagline"></p>
+
+    <div class="rail-nav">
+      <p class="rail-g" data-i18n="nav.g.detect"></p>
+      <button class="tab on" data-tab="place"><span class="n">01</span><span class="l" data-i18n="tab.place"></span></button>
+      <button class="tab" data-tab="now"><span class="n">02</span><span class="l" data-i18n="tab.now"></span></button>
+      <p class="rail-g" data-i18n="nav.g.care"></p>
+      <button class="tab" data-tab="health"><span class="n">03</span><span class="l" data-i18n="tab.health"></span></button>
+      <button class="tab" data-tab="prepare"><span class="n">04</span><span class="l" data-i18n="tab.prepare"></span></button>
+      <button class="tab" data-tab="community"><span class="n">05</span><span class="l" data-i18n="tab.community"></span></button>
+      <p class="rail-g" data-i18n="nav.g.context"></p>
+      <button class="tab" data-tab="region"><span class="n">06</span><span class="l" data-i18n="tab.region"></span></button>
+      <button class="tab" data-tab="act"><span class="n">07</span><span class="l" data-i18n="tab.act"></span></button>
+      <button class="tab" data-tab="world"><span class="n">08</span><span class="l" data-i18n="tab.world"></span></button>
+      <button class="tab" data-tab="compare"><span class="n">09</span><span class="l" data-i18n="tab.compare"></span></button>
+    </div>
+
+    <div class="rail-foot">
       <div class="lang" role="group" aria-label="Language">
         <button data-lang="en">EN</button><button data-lang="es">ES</button><button data-lang="pt">PT</button>
       </div>
-    </header>
+      <p class="foot-note" data-i18n="footer.note"></p>
+    </div>
+  </nav>
 
+  <aside class="side">
     <form id="search-form" class="search">
       <input id="q" data-i18n-ph="search.placeholder" autocomplete="off" aria-label="Address">
       <button class="btn" data-i18n="search.go"></button>
-      <button type="button" class="btn ghost icon" id="gps" title="GPS" aria-label="Use my location">⌖</button>
+      <button type="button" class="btn ghost icon" id="gps" title="GPS" aria-label="Use my location">◎</button>
     </form>
     <p id="status" class="status" role="status"></p>
 
-    <nav class="tabs">
-      <button class="tab on" data-tab="place" data-i18n="tab.place"></button>
-      <button class="tab" data-tab="health" data-i18n="tab.health"></button>
-      <button class="tab" data-tab="now" data-i18n="tab.now"></button>
-      <button class="tab" data-tab="prepare" data-i18n="tab.prepare"></button>
-      <button class="tab" data-tab="community" data-i18n="tab.community"></button>
-      <button class="tab" data-tab="region" data-i18n="tab.region"></button>
-      <button class="tab" data-tab="act" data-i18n="tab.act"></button>
-      <button class="tab" data-tab="world" data-i18n="tab.world"></button>
-      <button class="tab" data-tab="compare" data-i18n="tab.compare"></button>
-    </nav>
-
     <main class="panels">
       <section class="panel on" id="p-place"></section>
-      <section class="panel" id="p-health"></section>
       <section class="panel" id="p-now"></section>
+      <section class="panel" id="p-health"></section>
+      <section class="panel" id="p-prepare"></section>
       <section class="panel" id="p-community"></section>
       <section class="panel" id="p-region"></section>
       <section class="panel" id="p-act"></section>
-      <section class="panel" id="p-prepare"></section>
       <section class="panel" id="p-world"></section>
       <section class="panel" id="p-compare"></section>
     </main>
-    <footer class="foot-note" data-i18n="footer.note"></footer>
   </aside>
   <div id="map" aria-label="Map"></div>
 </div>

@@ -237,7 +237,7 @@ const Extras = (() => {
     box.querySelectorAll("details.card").forEach((el2) => el2.addEventListener("toggle", () => {
       if (!el2.open || el2.dataset.drawn) return; el2.dataset.drawn = 1;
       const c = el2.dataset.ind, ys = Object.keys(d.ind[c]).map(Number).sort((a, b) => a - b);
-      state.charts.push(new Chart(el2.querySelector("canvas"), { type: "line", data: { labels: ys, datasets: [{ label: IND_LABEL[c][li], data: ys.map((y) => d.ind[c][y]), borderColor: "#1f4d3a", backgroundColor: "#1f4d3a", pointRadius: 1.5, borderWidth: 2, tension: 0.2 }] }, options: { responsive: true, maintainAspectRatio: false, animation: false, plugins: { legend: { display: false } }, scales: { x: { ticks: { maxTicksLimit: 8 } } } } }));
+      state.charts.push(new Chart(el2.querySelector("canvas"), { type: "line", data: { labels: ys, datasets: [{ label: IND_LABEL[c][li], data: ys.map((y) => d.ind[c][y]), borderColor: "#1f7f5f", backgroundColor: "#1f7f5f", pointRadius: 1.5, borderWidth: 2, tension: 0.2 }] }, options: { responsive: true, maintainAspectRatio: false, animation: false, plugins: { legend: { display: false } }, scales: { x: { ticks: { maxTicksLimit: 8 } } } } }));
     }));
   }
 
@@ -265,7 +265,7 @@ const Extras = (() => {
     h += `</ul><h3>${t("act.cases")}</h3><div class="cards">`;
     const lay = layer("cases"); lay.clearLayers();
     for (const c of pb.cases) {
-      const col = c.status === "recovering" ? "#1f4d3a" : c.status === "warning" ? "#c98a1b" : "#b5452c";
+      const col = c.status === "recovering" ? "#1f7f5f" : c.status === "warning" ? "#c08a2e" : "#b2592a";
       h += `<details class="card st-${c.status}" data-lat="${c.lat}" data-lon="${c.lon}"><summary><div><span class="card-title">${tx(c.title)}</span><span class="badge st-${c.status}">${t("st." + c.status)}</span></div><div class="headline"><small>${esc(c.place)}</small></div></summary><p>${tx(c.what_happened)}</p><p>${tx(c.what_changed)}</p><p class="muted small"><a href="${esc(c.source)}" target="_blank" rel="noopener">${t("act.source")}</a></p></details>`;
       if (Number.isFinite(c.lat)) L.circleMarker([c.lat, c.lon], { radius: 8, color: col, fillOpacity: 0.7 }).bindPopup(`<b>${tx(c.title)}</b><br>${esc(c.place)}`).addTo(lay);
     }
@@ -287,7 +287,7 @@ const Extras = (() => {
     const v = ui.gridVar, max = Math.max(...r.grid.map((g) => Math.abs(g[v]?.slopeDecade || 0)), 1e-9);
     for (const g of r.grid) {
       const tr = g[v]; if (!tr) continue;
-      const col = !tr.significant ? "#8a948e" : tr.direction > 0 ? "#b5452c" : "#2f6f8f";
+      const col = !tr.significant ? "#8b9692" : tr.direction > 0 ? "#b2592a" : "#3d6f8e";
       L.circleMarker([g.la, g.lo], { radius: 13, color: col, weight: 1, fillColor: col, fillOpacity: tr.significant ? 0.25 + 0.6 * (Math.abs(tr.slopeDecade) / max) : 0.25 })
         .bindPopup(`${t("tools.gridvar." + v)}: ${signed(tr.slopeDecade, v === "temp" ? 2 : 0)} ${v === "temp" ? "°C" : "mm"} ${t("per.decade")}<br>p = ${tr.p < 0.001 ? "&lt;0.001" : tr.p.toFixed(3)}`).addTo(lay);
     }

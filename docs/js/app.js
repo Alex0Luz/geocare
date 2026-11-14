@@ -230,11 +230,11 @@ function giovWitnesses(r, key) {
   const S = g.series, arr = (obj) => YEARS.map((y) => (obj && obj[y] !== undefined ? obj[y] : NaN));
   const out = [];
   if (key === "temp") {
-    out.push({ name: t("giov.merra"), color: "#c98a1b", values: arr(S.merra2_temp) });
+    out.push({ name: t("giov.merra"), color: "#c08a2e", values: arr(S.merra2_temp) });
     const airs = YEARS.map((y) => (S.airs_dia?.[y] !== undefined && S.airs_noite?.[y] !== undefined ? (S.airs_dia[y] + S.airs_noite[y]) / 2 : NaN));
-    out.push({ name: t("giov.airs"), color: "#2f6f8f", values: airs });
+    out.push({ name: t("giov.airs"), color: "#3d6f8e", values: airs });
   }
-  if (key === "rain") out.push({ name: t("giov.gpm"), color: "#2f6f8f", values: arr(S.gpm_chuva) });
+  if (key === "rain") out.push({ name: t("giov.gpm"), color: "#3d6f8e", values: arr(S.gpm_chuva) });
   return out.map((w) => ({ ...w, trend: Stats.trend(YEARS, w.values) }));
 }
 
@@ -328,7 +328,7 @@ function witnessRow(name, tr, s) {
 
 function renderPlace() {
   const r = state.main, box = $("#p-place");
-  if (!r) { box.innerHTML = `<div class="empty"><h2>${t("empty.title")}</h2><p>${t("empty.text")}</p><div class="chips">${["Ciudad del Este", "Asunción", "São Paulo", "Porto Alegre", "Karachi", "Kathmandu", "Nairobi", "Phoenix"].map((c) => `<button class="chip" data-q="${c}">${c}</button>`).join("")}</div><div class="capitals-box"></div></div>`;
+  if (!r) { box.innerHTML = `<div class="empty">${Extras2.hero()}<div class="chips">${["Ciudad del Este", "Asunción", "São Paulo", "Porto Alegre", "Karachi", "Kathmandu", "Nairobi", "Phoenix"].map((c) => `<button class="chip" data-q="${c}">${c}</button>`).join("")}</div><div class="capitals-box"></div></div>`;
     box.querySelectorAll(".chip").forEach((b) => (b.onclick = () => { $("#q").value = b.dataset.q; search(b.dataset.q); })); return; }
   const sigs = r.signals, done = sigs.filter((s) => !s.waiting);
   const strong = done.filter((s) => ["confirmed", "likely"].includes(s.verdict)).length;
@@ -367,8 +367,8 @@ function drawSignal(d, s, r) {
     ds.push({ label, data: values.map((v) => (Number.isFinite(v) ? v : null)), borderColor: color, backgroundColor: color, pointRadius: 1.5, borderWidth: 1.5, tension: 0.15, spanGaps: true });
     if (tr) ds.push({ label: label + " · Sen", data: YEARS.map((y) => tr.intercept + tr.slope * y), borderColor: color, borderDash: tr.significant ? [] : [5, 4], borderWidth: 2.5, pointRadius: 0 });
   };
-  if (s.src.includes("nasa") && r.nasa) add("NASA", "#b5452c", r.nasa[s.key], s.nasa);
-  if (s.src.includes("era5") && r.era5) add("ERA5", "#1f4d3a", r.era5[s.key], s.era5);
+  if (s.src.includes("nasa") && r.nasa) add("NASA", "#b2592a", r.nasa[s.key], s.nasa);
+  if (s.src.includes("era5") && r.era5) add("ERA5", "#1f7f5f", r.era5[s.key], s.era5);
   giovWitnesses(r, s.key).forEach((w) => add(w.name.split(" · ")[0], w.color, w.values, w.trend));
   state.charts.push(new Chart(d.querySelector("canvas"), {
     type: "line", data: { labels: YEARS, datasets: ds },
@@ -389,7 +389,7 @@ function dengueBlock(r) {
 function drawDengue(r) {
   const c = nearestDengue(r), cv = $("#dengue-chart"); if (!c || !cv) return;
   const ys = Object.keys(c.casos).filter((y) => +y <= 2025);
-  state.charts.push(new Chart(cv, { type: "bar", data: { labels: ys, datasets: [{ label: t("dengue.axis"), data: ys.map((y) => (c.casos[y] / c.pop) * 1e5), backgroundColor: "#b5452c" }] }, options: { responsive: true, maintainAspectRatio: false, animation: false, plugins: { legend: { labels: { boxWidth: 10, font: { size: 11 } } } } } }));
+  state.charts.push(new Chart(cv, { type: "bar", data: { labels: ys, datasets: [{ label: t("dengue.axis"), data: ys.map((y) => (c.casos[y] / c.pop) * 1e5), backgroundColor: "#b2592a" }] }, options: { responsive: true, maintainAspectRatio: false, animation: false, plugins: { legend: { labels: { boxWidth: 10, font: { size: 11 } } } } } }));
 }
 
 /* ---------------- Health ---------------- */
@@ -455,7 +455,7 @@ function renderNow() {
   eventLayer.clearLayers();
   if (r.events?.length) {
     html += `<ul class="events">` + r.events.map((e) => `<li><b>${esc(e.cat)}</b> · ${esc(e.title)} <span class="muted">(${fmt(e.dist, 0)} km · ${e.date || ""})</span></li>`).join("") + `</ul>`;
-    r.events.forEach((e) => L.circleMarker([e.lat, e.lon], { radius: 7, color: "#b5452c" }).bindPopup(`<b>${esc(e.cat)}</b><br>${esc(e.title)}`).addTo(eventLayer));
+    r.events.forEach((e) => L.circleMarker([e.lat, e.lon], { radius: 7, color: "#b2592a" }).bindPopup(`<b>${esc(e.cat)}</b><br>${esc(e.title)}`).addTo(eventLayer));
   } else html += `<p class="muted">${r.events === undefined ? "…" : t("now.noevents")}</p>`;
   html += `<p class="muted small foot">${t("now.sources")}</p>`;
   box.innerHTML = html;
