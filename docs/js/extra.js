@@ -27,7 +27,7 @@ I18N.add("en", {
   "tr.better": "improving", "tr.worse": "worsening", "tr.flat": "no clear trend", "tr.up": "rising", "tr.down": "falling",
   "region.vax": "Ask your health unit which vaccines are in the national schedule for your age. After floods, being up to date with tetanus matters for clean-up work. Hepatitis A and rotavirus vaccines protect against water-borne disease. Yellow fever and dengue vaccines depend on the country and area. Draft text pending physician review.",
   "act.title": "What cities, companies and farms can do", "act.intro": "Actions with evidence, ordered by what the data show for this place, and real cases from around the world.", "act.city": "City government", "act.industry": "Industry", "act.farm": "Farms",
-  "act.match": "matches this place", "act.cases": "Cases from around the world", "act.loading": "Playbook not available yet.", "act.source": "source",
+  "act.note": "Compiled from public sources during the hackathon. Check the linked source before quoting a number.", "act.match": "matches this place", "act.cases": "Cases from around the world", "act.loading": "Playbook not available yet.", "act.source": "source",
   "st.recovering": "recovering", "st.still_critical": "still critical", "st.warning": "warning",
   "sigk.heat": "heat", "sigk.rain_extreme": "extreme rain", "sigk.drying": "drying", "sigk.vector": "mosquitoes", "sigk.air": "air", "sigk.flood": "flood", "sigk.general": "general",
 });
@@ -57,7 +57,7 @@ I18N.add("es", {
   "tr.better": "mejorando", "tr.worse": "empeorando", "tr.flat": "sin tendencia clara", "tr.up": "en aumento", "tr.down": "en descenso",
   "region.vax": "Pregunte en su unidad de salud qué vacunas corresponden a su edad según el calendario nacional. Después de inundaciones, tener al día la antitetánica importa para la limpieza. Las vacunas contra hepatitis A y rotavirus protegen de enfermedades transmitidas por el agua. Las de fiebre amarilla y dengue dependen del país y la zona. Texto en borrador, pendiente de revisión médica.",
   "act.title": "Qué pueden hacer municipios, empresas y productores", "act.intro": "Acciones con evidencia, ordenadas según lo que muestran los datos de este lugar, y casos reales del mundo.", "act.city": "Municipio", "act.industry": "Industria", "act.farm": "Campo",
-  "act.match": "coincide con este lugar", "act.cases": "Casos del mundo", "act.loading": "La guía todavía no está disponible.", "act.source": "fuente",
+  "act.note": "Recopilado de fuentes públicas durante el hackathon. Revise la fuente enlazada antes de citar un número.", "act.match": "coincide con este lugar", "act.cases": "Casos del mundo", "act.loading": "La guía todavía no está disponible.", "act.source": "fuente",
   "st.recovering": "en recuperación", "st.still_critical": "sigue crítico", "st.warning": "alerta",
   "sigk.heat": "calor", "sigk.rain_extreme": "lluvia extrema", "sigk.drying": "sequía", "sigk.vector": "mosquitos", "sigk.air": "aire", "sigk.flood": "inundación", "sigk.general": "general",
 });
@@ -87,7 +87,7 @@ I18N.add("pt", {
   "tr.better": "melhorando", "tr.worse": "piorando", "tr.flat": "sem tendência clara", "tr.up": "subindo", "tr.down": "caindo",
   "region.vax": "Pergunte na unidade de saúde quais vacinas do calendário nacional valem para a sua idade. Depois de enchentes, estar em dia com a antitetânica importa para a limpeza. As vacinas de hepatite A e rotavírus protegem de doenças transmitidas pela água. As de febre amarela e dengue dependem do país e da região. Texto em rascunho, aguardando revisão médica.",
   "act.title": "O que prefeituras, empresas e produtores podem fazer", "act.intro": "Ações com evidência, ordenadas pelo que os dados mostram neste lugar, e casos reais do mundo.", "act.city": "Prefeitura", "act.industry": "Indústria", "act.farm": "Campo",
-  "act.match": "combina com este lugar", "act.cases": "Casos do mundo", "act.loading": "O guia ainda não está disponível.", "act.source": "fonte",
+  "act.note": "Reunido de fontes públicas durante o hackathon. Confira a fonte indicada antes de citar um número.", "act.match": "combina com este lugar", "act.cases": "Casos do mundo", "act.loading": "O guia ainda não está disponível.", "act.source": "fonte",
   "st.recovering": "em recuperação", "st.still_critical": "ainda crítico", "st.warning": "alerta",
   "sigk.heat": "calor", "sigk.rain_extreme": "chuva extrema", "sigk.drying": "seca", "sigk.vector": "mosquitos", "sigk.air": "ar", "sigk.flood": "enchente", "sigk.general": "geral",
 });
@@ -252,7 +252,7 @@ const Extras = (() => {
   function renderAct() {
     const box = document.querySelector("#p-act"); if (!box) return;
     if (ui.playbook === undefined) { ui.playbook = null; fetch("data/playbook.json").then((x) => (x.ok ? x.json() : false)).then((j) => { ui.playbook = j; }).catch(() => { ui.playbook = false; }).finally(() => renderAct()); }
-    let h = `<h2>${t("act.title")}</h2><p class="muted small">${t("act.intro")}</p>`;
+    let h = `<h2>${t("act.title")}</h2><p class="muted small">${t("act.intro")} ${t("act.note")}</p>`;
     const pb = ui.playbook, L2 = I18N.lang, tx = (o) => esc(o?.[L2] || o?.en || "");
     if (!pb) { box.innerHTML = h + `<p class="muted">${pb === null ? "…" : t("act.loading")}</p>`; return; }
     const sigs = placeSignals(state.main);

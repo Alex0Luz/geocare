@@ -1,0 +1,1023 @@
+{
+  "cases": [
+    {
+      "id": "delhi-air",
+      "place": "Delhi, India",
+      "lat": 28.61,
+      "lon": 77.21,
+      "theme": "air",
+      "status": "still_critical",
+      "title": {
+        "en": "Delhi: the world's most polluted capital",
+        "es": "Delhi: la capital más contaminada del mundo",
+        "pt": "Délhi: a capital mais poluída do mundo"
+      },
+      "what_happened": {
+        "en": "In 2024 Delhi's fine particle level (PM2.5) averaged 91.6 µg/m³, about 18 times the WHO guideline of 5. India had 13 of the world's 20 most polluted cities that year.",
+        "es": "En 2024 el nivel de partículas finas (PM2.5) en Delhi promedió 91,6 µg/m³, unas 18 veces la guía de la OMS, que es 5. India tuvo ese año 13 de las 20 ciudades más contaminadas del mundo.",
+        "pt": "Em 2024 o nível de partículas finas (PM2.5) em Délhi teve média de 91,6 µg/m³, cerca de 18 vezes a diretriz da OMS, que é 5. A Índia teve naquele ano 13 das 20 cidades mais poluídas do mundo."
+      },
+      "what_changed": {
+        "en": "Almost nothing changed from 2023 (92.7 µg/m³). What is still missing is joint action across the whole Indo-Gangetic plain, because the pollution does not stop at the city limits.",
+        "es": "Casi nada cambió frente a 2023 (92,7 µg/m³). Todavía falta una acción conjunta en toda la llanura indogangética, porque la contaminación no se detiene en el límite de la ciudad.",
+        "pt": "Quase nada mudou em relação a 2023 (92,7 µg/m³). Ainda falta uma ação conjunta em toda a planície Indo-Gangética, porque a poluição não para no limite da cidade."
+      },
+      "source": "https://www.downtoearth.org.in/environment/no-surprises-as-delhi-continues-to-be-most-polluted-capital-13-out-of-20-most-polluted-cities-found-in-india"
+    },
+    {
+      "id": "beijing-air",
+      "place": "Beijing, China",
+      "lat": 39.9,
+      "lon": 116.4,
+      "theme": "air",
+      "status": "recovering",
+      "title": {
+        "en": "Beijing: PM2.5 down by two thirds in a decade",
+        "es": "Pekín: el PM2.5 bajó dos tercios en una década",
+        "pt": "Pequim: PM2.5 caiu dois terços em uma década"
+      },
+      "what_happened": {
+        "en": "In 2013 Beijing's air averaged 89.5 µg/m³ of fine particles (PM2.5), almost 18 times the current WHO guideline.",
+        "es": "En 2013 el aire de Pekín tenía en promedio 89,5 µg/m³ de partículas finas (PM2.5), casi 18 veces la guía actual de la OMS.",
+        "pt": "Em 2013 o ar de Pequim tinha em média 89,5 µg/m³ de partículas finas (PM2.5), quase 18 vezes a diretriz atual da OMS."
+      },
+      "what_changed": {
+        "en": "Clean air action plans from 2013 set firm targets. PM2.5 fell to 58 µg/m³ in 2017 and to 30 in 2022, a drop of 66.5%. That is still six times the WHO guideline.",
+        "es": "Los planes de aire limpio desde 2013 fijaron metas firmes. El PM2.5 bajó a 58 µg/m³ en 2017 y a 30 en 2022, una caída de 66,5%. Aún es seis veces la guía de la OMS.",
+        "pt": "Os planos de ar limpo a partir de 2013 fixaram metas firmes. O PM2.5 caiu para 58 µg/m³ em 2017 e para 30 em 2022, queda de 66,5%. Ainda é seis vezes a diretriz da OMS."
+      },
+      "source": "https://events.development.asia/system/files/materials/2023/11/202311-measures-and-achievements-air-pollution-control-beijing.pdf"
+    },
+    {
+      "id": "london-air",
+      "place": "London, United Kingdom",
+      "lat": 51.507,
+      "lon": -0.128,
+      "theme": "air",
+      "status": "recovering",
+      "title": {
+        "en": "London: from the 1952 Great Smog to the ULEZ",
+        "es": "Londres: de la Gran Niebla de 1952 a la zona ULEZ",
+        "pt": "Londres: do Grande Nevoeiro de 1952 à zona ULEZ"
+      },
+      "what_happened": {
+        "en": "Five days of coal smoke and fog in December 1952 killed thousands of Londoners: about 4,000 by the first estimate and about 12,000 in later analyses.",
+        "es": "Cinco días de humo de carbón y niebla en diciembre de 1952 mataron a miles de londinenses: unos 4.000 según la primera estimación y unos 12.000 según análisis posteriores.",
+        "pt": "Cinco dias de fumaça de carvão e neblina em dezembro de 1952 mataram milhares de londrinos: cerca de 4.000 na primeira estimativa e cerca de 12.000 em análises posteriores."
+      },
+      "what_changed": {
+        "en": "The 1956 Clean Air Act created smoke control areas. Today the Ultra Low Emission Zone has cut roadside NO2 by an estimated 27% across London and 54% in the centre, compared with a scenario without the zone.",
+        "es": "La Ley de Aire Limpio de 1956 creó zonas sin humo. Hoy la Zona de Emisiones Ultra Bajas redujo el NO2 junto a las calles en un 27% estimado en todo Londres y 54% en el centro, frente a un escenario sin la zona.",
+        "pt": "A Lei do Ar Limpo de 1956 criou áreas de controle de fumaça. Hoje a Zona de Emissões Ultrabaixas reduziu o NO2 junto às ruas em 27% (estimativa) em toda Londres e 54% no centro, em comparação com um cenário sem a zona."
+      },
+      "source": "https://www.london.gov.uk/media-centre/mayors-press-releases/new-evidence-reveals-all-londoners-are-now-breathing-cleaner-air-following-first-year-expanded-ultra"
+    },
+    {
+      "id": "los-angeles-smog",
+      "place": "Los Angeles, United States",
+      "lat": 34.05,
+      "lon": -118.24,
+      "theme": "air",
+      "status": "recovering",
+      "title": {
+        "en": "Los Angeles: decades of rules cut the smog",
+        "es": "Los Ángeles: décadas de normas redujeron el esmog",
+        "pt": "Los Angeles: décadas de regras reduziram o smog"
+      },
+      "what_happened": {
+        "en": "Los Angeles recorded its first smog episode in 1943 and became famous for it. In 1947 the county created the first air pollution control programme in the United States.",
+        "es": "Los Ángeles registró su primer episodio de esmog en 1943 y se hizo famosa por eso. En 1947 el condado creó el primer programa de control de la contaminación del aire de Estados Unidos.",
+        "pt": "Los Angeles registrou seu primeiro episódio de smog em 1943 e ficou famosa por isso. Em 1947 o condado criou o primeiro programa de controle da poluição do ar dos Estados Unidos."
+      },
+      "what_changed": {
+        "en": "Five decades of cuts in vehicle and industry emissions lowered ozone by about 80% since the 1950s, according to the regional air agency. The region still gets failing grades for ozone.",
+        "es": "Cinco décadas de recortes en las emisiones de vehículos e industrias bajaron el ozono cerca de 80% desde los años 50, según la agencia regional del aire. La región aún reprueba en ozono.",
+        "pt": "Cinco décadas de cortes nas emissões de veículos e indústrias reduziram o ozônio em cerca de 80% desde os anos 1950, segundo a agência regional do ar. A região ainda é reprovada em ozônio."
+      },
+      "source": "https://csl.noaa.gov/news/2013/141_0604.html"
+    },
+    {
+      "id": "cubatao-industry",
+      "place": "Cubatão, Brazil",
+      "lat": -23.89,
+      "lon": -46.42,
+      "theme": "industry",
+      "status": "recovering",
+      "title": {
+        "en": "Cubatão: the Valley of Death that cleaned up",
+        "es": "Cubatão: el Valle de la Muerte que se limpió",
+        "pt": "Cubatão: o Vale da Morte que se recuperou"
+      },
+      "what_happened": {
+        "en": "In the early 1980s the industrial hub of Cubatão was known as the Valley of Death because of the pollution from its factories. Regulators counted 320 sources of pollution.",
+        "es": "A inicios de los años 80 el polo industrial de Cubatão era conocido como el Valle de la Muerte por la contaminación de sus fábricas. Los reguladores contaron 320 fuentes de contaminación.",
+        "pt": "No início dos anos 1980 o polo industrial de Cubatão era conhecido como Vale da Morte por causa da poluição das fábricas. O órgão ambiental contou 320 fontes de poluição."
+      },
+      "what_changed": {
+        "en": "A control programme launched in 1983 made each plant fix its sources. Reported results: particle emissions down 92%, sulfur dioxide down 84% and ammonia down 97%.",
+        "es": "Un programa de control lanzado en 1983 obligó a cada planta a corregir sus fuentes. Resultados reportados: emisiones de partículas 92% menores, dióxido de azufre 84% menor y amoníaco 97% menor.",
+        "pt": "Um programa de controle lançado em 1983 obrigou cada fábrica a corrigir suas fontes. Resultados relatados: emissões de partículas 92% menores, dióxido de enxofre 84% menor e amônia 97% menor."
+      },
+      "source": "https://www.encyclopedia.com/environment/encyclopedias-almanacs-transcripts-and-maps/cubatao-brazil"
+    },
+    {
+      "id": "mexico-city-air",
+      "place": "Mexico City, Mexico",
+      "lat": 19.43,
+      "lon": -99.13,
+      "theme": "air",
+      "status": "recovering",
+      "title": {
+        "en": "Mexico City: no longer the most polluted city",
+        "es": "Ciudad de México: ya no es la más contaminada",
+        "pt": "Cidade do México: não é mais a mais poluída"
+      },
+      "what_happened": {
+        "en": "In 1992 a United Nations study of 20 megacities found that Mexico City had the worst air in the world.",
+        "es": "En 1992 un estudio de las Naciones Unidas sobre 20 megaciudades encontró que la Ciudad de México tenía el peor aire del mundo.",
+        "pt": "Em 1992 um estudo das Nações Unidas com 20 megacidades concluiu que a Cidade do México tinha o pior ar do mundo."
+      },
+      "what_changed": {
+        "en": "The ProAire programmes tightened rules on fuels, vehicles and industry. Reports since then show lead down by about 90%, sulfur dioxide by 86% and carbon monoxide by 74%. Ozone still exceeds the limits.",
+        "es": "Los programas ProAire endurecieron las normas para combustibles, vehículos e industria. Los reportes posteriores muestran cerca de 90% menos plomo, 86% menos dióxido de azufre y 74% menos monóxido de carbono. El ozono aún supera los límites.",
+        "pt": "Os programas ProAire endureceram as regras para combustíveis, veículos e indústria. Relatos posteriores mostram cerca de 90% menos chumbo, 86% menos dióxido de enxofre e 74% menos monóxido de carbono. O ozônio ainda passa dos limites."
+      },
+      "source": "https://www.nbcnews.com/id/wbna36128954"
+    },
+    {
+      "id": "thames-water",
+      "place": "River Thames, London, United Kingdom",
+      "lat": 51.5,
+      "lon": 0.05,
+      "theme": "water",
+      "status": "recovering",
+      "title": {
+        "en": "Thames: declared biologically dead, now alive",
+        "es": "Támesis: declarado biológicamente muerto, hoy con vida",
+        "pt": "Tâmisa: declarado biologicamente morto, hoje com vida"
+      },
+      "what_happened": {
+        "en": "In 1957 scientists declared the tidal Thames biologically dead after decades of sewage and industrial waste.",
+        "es": "En 1957 los científicos declararon biológicamente muerto el tramo del Támesis con mareas, tras décadas de aguas residuales y desechos industriales.",
+        "pt": "Em 1957 cientistas declararam biologicamente morto o trecho do Tâmisa sujeito a marés, depois de décadas de esgoto e resíduos industriais."
+      },
+      "what_changed": {
+        "en": "After decades of sewage treatment and regulation, more than 115 fish species have been recorded there, as well as seals and 92 bird species. Sewage overflows and warming water remain a risk.",
+        "es": "Tras décadas de tratamiento de aguas residuales y regulación, se han registrado más de 115 especies de peces, además de focas y 92 especies de aves. Los desbordes de aguas residuales y el agua más cálida siguen siendo un riesgo.",
+        "pt": "Depois de décadas de tratamento de esgoto e regulação, já foram registradas mais de 115 espécies de peixes, além de focas e 92 espécies de aves. Extravasamentos de esgoto e a água mais quente continuam sendo um risco."
+      },
+      "source": "https://www.zsl.org/what-we-do/projects/state-of-the-thames"
+    },
+    {
+      "id": "rhine-sandoz",
+      "place": "River Rhine, Basel, Switzerland",
+      "lat": 47.56,
+      "lon": 7.59,
+      "theme": "water",
+      "status": "recovering",
+      "title": {
+        "en": "Rhine: a chemical fire that changed the rules",
+        "es": "Rin: un incendio químico que cambió las reglas",
+        "pt": "Reno: um incêndio químico que mudou as regras"
+      },
+      "what_happened": {
+        "en": "In November 1986 a fire at the Sandoz warehouse near Basel washed up to 30 tonnes of pesticides into the Rhine, killing fish along hundreds of kilometres.",
+        "es": "En noviembre de 1986 un incendio en el depósito de Sandoz, cerca de Basilea, arrastró hasta 30 toneladas de plaguicidas al Rin y mató peces a lo largo de cientos de kilómetros.",
+        "pt": "Em novembro de 1986 um incêndio no depósito da Sandoz, perto de Basileia, levou até 30 toneladas de agrotóxicos para o Reno e matou peixes ao longo de centenas de quilômetros."
+      },
+      "what_changed": {
+        "en": "In 1987 the Rhine countries agreed to halve discharges of 40 dangerous substances within ten years, with the goal of bringing salmon back. Salmon were seen again in a tributary in 1993.",
+        "es": "En 1987 los países del Rin acordaron reducir a la mitad las descargas de 40 sustancias peligrosas en diez años, con la meta de que volviera el salmón. En 1993 se volvió a ver salmón en un afluente.",
+        "pt": "Em 1987 os países do Reno combinaram reduzir pela metade os lançamentos de 40 substâncias perigosas em dez anos, com a meta de trazer o salmão de volta. Em 1993 o salmão voltou a ser visto em um afluente."
+      },
+      "source": "https://www.iksr.org/en/icpr/about-us/history/the-turning-point-the-sandoz-accident"
+    },
+    {
+      "id": "seoul-cheonggyecheon",
+      "place": "Seoul, South Korea",
+      "lat": 37.57,
+      "lon": 126.98,
+      "theme": "water",
+      "status": "recovering",
+      "title": {
+        "en": "Seoul: a buried stream brought back to cool the city",
+        "es": "Seúl: un arroyo enterrado que volvió y refresca la ciudad",
+        "pt": "Seul: um córrego enterrado que voltou e refresca a cidade"
+      },
+      "what_happened": {
+        "en": "For decades the Cheonggyecheon stream in central Seoul was covered by a road and an elevated highway.",
+        "es": "Durante décadas el arroyo Cheonggyecheon, en el centro de Seúl, estuvo cubierto por una calle y una autopista elevada.",
+        "pt": "Durante décadas o córrego Cheonggyecheon, no centro de Seul, ficou coberto por uma avenida e uma via elevada."
+      },
+      "what_changed": {
+        "en": "The city removed the highway and restored the stream. Fish species rose from 4 to 25, overall biodiversity grew 639% between 2003 and 2008, and the air along the stream is 3.3 to 5.9 °C cooler than on a parallel road.",
+        "es": "La ciudad retiró la autopista y restauró el arroyo. Las especies de peces pasaron de 4 a 25, la biodiversidad total creció 639% entre 2003 y 2008, y el aire junto al arroyo es de 3,3 a 5,9 °C más fresco que en una calle paralela.",
+        "pt": "A cidade removeu a via elevada e restaurou o córrego. As espécies de peixes passaram de 4 para 25, a biodiversidade total cresceu 639% entre 2003 e 2008, e o ar junto ao córrego é de 3,3 a 5,9 °C mais fresco que em uma rua paralela."
+      },
+      "source": "https://www.landscapeperformance.org/case-study-briefs/cheonggyecheon-stream-restoration"
+    },
+    {
+      "id": "tiete-sao-paulo",
+      "place": "Tietê River, São Paulo, Brazil",
+      "lat": -23.52,
+      "lon": -46.63,
+      "theme": "water",
+      "status": "still_critical",
+      "title": {
+        "en": "Tietê: three decades of cleanup, still polluted",
+        "es": "Tietê: tres décadas de limpieza y sigue contaminado",
+        "pt": "Tietê: três décadas de despoluição e ainda poluído"
+      },
+      "what_happened": {
+        "en": "The Tietê crosses Greater São Paulo. In 2024 its water was unfit for use along 207 of the 576 km monitored, the worst result since 2012.",
+        "es": "El Tietê cruza el Gran São Paulo. En 2024 su agua no era apta para uso en 207 de los 576 km monitoreados, el peor resultado desde 2012.",
+        "pt": "O Tietê atravessa a Grande São Paulo. Em 2024 a água estava imprópria para uso em 207 dos 576 km monitorados, o pior resultado desde 2012."
+      },
+      "what_changed": {
+        "en": "A cleanup project has run since the early 1990s. In 2025 the polluted stretch shrank to 174 km (down 15.9%), but monitors say the river remains very vulnerable. Full sewage collection and treatment is still missing.",
+        "es": "Hay un proyecto de limpieza desde inicios de los años 90. En 2025 el tramo contaminado bajó a 174 km (15,9% menos), pero el monitoreo indica que el río sigue muy vulnerable. Falta completar la recolección y el tratamiento de aguas residuales.",
+        "pt": "Há um projeto de despoluição desde o início dos anos 1990. Em 2025 a mancha de poluição caiu para 174 km (15,9% a menos), mas o monitoramento indica que o rio segue muito vulnerável. Falta completar a coleta e o tratamento de esgoto."
+      },
+      "source": "https://jovempan.com.br/noticias/brasil/rio-tiete-continua-vulneravel-apesar-da-reducao-de-159-da-mancha-de-poluicao.html"
+    },
+    {
+      "id": "yamuna-delhi",
+      "place": "Yamuna River, Delhi, India",
+      "lat": 28.66,
+      "lon": 77.25,
+      "theme": "water",
+      "status": "still_critical",
+      "title": {
+        "en": "Yamuna in Delhi: 2% of the river, 76% of the pollution",
+        "es": "Yamuna en Delhi: 2% del río, 76% de la contaminación",
+        "pt": "Yamuna em Délhi: 2% do rio, 76% da poluição"
+      },
+      "what_happened": {
+        "en": "The 22 km of the Yamuna that cross Delhi are only 2% of its length but receive about 76% of its pollution load, mostly sewage and waste carried by the city's drains.",
+        "es": "Los 22 km del Yamuna que cruzan Delhi son solo 2% de su largo, pero reciben cerca de 76% de su carga contaminante, sobre todo aguas residuales y desechos que llegan por los drenajes de la ciudad.",
+        "pt": "Os 22 km do Yamuna que cruzam Délhi são só 2% do seu comprimento, mas recebem cerca de 76% da carga de poluição, principalmente esgoto e resíduos trazidos pelos canais de drenagem da cidade."
+      },
+      "what_changed": {
+        "en": "Large cleanup budgets have not revived the river. Still missing: treating sewage before the drains reach the river and keeping enough fresh water flowing in the dry months.",
+        "es": "Los grandes presupuestos de limpieza no han revivido el río. Todavía falta tratar las aguas residuales antes de que los drenajes lleguen al río y mantener suficiente agua limpia en los meses secos.",
+        "pt": "Os grandes orçamentos de despoluição não reviveram o rio. Ainda falta tratar o esgoto antes que os canais cheguem ao rio e manter água limpa suficiente correndo nos meses secos."
+      },
+      "source": "https://www.tribuneindia.com/news/india/delhi-contributes-to-76-per-cent-of-yamunas-pollution-study"
+    },
+    {
+      "id": "minamata-mercury",
+      "place": "Minamata, Japan",
+      "lat": 32.21,
+      "lon": 130.4,
+      "theme": "industry",
+      "status": "warning",
+      "title": {
+        "en": "Minamata: mercury in the bay, a lesson that became a treaty",
+        "es": "Minamata: mercurio en la bahía, una lección hecha tratado",
+        "pt": "Minamata: mercúrio na baía, uma lição que virou tratado"
+      },
+      "what_happened": {
+        "en": "From 1932 to 1968 a chemical plant released methylmercury into Minamata Bay. It built up in fish and poisoned the people who ate them. By 2021 Japan had recognized 2,999 patients, including a second outbreak in Niigata.",
+        "es": "De 1932 a 1968 una planta química vertió metilmercurio en la bahía de Minamata. Se acumuló en los peces y envenenó a quienes los comían. Hasta 2021 Japón había reconocido 2.999 pacientes, incluido un segundo brote en Niigata.",
+        "pt": "De 1932 a 1968 uma fábrica química lançou metilmercúrio na baía de Minamata. Ele se acumulou nos peixes e envenenou quem os comia. Até 2021 o Japão havia reconhecido 2.999 pacientes, incluindo um segundo surto em Niigata."
+      },
+      "what_changed": {
+        "en": "The discharge ended in 1968, but many more people report symptoms than are officially recognized. The Minamata Convention, in force since 2017, bans new mercury mines and limits mercury use and emissions.",
+        "es": "El vertido terminó en 1968, pero muchas más personas reportan síntomas que las reconocidas oficialmente. El Convenio de Minamata, vigente desde 2017, prohíbe nuevas minas de mercurio y limita su uso y sus emisiones.",
+        "pt": "O lançamento acabou em 1968, mas muito mais pessoas relatam sintomas do que as reconhecidas oficialmente. A Convenção de Minamata, em vigor desde 2017, proíbe novas minas de mercúrio e limita seu uso e suas emissões."
+      },
+      "source": "https://nimd.env.go.jp/archives/english/faq"
+    },
+    {
+      "id": "ahmedabad-heat",
+      "place": "Ahmedabad, India",
+      "lat": 23.02,
+      "lon": 72.57,
+      "theme": "heat",
+      "status": "recovering",
+      "title": {
+        "en": "Ahmedabad: India's first heat action plan",
+        "es": "Ahmedabad: el primer plan de acción contra el calor de India",
+        "pt": "Ahmedabad: o primeiro plano de ação contra o calor da Índia"
+      },
+      "what_happened": {
+        "en": "Ahmedabad regularly has days above 40 °C. In 2013 it launched India's first heat action plan, with alerts, public advice and preparation of health services.",
+        "es": "Ahmedabad tiene con frecuencia días de más de 40 °C. En 2013 lanzó el primer plan de acción contra el calor de India, con alertas, consejos a la población y preparación de los servicios de salud.",
+        "pt": "Ahmedabad tem com frequência dias acima de 40 °C. Em 2013 lançou o primeiro plano de ação contra o calor da Índia, com alertas, orientação à população e preparação dos serviços de saúde."
+      },
+      "what_changed": {
+        "en": "A study compared 2014-2015 with 2007-2010 and estimated about 1,190 deaths avoided per year after the plan (uncertainty range 162 to 2,218).",
+        "es": "Un estudio comparó 2014-2015 con 2007-2010 y estimó unas 1.190 muertes evitadas por año después del plan (rango de incertidumbre de 162 a 2.218).",
+        "pt": "Um estudo comparou 2014-2015 com 2007-2010 e estimou cerca de 1.190 mortes evitadas por ano depois do plano (faixa de incerteza de 162 a 2.218)."
+      },
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6236972"
+    },
+    {
+      "id": "medellin-green-corridors",
+      "place": "Medellín, Colombia",
+      "lat": 6.24,
+      "lon": -75.58,
+      "theme": "heat",
+      "status": "recovering",
+      "title": {
+        "en": "Medellín: 30 green corridors against urban heat",
+        "es": "Medellín: 30 corredores verdes contra el calor urbano",
+        "pt": "Medellín: 30 corredores verdes contra o calor urbano"
+      },
+      "what_happened": {
+        "en": "Like many growing cities, Medellín was getting hotter as asphalt and concrete replaced vegetation.",
+        "es": "Como muchas ciudades en crecimiento, Medellín se estaba calentando a medida que el asfalto y el concreto reemplazaban la vegetación.",
+        "pt": "Como muitas cidades em crescimento, Medellín estava ficando mais quente à medida que asfalto e concreto substituíam a vegetação."
+      },
+      "what_changed": {
+        "en": "Between 2016 and 2019 the city planted 30 green corridors along roads and streams. The city reports a temperature drop of about 2 °C. This is the city's own figure; an independent evaluation was not found.",
+        "es": "Entre 2016 y 2019 la ciudad plantó 30 corredores verdes a lo largo de vías y quebradas. La ciudad reporta una baja de unos 2 °C. Es una cifra de la propia ciudad; no se encontró una evaluación independiente.",
+        "pt": "Entre 2016 e 2019 a cidade plantou 30 corredores verdes ao longo de vias e córregos. A cidade relata queda de cerca de 2 °C. É um número da própria cidade; não foi encontrada avaliação independente."
+      },
+      "source": "https://www.unep.org/pt-br/noticias-e-reportagens/story/cidade-colombiana-adota-solucoes-naturais-para-combater-o-calor"
+    },
+    {
+      "id": "france-heat-2003",
+      "place": "Paris, France",
+      "lat": 48.86,
+      "lon": 2.35,
+      "theme": "heat",
+      "status": "recovering",
+      "title": {
+        "en": "France: from the 2003 heat wave to a national heat plan",
+        "es": "Francia: de la ola de calor de 2003 a un plan nacional",
+        "pt": "França: da onda de calor de 2003 a um plano nacional"
+      },
+      "what_happened": {
+        "en": "The August 2003 heat wave caused 14,947 excess deaths in France in two weeks (4 to 18 August).",
+        "es": "La ola de calor de agosto de 2003 causó 14.947 muertes en exceso en Francia en dos semanas (del 4 al 18 de agosto).",
+        "pt": "A onda de calor de agosto de 2003 causou 14.947 mortes em excesso na França em duas semanas (de 4 a 18 de agosto)."
+      },
+      "what_changed": {
+        "en": "France created a heat-health warning system and a national heat plan. In the July 2006 heat wave about 2,065 excess deaths were observed, around 4,400 fewer than models predicted.",
+        "es": "Francia creó un sistema de alerta de calor y salud y un plan nacional. En la ola de calor de julio de 2006 se observaron unas 2.065 muertes en exceso, cerca de 4.400 menos de lo que predecían los modelos.",
+        "pt": "A França criou um sistema de alerta de calor e saúde e um plano nacional. Na onda de calor de julho de 2006 foram observadas cerca de 2.065 mortes em excesso, umas 4.400 a menos do que os modelos previam."
+      },
+      "source": "https://www.santepubliquefrance.fr/docs/article/has-impact-heat-waves-mortality-changed-france-european-heat-wave-summer-2003-a-study-2006-heat-wave"
+    },
+    {
+      "id": "yogyakarta-wolbachia",
+      "place": "Yogyakarta, Indonesia",
+      "lat": -7.8,
+      "lon": 110.37,
+      "theme": "vector",
+      "status": "recovering",
+      "title": {
+        "en": "Yogyakarta: Wolbachia mosquitoes cut dengue by 77%",
+        "es": "Yogyakarta: mosquitos con Wolbachia redujeron el dengue 77%",
+        "pt": "Yogyakarta: mosquitos com Wolbachia reduziram a dengue em 77%"
+      },
+      "what_happened": {
+        "en": "Dengue is a constant problem in Yogyakarta. From 2017 to 2020 a trial released Aedes mosquitoes carrying Wolbachia bacteria in 12 of 24 areas of the city, chosen at random.",
+        "es": "El dengue es un problema constante en Yogyakarta. De 2017 a 2020 un ensayo liberó mosquitos Aedes con la bacteria Wolbachia en 12 de 24 zonas de la ciudad, elegidas al azar.",
+        "pt": "A dengue é um problema constante em Yogyakarta. De 2017 a 2020 um ensaio liberou mosquitos Aedes com a bactéria Wolbachia em 12 de 24 áreas da cidade, escolhidas por sorteio."
+      },
+      "what_changed": {
+        "en": "Treated areas had 77% fewer dengue cases and 86% fewer dengue hospitalisations than untreated areas. The method was then extended to the whole city.",
+        "es": "Las zonas tratadas tuvieron 77% menos casos de dengue y 86% menos hospitalizaciones por dengue que las no tratadas. Después el método se extendió a toda la ciudad.",
+        "pt": "As áreas tratadas tiveram 77% menos casos de dengue e 86% menos internações por dengue que as não tratadas. Depois o método foi estendido a toda a cidade."
+      },
+      "source": "https://worldmosquitoprogram.org/en/learn/scientific-publications/efficacy-wolbachia-infected-mosquito-deployments-control-dengue"
+    },
+    {
+      "id": "niteroi-wolbachia",
+      "place": "Niterói, Brazil",
+      "lat": -22.88,
+      "lon": -43.1,
+      "theme": "vector",
+      "status": "recovering",
+      "title": {
+        "en": "Niterói: protected during Brazil's record dengue year",
+        "es": "Niterói: protegida en el año récord de dengue en Brasil",
+        "pt": "Niterói: protegida no ano recorde de dengue no Brasil"
+      },
+      "what_happened": {
+        "en": "Brazil had a record dengue surge in 2024: 3,157 cases per 100,000 people nationwide and 1,884 in Rio de Janeiro state.",
+        "es": "Brasil tuvo un brote récord de dengue en 2024: 3.157 casos por cada 100.000 habitantes en el país y 1.884 en el estado de Río de Janeiro.",
+        "pt": "O Brasil teve uma epidemia recorde de dengue em 2024: 3.157 casos por 100 mil habitantes no país e 1.884 no estado do Rio de Janeiro."
+      },
+      "what_changed": {
+        "en": "Niterói, where Wolbachia mosquitoes were released across the city, recorded 374 per 100,000. Reported dengue there is 89% lower than in the ten years before the releases (2007-2016).",
+        "es": "Niterói, donde se liberaron mosquitos con Wolbachia en toda la ciudad, registró 374 por cada 100.000. El dengue notificado allí es 89% menor que en los diez años previos a las liberaciones (2007-2016).",
+        "pt": "Niterói, onde mosquitos com Wolbachia foram liberados em toda a cidade, registrou 374 por 100 mil. A dengue notificada ali é 89% menor que nos dez anos antes das liberações (2007-2016)."
+      },
+      "source": "https://www.news-medical.net/news/20251016/Bacteria-based-mosquito-program-shields-Brazilian-city-from-record-dengue-outbreak.aspx"
+    },
+    {
+      "id": "singapore-dengue",
+      "place": "Singapore",
+      "lat": 1.35,
+      "lon": 103.82,
+      "theme": "vector",
+      "status": "recovering",
+      "title": {
+        "en": "Singapore: suppressing the Aedes mosquito",
+        "es": "Singapur: suprimir al mosquito Aedes",
+        "pt": "Singapura: suprimindo o mosquito Aedes"
+      },
+      "what_happened": {
+        "en": "Singapore has dengue all year round, even with a long-standing programme based on removing breeding sites, home inspections and fines.",
+        "es": "Singapur tiene dengue todo el año, incluso con un programa de larga data basado en eliminar criaderos, inspeccionar viviendas y aplicar multas.",
+        "pt": "Singapura tem dengue o ano todo, mesmo com um programa antigo baseado em eliminar criadouros, inspecionar casas e aplicar multas."
+      },
+      "what_changed": {
+        "en": "Project Wolbachia releases male mosquitoes whose matings produce eggs that do not hatch. The environment agency reports over 70% lower dengue risk at release sites and 45% lower in adjacent areas.",
+        "es": "El Proyecto Wolbachia libera mosquitos machos cuyos apareamientos producen huevos que no eclosionan. La agencia ambiental reporta más de 70% menos riesgo de dengue en los sitios de liberación y 45% menos en zonas vecinas.",
+        "pt": "O Projeto Wolbachia libera mosquitos machos cujos cruzamentos geram ovos que não eclodem. A agência ambiental relata risco de dengue mais de 70% menor nos locais de liberação e 45% menor nas áreas vizinhas."
+      },
+      "source": "https://www.nea.gov.sg/corporate-functions/resources/research/wolbachia-aedes-mosquito-suppression-strategy"
+    },
+    {
+      "id": "bangladesh-cyclones",
+      "place": "Bhola, Bangladesh",
+      "lat": 22.69,
+      "lon": 90.65,
+      "theme": "flood",
+      "status": "recovering",
+      "title": {
+        "en": "Bangladesh: cyclone deaths cut about 100-fold",
+        "es": "Bangladesh: muertes por ciclones unas 100 veces menores",
+        "pt": "Bangladesh: mortes por ciclones cerca de 100 vezes menores"
+      },
+      "what_happened": {
+        "en": "The 1970 Bhola cyclone killed between 300,000 and 500,000 people. At the time the country had only 44 cyclone shelters.",
+        "es": "El ciclón Bhola de 1970 mató entre 300.000 y 500.000 personas. En ese momento el país tenía solo 44 refugios contra ciclones.",
+        "pt": "O ciclone Bhola de 1970 matou entre 300 mil e 500 mil pessoas. Na época o país tinha apenas 44 abrigos contra ciclones."
+      },
+      "what_changed": {
+        "en": "Bangladesh built thousands of shelters and a warning network of about 76,000 volunteers, half of them women. In Cyclone Amphan (2020) more than 2 million people were evacuated and 26 deaths were reported.",
+        "es": "Bangladesh construyó miles de refugios y una red de alerta con unos 76.000 voluntarios, la mitad mujeres. En el ciclón Amphan (2020) se evacuó a más de 2 millones de personas y se reportaron 26 muertes.",
+        "pt": "Bangladesh construiu milhares de abrigos e uma rede de alerta com cerca de 76 mil voluntários, metade mulheres. No ciclone Amphan (2020) mais de 2 milhões de pessoas foram evacuadas e 26 mortes foram registradas."
+      },
+      "source": "https://www.preventionweb.net/news/bangladeshs-50-years-journey-climate-resilience"
+    },
+    {
+      "id": "rio-grande-do-sul-2024",
+      "place": "Porto Alegre, Rio Grande do Sul, Brazil",
+      "lat": -30.03,
+      "lon": -51.23,
+      "theme": "flood",
+      "status": "warning",
+      "title": {
+        "en": "Rio Grande do Sul: after the flood, leptospirosis",
+        "es": "Rio Grande do Sul: después de la inundación, leptospirosis",
+        "pt": "Rio Grande do Sul: depois da enchente, a leptospirose"
+      },
+      "what_happened": {
+        "en": "The floods of May 2024 killed more than 170 people. By late June the state had 5,439 reported leptospirosis cases, 353 of them confirmed, and 20 confirmed deaths from the disease.",
+        "es": "Las inundaciones de mayo de 2024 mataron a más de 170 personas. A fines de junio el estado tenía 5.439 casos notificados de leptospirosis, 353 confirmados, y 20 muertes confirmadas por la enfermedad.",
+        "pt": "As enchentes de maio de 2024 mataram mais de 170 pessoas. No fim de junho o estado tinha 5.439 casos notificados de leptospirose, 353 confirmados, e 20 mortes confirmadas pela doença."
+      },
+      "what_changed": {
+        "en": "The lesson: the health emergency continues after the water goes down. Cities need a post-flood plan that warns people about contact with floodwater and mud and treats fever early.",
+        "es": "La lección: la emergencia de salud sigue después de que baja el agua. Las ciudades necesitan un plan posinundación que advierta sobre el contacto con agua y lodo de la inundación y trate la fiebre a tiempo.",
+        "pt": "A lição: a emergência de saúde continua depois que a água baixa. As cidades precisam de um plano pós-enchente que alerte sobre o contato com água e lama da enchente e trate a febre cedo."
+      },
+      "source": "https://agenciabrasil.ebc.com.br/saude/noticia/2024-06/rio-grande-do-sul-confirma-20a-morte-por-leptospirose-apos-enchentes"
+    },
+    {
+      "id": "paraguay-soy-drought",
+      "place": "Eastern Paraguay",
+      "lat": -25.5,
+      "lon": -55.0,
+      "theme": "farm",
+      "status": "warning",
+      "title": {
+        "en": "Paraguay: drought wiped out over half the soy harvest",
+        "es": "Paraguay: la sequía se llevó más de la mitad de la soja",
+        "pt": "Paraguai: a seca levou mais da metade da safra de soja"
+      },
+      "what_happened": {
+        "en": "Paraguay expected about 10 million tonnes of soy in 2021/22. Drought and record heat in December and January cut the harvest by 58%, to about 4 million tonnes, with the lowest average yield on record.",
+        "es": "Paraguay esperaba unos 10 millones de toneladas de soja en 2021/22. La sequía y el calor récord de diciembre y enero redujeron la cosecha 58%, a unos 4 millones de toneladas, con el rinde promedio más bajo de la historia.",
+        "pt": "O Paraguai esperava cerca de 10 milhões de toneladas de soja em 2021/22. A seca e o calor recorde de dezembro e janeiro reduziram a colheita em 58%, para cerca de 4 milhões de toneladas, com o menor rendimento médio da história."
+      },
+      "what_changed": {
+        "en": "The case shows how exposed rain-fed crops are to one hot, dry summer. Soil cover, varied sowing dates, tolerant varieties and insurance lower the risk but do not remove it.",
+        "es": "El caso muestra cuán expuestos están los cultivos de secano a un solo verano seco y caluroso. La cobertura del suelo, fechas de siembra variadas, variedades tolerantes y el seguro bajan el riesgo, pero no lo eliminan.",
+        "pt": "O caso mostra como as lavouras de sequeiro ficam expostas a um único verão quente e seco. Cobertura do solo, datas de plantio variadas, variedades tolerantes e seguro reduzem o risco, mas não o eliminam."
+      },
+      "source": "https://bichosdecampo.com/desastre-la-cosecha-paraguaya-de-soja-se-cayo-en-un-58-con-un-rinde-medio-que-es-el-mas-bajo-de-la-historia"
+    },
+    {
+      "id": "dry-corridor",
+      "place": "Dry Corridor, Central America",
+      "lat": 14.3,
+      "lon": -88.5,
+      "theme": "farm",
+      "status": "still_critical",
+      "title": {
+        "en": "Dry Corridor: failed rains, 2.2 million people lost crops",
+        "es": "Corredor Seco: lluvias fallidas, 2,2 millones sin cosecha",
+        "pt": "Corredor Seco: chuvas falharam, 2,2 milhões sem colheita"
+      },
+      "what_happened": {
+        "en": "In 2018 a late rainy season followed by excess rain hit Guatemala, El Salvador, Honduras and Nicaragua. About 2.2 million people lost crops, and subsistence farmers lost more than half of their maize and beans.",
+        "es": "En 2018 una temporada de lluvias tardía seguida de exceso de lluvia golpeó a Guatemala, El Salvador, Honduras y Nicaragua. Unos 2,2 millones de personas perdieron cultivos; los agricultores de subsistencia, más de la mitad del maíz y el frijol.",
+        "pt": "Em 2018 uma estação chuvosa atrasada seguida de excesso de chuva atingiu Guatemala, El Salvador, Honduras e Nicarágua. Cerca de 2,2 milhões de pessoas perderam lavouras, e agricultores de subsistência perderam mais da metade do milho e do feijão."
+      },
+      "what_changed": {
+        "en": "About 1.4 million people needed urgent food aid, and many families sold tools and animals to buy food. Still missing at scale: tolerant seed, water harvesting, insurance and seasonal forecasts that reach small farmers.",
+        "es": "Cerca de 1,4 millones de personas necesitaron ayuda alimentaria urgente y muchas familias vendieron herramientas y animales para comer. Aún falta a gran escala: semillas tolerantes, cosecha de agua, seguros y pronósticos para el pequeño agricultor.",
+        "pt": "Cerca de 1,4 milhão de pessoas precisaram de ajuda alimentar urgente, e muitas famílias venderam ferramentas e animais para comer. Ainda falta em escala: sementes tolerantes, captação de água, seguro e previsões para o pequeno agricultor."
+      },
+      "source": "https://wfp.org/news/erratic-weather-patterns-central-american-dry-corridor-leave-14-million-people-urgent-need"
+    },
+    {
+      "id": "niger-regreening",
+      "place": "Maradi, Niger",
+      "lat": 13.5,
+      "lon": 7.1,
+      "theme": "farm",
+      "status": "recovering",
+      "title": {
+        "en": "Niger: farmers regreened 5 million hectares",
+        "es": "Níger: los agricultores reverdecieron 5 millones de hectáreas",
+        "pt": "Níger: agricultores reverdeceram 5 milhões de hectares"
+      },
+      "what_happened": {
+        "en": "Farmland in southern Niger was degraded and had lost most of its trees after decades of drought and clearing.",
+        "es": "Las tierras agrícolas del sur de Níger estaban degradadas y habían perdido la mayoría de sus árboles tras décadas de sequía y desmonte.",
+        "pt": "As terras agrícolas do sul do Níger estavam degradadas e tinham perdido a maior parte das árvores depois de décadas de seca e desmatamento."
+      },
+      "what_changed": {
+        "en": "Farmers began protecting the trees that sprout naturally in their fields. About 5 million hectares were improved, and that land now produces more than 500,000 extra tonnes of cereals per year.",
+        "es": "Los agricultores empezaron a proteger los árboles que rebrotan naturalmente en sus parcelas. Se mejoraron unos 5 millones de hectáreas, que hoy producen más de 500.000 toneladas adicionales de cereales por año.",
+        "pt": "Os agricultores passaram a proteger as árvores que rebrotam naturalmente nas lavouras. Cerca de 5 milhões de hectares foram recuperados e hoje produzem mais de 500 mil toneladas extras de cereais por ano."
+      },
+      "source": "https://www.usgs.gov/centers/eros/science/landscape-restoration-and-re-greening"
+    }
+  ],
+  "actions": [
+    {
+      "audience": "city",
+      "signal": "heat",
+      "action": {
+        "en": "Adopt a heat action plan with forecast-based alerts, public advice, prepared health services and a named person in charge.",
+        "es": "Adopte un plan de acción contra el calor con alertas basadas en el pronóstico, consejos a la población, servicios de salud preparados y una persona responsable.",
+        "pt": "Adote um plano de ação contra o calor com alertas baseados na previsão, orientação à população, serviços de saúde preparados e uma pessoa responsável."
+      },
+      "evidence": {
+        "en": "Ahmedabad's plan was linked to about 1,190 deaths avoided per year. In France, the 2006 heat wave caused about 4,400 fewer deaths than models predicted after a warning system was created.",
+        "es": "El plan de Ahmedabad se asoció con unas 1.190 muertes evitadas por año. En Francia, la ola de calor de 2006 causó unas 4.400 muertes menos de lo previsto por los modelos tras crearse un sistema de alerta.",
+        "pt": "O plano de Ahmedabad foi associado a cerca de 1.190 mortes evitadas por ano. Na França, a onda de calor de 2006 causou umas 4.400 mortes a menos que o previsto pelos modelos depois da criação de um sistema de alerta."
+      },
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6236972"
+    },
+    {
+      "audience": "city",
+      "signal": "heat",
+      "action": {
+        "en": "Raise tree cover towards 30% in every neighbourhood, starting with the hottest and poorest areas.",
+        "es": "Aumente la cobertura de árboles hacia 30% en cada barrio, empezando por las zonas más calurosas y más pobres.",
+        "pt": "Aumente a cobertura de árvores rumo a 30% em cada bairro, começando pelas áreas mais quentes e mais pobres."
+      },
+      "evidence": {
+        "en": "A study of 93 European cities estimated that 30% tree cover would cool them by 0.4 °C on average and could have prevented 2,644 deaths in one summer.",
+        "es": "Un estudio de 93 ciudades europeas estimó que 30% de cobertura arbórea las enfriaría 0,4 °C en promedio y habría podido evitar 2.644 muertes en un verano.",
+        "pt": "Um estudo com 93 cidades europeias estimou que 30% de cobertura arbórea as resfriaria em 0,4 °C em média e poderia ter evitado 2.644 mortes em um verão."
+      },
+      "source": "https://www.lshtm.ac.uk/newsevents/news/2023/planting-more-trees-could-decrease-deaths-higher-summer-temperatures-cities-3"
+    },
+    {
+      "audience": "city",
+      "signal": "heat",
+      "action": {
+        "en": "Coat the roofs of low-income homes and public buildings with reflective paint or insulation.",
+        "es": "Cubra los techos de viviendas de bajos ingresos y edificios públicos con pintura reflectante o aislamiento.",
+        "pt": "Cubra os telhados de casas de baixa renda e prédios públicos com tinta refletiva ou isolamento."
+      },
+      "evidence": {
+        "en": "A field study in low-income homes in Ahmedabad found that reflective white paint and insulated roofs lowered indoor temperatures compared with untreated roofs.",
+        "es": "Un estudio de campo en viviendas de bajos ingresos de Ahmedabad encontró que la pintura blanca reflectante y los techos aislados bajaron la temperatura interior frente a techos sin tratar.",
+        "pt": "Um estudo de campo em casas de baixa renda de Ahmedabad mostrou que tinta branca refletiva e telhados isolados reduziram a temperatura interna em comparação com telhados sem tratamento."
+      },
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7227734"
+    },
+    {
+      "audience": "city",
+      "signal": "heat",
+      "action": {
+        "en": "Prepare clinics and hospitals to keep working and to serve as cool refuges in heat waves, with backup power, safe water and shaded waiting areas.",
+        "es": "Prepare clínicas y hospitales para seguir funcionando y servir de refugio fresco en olas de calor, con energía de respaldo, agua segura y salas de espera con sombra.",
+        "pt": "Prepare postos de saúde e hospitais para continuar funcionando e servir de refúgio fresco nas ondas de calor, com energia de reserva, água segura e áreas de espera sombreadas."
+      },
+      "evidence": {
+        "en": "Reference framework: WHO guidance on climate-resilient health care facilities, which covers the health workforce, water and sanitation, energy, and infrastructure.",
+        "es": "Marco de referencia: la guía de la OMS sobre establecimientos de salud resilientes al clima, que cubre personal de salud, agua y saneamiento, energía e infraestructura.",
+        "pt": "Marco de referência: a orientação da OMS sobre unidades de saúde resilientes ao clima, que cobre profissionais de saúde, água e saneamento, energia e infraestrutura."
+      },
+      "source": "https://www.who.int/publications/i/item/B09119"
+    },
+    {
+      "audience": "city",
+      "signal": "vector",
+      "action": {
+        "en": "Run regular clean-ups to remove tyres, containers and standing water, and keep rubbish collection working through the rainy season.",
+        "es": "Haga limpiezas periódicas para retirar llantas, recipientes y agua estancada, y mantenga la recolección de basura durante la temporada de lluvias.",
+        "pt": "Faça mutirões regulares para retirar pneus, recipientes e água parada, e mantenha a coleta de lixo funcionando na estação chuvosa."
+      },
+      "evidence": {
+        "en": "Reference framework: the WHO Global Vector Control Response 2017-2030 lists removal of tyres and containers through waste management and community clean-ups, and drainage of stagnant water, as effective measures.",
+        "es": "Marco de referencia: la Respuesta Mundial para el Control de Vectores 2017-2030 de la OMS señala como medidas eficaces retirar llantas y recipientes mediante gestión de residuos y limpiezas comunitarias, y drenar el agua estancada.",
+        "pt": "Marco de referência: a Resposta Global para o Controle de Vetores 2017-2030 da OMS aponta como medidas eficazes retirar pneus e recipientes por meio da gestão de resíduos e de mutirões, e drenar a água parada."
+      },
+      "source": "https://www.who.int/news-room/questions-and-answers/item/neglected-tropical-diseases-global-vector-control-response-2017-2030"
+    },
+    {
+      "audience": "city",
+      "signal": "vector",
+      "action": {
+        "en": "Where dengue returns every year, add Wolbachia mosquito releases to routine control and measure the result.",
+        "es": "Donde el dengue vuelve cada año, sume la liberación de mosquitos con Wolbachia al control de rutina y mida el resultado.",
+        "pt": "Onde a dengue volta todo ano, some a liberação de mosquitos com Wolbachia ao controle de rotina e meça o resultado."
+      },
+      "evidence": {
+        "en": "In a randomized trial in Yogyakarta, areas with Wolbachia mosquitoes had 77% fewer dengue cases and 86% fewer dengue hospitalisations.",
+        "es": "En un ensayo aleatorizado en Yogyakarta, las zonas con mosquitos con Wolbachia tuvieron 77% menos casos de dengue y 86% menos hospitalizaciones por dengue.",
+        "pt": "Em um ensaio randomizado em Yogyakarta, as áreas com mosquitos com Wolbachia tiveram 77% menos casos de dengue e 86% menos internações por dengue."
+      },
+      "source": "https://worldmosquitoprogram.org/en/learn/scientific-publications/efficacy-wolbachia-infected-mosquito-deployments-control-dengue"
+    },
+    {
+      "audience": "city",
+      "signal": "rain_extreme",
+      "action": {
+        "en": "Map where cloudburst water collects and build parks, squares and streets that can store it and channel it away from homes.",
+        "es": "Identifique dónde se acumula el agua de los aguaceros y construya parques, plazas y calles que puedan almacenarla y alejarla de las viviendas.",
+        "pt": "Mapeie onde a água das chuvas intensas se acumula e construa parques, praças e ruas capazes de armazená-la e afastá-la das casas."
+      },
+      "evidence": {
+        "en": "After a 2011 cloudburst caused DKK 5 to 6 billion in damage, Copenhagen adopted a plan of 300 such projects over 20 years, combining green areas, water-carrying streets and tunnels.",
+        "es": "Después de que un aguacero en 2011 causó daños por 5.000 a 6.000 millones de coronas danesas, Copenhague adoptó un plan de 300 proyectos de este tipo en 20 años, que combina áreas verdes, calles que conducen agua y túneles.",
+        "pt": "Depois que uma chuva extrema em 2011 causou de 5 a 6 bilhões de coroas dinamarquesas em danos, Copenhague adotou um plano de 300 projetos desse tipo em 20 anos, combinando áreas verdes, ruas que conduzem água e túneis."
+      },
+      "source": "https://www.c40.org/case-studies/c40-good-practice-guides-copenhagen-cloudburst-management-plan"
+    },
+    {
+      "audience": "city",
+      "signal": "flood",
+      "action": {
+        "en": "Combine early warnings with safe shelters and trained neighbourhood volunteers who carry the alert door to door.",
+        "es": "Combine las alertas tempranas con refugios seguros y voluntarios de barrio capacitados que lleven el aviso casa por casa.",
+        "pt": "Combine os alertas antecipados com abrigos seguros e voluntários de bairro treinados que levem o aviso de porta em porta."
+      },
+      "evidence": {
+        "en": "Bangladesh went from 300,000 to 500,000 deaths in the 1970 cyclone to 26 reported deaths in Cyclone Amphan (2020), with about 76,000 volunteers and more than 2 million people evacuated.",
+        "es": "Bangladesh pasó de 300.000 a 500.000 muertes en el ciclón de 1970 a 26 muertes reportadas en el ciclón Amphan (2020), con unos 76.000 voluntarios y más de 2 millones de personas evacuadas.",
+        "pt": "Bangladesh passou de 300 mil a 500 mil mortes no ciclone de 1970 para 26 mortes registradas no ciclone Amphan (2020), com cerca de 76 mil voluntários e mais de 2 milhões de pessoas evacuadas."
+      },
+      "source": "https://www.preventionweb.net/news/bangladeshs-50-years-journey-climate-resilience"
+    },
+    {
+      "audience": "city",
+      "signal": "general",
+      "action": {
+        "en": "Extend sewage collection and treatment to every neighbourhood before spending on river beautification.",
+        "es": "Extienda la recolección y el tratamiento de aguas residuales a todos los barrios antes de gastar en embellecer los ríos.",
+        "pt": "Leve a coleta e o tratamento de esgoto a todos os bairros antes de gastar com o embelezamento dos rios."
+      },
+      "evidence": {
+        "en": "A WHO study calculated that every US$1 invested in sanitation returns US$5.50 in lower health costs, higher productivity and fewer early deaths.",
+        "es": "Un estudio de la OMS calculó que cada dólar invertido en saneamiento devuelve 5,50 dólares en menores costos de salud, mayor productividad y menos muertes prematuras.",
+        "pt": "Um estudo da OMS calculou que cada dólar investido em saneamento retorna 5,50 dólares em menos gastos com saúde, mais produtividade e menos mortes prematuras."
+      },
+      "source": "https://www.who.int/data/gho/data/themes/topics/topic-details/GHO/water-sanitation-and-hygiene-exposure"
+    },
+    {
+      "audience": "city",
+      "signal": "air",
+      "action": {
+        "en": "Adopt a multi-year clean air plan with public targets for fine particles (PM2.5) and report progress every year.",
+        "es": "Adopte un plan plurianual de aire limpio con metas públicas para partículas finas (PM2.5) e informe el avance cada año.",
+        "pt": "Adote um plano plurianual de ar limpo com metas públicas para partículas finas (PM2.5) e divulgue o progresso todo ano."
+      },
+      "evidence": {
+        "en": "Beijing's action plans cut annual PM2.5 from 89.5 µg/m³ in 2013 to 30 in 2022, a 66.5% drop.",
+        "es": "Los planes de acción de Pekín bajaron el PM2.5 anual de 89,5 µg/m³ en 2013 a 30 en 2022, una caída de 66,5%.",
+        "pt": "Os planos de ação de Pequim reduziram o PM2.5 anual de 89,5 µg/m³ em 2013 para 30 em 2022, queda de 66,5%."
+      },
+      "source": "https://events.development.asia/system/files/materials/2023/11/202311-measures-and-achievements-air-pollution-control-beijing.pdf"
+    },
+    {
+      "audience": "city",
+      "signal": "air",
+      "action": {
+        "en": "Create a low-emission zone that charges or restricts the most polluting vehicles, and monitor air quality at the roadside.",
+        "es": "Cree una zona de bajas emisiones que cobre o restrinja a los vehículos más contaminantes y mida la calidad del aire junto a las calles.",
+        "pt": "Crie uma zona de baixas emissões que cobre ou restrinja os veículos mais poluentes e monitore a qualidade do ar junto às ruas."
+      },
+      "evidence": {
+        "en": "London's city government estimates that roadside NO2 is 27% lower across the city, and 54% lower in the centre, than it would be without its Ultra Low Emission Zone.",
+        "es": "El gobierno de Londres estima que el NO2 junto a las calles es 27% menor en toda la ciudad, y 54% menor en el centro, de lo que sería sin su Zona de Emisiones Ultra Bajas.",
+        "pt": "A prefeitura de Londres estima que o NO2 junto às ruas é 27% menor em toda a cidade, e 54% menor no centro, do que seria sem a Zona de Emissões Ultrabaixas."
+      },
+      "source": "https://www.london.gov.uk/media-centre/mayors-press-releases/new-evidence-reveals-all-londoners-are-now-breathing-cleaner-air-following-first-year-expanded-ultra"
+    },
+    {
+      "audience": "city",
+      "signal": "general",
+      "action": {
+        "en": "Publish air quality, heat and disease data openly and in near real time so residents, schools and clinics can act on it.",
+        "es": "Publique datos de calidad del aire, calor y enfermedades de forma abierta y casi en tiempo real para que vecinos, escuelas y centros de salud puedan actuar.",
+        "pt": "Publique dados de qualidade do ar, calor e doenças de forma aberta e quase em tempo real para que moradores, escolas e unidades de saúde possam agir."
+      },
+      "evidence": {
+        "en": "A 2022 global review by OpenAQ found that only about half of the world's governments share air quality data with the public.",
+        "es": "Una revisión mundial de OpenAQ en 2022 encontró que solo cerca de la mitad de los gobiernos del mundo comparte datos de calidad del aire con el público.",
+        "pt": "Uma revisão global da OpenAQ em 2022 mostrou que só cerca de metade dos governos do mundo compartilha dados de qualidade do ar com o público."
+      },
+      "source": "https://www.cleanairfund.org/news-item/countries-failing-data-on-air-pollution/"
+    },
+    {
+      "audience": "industry",
+      "signal": "air",
+      "action": {
+        "en": "Install continuous emissions monitors on stacks and send the data to the regulator in real time.",
+        "es": "Instale monitores continuos de emisiones en las chimeneas y envíe los datos al regulador en tiempo real.",
+        "pt": "Instale monitores contínuos de emissões nas chaminés e envie os dados ao órgão ambiental em tempo real."
+      },
+      "evidence": {
+        "en": "In Surat, India, an emissions market built on continuous monitoring cut plants' particle emissions by 20 to 30% in a randomized trial.",
+        "es": "En Surat, India, un mercado de emisiones basado en monitoreo continuo redujo entre 20 y 30% las emisiones de partículas de las plantas en un ensayo aleatorizado.",
+        "pt": "Em Surat, na Índia, um mercado de emissões baseado em monitoramento contínuo reduziu de 20 a 30% as emissões de partículas das fábricas em um ensaio randomizado."
+      },
+      "source": "https://egc.yale.edu/news/250723/emissions-markets-reduce-air-pollution"
+    },
+    {
+      "audience": "industry",
+      "signal": "air",
+      "action": {
+        "en": "List every emission source in the plant and fit controls on each one, with deadlines agreed with the regulator.",
+        "es": "Haga un inventario de cada fuente de emisión de la planta e instale controles en cada una, con plazos acordados con el regulador.",
+        "pt": "Faça um inventário de cada fonte de emissão da fábrica e instale controles em cada uma, com prazos combinados com o órgão ambiental."
+      },
+      "evidence": {
+        "en": "The US EPA estimated that the 1990 Clean Air Act rules returned benefits more than 30 times their cost and would prevent over 230,000 early deaths in 2020 (modelled).",
+        "es": "La EPA de Estados Unidos estimó que las normas de la Ley de Aire Limpio de 1990 dieron beneficios más de 30 veces mayores que su costo y evitarían más de 230.000 muertes prematuras en 2020 (modelado).",
+        "pt": "A EPA dos Estados Unidos estimou que as regras da Lei do Ar Limpo de 1990 deram benefícios mais de 30 vezes maiores que o custo e evitariam mais de 230 mil mortes prematuras em 2020 (modelagem)."
+      },
+      "source": "https://www.epa.gov/clean-air-act-overview/benefits-and-costs-clean-air-act-1990-2020-second-prospective-study"
+    },
+    {
+      "audience": "industry",
+      "signal": "general",
+      "action": {
+        "en": "Treat effluent before discharge and build containment so that spills and firefighting water cannot reach rivers.",
+        "es": "Trate los efluentes antes de verterlos y construya contención para que los derrames y el agua de extinción de incendios no lleguen a los ríos.",
+        "pt": "Trate os efluentes antes do lançamento e construa contenção para que vazamentos e água de combate a incêndio não cheguem aos rios."
+      },
+      "evidence": {
+        "en": "After the 1986 Sandoz fire washed up to 30 tonnes of pesticides into the Rhine, the river countries agreed to halve discharges of 40 dangerous substances within ten years.",
+        "es": "Después de que el incendio de Sandoz en 1986 arrastró hasta 30 toneladas de plaguicidas al Rin, los países del río acordaron reducir a la mitad las descargas de 40 sustancias peligrosas en diez años.",
+        "pt": "Depois que o incêndio da Sandoz em 1986 levou até 30 toneladas de agrotóxicos para o Reno, os países do rio combinaram reduzir pela metade os lançamentos de 40 substâncias perigosas em dez anos."
+      },
+      "source": "https://www.iksr.org/en/icpr/about-us/history/the-turning-point-the-sandoz-accident"
+    },
+    {
+      "audience": "industry",
+      "signal": "general",
+      "action": {
+        "en": "Phase mercury out of processes and products and never discharge it to water.",
+        "es": "Elimine gradualmente el mercurio de procesos y productos y nunca lo vierta al agua.",
+        "pt": "Elimine gradualmente o mercúrio de processos e produtos e nunca o lance na água."
+      },
+      "evidence": {
+        "en": "Reference framework: the Minamata Convention on Mercury, in force since 16 August 2017, bans new mercury mines, phases out existing ones and requires cuts in mercury use and emissions.",
+        "es": "Marco de referencia: el Convenio de Minamata sobre el Mercurio, vigente desde el 16 de agosto de 2017, prohíbe nuevas minas de mercurio, elimina gradualmente las existentes y exige reducir su uso y sus emisiones.",
+        "pt": "Marco de referência: a Convenção de Minamata sobre Mercúrio, em vigor desde 16 de agosto de 2017, proíbe novas minas de mercúrio, elimina gradualmente as existentes e exige reduzir seu uso e suas emissões."
+      },
+      "source": "https://news.un.org/en/story/2017/08/563382"
+    },
+    {
+      "audience": "industry",
+      "signal": "heat",
+      "action": {
+        "en": "Give workers in hot jobs scheduled rest in the shade, cool drinking water and electrolytes, and shorten shifts on the hottest days.",
+        "es": "Dé a quienes trabajan con calor descansos programados a la sombra, agua fresca y electrolitos, y acorte los turnos en los días más calurosos.",
+        "pt": "Dê a quem trabalha no calor pausas programadas à sombra, água fresca e eletrólitos, e encurte os turnos nos dias mais quentes."
+      },
+      "evidence": {
+        "en": "At a sugar mill in Nicaragua (Adelante Initiative), the share of cane cutters with kidney injury fell after an enhanced rest schedule with better access to water and shade.",
+        "es": "En un ingenio azucarero de Nicaragua (Iniciativa Adelante), la proporción de cortadores de caña con lesión renal bajó tras un esquema reforzado de descansos con mejor acceso a agua y sombra.",
+        "pt": "Em uma usina de açúcar na Nicarágua (Iniciativa Adelante), a proporção de cortadores de cana com lesão renal caiu depois de um esquema reforçado de pausas com melhor acesso a água e sombra."
+      },
+      "source": "https://oem.bmj.com/content/early/2020/05/12/oemed-2020-106406"
+    },
+    {
+      "audience": "industry",
+      "signal": "heat",
+      "action": {
+        "en": "Write a workplace heat plan with temperature thresholds that trigger changes in schedules, workload and breaks.",
+        "es": "Elabore un plan de calor para el lugar de trabajo con umbrales de temperatura que activen cambios de horarios, carga de trabajo y pausas.",
+        "pt": "Elabore um plano de calor para o local de trabalho com limites de temperatura que acionem mudanças de horário, carga de trabalho e pausas."
+      },
+      "evidence": {
+        "en": "The ILO estimates that 2.41 billion workers are exposed to excessive heat each year, with 22.85 million injuries and 18,970 deaths.",
+        "es": "La OIT estima que 2.410 millones de trabajadores están expuestos a calor excesivo cada año, con 22,85 millones de lesiones y 18.970 muertes.",
+        "pt": "A OIT estima que 2,41 bilhões de trabalhadores são expostos a calor excessivo a cada ano, com 22,85 milhões de lesões e 18.970 mortes."
+      },
+      "source": "https://www.ilo.org/resource/news/more-workers-ever-are-losing-fight-against-heat-stress"
+    },
+    {
+      "audience": "industry",
+      "signal": "flood",
+      "action": {
+        "en": "Prepare a business continuity plan for floods and storms, test it once a year and join local disaster risk reduction commitments.",
+        "es": "Prepare un plan de continuidad del negocio para inundaciones y tormentas, pruébelo una vez al año y súmese a los compromisos locales de reducción del riesgo de desastres.",
+        "pt": "Prepare um plano de continuidade do negócio para enchentes e tempestades, teste-o uma vez por ano e participe dos compromissos locais de redução do risco de desastres."
+      },
+      "evidence": {
+        "en": "Reference framework: ARISE, the UN private sector alliance for disaster resilience, whose members commit to the Sendai Framework. It reported more than 400 member companies in 2022.",
+        "es": "Marco de referencia: ARISE, la alianza del sector privado de la ONU para la resiliencia ante desastres, cuyos miembros se comprometen con el Marco de Sendai. Reportó más de 400 empresas miembro en 2022.",
+        "pt": "Marco de referência: ARISE, a aliança do setor privado da ONU para a resiliência a desastres, cujos membros se comprometem com o Marco de Sendai. Relatou mais de 400 empresas-membro em 2022."
+      },
+      "source": "https://www.undrr.org/organization/undrr-private-sector-alliance-disaster-resilient-societies-arise"
+    },
+    {
+      "audience": "industry",
+      "signal": "drying",
+      "action": {
+        "en": "Measure the site's water use, set reduction targets and plan them together with the other users of the same river basin.",
+        "es": "Mida el uso de agua de la planta, fije metas de reducción y planifíquelas junto con los demás usuarios de la misma cuenca.",
+        "pt": "Meça o uso de água da unidade, defina metas de redução e planeje-as junto com os outros usuários da mesma bacia hidrográfica."
+      },
+      "evidence": {
+        "en": "Reference framework: the International Water Stewardship Standard (AWS), which asks sites to improve water balance, water quality, governance, water-related ecosystems, and access to safe water and sanitation.",
+        "es": "Marco de referencia: el Estándar Internacional de Gestión Responsable del Agua (AWS), que pide mejorar el balance hídrico, la calidad del agua, la gobernanza, los ecosistemas ligados al agua y el acceso a agua segura y saneamiento.",
+        "pt": "Marco de referência: o Padrão Internacional de Gestão Responsável da Água (AWS), que pede melhorar o balanço hídrico, a qualidade da água, a governança, os ecossistemas ligados à água e o acesso a água segura e saneamento."
+      },
+      "source": "https://a4ws.org/about/"
+    },
+    {
+      "audience": "farm",
+      "signal": "heat",
+      "action": {
+        "en": "Plan for lower yields in hotter seasons: spread sowing dates and mix crops and varieties with different heat tolerance.",
+        "es": "Planifique rendimientos menores en temporadas más calurosas: escalone las fechas de siembra y combine cultivos y variedades con distinta tolerancia al calor.",
+        "pt": "Planeje rendimentos menores em safras mais quentes: escalone as datas de plantio e combine culturas e variedades com diferentes tolerâncias ao calor."
+      },
+      "evidence": {
+        "en": "Without adaptation, each 1 °C of global warming cuts average global yields of maize by 7.4%, wheat by 6.0%, rice by 3.2% and soybean by 3.1% (Zhao et al., PNAS 2017).",
+        "es": "Sin adaptación, cada 1 °C de calentamiento global reduce el rendimiento mundial promedio del maíz 7,4%, del trigo 6,0%, del arroz 3,2% y de la soja 3,1% (Zhao et al., PNAS 2017).",
+        "pt": "Sem adaptação, cada 1 °C de aquecimento global reduz o rendimento médio mundial do milho em 7,4%, do trigo em 6,0%, do arroz em 3,2% e da soja em 3,1% (Zhao et al., PNAS 2017)."
+      },
+      "source": "https://www.giss.nasa.gov/pubs/abs/zh09200d.html"
+    },
+    {
+      "audience": "farm",
+      "signal": "drying",
+      "action": {
+        "en": "Rotate more crops instead of repeating the same one or two every year.",
+        "es": "Rote más cultivos en lugar de repetir los mismos uno o dos cada año.",
+        "pt": "Faça rotação com mais culturas em vez de repetir as mesmas uma ou duas todo ano."
+      },
+      "evidence": {
+        "en": "Long-term trials across North America found that more diverse rotations raised maize yields by 28% on average and reduced yield losses in drought years by 14 to 90%.",
+        "es": "Ensayos de largo plazo en América del Norte encontraron que las rotaciones más diversas aumentaron el rendimiento del maíz 28% en promedio y redujeron las pérdidas en años de sequía entre 14 y 90%.",
+        "pt": "Ensaios de longo prazo na América do Norte mostraram que rotações mais diversas aumentaram o rendimento do milho em 28% em média e reduziram as perdas em anos de seca em 14 a 90%."
+      },
+      "source": "https://www.unh.edu/unhtoday/2020/03/rotating-crops-over-time-boosts-corn-yields-even-droughts"
+    },
+    {
+      "audience": "farm",
+      "signal": "drying",
+      "action": {
+        "en": "Sow cover crops between cash crops to shade the soil and hold moisture.",
+        "es": "Siembre cultivos de cobertura entre los cultivos comerciales para dar sombra al suelo y conservar la humedad.",
+        "pt": "Plante culturas de cobertura entre as safras comerciais para sombrear o solo e segurar a umidade."
+      },
+      "evidence": {
+        "en": "In a survey of more than 750 US farmers after the 2012 drought, maize after cover crops yielded 9.6% more and soybean 11.6% more than fields without them (farmer-reported).",
+        "es": "En una encuesta a más de 750 agricultores de Estados Unidos tras la sequía de 2012, el maíz después de cultivos de cobertura rindió 9,6% más y la soja 11,6% más que en lotes sin ellos (datos reportados por agricultores).",
+        "pt": "Em uma pesquisa com mais de 750 agricultores dos Estados Unidos depois da seca de 2012, o milho após culturas de cobertura rendeu 9,6% a mais e a soja 11,6% a mais do que em áreas sem elas (dados relatados pelos agricultores)."
+      },
+      "source": "https://www.sare.org/wp-content/uploads/SARE-CTIC-CC-Survey-Report-V2.8.pdf"
+    },
+    {
+      "audience": "farm",
+      "signal": "drying",
+      "action": {
+        "en": "Keep crop residue on the surface and avoid ploughing (no-till) so that rain soaks in and the soil loses less water.",
+        "es": "Deje el rastrojo sobre la superficie y evite arar (siembra directa) para que la lluvia se infiltre y el suelo pierda menos agua.",
+        "pt": "Mantenha a palhada na superfície e evite arar (plantio direto) para que a chuva infiltre e o solo perca menos água."
+      },
+      "evidence": {
+        "en": "A CGIAR and FAO practice brief reports that conservation agriculture increases water infiltration and reduces runoff and evaporation, which buffers crops against drought. Gains can take years on degraded soils.",
+        "es": "Una guía práctica de CGIAR y FAO indica que la agricultura de conservación aumenta la infiltración de agua y reduce la escorrentía y la evaporación, lo que protege a los cultivos de la sequía. En suelos degradados las mejoras pueden tardar años.",
+        "pt": "Um guia prático do CGIAR e da FAO indica que a agricultura conservacionista aumenta a infiltração de água e reduz o escoamento e a evaporação, o que protege as lavouras na seca. Em solos degradados os ganhos podem levar anos."
+      },
+      "source": "https://assets.publishing.service.gov.uk/media/57a089c4e5274a27b2000261/Practice_brief_Conservation_Agriculture.pdf"
+    },
+    {
+      "audience": "farm",
+      "signal": "drying",
+      "action": {
+        "en": "Plant drought-tolerant varieties recommended by your national research or extension service.",
+        "es": "Siembre variedades tolerantes a la sequía recomendadas por el servicio nacional de investigación o extensión.",
+        "pt": "Plante variedades tolerantes à seca recomendadas pelo serviço nacional de pesquisa ou extensão rural."
+      },
+      "evidence": {
+        "en": "In Zimbabwe, drought-tolerant maize from CIMMYT yielded up to 40% more than local commercial varieties under severe drought.",
+        "es": "En Zimbabue, el maíz tolerante a la sequía del CIMMYT rindió hasta 40% más que las variedades comerciales locales en sequía severa.",
+        "pt": "No Zimbábue, o milho tolerante à seca do CIMMYT rendeu até 40% a mais que as variedades comerciais locais em seca severa."
+      },
+      "source": "https://archive.maize.org/drought-tolerant-maize-provides-extra-9-months-of-food-for-farming-families"
+    },
+    {
+      "audience": "farm",
+      "signal": "drying",
+      "action": {
+        "en": "Protect and prune the trees that sprout naturally in fields instead of clearing them.",
+        "es": "Proteja y pode los árboles que rebrotan naturalmente en las parcelas en lugar de eliminarlos.",
+        "pt": "Proteja e pode as árvores que rebrotam naturalmente nas lavouras em vez de eliminá-las."
+      },
+      "evidence": {
+        "en": "Farmers in Niger improved about 5 million hectares this way, and that land now produces more than 500,000 extra tonnes of cereals per year.",
+        "es": "Agricultores de Níger mejoraron así unos 5 millones de hectáreas, que hoy producen más de 500.000 toneladas adicionales de cereales por año.",
+        "pt": "Agricultores do Níger recuperaram assim cerca de 5 milhões de hectares, que hoje produzem mais de 500 mil toneladas extras de cereais por ano."
+      },
+      "source": "https://www.usgs.gov/centers/eros/science/landscape-restoration-and-re-greening"
+    },
+    {
+      "audience": "farm",
+      "signal": "drying",
+      "action": {
+        "en": "Take out index-based drought insurance where it is offered, so a failed season does not force you to sell animals or equipment.",
+        "es": "Contrate un seguro de sequía basado en índices donde esté disponible, para que una mala temporada no lo obligue a vender animales o equipos.",
+        "pt": "Contrate seguro de seca baseado em índices onde houver oferta, para que uma safra perdida não obrigue a vender animais ou equipamentos."
+      },
+      "evidence": {
+        "en": "In a randomized study in northern Kenya after the 2011 drought, insured herding households were much less likely to plan to sell assets or cut meals to cope.",
+        "es": "En un estudio aleatorizado en el norte de Kenia tras la sequía de 2011, los hogares ganaderos asegurados tuvieron mucha menos probabilidad de planear vender bienes o reducir comidas para salir adelante.",
+        "pt": "Em um estudo randomizado no norte do Quênia depois da seca de 2011, as famílias de criadores com seguro tiveram muito menos probabilidade de planejar vender bens ou reduzir refeições para enfrentar a crise."
+      },
+      "source": "https://www.nber.org/system/files/working_papers/w19702/revisions/w19702.rev1.pdf"
+    },
+    {
+      "audience": "farm",
+      "signal": "drying",
+      "action": {
+        "en": "Switch to drip or other efficient irrigation and agree with neighbours on limits to total pumping.",
+        "es": "Cambie a riego por goteo u otro riego eficiente y acuerde con los vecinos límites al bombeo total.",
+        "pt": "Mude para gotejamento ou outra irrigação eficiente e combine com os vizinhos limites para o bombeamento total."
+      },
+      "evidence": {
+        "en": "A World Bank randomized trial in South India found that drip irrigation raised farm revenue but did not reduce groundwater pumping by itself.",
+        "es": "Un ensayo aleatorizado del Banco Mundial en el sur de India encontró que el riego por goteo aumentó los ingresos agrícolas, pero por sí solo no redujo el bombeo de agua subterránea.",
+        "pt": "Um ensaio randomizado do Banco Mundial no sul da Índia mostrou que o gotejamento aumentou a receita agrícola, mas sozinho não reduziu o bombeamento de água subterrânea."
+      },
+      "source": "https://documents.worldbank.org/en/publication/documents-reports/documentdetail/335251621613682951"
+    },
+    {
+      "audience": "farm",
+      "signal": "heat",
+      "action": {
+        "en": "Give field workers shade, cool water and a rest break every hour, and move heavy work to the early morning.",
+        "es": "Dé a los trabajadores del campo sombra, agua fresca y un descanso cada hora, y pase el trabajo pesado a las primeras horas de la mañana.",
+        "pt": "Dê aos trabalhadores do campo sombra, água fresca e uma pausa a cada hora, e passe o trabalho pesado para o início da manhã."
+      },
+      "evidence": {
+        "en": "A Nicaraguan sugar mill studied by researchers set a six-hour maximum workday for cane cutters, with mandatory hourly breaks in the shade, cool water and electrolyte drinks.",
+        "es": "Un ingenio azucarero de Nicaragua estudiado por investigadores fijó una jornada máxima de seis horas para los cortadores de caña, con pausas obligatorias cada hora a la sombra, agua fresca y bebidas con electrolitos.",
+        "pt": "Uma usina de açúcar na Nicarágua estudada por pesquisadores fixou jornada máxima de seis horas para os cortadores de cana, com pausas obrigatórias a cada hora à sombra, água fresca e bebidas com eletrólitos."
+      },
+      "source": "https://link.springer.com/article/10.1007/s00421-024-05610-3"
+    },
+    {
+      "audience": "farm",
+      "signal": "heat",
+      "action": {
+        "en": "Spray pesticides in the cooler hours of the day and never take off protective equipment because of the heat.",
+        "es": "Aplique plaguicidas en las horas más frescas del día y nunca se quite el equipo de protección por el calor.",
+        "pt": "Aplique agrotóxicos nas horas mais frescas do dia e nunca tire o equipamento de proteção por causa do calor."
+      },
+      "evidence": {
+        "en": "Guidance on the US Worker Protection Standard says skipping required protective equipment in hot weather is not an option; it advises spraying in cooler hours and stopping more often for water.",
+        "es": "La orientación sobre la Norma de Protección del Trabajador de Estados Unidos indica que omitir el equipo de protección exigido por el calor no es una opción; recomienda aplicar en horas frescas y parar más seguido para tomar agua.",
+        "pt": "A orientação sobre a Norma de Proteção do Trabalhador dos Estados Unidos diz que dispensar o equipamento de proteção exigido por causa do calor não é opção; recomenda aplicar nas horas frescas e parar mais vezes para beber água."
+      },
+      "source": "https://www.porh.psu.edu/worker-protection-standard-and-agricultural-safety-and-health/farm-worker-faqs/"
+    },
+    {
+      "audience": "farm",
+      "signal": "rain_extreme",
+      "action": {
+        "en": "Sign up for weather alerts and seasonal forecasts and use them to time sowing, spraying and harvest.",
+        "es": "Suscríbase a alertas del tiempo y pronósticos estacionales y úselos para decidir cuándo sembrar, aplicar y cosechar.",
+        "pt": "Cadastre-se para receber alertas do tempo e previsões sazonais e use-os para decidir quando plantar, pulverizar e colher."
+      },
+      "evidence": {
+        "en": "A pilot evaluation of India's farm weather advisory service found 10 to 15% higher yields and 2 to 5% lower cultivation costs for farmers who followed the advisories (small sample).",
+        "es": "Una evaluación piloto del servicio de avisos agrometeorológicos de India encontró rendimientos 10 a 15% mayores y costos de cultivo 2 a 5% menores para quienes siguieron los avisos (muestra pequeña).",
+        "pt": "Uma avaliação piloto do serviço de avisos agrometeorológicos da Índia encontrou rendimentos 10 a 15% maiores e custos de cultivo 2 a 5% menores para quem seguiu os avisos (amostra pequena)."
+      },
+      "source": "https://csaguide.cgiar.org/csa/india-s-integrated-agro-meteorological-advisory-service-aas"
+    }
+  ]
+}
