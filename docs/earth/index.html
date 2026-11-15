@@ -4,48 +4,55 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>geocare.life · the planet</title>
-<meta name="description" content="The Earth as it is today, from space down to your street: clouds, rain, wind, air, soil, natural events, and what each place can expect through the year.">
+<meta name="description" content="The Earth as it is today, from space down to your street: clouds, rain, wind, air, soil, 40 years of records, and what each place can expect through the year.">
 <!-- geocare.life, the planet view. Imagery and data layers: NASA GIBS. Streets and rivers: OpenStreetMap. Globe: MapLibre GL JS. (page written with AI support) -->
+<link rel="preconnect" href="https://gibs.earthdata.nasa.gov" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/5.3.0/maplibre-gl.min.css">
 <style>
   @font-face { font-family: "Bricolage Grotesque"; src: url(../tutorial/assets/fonts/bricolage.woff2) format("woff2"); font-weight: 600 700; font-display: swap; }
   @font-face { font-family: "Manrope"; src: url(../tutorial/assets/fonts/manrope.woff2) format("woff2"); font-weight: 400 700; font-display: swap; }
-  :root { --space: #070b10; --paper: #fffdf8; --sand: #f6f1e7; --ink: #1c2a24; --muted: #5d6b63; --line: #e2d9c8; --earth: #b5452c; --forest: #1f4d3a; --glass: rgba(14, 22, 19, 0.82); --r: 14px; --ease: cubic-bezier(0.16, 1, 0.3, 1); }
+  /* the same paper, ink, forest and earth colours as the app */
+  :root { --space: #0e1613; --paper: #fffdf8; --sand: #f6f1e7; --ink: #1c2a24; --muted: #5d6b63; --line: #e2d9c8; --earth: #b5452c; --forest: #1f7f5f; --deep: #1f4d3a; --r: 14px; --ease: cubic-bezier(0.16, 1, 0.3, 1); --shadow: 0 10px 30px -14px rgba(0, 0, 0, 0.55); }
   * { box-sizing: border-box; }
   html, body { height: 100%; margin: 0; background: var(--space); color: var(--ink); font: 400 15px/1.45 "Manrope", system-ui, sans-serif; overflow: hidden; -webkit-font-smoothing: antialiased; }
-  #map { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 45%, #0f1a26 0%, #070b10 62%); }
+  #map { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 45%, #1b2a25 0%, #0e1613 60%); }
   #wind { position: absolute; inset: 0; pointer-events: none; }
-  button { font: inherit; cursor: pointer; }
+  button { font: inherit; cursor: pointer; color: inherit; }
   a { color: inherit; }
+  .card { background: var(--paper); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); }
 
-  .top { position: absolute; left: 14px; top: 12px; right: 14px; display: flex; gap: 10px; align-items: flex-start; pointer-events: none; z-index: 3; }
+  .top { position: absolute; left: 12px; top: 12px; right: 12px; display: flex; gap: 8px; align-items: flex-start; pointer-events: none; z-index: 3; }
   .top > * { pointer-events: auto; }
-  .brand { display: inline-flex; align-items: center; gap: 8px; background: var(--glass); color: #f4eee1; padding: 9px 13px; border-radius: var(--r); text-decoration: none; font: 700 17px/1 "Bricolage Grotesque", sans-serif; backdrop-filter: blur(8px); }
-  .search { flex: 1; max-width: 360px; display: flex; background: var(--glass); border-radius: var(--r); overflow: hidden; backdrop-filter: blur(8px); }
-  .search input { flex: 1; min-width: 0; background: none; border: 0; color: #f4eee1; padding: 10px 12px; font: inherit; outline: none; }
-  .search input::placeholder { color: #a8b4ac; }
-  .search button { background: var(--forest); color: #fff; border: 0; padding: 0 14px; font-weight: 700; }
-  .lang { margin-left: auto; display: flex; background: var(--glass); border-radius: var(--r); overflow: hidden; backdrop-filter: blur(8px); }
-  .lang button { background: none; border: 0; color: #a8b4ac; padding: 10px 10px; font-weight: 700; font-size: 13px; }
-  .lang button.on { background: #f4eee1; color: #121c18; }
+  .brand { display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; text-decoration: none; font: 700 18px/1 "Bricolage Grotesque", sans-serif; }
+  .search { flex: 1; max-width: 380px; display: flex; overflow: hidden; padding: 4px; gap: 4px; }
+  .search input { flex: 1; min-width: 0; background: var(--sand); border: 0; border-radius: 10px; color: var(--ink); padding: 8px 12px; font: inherit; outline: none; }
+  .search button { background: var(--forest); color: #fff; border: 0; border-radius: 10px; padding: 0 14px; font-weight: 700; }
+  .lang { margin-left: auto; display: flex; overflow: hidden; padding: 4px; gap: 2px; }
+  .lang button { background: none; border: 0; border-radius: 9px; color: var(--muted); padding: 7px 9px; font-weight: 700; font-size: 13px; }
+  .lang button.on { background: var(--ink); color: #fff; }
 
-  .layers { position: absolute; left: 14px; top: 64px; width: 214px; max-height: calc(100% - 150px); overflow: auto; background: var(--glass); color: #f4eee1; border-radius: var(--r); padding: 10px 10px 12px; backdrop-filter: blur(8px); z-index: 2; scrollbar-width: thin; }
-  .layers h2 { font: 700 11px/1 "Manrope", sans-serif; letter-spacing: 0.09em; text-transform: uppercase; color: #a8b4ac; margin: 10px 4px 6px; }
-  .layers h2:first-child { margin-top: 2px; }
-  .lay { display: flex; align-items: center; gap: 9px; width: 100%; text-align: left; background: none; border: 0; color: #dfe6e0; padding: 7px 6px; border-radius: 9px; font-size: 14px; font-weight: 600; }
-  .lay:hover { background: rgba(255, 255, 255, 0.06); }
-  .lay i { flex: none; width: 30px; height: 18px; border-radius: 9px; background: #3a4a43; position: relative; transition: background 0.2s; }
-  .lay i::after { content: ""; position: absolute; left: 2px; top: 2px; width: 14px; height: 14px; border-radius: 50%; background: #dfe6e0; transition: transform 0.2s var(--ease); }
-  .lay.on i { background: #e98a5c; } .lay.on i::after { transform: translateX(12px); background: #fff; }
-  .lay small { display: block; font-weight: 500; font-size: 11.5px; color: #a8b4ac; line-height: 1.25; }
-  .lay.wait { opacity: 0.55; }
+  .layers { position: absolute; left: 12px; top: 68px; width: 232px; max-height: calc(100% - 82px); overflow: auto; padding: 6px 8px 10px; z-index: 2; scrollbar-width: thin; }
+  .layers h2 { font: 700 10.5px/1 "Manrope", sans-serif; letter-spacing: 0.09em; text-transform: uppercase; color: var(--earth); margin: 12px 6px 4px; }
+  .lay { display: flex; align-items: flex-start; gap: 9px; width: 100%; text-align: left; background: none; border: 0; padding: 6px 6px; border-radius: 9px; font-size: 14px; font-weight: 600; line-height: 1.25; }
+  .lay:hover { background: var(--sand); }
+  .lay i { flex: none; width: 30px; height: 18px; margin-top: 1px; border-radius: 9px; background: #d5ccba; position: relative; transition: background 0.2s; }
+  .lay i::after { content: ""; position: absolute; left: 2px; top: 2px; width: 14px; height: 14px; border-radius: 50%; background: #fff; transition: transform 0.2s var(--ease); }
+  .lay.on i { background: var(--forest); } .lay.on i::after { transform: translateX(12px); }
+  .lay small { display: block; font-weight: 500; font-size: 11.5px; color: var(--muted); }
+  .lay.wait { opacity: 0.5; }
+  /* what the colours mean, under the layer that is switched on */
+  .leg { display: none; margin: 2px 6px 6px 45px; }
+  .lay.on + .leg { display: block; }
+  .leg u { display: block; height: 9px; border-radius: 5px; border: 1px solid rgba(0, 0, 0, 0.12); }
+  .leg span { display: flex; justify-content: space-between; gap: 8px; font-size: 11px; color: var(--muted); margin-top: 2px; line-height: 1.2; }
   .ltoggle { display: none; }
+  .stamp { margin: 10px 6px 0; padding-top: 8px; border-top: 1px solid var(--line); font-size: 11px; color: var(--muted); line-height: 1.35; }
 
-  .hint { position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%); background: var(--glass); color: #f4eee1; padding: 10px 16px; border-radius: 999px; font-weight: 600; font-size: 14px; backdrop-filter: blur(8px); transition: opacity 0.6s; z-index: 2; white-space: nowrap; }
+  .hint { position: absolute; left: 50%; bottom: 22px; transform: translateX(-50%); padding: 10px 16px; border-radius: 999px; font-weight: 700; font-size: 14px; transition: opacity 0.6s; z-index: 2; white-space: nowrap; }
   .hint.off { opacity: 0; pointer-events: none; }
-  .stamp { position: absolute; left: 14px; bottom: 12px; color: #a8b4ac; font-size: 11.5px; z-index: 2; max-width: 46%; text-shadow: 0 1px 2px #000; }
 
-  .panel { position: absolute; right: 14px; top: 64px; bottom: 34px; width: 410px; background: var(--paper); border-radius: var(--r); box-shadow: 0 24px 60px -20px rgba(0, 0, 0, 0.8); overflow: auto; padding: 18px 18px 22px; z-index: 4; transform: translateX(calc(100% + 30px)); transition: transform 0.55s var(--ease); }
+  .panel { position: absolute; right: 12px; top: 68px; bottom: 34px; width: 410px; overflow: auto; padding: 18px 18px 22px; z-index: 4; transform: translateX(calc(100% + 30px)); transition: transform 0.55s var(--ease); }
   .panel.open { transform: none; }
   .panel h1 { font: 700 26px/1.1 "Bricolage Grotesque", sans-serif; letter-spacing: -0.02em; margin: 0 34px 2px 0; }
   .panel .sub { color: var(--muted); font-size: 13px; }
@@ -55,6 +62,12 @@
   .now div { background: var(--sand); border-radius: 10px; padding: 9px 10px; }
   .now b { display: block; font: 700 21px/1.1 "Bricolage Grotesque", sans-serif; }
   .now span { font-size: 12px; color: var(--muted); }
+  .y40 { display: grid; gap: 8px; }
+  .y40 div { border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; background: #fff; }
+  .y40 b { display: block; font: 700 17px/1.2 "Bricolage Grotesque", sans-serif; }
+  .y40 b.real { color: var(--earth); }
+  .y40 p { margin: 3px 0 4px; font-size: 13px; line-height: 1.38; }
+  .y40 svg { display: block; width: 100%; height: 46px; }
   .cal { width: 100%; border-collapse: separate; border-spacing: 2px; font-size: 12.5px; }
   .cal th { font-weight: 700; font-size: 10.5px; color: var(--muted); padding: 0 0 2px; text-align: center; }
   .cal th.cur { color: var(--earth); }
@@ -64,34 +77,34 @@
   .cal td.cur { box-shadow: inset 0 0 0 2px var(--ink); }
   .cal tr.g td { font-size: 10.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); padding-top: 8px; }
   .note { font-size: 12px; color: var(--muted); margin-top: 8px; line-height: 1.4; }
-  .casc { border: 1px solid var(--line); border-radius: 12px; padding: 12px 12px 12px; margin-bottom: 10px; background: #fff; }
+  .casc { border: 1px solid var(--line); border-radius: 12px; padding: 12px; margin-bottom: 10px; background: #fff; }
   .casc h3 { margin: 0 0 8px; font: 700 16px/1.1 "Bricolage Grotesque", sans-serif; color: var(--earth); }
-  .chain { display: flex; flex-direction: column; gap: 0; }
+  .chain { display: flex; flex-direction: column; }
   .chain span { position: relative; background: var(--sand); border-radius: 9px; padding: 7px 10px; font-weight: 600; font-size: 13.5px; line-height: 1.25; margin-bottom: 14px; opacity: 0; transform: translateY(8px); animation: drop 0.5s var(--ease) forwards; animation-delay: calc(var(--i) * 0.28s + 0.2s); }
   .chain span:not(:last-child)::after { content: ""; position: absolute; left: 18px; bottom: -12px; width: 2px; height: 10px; background: var(--earth); }
   .chain span.k-health, .chain span.k-body { background: #f6dccb; }
   .chain span:last-child { margin-bottom: 4px; }
   @keyframes drop { to { opacity: 1; transform: none; } }
   .casc p { margin: 8px 0 0; font-size: 13px; line-height: 1.4; }
-  .casc p b { color: var(--forest); }
+  .casc p b { color: var(--deep); }
   .casc .src { color: var(--muted); font-size: 12px; }
   .go { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 18px; background: var(--forest); color: #fff; text-decoration: none; font-weight: 700; padding: 13px 14px; border-radius: 12px; }
   .load { color: var(--muted); font-size: 13.5px; padding: 6px 0; }
-  .maplibregl-popup-content { font: 500 13.5px/1.35 "Manrope", sans-serif; border-radius: 10px; padding: 10px 12px; max-width: 250px; }
+  .maplibregl-popup-content { font: 500 13.5px/1.38 "Manrope", sans-serif; color: var(--ink); background: var(--paper); border-radius: 12px; padding: 11px 13px; max-width: 260px; box-shadow: var(--shadow); }
   .maplibregl-popup-content b { font-weight: 700; }
+  .maplibregl-popup-content button { margin-top: 8px; background: var(--forest); color: #fff; border: 0; border-radius: 9px; padding: 7px 11px; font-weight: 700; font-size: 13px; }
   .maplibregl-ctrl-attrib { font-size: 10.5px; }
 
   @media (max-width: 820px) {
     .top { left: 8px; right: 8px; top: 8px; gap: 6px; }
-    .brand span { display: none; }
-    .lang button { padding: 10px 7px; }
-    .ltoggle { display: inline-flex; position: absolute; left: 8px; top: 58px; z-index: 3; background: var(--glass); color: #f4eee1; border: 0; border-radius: var(--r); padding: 9px 12px; font-weight: 700; backdrop-filter: blur(8px); }
-    .layers { left: 8px; top: 100px; width: 200px; max-height: 52%; display: none; }
+    .brand span { display: none; } .brand { padding: 10px 11px; }
+    .lang button { padding: 7px 6px; }
+    .ltoggle { display: inline-flex; position: absolute; left: 8px; top: 62px; z-index: 3; padding: 9px 13px; font-weight: 700; }
+    .layers { left: 8px; top: 106px; width: 224px; max-height: 56%; display: none; }
     .layers.show { display: block; }
-    .panel { left: 0; right: 0; top: auto; bottom: 0; width: auto; max-height: 62%; border-radius: 16px 16px 0 0; transform: translateY(calc(100% + 20px)); padding-bottom: 28px; }
+    .panel { left: 0; right: 0; top: auto; bottom: 0; width: auto; max-height: 64%; border-radius: 16px 16px 0 0; transform: translateY(calc(100% + 20px)); padding-bottom: 28px; }
     .panel.open { transform: none; }
-    .hint { bottom: 40px; font-size: 13px; }
-    .stamp { display: none; }
+    .hint { bottom: 44px; font-size: 13px; }
   }
   @media (prefers-reduced-motion: reduce) { .chain span { animation: none; opacity: 1; transform: none; } .panel { transition: none; } }
 </style>
@@ -101,56 +114,74 @@
 <canvas id="wind"></canvas>
 
 <div class="top">
-  <a class="brand" href="../" id="home"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 1.5l1.35 9.15L22.5 12l-9.15 1.35L12 22.5l-1.35-9.15L1.5 12l9.15-1.35z" fill="#3fbf8f"/></svg><span>geocare.life</span></a>
-  <form class="search" id="search"><input id="q" type="search" autocomplete="off"><button type="submit" id="qb"></button></form>
-  <div class="lang" role="group" aria-label="Language"><button data-lang="en">EN</button><button data-lang="es">ES</button><button data-lang="pt">PT</button></div>
+  <a class="brand card" href="../" id="home"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 1.5l1.35 9.15L22.5 12l-9.15 1.35L12 22.5l-1.35-9.15L1.5 12l9.15-1.35z" fill="#1f7f5f"/><circle cx="12" cy="12" r="1.7" fill="#eef1ef"/></svg><span>geocare.life</span></a>
+  <form class="search card" id="search"><input id="q" type="search" autocomplete="off"><button type="submit" id="qb"></button></form>
+  <div class="lang card" role="group" aria-label="Language"><button data-lang="en">EN</button><button data-lang="es">ES</button><button data-lang="pt">PT</button></div>
 </div>
-<button class="ltoggle" id="ltoggle"></button>
-<div class="layers" id="layers"></div>
-<div class="hint" id="hint"></div>
-<div class="stamp" id="stamp"></div>
-<aside class="panel" id="panel" aria-live="polite"></aside>
+<button class="ltoggle card" id="ltoggle"></button>
+<div class="layers card" id="layers"></div>
+<div class="hint card" id="hint"></div>
+<aside class="panel card" id="panel" aria-live="polite"></aside>
 
+<script src="../js/stats.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/5.3.0/maplibre-gl.min.js" crossorigin="anonymous"></script>
 <script>
 /* ---------------- words ---------------- */
 const TXT = {
-  en: { title: "geocare.life · the planet", ph: "Search a city or an address", go: "Go", layers: "Layers", hint: "Zoom in and tap any place on Earth",
-    g_now: "Today, from space", g_land: "Land and risks", g_live: "Happening now",
-    clouds: "Clouds and land", clouds_s: "true colour, NASA VIIRS", rain: "Rain", rain_s: "NASA IMERG", wind: "Wind", wind_s: "moving lines, Open-Meteo", air: "Air: dust and smoke", air_s: "aerosols, NASA MODIS", temp: "Ground temperature", temp_s: "NASA MODIS",
-    soil: "Water in the soil", soil_s: "NASA SMAP", flood: "Flood history", flood_s: "NASA SEDAC", slide: "Landslide hazard", slide_s: "NASA SEDAC", dry: "Drought history", dry_s: "NASA SEDAC", cyc: "Cyclone history", cyc_s: "NASA SEDAC", streets: "Rivers and streets", streets_s: "appear as you zoom in",
+  en: { title: "geocare.life · the planet", ph: "Search a city or an address", go: "Search", layers: "Layers", hint: "Zoom in and tap any place on Earth",
+    g_now: "Today, from space", g_years: "40 years of records", g_land: "Land and risks", g_live: "Happening now",
+    clouds: "Clouds and land", clouds_s: "true colour, NASA VIIRS", rain: "Rain", rain_s: "NASA IMERG", wind: "Wind", wind_s: "lines that follow the wind", air: "Air: dust and smoke", air_s: "NASA MODIS", temp: "Ground temperature", temp_s: "NASA MODIS",
+    change: "Signs of a changing climate", change_s: "300 cities, one dataset, 1981-2025", tracks: "Paths of tropical storms", tracks_s: "1981-2024, NOAA", tornado: "Where tornadoes start", tornado_s: "United States, NOAA",
+    soil: "Water in the soil", soil_s: "NASA SMAP", flood: "Flood history", flood_s: "NASA SEDAC", slide: "Landslide hazard", slide_s: "NASA SEDAC", dry: "Drought history", dry_s: "NASA SEDAC", cyc: "Cyclone history", cyc_s: "NASA SEDAC", streets: "Rivers and streets", streets_s: "appear as you zoom in", plastic: "Rivers that carry plastic", plastic_s: "to the sea, model estimate",
     events: "Natural events", events_s: "fires, storms, volcanoes: NASA EONET", quakes: "Earthquakes", quakes_s: "last 7 days, USGS", cases: "Stories of the world", cases_s: "what went wrong, what recovered",
-    stamp: "Imagery of {d}. NASA GIBS, OpenStreetMap, Open-Meteo, USGS.", loading: "Reading the records of this place…", now: "Right now", feels: "feels like", windl: "wind", airl: "air (PM2.5)", nodata: "no data",
+    l_rain: ["drizzle", "very heavy rain"], l_temp: ["freezing", "very hot"], l_soil: ["dry soil", "soaked soil"], l_air: ["clean air", "much dust or smoke"], l_flood: ["few floods", "many floods"], l_slide: ["low", "very high"], l_dry: ["few droughts", "many droughts"], l_cyc: ["few cyclones", "many cyclones"], l_change: ["no sign of change", "5 signs of change"], l_tracks: ["weaker storm", "stronger storm"], l_tornado: ["few", "many"], l_plastic: ["less plastic", "more plastic"],
+    stamp: "Images of {d}. NASA GIBS, OpenStreetMap, Open-Meteo, USGS, NOAA.", loading: "Reading the records of this place…", feels: "feels like", windl: "wind", airl: "air (PM2.5)", nodata: "no data",
+    y40: "40 years in this place", y40_n: "One dataset only (NASA POWER, 1981-2024). The full app confirms each change with a second, independent dataset.",
+    t_h: "Temperature", t_up: "Sign of warming: {v} °C", t_down: "Sign of cooling: {v} °C", t_txt: "In this record the average went from {a} to {b} °C, and the statistical test sees a change. To call it confirmed, a second dataset has to agree: open everything about this place.", t_no: "No clear change", t_no_txt: "The average stays around {b} °C. The ups and downs are what one year does compared with the next.",
+    r_h: "Rain of the year", r_down: "Sign of less rain: {v}%", r_up: "Sign of more rain: {v}%", r_txt: "In this record, from about {a} to {b} mm a year, and the statistical test sees a change. To call it confirmed, a second dataset has to agree.", r_no: "No clear change", r_no_txt: "About {b} mm a year. Rain varies a lot from one year to the next, and no trend stands out.",
     year: "The year in this place", year_n: "Darker means more likely in that month. Estimated from the 1991-2020 climate of this point (NASA POWER) and from storm records (NOAA), not from counts of cases.",
     weather: "Weather", ill: "Illnesses the weather favours",
-    r_heat: "Strong heat", r_cold: "Cold and frost", r_rain: "Heavy rain and floods", r_dry: "Dry spell", r_fire: "Fire and smoke weather", r_cyc: "Tropical storms", r_tor: "Tornadoes",
+    c_heat: "Strong heat", c_cold: "Cold and frost", c_rain: "Heavy rain and floods", c_dry: "Dry spell", c_fire: "Fire and smoke weather", c_cyc: "Tropical storms", c_tor: "Tornadoes",
     i_heat: "Heat illness", i_mosq: "Dengue and other mosquito viruses", i_resp: "Flu and respiratory infections", i_water: "Diarrhoea and leptospirosis",
     casc: "Chains of consequences here", casc_n: "How one thing leads to the next, and where the chain can be broken.", doit: "What a family can do:", solve: "How a community breaks the chain:", real: "It happened:", source: "source",
-    open: "See everything about this place", calm: "No strong seasonal hazard stands out in the climate record of this point.", ev: "Open event", when: "since", mag: "Magnitude", fail: "Could not read this place now. Try again in a moment.", notfound: "Place not found." },
-  es: { title: "geocare.life · el planeta", ph: "Busque una ciudad o una dirección", go: "Ir", layers: "Capas", hint: "Acerque y toque cualquier lugar de la Tierra",
-    g_now: "Hoy, desde el espacio", g_land: "El suelo y los riesgos", g_live: "Está pasando ahora",
-    clouds: "Nubes y tierra", clouds_s: "color real, NASA VIIRS", rain: "Lluvia", rain_s: "NASA IMERG", wind: "Viento", wind_s: "líneas en movimiento, Open-Meteo", air: "Aire: polvo y humo", air_s: "aerosoles, NASA MODIS", temp: "Temperatura del suelo", temp_s: "NASA MODIS",
-    soil: "Agua en el suelo", soil_s: "NASA SMAP", flood: "Historia de inundaciones", flood_s: "NASA SEDAC", slide: "Peligro de deslizamiento", slide_s: "NASA SEDAC", dry: "Historia de sequías", dry_s: "NASA SEDAC", cyc: "Historia de ciclones", cyc_s: "NASA SEDAC", streets: "Ríos y calles", streets_s: "aparecen al acercar",
+    open: "See everything about this place", calm: "No strong seasonal hazard stands out in the climate record of this point.", when: "since", mag: "Magnitude", fail: "Could not read this place now. Try again in a moment.", notfound: "Place not found.",
+    p_temp: "Temperature", p_rain: "Rain of the year", p_sig: "{n} of 5 climate signals changed in one dataset (to be confirmed)", p_see: "See this place", p_storm: "Tropical storm", p_wind: "strongest wind", p_tor: "tornadoes started here, 1981-2024", p_plastic: "tonnes of plastic a year reach the sea here (model estimate)", months: "month" },
+  es: { title: "geocare.life · el planeta", ph: "Busque una ciudad o una dirección", go: "Buscar", layers: "Capas", hint: "Acerque y toque cualquier lugar de la Tierra",
+    g_now: "Hoy, desde el espacio", g_years: "40 años de registros", g_land: "El suelo y los riesgos", g_live: "Está pasando ahora",
+    clouds: "Nubes y tierra", clouds_s: "color real, NASA VIIRS", rain: "Lluvia", rain_s: "NASA IMERG", wind: "Viento", wind_s: "líneas que siguen al viento", air: "Aire: polvo y humo", air_s: "NASA MODIS", temp: "Temperatura del suelo", temp_s: "NASA MODIS",
+    change: "Señales de cambio del clima", change_s: "300 ciudades, una base de datos, 1981-2025", tracks: "Caminos de las tormentas tropicales", tracks_s: "1981-2024, NOAA", tornado: "Dónde nacen los tornados", tornado_s: "Estados Unidos, NOAA",
+    soil: "Agua en el suelo", soil_s: "NASA SMAP", flood: "Historia de inundaciones", flood_s: "NASA SEDAC", slide: "Peligro de deslizamiento", slide_s: "NASA SEDAC", dry: "Historia de sequías", dry_s: "NASA SEDAC", cyc: "Historia de ciclones", cyc_s: "NASA SEDAC", streets: "Ríos y calles", streets_s: "aparecen al acercar", plastic: "Ríos que llevan plástico", plastic_s: "al mar, estimación de modelo",
     events: "Eventos naturales", events_s: "incendios, tormentas, volcanes: NASA EONET", quakes: "Sismos", quakes_s: "últimos 7 días, USGS", cases: "Historias del mundo", cases_s: "lo que salió mal, lo que se recuperó",
-    stamp: "Imágenes del {d}. NASA GIBS, OpenStreetMap, Open-Meteo, USGS.", loading: "Leyendo los registros de este lugar…", now: "Ahora mismo", feels: "sensación", windl: "viento", airl: "aire (PM2.5)", nodata: "sin dato",
+    l_rain: ["llovizna", "lluvia muy fuerte"], l_temp: ["helado", "muy caliente"], l_soil: ["suelo seco", "suelo empapado"], l_air: ["aire limpio", "mucho polvo o humo"], l_flood: ["pocas inundaciones", "muchas"], l_slide: ["bajo", "muy alto"], l_dry: ["pocas sequías", "muchas"], l_cyc: ["pocos ciclones", "muchos"], l_change: ["sin señal de cambio", "5 señales de cambio"], l_tracks: ["tormenta más débil", "más fuerte"], l_tornado: ["pocos", "muchos"], l_plastic: ["menos plástico", "más plástico"],
+    stamp: "Imágenes del {d}. NASA GIBS, OpenStreetMap, Open-Meteo, USGS, NOAA.", loading: "Leyendo los registros de este lugar…", feels: "sensación", windl: "viento", airl: "aire (PM2.5)", nodata: "sin dato",
+    y40: "40 años en este lugar", y40_n: "Una sola base de datos (NASA POWER, 1981-2024). La aplicación completa confirma cada cambio con una segunda base independiente.",
+    t_h: "Temperatura", t_up: "Señal de calentamiento: {v} °C", t_down: "Señal de enfriamiento: {v} °C", t_txt: "En este registro el promedio pasó de {a} a {b} °C, y la prueba estadística ve un cambio. Para llamarlo confirmado hace falta que una segunda base coincida: abra todo sobre este lugar.", t_no: "Sin cambio claro", t_no_txt: "El promedio sigue cerca de {b} °C. Las subidas y bajadas son lo que un año hace frente al siguiente.",
+    r_h: "Lluvia del año", r_down: "Señal de menos lluvia: {v}%", r_up: "Señal de más lluvia: {v}%", r_txt: "En este registro, de unos {a} a {b} mm por año, y la prueba estadística ve un cambio. Para llamarlo confirmado hace falta que una segunda base coincida.", r_no: "Sin cambio claro", r_no_txt: "Unos {b} mm por año. La lluvia cambia mucho de un año a otro y no sobresale ninguna tendencia.",
     year: "El año en este lugar", year_n: "Más oscuro significa más probable en ese mes. Estimado por el clima de 1991-2020 de este punto (NASA POWER) y por los registros de tormentas (NOAA), no por conteos de casos.",
     weather: "El tiempo", ill: "Enfermedades que el tiempo favorece",
-    r_heat: "Calor fuerte", r_cold: "Frío y heladas", r_rain: "Lluvia fuerte e inundación", r_dry: "Período seco", r_fire: "Tiempo de fuego y humo", r_cyc: "Tormentas tropicales", r_tor: "Tornados",
+    c_heat: "Calor fuerte", c_cold: "Frío y heladas", c_rain: "Lluvia fuerte e inundación", c_dry: "Período seco", c_fire: "Tiempo de fuego y humo", c_cyc: "Tormentas tropicales", c_tor: "Tornados",
     i_heat: "Enfermedades por calor", i_mosq: "Dengue y otros virus del mosquito", i_resp: "Gripe e infecciones respiratorias", i_water: "Diarrea y leptospirosis",
     casc: "Cadenas de consecuencias aquí", casc_n: "Cómo una cosa lleva a la otra, y dónde se puede romper la cadena.", doit: "Qué puede hacer una familia:", solve: "Cómo una comunidad rompe la cadena:", real: "Ya pasó:", source: "fuente",
-    open: "Ver todo sobre este lugar", calm: "En el registro del clima de este punto no sobresale ningún peligro fuerte de temporada.", ev: "Evento abierto", when: "desde", mag: "Magnitud", fail: "No se pudo leer este lugar ahora. Intente de nuevo en un momento.", notfound: "No se encontró el lugar." },
-  pt: { title: "geocare.life · o planeta", ph: "Busque uma cidade ou um endereço", go: "Ir", layers: "Camadas", hint: "Aproxime e toque em qualquer lugar da Terra",
-    g_now: "Hoje, do espaço", g_land: "O chão e os riscos", g_live: "Acontecendo agora",
-    clouds: "Nuvens e terra", clouds_s: "cor real, NASA VIIRS", rain: "Chuva", rain_s: "NASA IMERG", wind: "Vento", wind_s: "linhas em movimento, Open-Meteo", air: "Ar: poeira e fumaça", air_s: "aerossóis, NASA MODIS", temp: "Temperatura do solo", temp_s: "NASA MODIS",
-    soil: "Água no solo", soil_s: "NASA SMAP", flood: "Histórico de enchentes", flood_s: "NASA SEDAC", slide: "Perigo de deslizamento", slide_s: "NASA SEDAC", dry: "Histórico de secas", dry_s: "NASA SEDAC", cyc: "Histórico de ciclones", cyc_s: "NASA SEDAC", streets: "Rios e ruas", streets_s: "aparecem ao aproximar",
+    open: "Ver todo sobre este lugar", calm: "En el registro del clima de este punto no sobresale ningún peligro fuerte de temporada.", when: "desde", mag: "Magnitud", fail: "No se pudo leer este lugar ahora. Intente de nuevo en un momento.", notfound: "No se encontró el lugar.",
+    p_temp: "Temperatura", p_rain: "Lluvia del año", p_sig: "{n} de 5 señales del clima cambiaron en una base de datos (por confirmar)", p_see: "Ver este lugar", p_storm: "Tormenta tropical", p_wind: "viento más fuerte", p_tor: "tornados nacieron aquí, 1981-2024", p_plastic: "toneladas de plástico por año llegan al mar aquí (estimación de modelo)", months: "mes" },
+  pt: { title: "geocare.life · o planeta", ph: "Busque uma cidade ou um endereço", go: "Buscar", layers: "Camadas", hint: "Aproxime e toque em qualquer lugar da Terra",
+    g_now: "Hoje, do espaço", g_years: "40 anos de registros", g_land: "O chão e os riscos", g_live: "Acontecendo agora",
+    clouds: "Nuvens e terra", clouds_s: "cor real, NASA VIIRS", rain: "Chuva", rain_s: "NASA IMERG", wind: "Vento", wind_s: "linhas que seguem o vento", air: "Ar: poeira e fumaça", air_s: "NASA MODIS", temp: "Temperatura do solo", temp_s: "NASA MODIS",
+    change: "Sinais de mudança do clima", change_s: "300 cidades, uma base de dados, 1981-2025", tracks: "Caminhos das tempestades tropicais", tracks_s: "1981-2024, NOAA", tornado: "Onde nascem os tornados", tornado_s: "Estados Unidos, NOAA",
+    soil: "Água no solo", soil_s: "NASA SMAP", flood: "Histórico de enchentes", flood_s: "NASA SEDAC", slide: "Perigo de deslizamento", slide_s: "NASA SEDAC", dry: "Histórico de secas", dry_s: "NASA SEDAC", cyc: "Histórico de ciclones", cyc_s: "NASA SEDAC", streets: "Rios e ruas", streets_s: "aparecem ao aproximar", plastic: "Rios que levam plástico", plastic_s: "ao mar, estimativa de modelo",
     events: "Eventos naturais", events_s: "incêndios, tempestades, vulcões: NASA EONET", quakes: "Terremotos", quakes_s: "últimos 7 dias, USGS", cases: "Histórias do mundo", cases_s: "o que deu errado, o que se recuperou",
-    stamp: "Imagens de {d}. NASA GIBS, OpenStreetMap, Open-Meteo, USGS.", loading: "Lendo os registros deste lugar…", now: "Agora", feels: "sensação", windl: "vento", airl: "ar (PM2.5)", nodata: "sem dado",
+    l_rain: ["garoa", "chuva muito forte"], l_temp: ["gelado", "muito quente"], l_soil: ["solo seco", "solo encharcado"], l_air: ["ar limpo", "muita poeira ou fumaça"], l_flood: ["poucas enchentes", "muitas"], l_slide: ["baixo", "muito alto"], l_dry: ["poucas secas", "muitas"], l_cyc: ["poucos ciclones", "muitos"], l_change: ["sem sinal de mudança", "5 sinais de mudança"], l_tracks: ["tempestade mais fraca", "mais forte"], l_tornado: ["poucos", "muitos"], l_plastic: ["menos plástico", "mais plástico"],
+    stamp: "Imagens de {d}. NASA GIBS, OpenStreetMap, Open-Meteo, USGS, NOAA.", loading: "Lendo os registros deste lugar…", feels: "sensação", windl: "vento", airl: "ar (PM2.5)", nodata: "sem dado",
+    y40: "40 anos neste lugar", y40_n: "Uma base de dados só (NASA POWER, 1981-2024). O aplicativo completo confirma cada mudança com uma segunda base independente.",
+    t_h: "Temperatura", t_up: "Sinal de aquecimento: {v} °C", t_down: "Sinal de resfriamento: {v} °C", t_txt: "Neste registro a média passou de {a} para {b} °C, e o teste estatístico vê uma mudança. Para chamá-la de confirmada, uma segunda base precisa concordar: abra tudo sobre este lugar.", t_no: "Sem mudança clara", t_no_txt: "A média segue perto de {b} °C. As subidas e descidas são o que um ano faz em relação ao outro.",
+    r_h: "Chuva do ano", r_down: "Sinal de menos chuva: {v}%", r_up: "Sinal de mais chuva: {v}%", r_txt: "Neste registro, de cerca de {a} para {b} mm por ano, e o teste estatístico vê uma mudança. Para chamá-la de confirmada, uma segunda base precisa concordar.", r_no: "Sem mudança clara", r_no_txt: "Cerca de {b} mm por ano. A chuva varia muito de um ano para o outro e nenhuma tendência se destaca.",
     year: "O ano neste lugar", year_n: "Mais escuro significa mais provável naquele mês. Estimado pelo clima de 1991-2020 deste ponto (NASA POWER) e pelos registros de tempestades (NOAA), não por contagem de casos.",
     weather: "O tempo", ill: "Doenças que o tempo favorece",
-    r_heat: "Calor forte", r_cold: "Frio e geada", r_rain: "Chuva forte e enchente", r_dry: "Período seco", r_fire: "Tempo de fogo e fumaça", r_cyc: "Tempestades tropicais", r_tor: "Tornados",
+    c_heat: "Calor forte", c_cold: "Frio e geada", c_rain: "Chuva forte e enchente", c_dry: "Período seco", c_fire: "Tempo de fogo e fumaça", c_cyc: "Tempestades tropicais", c_tor: "Tornados",
     i_heat: "Doenças do calor", i_mosq: "Dengue e outros vírus do mosquito", i_resp: "Gripe e infecções respiratórias", i_water: "Diarreia e leptospirose",
     casc: "Cadeias de consequências aqui", casc_n: "Como uma coisa leva à outra, e onde a cadeia pode ser quebrada.", doit: "O que uma família pode fazer:", solve: "Como uma comunidade quebra a cadeia:", real: "Já aconteceu:", source: "fonte",
-    open: "Ver tudo sobre este lugar", calm: "No registro do clima deste ponto não se destaca nenhum perigo forte de temporada.", ev: "Evento aberto", when: "desde", mag: "Magnitude", fail: "Não foi possível ler este lugar agora. Tente de novo em instantes.", notfound: "Lugar não encontrado." },
+    open: "Ver tudo sobre este lugar", calm: "No registro do clima deste ponto não se destaca nenhum perigo forte de temporada.", when: "desde", mag: "Magnitude", fail: "Não foi possível ler este lugar agora. Tente de novo em instantes.", notfound: "Lugar não encontrado.",
+    p_temp: "Temperatura", p_rain: "Chuva do ano", p_sig: "{n} de 5 sinais do clima mudaram em uma base de dados (a confirmar)", p_see: "Ver este lugar", p_storm: "Tempestade tropical", p_wind: "vento mais forte", p_tor: "tornados nasceram aqui, 1981-2024", p_plastic: "toneladas de plástico por ano chegam ao mar aqui (estimativa de modelo)", months: "mês" },
 };
 const qs = new URLSearchParams(location.search);
 let lang = qs.get("lang");
@@ -158,25 +189,47 @@ if (!TXT[lang]) { try { lang = localStorage.getItem("geocare.lang"); } catch (_)
 if (!TXT[lang]) lang = (navigator.language || "en").slice(0, 2);
 if (!TXT[lang]) lang = "en";
 const t = (k) => TXT[lang][k] ?? k;
+const fill = (k, o) => t(k).replace(/\{(\w+)\}/g, (_, x) => o[x]);
+const num = (v, d = 0) => Number(v).toLocaleString(lang, { minimumFractionDigits: d, maximumFractionDigits: d });
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const $ = (s) => document.querySelector(s);
+const small = innerWidth < 820;
 
-/* ---------------- NASA GIBS layers ---------------- */
+/* ---------------- layers ---------------- */
 const GIBS = "https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/";
 const day = (back) => new Date(Date.now() - back * 864e5).toISOString().slice(0, 10);
-// back = how many days behind today the layer usually is; 0 = no time dimension
+// The colour scales are NASA's own (GIBS colour maps), reduced to a few stops.
+const RAMP = {
+  rain: ["#00764e", "#00a209", "#68cb00", "#f7d900", "#ff6522", "#f30000", "#960000", "#330000"],
+  temp: ["#c900ff", "#3900ff", "#0075ff", "#24ffab", "#a4ff00", "#ffdc00", "#ff6d00", "#ff0100"],
+  soil: ["#ffa200", "#fff800", "#47a300", "#00ca95", "#009aff", "#0000db", "#080864"],
+  air: ["#fffdcd", "#ffe373", "#ffc144", "#ff8c25", "#ff5217", "#eb1a0c", "#c0010d", "#7d000e"],
+  flood: ["#f5f6d9", "#bdc9e1", "#9dbbd9", "#74a9cf", "#5c9cc8", "#3c8cbf", "#2480b8", "#0570b0"],
+  slide: ["#fffecc", "#ffeda0", "#fed976", "#feb24c", "#fd8d3c", "#fc4e20", "#b10026"],
+  dry: ["#fde4b2", "#fdad49", "#ea7b1a", "#d85e0d", "#c24f09", "#ad4106", "#983303"],
+  cyc: ["#fef4c0", "#fed587", "#feb14e", "#f78f23", "#e97818", "#da620d", "#cc4c02"],
+  change: ["#efe6d6", "#f2cfa0", "#e6a155", "#cf6a30", "#a53c22", "#6e2414"],
+  tracks: ["#9fc5d8", "#f2c14e", "#e4572e", "#8e1b1b"],
+  tornado: ["#f2cfa0", "#de8a3c", "#7a2e16"],
+  plastic: ["#bfd9d2", "#3f9b84", "#1f4d3a"],
+};
+// back = how many days behind today the layer usually is; 0 = it has no date. Coarse data layers use large tiles: four times fewer requests.
 const LAYERS = [
-  { id: "clouds", g: "now", layer: "VIIRS_NOAA20_CorrectedReflectance_TrueColor", set: "GoogleMapsCompatible_Level9", ext: "jpg", maxz: 9, back: 1, op: 1, on: true },
+  { id: "clouds", g: "now", layer: "VIIRS_NOAA20_CorrectedReflectance_TrueColor", set: "GoogleMapsCompatible_Level9", ext: "jpg", maxz: 9, back: 1, op: 1, size: 256, on: true },
   { id: "rain", g: "now", layer: "IMERG_Precipitation_Rate", set: "GoogleMapsCompatible_Level6", ext: "png", maxz: 6, back: 1, op: 0.85 },
   { id: "wind", g: "now", special: true, on: true },
-  { id: "air", g: "now", layer: "MODIS_Combined_Value_Added_AOD", set: "GoogleMapsCompatible_Level6", ext: "png", maxz: 6, back: 1, op: 0.8 },
+  { id: "air", g: "now", layer: "MODIS_Combined_Value_Added_AOD", set: "GoogleMapsCompatible_Level6", ext: "png", maxz: 6, back: 1, op: 0.85 },
   { id: "temp", g: "now", layer: "MODIS_Terra_Land_Surface_Temp_Day", set: "GoogleMapsCompatible_Level7", ext: "png", maxz: 7, back: 1, op: 0.8 },
+  { id: "change", g: "years", special: true, on: true },
+  { id: "tracks", g: "years", special: true },
+  { id: "tornado", g: "years", special: true },
   { id: "streets", g: "land", special: true, on: true },
   { id: "soil", g: "land", layer: "SMAP_L4_Analyzed_Root_Zone_Soil_Moisture", set: "GoogleMapsCompatible_Level6", ext: "png", maxz: 6, back: 5, op: 0.8 },
-  { id: "flood", g: "land", layer: "NDH_Flood_Hazard_Frequency_Distribution_1985-2003", set: "GoogleMapsCompatible_Level7", ext: "png", maxz: 7, back: 0, op: 0.8 },
-  { id: "slide", g: "land", layer: "NDH_Landslide_Hazard_Distribution_2000", set: "GoogleMapsCompatible_Level7", ext: "png", maxz: 7, back: 0, op: 0.8 },
-  { id: "dry", g: "land", layer: "NDH_Drought_Hazard_Frequency_Distribution_1980-2000", set: "GoogleMapsCompatible_Level7", ext: "png", maxz: 7, back: 0, op: 0.8 },
-  { id: "cyc", g: "land", layer: "NDH_Cyclone_Hazard_Frequency_Distribution_1980-2000", set: "GoogleMapsCompatible_Level7", ext: "png", maxz: 7, back: 0, op: 0.8 },
+  { id: "flood", g: "land", layer: "NDH_Flood_Hazard_Frequency_Distribution_1985-2003", set: "GoogleMapsCompatible_Level7", ext: "png", maxz: 7, back: 0, op: 0.85 },
+  { id: "slide", g: "land", layer: "NDH_Landslide_Hazard_Distribution_2000", set: "GoogleMapsCompatible_Level7", ext: "png", maxz: 7, back: 0, op: 0.85 },
+  { id: "dry", g: "land", layer: "NDH_Drought_Hazard_Frequency_Distribution_1980-2000", set: "GoogleMapsCompatible_Level7", ext: "png", maxz: 7, back: 0, op: 0.85 },
+  { id: "cyc", g: "land", layer: "NDH_Cyclone_Hazard_Frequency_Distribution_1980-2000", set: "GoogleMapsCompatible_Level7", ext: "png", maxz: 7, back: 0, op: 0.85 },
+  { id: "plastic", g: "land", special: true },
   { id: "events", g: "live", special: true, on: true },
   { id: "quakes", g: "live", special: true },
   { id: "cases", g: "live", special: true },
@@ -203,17 +256,19 @@ const style = {
     lab: { type: "raster", tiles: [`${GIBS}Reference_Labels/default/GoogleMapsCompatible_Level9/{z}/{y}/{x}.png`], tileSize: 256, maxzoom: 9 },
   },
   layers: [
-    { id: "space", type: "background", paint: { "background-color": "#0b1622" } },
-    { id: "base", type: "raster", source: "base" },
+    { id: "space", type: "background", paint: { "background-color": "#16332b" } },
+    // the plain globe is drawn only while the picture of the day is off, so the two never load together
+    { id: "base", type: "raster", source: "base", layout: { visibility: "none" } },
     { id: "osm", type: "raster", source: "osm", minzoom: 7.5, paint: { "raster-opacity": ["interpolate", ["linear"], ["zoom"], 7.5, 0, 9, 0.92] } },
     { id: "ref", type: "raster", source: "ref", maxzoom: 9, paint: { "raster-opacity": 0.75 } },
-    { id: "lab", type: "raster", source: "lab", maxzoom: 8.5, paint: { "raster-opacity": 0.95 } },
+    { id: "lab", type: "raster", source: "lab", minzoom: 2.2, maxzoom: 8.5, paint: { "raster-opacity": 0.95 } },
   ],
   sky: { "atmosphere-blend": ["interpolate", ["linear"], ["zoom"], 0, 1, 5, 1, 7, 0] },
 };
 const start = [parseFloat(qs.get("lon")), parseFloat(qs.get("lat"))];
 const hasStart = Number.isFinite(start[0]) && Number.isFinite(start[1]);
-const map = new maplibregl.Map({ container: "map", style, center: hasStart ? start : [-58, -15], zoom: hasStart ? 5.5 : (innerWidth < 820 ? 0.9 : 1.9), minZoom: 0.6, maxZoom: 17, attributionControl: { compact: true }, dragRotate: false, pitchWithRotate: false });
+// A screen with very dense pixels is drawn at 1.5 times at most: far less work for the same picture.
+const map = new maplibregl.Map({ container: "map", style, center: hasStart ? start : [-58, -15], zoom: hasStart ? 5.5 : (small ? 0.9 : 1.9), minZoom: 0.6, maxZoom: 17, pixelRatio: Math.min(devicePixelRatio || 1, 1.5), fadeDuration: 120, refreshExpiredTiles: false, attributionControl: { compact: true }, dragRotate: false, pitchWithRotate: false });
 map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "bottom-right");
 map.touchZoomRotate.disableRotation();
 
@@ -222,42 +277,47 @@ LAYERS.forEach((L) => (state.on[L.id] = !!L.on));
 
 function addRaster(L, d) {
   if (map.getSource(L.id)) return;
-  map.addSource(L.id, { type: "raster", tiles: [tileUrl(L, d)], tileSize: 256, maxzoom: L.maxz });
-  // data layers sit under the streets, the borders and the names
-  map.addLayer({ id: L.id, type: "raster", source: L.id, paint: { "raster-opacity": L.op, "raster-fade-duration": 300 }, layout: { visibility: state.on[L.id] ? "visible" : "none" } }, L.id === "clouds" ? "osm" : "ref");
+  map.addSource(L.id, { type: "raster", tiles: [tileUrl(L, d)], tileSize: L.size || 512, maxzoom: L.maxz });
+  map.addLayer({ id: L.id, type: "raster", source: L.id, paint: { "raster-opacity": L.op, "raster-fade-duration": 150 }, layout: { visibility: state.on[L.id] ? "visible" : "none" } }, L.id === "clouds" ? "osm" : "ref");
 }
 async function ensure(L) {
   if (L.special || map.getSource(L.id)) return;
-  const d = L.back ? (state.days[L.id] ||= await newestDay(L)) : "";
+  // the picture of the day starts at once with yesterday's date; the other layers look for their newest day
+  const d = L.back ? (state.days[L.id] ||= L.id === "clouds" ? day(1) : await newestDay(L)) : "";
   addRaster(L, d); if (L.id === "clouds") stamp();
 }
-function stamp() { const d = state.days.clouds; $("#stamp").textContent = d ? t("stamp").replace("{d}", new Date(d + "T12:00:00Z").toLocaleDateString(lang, { day: "numeric", month: "long", year: "numeric" })) : ""; }
+function stamp() { const d = state.days.clouds, e = $("#stamp"); if (e) e.textContent = d ? t("stamp").replace("{d}", new Date(d + "T12:00:00Z").toLocaleDateString(lang, { day: "numeric", month: "long", year: "numeric" })) : ""; }
+const vis = (ids, on) => ids.forEach((i) => map.getLayer(i) && map.setLayoutProperty(i, "visibility", on ? "visible" : "none"));
 
+const SPECIAL = { events: loadEvents, quakes: loadQuakes, cases: loadCases, change: loadChange, tracks: loadTracks, tornado: loadTornado, plastic: loadPlastic };
 async function setLayer(id, on) {
   const L = LAYERS.find((x) => x.id === id); state.on[id] = on;
   const b = document.querySelector(`.lay[data-id="${id}"]`); if (b) b.classList.toggle("on", on);
   if (id === "wind") { windOn(on); return; }
-  if (id === "streets") { map.setLayoutProperty("osm", "visibility", on ? "visible" : "none"); return; }
-  if (id === "events") { on && (await loadEvents()); vis(["events"], on); return; }
-  if (id === "quakes") { on && (await loadQuakes()); vis(["quakes"], on); return; }
-  if (id === "cases") { on && (await loadCases()); vis(["cases"], on); return; }
+  if (id === "streets") { vis(["osm"], on); return; }
+  if (SPECIAL[id]) { if (on) { if (b) b.classList.add("wait"); await SPECIAL[id](); if (b) b.classList.remove("wait"); } vis([id], state.on[id]); return; }
   if (on) { if (b) b.classList.add("wait"); await ensure(L); if (b) b.classList.remove("wait"); }
-  if (map.getLayer(id)) map.setLayoutProperty(id, "visibility", on ? "visible" : "none");
+  vis([id], state.on[id]);
+  if (id === "clouds") vis(["base"], !state.on.clouds);
 }
-const vis = (ids, on) => ids.forEach((i) => map.getLayer(i) && map.setLayoutProperty(i, "visibility", on ? "visible" : "none"));
 
 function drawLayers() {
-  const groups = ["now", "land", "live"];
-  $("#layers").innerHTML = groups.map((g) => `<h2>${t("g_" + g)}</h2>` + LAYERS.filter((L) => L.g === g).map((L) => `<button class="lay ${state.on[L.id] ? "on" : ""}" data-id="${L.id}"><i></i><span>${t(L.id)}<small>${t(L.id + "_s")}</small></span></button>`).join("")).join("");
+  const legend = (id) => (RAMP[id] ? `<div class="leg"><u style="background:linear-gradient(90deg,${RAMP[id].join(",")})"></u><span><em style="font-style:normal">${t("l_" + id)[0]}</em><em style="font-style:normal">${t("l_" + id)[1]}</em></span></div>` : "");
+  $("#layers").innerHTML = ["now", "years", "land", "live"].map((g) => `<h2>${t("g_" + g)}</h2>` + LAYERS.filter((L) => L.g === g).map((L) => `<button class="lay ${state.on[L.id] ? "on" : ""}" data-id="${L.id}"><i></i><span>${t(L.id)}<small>${t(L.id + "_s")}</small></span></button>${legend(L.id)}`).join("")).join("") + `<p class="stamp" id="stamp"></p>`;
   document.querySelectorAll(".lay").forEach((b) => (b.onclick = () => setLayer(b.dataset.id, !state.on[b.dataset.id])));
+  stamp();
 }
 
-/* ---------------- happening now: events, earthquakes, stories ---------------- */
+/* ---------------- data drawn as points and lines ---------------- */
 const getJSON = async (url) => { const r = await fetch(url); if (!r.ok) throw new Error(r.status); return r.json(); };
-function points(id, feats, color, radius) {
-  if (map.getSource(id)) { map.getSource(id).setData({ type: "FeatureCollection", features: feats }); return; }
-  map.addSource(id, { type: "geojson", data: { type: "FeatureCollection", features: feats } });
-  map.addLayer({ id, type: "circle", source: id, paint: { "circle-radius": radius, "circle-color": color, "circle-stroke-color": "#fff", "circle-stroke-width": 1.5, "circle-opacity": 0.9 } });
+const FC = (features) => ({ type: "FeatureCollection", features });
+const pt = (lon, lat, properties) => ({ type: "Feature", geometry: { type: "Point", coordinates: [lon, lat] }, properties });
+const CLICK = [];
+function points(id, feats, paint, before) {
+  if (map.getSource(id)) { map.getSource(id).setData(FC(feats)); return; }
+  map.addSource(id, { type: "geojson", data: FC(feats) });
+  map.addLayer({ id, type: "circle", source: id, paint: { "circle-stroke-color": "#fff", "circle-stroke-width": 1.2, "circle-opacity": 0.92, ...paint } }, before);
+  CLICK.push(id);
   map.on("mouseenter", id, () => (map.getCanvas().style.cursor = "pointer")); map.on("mouseleave", id, () => (map.getCanvas().style.cursor = ""));
 }
 async function loadEvents() {
@@ -265,35 +325,80 @@ async function loadEvents() {
   try {
     const j = await getJSON("https://eonet.gsfc.nasa.gov/api/v3/events?status=open&days=20");
     const col = { wildfires: "#e4572e", severeStorms: "#3d7ea6", volcanoes: "#8e3b46", floods: "#2a6f97", seaLakeIce: "#9ad1d4", drought: "#c08a2e" };
-    const feats = j.events.map((e) => { const g = e.geometry[e.geometry.length - 1]; const c = g.type === "Point" ? g.coordinates : g.coordinates[0][0]; const cat = e.categories[0] || {};
-      return { type: "Feature", geometry: { type: "Point", coordinates: c }, properties: { title: e.title, cat: cat.title || "", color: col[cat.id] || "#e4572e", date: (g.date || "").slice(0, 10), link: (e.sources[0] || {}).url || e.link } }; });
-    points("events", feats, ["get", "color"], ["interpolate", ["linear"], ["zoom"], 1, 4, 6, 8]);
+    points("events", j.events.map((e) => { const g = e.geometry[e.geometry.length - 1], c = g.type === "Point" ? g.coordinates : g.coordinates[0][0], cat = e.categories[0] || {};
+      return pt(c[0], c[1], { kind: "event", title: e.title, cat: cat.title || "", color: col[cat.id] || "#e4572e", date: (g.date || "").slice(0, 10), link: (e.sources[0] || {}).url || e.link }); }),
+      { "circle-color": ["get", "color"], "circle-radius": ["interpolate", ["linear"], ["zoom"], 1, 4, 6, 8] });
   } catch (_) { /* the events service did not answer; the layer stays empty */ }
 }
 async function loadQuakes() {
   if (map.getSource("quakes")) return;
   try {
     const j = await getJSON("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geojson");
-    const feats = j.features.map((f) => ({ type: "Feature", geometry: { type: "Point", coordinates: f.geometry.coordinates.slice(0, 2) }, properties: { title: f.properties.place, mag: f.properties.mag, date: new Date(f.properties.time).toISOString().slice(0, 10), link: f.properties.url } }));
-    points("quakes", feats, "#f2c14e", ["interpolate", ["linear"], ["get", "mag"], 4.5, 4, 7, 13]);
+    points("quakes", j.features.map((f) => pt(f.geometry.coordinates[0], f.geometry.coordinates[1], { kind: "quake", title: f.properties.place, mag: f.properties.mag, date: new Date(f.properties.time).toISOString().slice(0, 10), link: f.properties.url })),
+      { "circle-color": "#f2c14e", "circle-radius": ["interpolate", ["linear"], ["get", "mag"], 4.5, 4, 7, 13] });
   } catch (_) { /* the earthquake feed did not answer */ }
 }
 async function loadCases() {
   if (map.getSource("cases")) return;
   try {
     const j = await getJSON("../data/playbook.json");
-    const feats = j.cases.filter((c) => Number.isFinite(c.lat)).map((c) => ({ type: "Feature", geometry: { type: "Point", coordinates: [c.lon, c.lat] }, properties: { title: (c.title[lang] || c.title.en), cat: c.place, text: (c.what_changed[lang] || c.what_changed.en), link: c.source, story: 1 } }));
-    points("cases", feats, "#3fbf8f", 7);
+    points("cases", j.cases.filter((c) => Number.isFinite(c.lat)).map((c) => pt(c.lon, c.lat, { kind: "story", title: c.title[lang] || c.title.en, cat: c.place, text: c.what_changed[lang] || c.what_changed.en, link: c.source })), { "circle-color": "#1f7f5f", "circle-radius": 7 });
   } catch (_) { /* no stories */ }
 }
+// 40 years, 300 cities: how many of five climate signals changed (the screening the app's World section already uses)
+async function loadChange() {
+  if (map.getSource("change")) return;
+  try {
+    const j = await getJSON("../data/panorama.json");
+    points("change", j.cities.map((c) => pt(c.lon, c.lat, { kind: "city", title: c.name, n: c.nsig, a: c.sig.temp ? c.sig.temp.a : -999, b: c.sig.temp ? c.sig.temp.b : -999, rain: c.rainPct == null ? -999 : c.rainPct, lat: c.lat, lon: c.lon })),
+      { "circle-color": ["interpolate", ["linear"], ["get", "n"], 0, RAMP.change[0], 1, RAMP.change[1], 2, RAMP.change[2], 3, RAMP.change[3], 4, RAMP.change[4], 5, RAMP.change[5]], "circle-radius": ["interpolate", ["linear"], ["zoom"], 1, 3.6, 5, 8], "circle-stroke-color": "#1c2a24", "circle-stroke-width": 0.8 });
+  } catch (_) { /* no city screening */ }
+}
+async function loadTracks() {
+  if (map.getSource("tracks")) return;
+  try {
+    const j = await getJSON("../data/tracks.json");
+    // each storm: [month, strongest wind in knots, [lat, lon, lat, lon, ...] in tenths of a degree]; the strongest 900 keep the map light
+    const rows = j.storms.slice().sort((a, b) => b[1] - a[1]).slice(0, 900);
+    const feats = rows.map((s) => { const c = []; let prev = null; for (let i = 0; i < s[2].length; i += 2) { let lon = s[2][i + 1] / 10; const lat = s[2][i] / 10; if (prev !== null && Math.abs(lon - prev) > 180) lon += lon < prev ? 360 : -360; prev = lon; c.push([lon, lat]); }
+      return { type: "Feature", geometry: { type: "LineString", coordinates: c }, properties: { kind: "track", w: s[1], m: s[0] } }; });
+    map.addSource("tracks", { type: "geojson", data: FC(feats) });
+    map.addLayer({ id: "tracks", type: "line", source: "tracks", paint: { "line-color": ["interpolate", ["linear"], ["get", "w"], 60, RAMP.tracks[0], 90, RAMP.tracks[1], 120, RAMP.tracks[2], 150, RAMP.tracks[3]], "line-width": ["interpolate", ["linear"], ["zoom"], 1, 0.6, 6, 2], "line-opacity": 0.75 } }, map.getLayer("change") ? "change" : undefined);
+    CLICK.push("tracks");
+  } catch (_) { /* no storm paths */ }
+}
+async function loadTornado() {
+  if (map.getSource("tornado")) return;
+  try {
+    const j = await getJSON("../data/tornado_map.json");
+    points("tornado", Object.entries(j.cells).map(([k, v]) => { const [la, lo] = k.split(",").map(Number); return pt(lo, la, { kind: "tornado", n: v[0] }); }),
+      { "circle-color": ["interpolate", ["linear"], ["get", "n"], 1, RAMP.tornado[0], 15, RAMP.tornado[1], 40, RAMP.tornado[2]], "circle-radius": ["interpolate", ["linear"], ["zoom"], 2, 1.6, 6, 9], "circle-stroke-width": 0, "circle-opacity": 0.8 });
+  } catch (_) { /* no tornado map */ }
+}
+async function loadPlastic() {
+  if (map.getSource("plastic")) return;
+  try {
+    const j = await getJSON("../data/pressures.json");
+    points("plastic", j.rivers.map((r) => pt(r[1], r[0], { kind: "plastic", title: r[5] || "", tons: r[2] })),
+      { "circle-color": ["interpolate", ["linear"], ["get", "tons"], 50, RAMP.plastic[0], 1500, RAMP.plastic[1], 12000, RAMP.plastic[2]], "circle-radius": ["interpolate", ["linear"], ["get", "tons"], 50, 3, 3000, 7, 60000, 15] });
+  } catch (_) { /* no river data */ }
+}
 function popup(f, lngLat) {
-  const p = f.properties;
-  const body = p.story ? `<b>${esc(p.title)}</b><br><span style="color:#5d6b63">${esc(p.cat)}</span><br>${esc(p.text)}` : p.mag ? `<b>${t("mag")} ${Number(p.mag).toFixed(1)}</b><br>${esc(p.title)}<br><span style="color:#5d6b63">${esc(p.date)}</span>` : `<b>${esc(p.title)}</b><br><span style="color:#5d6b63">${esc(p.cat)} · ${t("when")} ${esc(p.date)}</span>`;
-  new maplibregl.Popup({ closeButton: false, offset: 10 }).setLngLat(lngLat).setHTML(`${body}${p.link ? `<br><a href="${esc(p.link)}" target="_blank" rel="noopener">${t("source")}</a>` : ""}`).addTo(map);
+  const p = f.properties, grey = (s) => `<span style="color:#5d6b63">${s}</span>`;
+  let body = "", see = null;
+  if (p.kind === "story") body = `<b>${esc(p.title)}</b><br>${grey(esc(p.cat))}<br>${esc(p.text)}`;
+  else if (p.kind === "quake") body = `<b>${t("mag")} ${num(p.mag, 1)}</b><br>${esc(p.title)}<br>${grey(esc(p.date))}`;
+  else if (p.kind === "event") body = `<b>${esc(p.title)}</b><br>${grey(`${esc(p.cat)}, ${t("when")} ${esc(p.date)}`)}`;
+  else if (p.kind === "city") { body = `<b>${esc(p.title)}</b> ${grey("1981-2025")}<br>${p.a > -900 ? `${t("p_temp")}: ${num(p.a, 1)} → ${num(p.b, 1)} °C<br>` : ""}${p.rain > -900 ? `${t("p_rain")}: ${p.rain > 0 ? "+" : ""}${num(p.rain)}%<br>` : ""}<b style="color:#b5452c">${fill("p_sig", { n: p.n })}</b>`; see = [p.lat, p.lon, p.title]; }
+  else if (p.kind === "track") body = `<b>${t("p_storm")}</b><br>${t("p_wind")}: ${num(p.w * 1.852)} km/h<br>${grey(`${t("months")} ${p.m}`)}`;
+  else if (p.kind === "tornado") body = `<b>${num(p.n)}</b> ${t("p_tor")}`;
+  else if (p.kind === "plastic") body = `${p.title ? `<b>${esc(p.title)}</b><br>` : ""}<b>${num(p.tons)}</b> ${t("p_plastic")}`;
+  const pop = new maplibregl.Popup({ closeButton: false, offset: 10 }).setLngLat(lngLat).setHTML(`${body}${p.link ? `<br><a href="${esc(p.link)}" target="_blank" rel="noopener">${t("source")}</a>` : ""}${see ? `<br><button type="button">${t("p_see")} →</button>` : ""}`).addTo(map);
+  if (see) pop.getElement().querySelector("button").onclick = () => { pop.remove(); pick(+see[0], +see[1], see[2]); };
 }
 
-/* ---------------- wind: moving lines over the globe ---------------- */
-const W = { nx: 24, ny: 11, lon0: -180, lat0: -75, d: 15, u: null, v: null, parts: [], raf: 0, on: false };
+/* ---------------- wind: lines that follow the wind ---------------- */
+const W = { nx: 24, ny: 11, lon0: -180, lat0: -75, d: 15, u: null, v: null, parts: [], raf: 0, on: false, last: 0 };
 async function loadWind() {
   if (W.u) return true;
   try {
@@ -315,28 +420,28 @@ function windAt(lon, lat) {
   return [mix(W.u), mix(W.v)];
 }
 const cv = $("#wind"), ctx = cv.getContext("2d");
-function sizeCanvas() { const r = Math.min(2, devicePixelRatio || 1); cv.width = innerWidth * r; cv.height = innerHeight * r; cv.style.width = innerWidth + "px"; cv.style.height = innerHeight + "px"; ctx.setTransform(r, 0, 0, r, 0, 0); }
+function sizeCanvas() { cv.width = innerWidth; cv.height = innerHeight; cv.style.width = innerWidth + "px"; cv.style.height = innerHeight + "px"; }
 function spawn(p) {
   const z = map.getZoom();
   if (z < 3.2) { p.lon = Math.random() * 360 - 180; p.lat = Math.asin(Math.random() * 2 - 1) * 180 / Math.PI * 0.94; }
   else { const b = map.getBounds(); p.lon = b.getWest() + Math.random() * (b.getEast() - b.getWest()); p.lat = b.getSouth() + Math.random() * (b.getNorth() - b.getSouth()); }
-  p.age = Math.random() * 70; p.x = null;
+  p.age = Math.random() * 60; p.x = null;
 }
 const STILL = matchMedia("(prefers-reduced-motion: reduce)").matches;
-function windFrame() { W.raf = requestAnimationFrame(windFrame); windStep(true); }
+// about 30 pictures a second are enough for wind, and nothing is drawn while a finger moves the map or the tab is hidden
+function windFrame(now) { W.raf = requestAnimationFrame(windFrame); if (now - W.last < 32 || document.hidden || (map.isMoving() && !state.spin)) return; W.last = now; windStep(true); }
 function windStill() { ctx.clearRect(0, 0, innerWidth, innerHeight); W.parts.forEach((p) => { spawn(p); p.age = 0; }); for (let i = 0; i < 26; i++) windStep(false); }
 function windStep(fade) {
   const z = map.getZoom(), c = map.getCenter(), toR = Math.PI / 180;
-  if (fade) { ctx.globalCompositeOperation = "destination-in"; ctx.fillStyle = "rgba(0,0,0,0.9)"; ctx.fillRect(0, 0, innerWidth, innerHeight); }
-  ctx.globalCompositeOperation = "source-over"; ctx.lineWidth = 1.15; ctx.strokeStyle = fade ? "rgba(255,255,255,0.75)" : "rgba(255,255,255,0.5)"; ctx.beginPath();
-  const k = 0.05 / Math.pow(2, Math.max(0, z - 1.3)), cl = Math.cos(c.lat * toR), sl = Math.sin(c.lat * toR), limit = z < 2.5 ? 0.12 : z < 4 ? 0.45 : 0.75;
+  if (fade) { ctx.globalCompositeOperation = "destination-in"; ctx.fillStyle = "rgba(0,0,0,0.88)"; ctx.fillRect(0, 0, innerWidth, innerHeight); }
+  ctx.globalCompositeOperation = "source-over"; ctx.lineWidth = 1.2; ctx.strokeStyle = fade ? "rgba(255,255,255,0.8)" : "rgba(255,255,255,0.5)"; ctx.beginPath();
+  const k = 0.085 / Math.pow(2, Math.max(0, z - 1.3)), cl = Math.cos(c.lat * toR), sl = Math.sin(c.lat * toR), limit = z < 2.5 ? 0.12 : z < 4 ? 0.45 : 0.75;
   for (const p of W.parts) {
-    if (p.age++ > 90 || Math.abs(p.lat) > 84) { spawn(p); continue; }
+    if (p.age++ > 60 || Math.abs(p.lat) > 84) { spawn(p); continue; }
     const [u, v] = windAt(p.lon, p.lat);
     p.lon += (u * k) / Math.max(0.2, Math.cos(p.lat * toR)); p.lat += v * k;
     if (p.lon > 180) p.lon -= 360; else if (p.lon < -180) p.lon += 360;
-    // points on the far side of the globe are skipped
-    const dot = sl * Math.sin(p.lat * toR) + cl * Math.cos(p.lat * toR) * Math.cos((p.lon - c.lng) * toR);
+    const dot = sl * Math.sin(p.lat * toR) + cl * Math.cos(p.lat * toR) * Math.cos((p.lon - c.lng) * toR); // the far side of the globe is skipped
     if (dot < limit) { p.x = null; continue; }
     const s = map.project([p.lon, p.lat]);
     if (s.x < -20 || s.y < -20 || s.x > innerWidth + 20 || s.y > innerHeight + 20) { if (z >= 3.2) spawn(p); else p.x = null; continue; }
@@ -347,15 +452,17 @@ function windStep(fade) {
 }
 async function windOn(on) {
   cancelAnimationFrame(W.raf); ctx.clearRect(0, 0, innerWidth, innerHeight); W.on = on; if (!on) return;
-  if (!(await loadWind())) { const b = document.querySelector('.lay[data-id="wind"]'); if (b) b.classList.remove("on"); state.on.wind = false; return; }
-  if (!W.parts.length) { const n = innerWidth < 820 ? 550 : 1300; for (let i = 0; i < n; i++) { const p = {}; spawn(p); W.parts.push(p); } }
-  if (STILL) windStill(); else windFrame();
+  if (!(await loadWind())) { const b = document.querySelector('.lay[data-id="wind"]'); if (b) b.classList.remove("on"); state.on.wind = false; W.on = false; return; }
+  if (!W.on) return;
+  if (!W.parts.length) { const n = small ? 320 : 750; for (let i = 0; i < n; i++) { const p = {}; spawn(p); W.parts.push(p); } }
+  cancelAnimationFrame(W.raf);
+  if (STILL) windStill(); else W.raf = requestAnimationFrame(windFrame);
 }
-map.on("movestart", () => { ctx.clearRect(0, 0, innerWidth, innerHeight); W.parts.forEach((p) => (p.x = null)); });
-map.on("move", () => W.parts.forEach((p) => (p.x = null)));
-map.on("moveend", () => { if (W.on && STILL && W.u) windStill(); });
+// while the Earth turns by itself the lines keep going; when a person moves the map they start again
+map.on("movestart", () => { if (state.spin) return; ctx.clearRect(0, 0, innerWidth, innerHeight); W.parts.forEach((p) => (p.x = null)); });
+map.on("moveend", () => { if (state.spin) return; W.parts.forEach((p) => (p.x = null)); if (W.on && STILL && W.u) windStill(); });
 
-/* ---------------- a place: what happens there through the year ---------------- */
+/* ---------------- a place: 40 years, the year, the chains ---------------- */
 const M3 = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"], DAYS = [31, 28.25, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 const lvl = (v, a, b, c) => (v >= c ? 3 : v >= b ? 2 : v >= a ? 1 : 0), lvlLow = (v, a, b, c) => (v <= c ? 3 : v <= b ? 2 : v <= a ? 1 : 0);
 let storms = null;
@@ -381,10 +488,29 @@ function calendar(Y) {
   const head = `<tr><th></th>${mon.map((m, i) => `<th class="${i === cur ? "cur" : ""}">${m}</th>`).join("")}</tr>`;
   const line = (name, a) => (a.some(Boolean) ? `<tr><td class="n">${name}</td>${a.map((v, i) => `<td class="c l${v} ${i === cur ? "cur" : ""}"></td>`).join("")}</tr>` : "");
   const w = Y.weather, i = Y.ill;
-  const rows1 = line(t("r_heat"), w.heat) + line(t("r_cold"), w.cold) + line(t("r_rain"), w.rain) + line(t("r_dry"), w.dry) + line(t("r_fire"), w.fire) + line(t("r_cyc"), w.cyc) + line(t("r_tor"), w.tor);
+  const rows1 = line(t("c_heat"), w.heat) + line(t("c_cold"), w.cold) + line(t("c_rain"), w.rain) + line(t("c_dry"), w.dry) + line(t("c_fire"), w.fire) + line(t("c_cyc"), w.cyc) + line(t("c_tor"), w.tor);
   const rows2 = line(t("i_heat"), i.heat) + line(t("i_mosq"), i.mosq) + line(t("i_resp"), i.resp) + line(t("i_water"), i.water);
   if (!rows1 && !rows2) return `<p class="note">${t("calm")}</p>`;
   return `<table class="cal">${head}<tr class="g"><td colspan="13">${t("weather")}</td></tr>${rows1}${rows2 ? `<tr class="g"><td colspan="13">${t("ill")}</td></tr>${rows2}` : ""}</table><p class="note">${t("year_n")}</p>`;
+}
+// 40 years of one place, said in one sentence and drawn as one small line
+function spark(years, vals, tr, color) {
+  const lo = Math.min(...vals), hi = Math.max(...vals), w = 300, h = 46, x = (i) => 3 + (i / (vals.length - 1)) * (w - 6), y = (v) => h - 5 - ((v - lo) / (hi - lo || 1)) * (h - 10);
+  const line = vals.map((v, i) => `${i ? "L" : "M"}${x(i).toFixed(1)} ${y(v).toFixed(1)}`).join("");
+  const a = tr.intercept + tr.slope * years[0], b = tr.intercept + tr.slope * years[years.length - 1];
+  return `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" aria-hidden="true"><path d="${line}" fill="none" stroke="#b9c1bb" stroke-width="1.4"/><path d="M${x(0)} ${y(a).toFixed(1)}L${x(vals.length - 1)} ${y(b).toFixed(1)}" fill="none" stroke="${color}" stroke-width="2.4" stroke-linecap="round"/></svg>`;
+}
+function forty(j) {
+  const P = j.properties.parameter, years = [], T = [], R = [];
+  for (let y = 1981; y <= 2024; y++) { const a = P.T2M[y + "13"], b = P.PRECTOTCORR[y + "13"]; if (a > -900 && b > -900) { years.push(y); T.push(a); R.push(b * 365.25); } }
+  const tt = Stats.trend(years, T), tr = Stats.trend(years, R); if (!tt || !tr) return "";
+  const a = tt.intercept + tt.slope * years[0], b = tt.intercept + tt.slope * years[years.length - 1], ra = tr.intercept + tr.slope * years[0], rb = tr.intercept + tr.slope * years[years.length - 1];
+  const tHead = tt.significant ? fill(tt.total > 0 ? "t_up" : "t_down", { v: num(Math.abs(tt.total), 1) }) : t("t_no");
+  const tBody = tt.significant ? fill("t_txt", { a: num(a, 1), b: num(b, 1) }) : fill("t_no_txt", { b: num(tt.recent, 1) });
+  const pct = Math.abs((rb - ra) / ra) * 100;
+  const rHead = tr.significant ? fill(tr.total < 0 ? "r_down" : "r_up", { v: num(pct) }) : t("r_no");
+  const rBody = tr.significant ? fill("r_txt", { a: num(Math.round(ra / 10) * 10), b: num(Math.round(rb / 10) * 10) }) : fill("r_no_txt", { b: num(Math.round(tr.recent / 10) * 10) });
+  return `<div class="y40"><div><span class="note" style="margin:0">${t("t_h")}</span><b class="${tt.significant ? "real" : ""}">${tHead}</b><p>${tBody}</p>${spark(years, T, tt, "#b5452c")}</div><div><span class="note" style="margin:0">${t("r_h")}</span><b class="${tr.significant ? "real" : ""}">${rHead}</b><p>${rBody}</p>${spark(years, R, tr, "#2a6f97")}</div></div><p class="note">${t("y40_n")}</p>`;
 }
 function cascadesFor(Y) {
   if (!state.cascades) return "";
@@ -397,13 +523,13 @@ function cascadesFor(Y) {
 }
 async function pick(lat, lon, name) {
   lon = ((lon + 540) % 360) - 180; state.spin = false; state.picked = { lat, lon, name };
-  $("#hint").classList.add("off");
-  if (!state.marker) state.marker = new maplibregl.Marker({ color: "#e98a5c" });
+  $("#hint").classList.add("off"); if (small) $("#layers").classList.remove("show");
+  if (!state.marker) state.marker = new maplibregl.Marker({ color: "#b5452c" });
   state.marker.setLngLat([lon, lat]).addTo(map);
   if (map.getZoom() < 4.5) map.flyTo({ center: [lon, lat], zoom: 5.2, duration: 2200, essential: true });
   const P = $("#panel"); P.classList.add("open");
-  const coords = `${lat.toFixed(2)}, ${lon.toFixed(2)}`;
-  P.innerHTML = `<button class="x" aria-label="close">×</button><h1 id="pn">${esc(name || coords)}</h1><p class="sub">${coords}</p><div id="pnow"></div><h2>${t("year")}</h2><div id="pyear"><p class="load">${t("loading")}</p></div><div id="pcasc"></div><a class="go" href="../?lat=${lat.toFixed(4)}&lon=${lon.toFixed(4)}${name ? "&name=" + encodeURIComponent(name) : ""}">${t("open")} →</a>`;
+  const coords = `${lat.toFixed(2)}, ${lon.toFixed(2)}`, POWER = "https://power.larc.nasa.gov/api/temporal/", at = `&community=AG&longitude=${lon.toFixed(3)}&latitude=${lat.toFixed(3)}&format=JSON`;
+  P.innerHTML = `<button class="x" aria-label="close">×</button><h1 id="pn">${esc(name || coords)}</h1><p class="sub">${coords}</p><div id="pnow"></div><h2>${t("y40")}</h2><div id="p40"><p class="load">${t("loading")}</p></div><h2>${t("year")}</h2><div id="pyear"><p class="load">${t("loading")}</p></div><div id="pcasc"></div><a class="go" href="../?lat=${lat.toFixed(4)}&lon=${lon.toFixed(4)}${name ? "&name=" + encodeURIComponent(name) : ""}">${t("open")} →</a>`;
   P.querySelector(".x").onclick = () => P.classList.remove("open"); P.scrollTop = 0;
   const me = state.picked;
   if (!name) getJSON(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=jsonv2&zoom=10&accept-language=${lang}`).then((j) => { if (state.picked !== me || !j.address) return; const a = j.address, n = [a.city || a.town || a.village || a.municipality || a.county || a.state_district, a.state, a.country].filter(Boolean).filter((v, i, arr) => arr.indexOf(v) === i).slice(0, 3).join(", "); if (n) { me.name = n; $("#pn").textContent = n; P.querySelector(".go").href += "&name=" + encodeURIComponent(n); } }).catch(() => {});
@@ -412,8 +538,9 @@ async function pick(lat, lon, name) {
     getJSON(`https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${lat}&longitude=${lon}&current=pm2_5&timezone=auto`).catch(() => null),
   ]).then(([wx, aq]) => { if (state.picked !== me || !wx) return; const c = wx.current, pm = aq && aq.current ? aq.current.pm2_5 : null;
     $("#pnow").innerHTML = `<div class="now"><div><b>${Math.round(c.temperature_2m)} °C</b><span>${t("feels")} ${Math.round(c.apparent_temperature)} °C</span></div><div><b>${Math.round(c.wind_speed_10m)} km/h</b><span>${t("windl")}</span></div><div><b>${pm == null ? "·" : Math.round(pm) + " µg/m³"}</b><span>${pm == null ? t("nodata") : t("airl")}</span></div></div>`; });
+  getJSON(`${POWER}monthly/point?parameters=T2M,PRECTOTCORR&start=1981&end=2024${at}`).then((j) => { if (state.picked !== me) return; me.forty = j; $("#p40").innerHTML = forty(j) || `<p class="load">${t("fail")}</p>`; }).catch(() => { if (state.picked === me) $("#p40").innerHTML = `<p class="load">${t("fail")}</p>`; });
   try {
-    const [clim, st] = await Promise.all([getJSON(`https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M,T2M_MAX,T2M_MIN,PRECTOTCORR&community=AG&longitude=${lon.toFixed(3)}&latitude=${lat.toFixed(3)}&format=JSON`), stormData()]);
+    const [clim, st] = await Promise.all([getJSON(`${POWER}climatology/point?parameters=T2M,T2M_MAX,T2M_MIN,PRECTOTCORR${at}`), stormData()]);
     if (state.picked !== me) return;
     if (clim.properties.parameter.T2M.JAN < -900) throw new Error("no data");
     const Y = (me.year = yearOf(clim, lat, lon, st));
@@ -426,8 +553,8 @@ function words() {
   document.documentElement.lang = lang; document.title = t("title");
   $("#q").placeholder = t("ph"); $("#qb").textContent = t("go"); $("#hint").textContent = t("hint"); $("#ltoggle").textContent = t("layers");
   document.querySelectorAll(".lang button").forEach((b) => b.classList.toggle("on", b.dataset.lang === lang));
-  $("#home").href = "../"; drawLayers(); stamp();
-  if (state.picked) { const p = state.picked; if (p.year) { pick(p.lat, p.lon, p.name); } }
+  drawLayers();
+  if (state.picked && state.picked.year) pick(state.picked.lat, state.picked.lon, state.picked.name);
 }
 document.querySelectorAll(".lang button").forEach((b) => b.addEventListener("click", () => { lang = b.dataset.lang; try { localStorage.setItem("geocare.lang", lang); } catch (_) { /* storage unavailable */ } if (map.getSource("cases")) { map.removeLayer("cases"); map.removeSource("cases"); if (state.on.cases) setLayer("cases", true); } words(); }));
 $("#ltoggle").onclick = () => $("#layers").classList.toggle("show");
@@ -435,22 +562,27 @@ $("#search").addEventListener("submit", async (e) => { e.preventDefault(); const
   try { const j = await getJSON(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(q)}&format=jsonv2&limit=1&accept-language=${lang}`); if (!j.length) { $("#q").value = ""; $("#q").placeholder = t("notfound"); return; }
     const lat = +j[0].lat, lon = +j[0].lon; state.spin = false; map.flyTo({ center: [lon, lat], zoom: 9, duration: 3200, essential: true }); pick(lat, lon, j[0].display_name.split(",").slice(0, 3).join(",")); $("#q").blur(); } catch (_) { $("#q").placeholder = t("notfound"); } });
 
-map.on("load", async () => {
+let rest = false;
+function theRest() { if (rest) return; rest = true; for (const L of LAYERS) if (state.on[L.id] && L.id !== "clouds") setLayer(L.id, true); }
+map.on("load", () => {
   sizeCanvas(); words();
-  for (const L of LAYERS) if (state.on[L.id]) setLayer(L.id, true);
+  setLayer("clouds", true); // the picture first
   getJSON("../data/cascades.json").then((j) => { state.cascades = j.cascades; if (state.picked && state.picked.year) $("#pcasc").innerHTML = cascadesFor(state.picked.year); }).catch(() => {});
   if (hasStart) pick(start[1], start[0], qs.get("name") || "");
+  // everything else waits until the globe is on the screen (or four seconds, whichever comes first)
+  map.once("idle", theRest); setTimeout(theRest, 4000);
   setTimeout(() => $("#hint").classList.add("off"), 9000);
+  setTimeout(() => (state.spin = false), 30000);
 });
 map.on("click", (e) => {
-  const f = map.queryRenderedFeatures(e.point, { layers: ["events", "quakes", "cases"].filter((i) => map.getLayer(i)) })[0];
+  const f = map.queryRenderedFeatures([[e.point.x - 4, e.point.y - 4], [e.point.x + 4, e.point.y + 4]], { layers: CLICK.filter((i) => map.getLayer(i)) })[0];
   if (f) { popup(f, e.lngLat); return; }
   pick(e.lngLat.lat, e.lngLat.lng, "");
 });
 // the Earth turns slowly until someone touches it
 ["mousedown", "touchstart", "wheel", "keydown"].forEach((ev) => addEventListener(ev, () => (state.spin = false), { passive: true }));
-(function turn() { if (state.spin && map.loaded()) { const c = map.getCenter(); map.jumpTo({ center: [c.lng + 0.06, c.lat] }); } if (state.spin) requestAnimationFrame(turn); })();
-addEventListener("resize", () => { sizeCanvas(); });
+(function turn() { if (state.spin && map.loaded() && !document.hidden) { const c = map.getCenter(); map.jumpTo({ center: [c.lng + 0.05, c.lat] }); } if (state.spin) requestAnimationFrame(turn); })();
+addEventListener("resize", sizeCanvas);
 </script>
 </body>
 </html>
