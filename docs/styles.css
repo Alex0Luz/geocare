@@ -545,3 +545,7 @@ body.tour-on .tl-more { display: none; }
 .chips-g { font: 700 0.66rem "Manrope", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 12px 0 6px; }
 .howto-link { display: block; margin: 10px 2px 12px; font-size: 0.8rem; font-weight: 700; color: var(--forest); text-decoration: underline; text-underline-offset: 3px; }
 @media (max-width: 820px) { .howto-link { margin: 0 4px; font-size: 0.72rem; white-space: nowrap; } }
+.planet-link { display: flex; align-items: center; gap: 8px; margin: 8px 0 2px; padding: 9px 12px; border-radius: 10px; background: #0e1613; color: #f4eee1; font-size: 0.82rem; font-weight: 700; text-decoration: none; }
+.planet-link .ic { width: 1.1em; height: 1.1em; color: #6fd3a8; }
+.s-actions a.btn { text-decoration: none; display: inline-flex; align-items: center; }
+@media (max-width: 820px) { .planet-link { margin: 0 2px; padding: 6px 8px; font-size: 0.7rem; white-space: nowrap; } .planet-link .ic { display: none; } }

@@ -1,0 +1,231 @@
+{
+ "note": "These cascades summarise mainstream public-health guidance and the cases already cited in this app's playbook, and they are guidance, not diagnosis.",
+ "cascades": [
+  {
+   "id": "heat",
+   "title": {"en": "Extreme heat", "es": "Calor extremo", "pt": "Calor extremo"},
+   "steps": [
+    {"kind": "climate", "t": {"en": "Very hot days and nights that do not cool", "es": "Días muy calurosos y noches que no refrescan", "pt": "Dias muito quentes e noites que não refrescam"}},
+    {"kind": "body", "t": {"en": "The body loses water and cannot cool down", "es": "El cuerpo pierde agua y no logra enfriarse", "pt": "O corpo perde água e não consegue se resfriar"}},
+    {"kind": "health", "t": {"en": "Higher risk of heat exhaustion, fainting and heat stroke", "es": "Más riesgo de agotamiento, desmayo y golpe de calor", "pt": "Mais risco de exaustão, desmaio e insolação grave"}},
+    {"kind": "health", "t": {"en": "Heart, kidney and lung conditions can get worse", "es": "Pueden empeorar enfermedades del corazón, riñón y pulmón", "pt": "Doenças do coração, rim e pulmão podem piorar"}},
+    {"kind": "society", "t": {"en": "Outdoor work gets harder and hospitals fill up", "es": "Trabajar al sol cuesta más y se llenan hospitales", "pt": "Trabalhar ao sol fica mais difícil e hospitais lotam"}}
+   ],
+   "do": {
+    "en": "Drink water often, avoid the sun in the hottest hours, check on older neighbours and ask your doctor or health unit about your medicines before the hot days.",
+    "es": "Tome agua seguido, evite el sol fuerte, visite a los mayores y hable con su médico o centro de salud sobre sus medicamentos antes de los días calurosos.",
+    "pt": "Beba água com frequência, evite o sol forte, visite os vizinhos idosos e converse com seu médico ou unidade de saúde sobre seus remédios antes dos dias quentes."
+   },
+   "solve": {
+    "en": "Adopt a heat action plan with forecast-based alerts and prepared health services, plant trees in the hottest neighbourhoods, and give outdoor workers shade, water and rest.",
+    "es": "Adopte un plan de calor con alertas y servicios de salud preparados, arbolice los barrios más calurosos y dé sombra, agua y descanso a quienes trabajan al sol.",
+    "pt": "Adote um plano de calor com alertas e serviços de saúde preparados, arborize os bairros mais quentes e dê sombra, água e pausas a quem trabalha ao sol."
+   },
+   "case": {
+    "id": "ahmedabad-heat",
+    "t": {
+     "en": "Ahmedabad, India, launched a heat action plan in 2013, and a study estimated about 1,190 deaths avoided per year after the plan (uncertainty range 162 to 2,218).",
+     "es": "Ahmedabad, India, lanzó en 2013 un plan de acción contra el calor, y un estudio estimó unas 1.190 muertes evitadas por año después del plan (rango de incertidumbre de 162 a 2.218).",
+     "pt": "Ahmedabad, na Índia, lançou em 2013 um plano de ação contra o calor, e um estudo estimou cerca de 1.190 mortes evitadas por ano depois do plano (faixa de incerteza de 162 a 2.218)."
+    }
+   },
+   "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6236972"
+  },
+  {
+   "id": "rain",
+   "title": {"en": "Heavy rain and floods", "es": "Lluvia fuerte e inundaciones", "pt": "Chuva forte e enchentes"},
+   "steps": [
+    {"kind": "climate", "t": {"en": "Very heavy rain in a short time", "es": "Lluvia muy fuerte en poco tiempo", "pt": "Chuva muito forte em pouco tempo"}},
+    {"kind": "society", "t": {"en": "Streets and homes flood", "es": "Calles y casas se inundan", "pt": "Ruas e casas alagam"}},
+    {"kind": "nature", "t": {"en": "Water mixes with sewage and rat urine", "es": "Agua mezclada con aguas residuales y orina de rata", "pt": "Água misturada com esgoto e urina de rato"}},
+    {"kind": "health", "t": {"en": "Risk of diarrhoea and leptospirosis in the following weeks", "es": "Riesgo de diarrea y leptospirosis en las semanas siguientes", "pt": "Risco de diarreia e leptospirose nas semanas seguintes"}},
+    {"kind": "nature", "t": {"en": "Standing water left behind breeds mosquitoes", "es": "El agua estancada cría mosquitos", "pt": "A água parada cria mosquitos"}}
+   ],
+   "do": {
+    "en": "Never walk or drive through floodwater, wear boots and gloves to clean, drink only bottled, boiled or treated water, and seek care for fever, mentioning the flood.",
+    "es": "Nunca camine ni maneje por agua de inundación, limpie con botas y guantes, tome solo agua embotellada, hervida o tratada y consulte si hay fiebre, mencionando la inundación.",
+    "pt": "Não ande nem dirija em água de enchente, limpe com botas e luvas, beba só água mineral, fervida ou tratada e, com febre, procure atendimento citando a enchente."
+   },
+   "solve": {
+    "en": "Extend sewage collection and treatment, build parks and squares that hold stormwater away from homes, and keep a post-flood plan that treats fever early.",
+    "es": "Extienda el tratamiento de aguas residuales, cree parques y plazas que retengan el agua de lluvia y tenga un plan posinundación que trate la fiebre a tiempo.",
+    "pt": "Amplie a coleta e o tratamento de esgoto, crie parques e praças que retenham a água da chuva e tenha um plano pós-enchente que trate a febre cedo."
+   },
+   "case": {
+    "id": "rio-grande-do-sul-2024",
+    "t": {
+     "en": "After the May 2024 floods in Rio Grande do Sul, Brazil, the state had 5,439 reported leptospirosis cases by late June, 353 of them confirmed, and 20 confirmed deaths from the disease.",
+     "es": "Tras las inundaciones de mayo de 2024 en Rio Grande do Sul, Brasil, el estado tenía a fines de junio 5.439 casos notificados de leptospirosis, 353 confirmados, y 20 muertes confirmadas por la enfermedad.",
+     "pt": "Depois das enchentes de maio de 2024 no Rio Grande do Sul, Brasil, o estado tinha no fim de junho 5.439 casos notificados de leptospirose, 353 confirmados, e 20 mortes confirmadas pela doença."
+    }
+   },
+   "source": "https://agenciabrasil.ebc.com.br/saude/noticia/2024-06/rio-grande-do-sul-confirma-20a-morte-por-leptospirose-apos-enchentes"
+  },
+  {
+   "id": "drought",
+   "title": {"en": "Drought", "es": "Sequía", "pt": "Seca"},
+   "steps": [
+    {"kind": "climate", "t": {"en": "Months with little rain and dry soil", "es": "Meses con poca lluvia y suelo seco", "pt": "Meses com pouca chuva e solo seco"}},
+    {"kind": "nature", "t": {"en": "Crops fail and wells and streams run low", "es": "Se pierden cosechas y bajan pozos y arroyos", "pt": "Lavouras se perdem e poços e córregos baixam"}},
+    {"kind": "society", "t": {"en": "Food costs more and farm families lose income", "es": "La comida sube y las familias rurales pierden ingresos", "pt": "A comida encarece e famílias do campo perdem renda"}},
+    {"kind": "health", "t": {"en": "Less safe water favours diarrhoea and skin infections", "es": "Menos agua segura favorece diarreas e infecciones de piel", "pt": "Menos água segura favorece diarreia e infecções de pele"}},
+    {"kind": "nature", "t": {"en": "Dry vegetation burns easily, filling the air with smoke", "es": "La vegetación seca arde fácil y deja humo", "pt": "A vegetação seca queima fácil e gera fumaça"}}
+   ],
+   "do": {
+    "en": "Store drinking water in clean, covered containers, keep washing hands with soap, boil or treat doubtful water, and never burn rubbish or fields.",
+    "es": "Guarde el agua de beber en recipientes limpios y tapados, siga lavándose las manos con jabón, hierva o trate el agua dudosa y no queme basura ni campos.",
+    "pt": "Guarde a água de beber em recipientes limpos e tampados, continue lavando as mãos com sabão, ferva ou trate a água duvidosa e não queime lixo nem pasto."
+   },
+   "solve": {
+    "en": "Help farmers keep soil covered, rotate crops and use drought-tolerant seed and insurance, share seasonal forecasts, and plan emergency water distribution.",
+    "es": "Ayude a los agricultores a cubrir el suelo, rotar cultivos y usar semillas tolerantes y seguros, difunda pronósticos estacionales y planifique la distribución de agua de emergencia.",
+    "pt": "Ajude os agricultores a cobrir o solo, fazer rotação e usar sementes tolerantes e seguro, divulgue previsões sazonais e planeje a distribuição de água de emergência."
+   },
+   "case": {
+    "id": "paraguay-soy-drought",
+    "t": {
+     "en": "In Paraguay, drought and record heat in December and January cut the 2021/22 soy harvest by 58%, to about 4 million tonnes.",
+     "es": "En Paraguay, la sequía y el calor récord de diciembre y enero redujeron la cosecha de soja 2021/22 en 58%, a unos 4 millones de toneladas.",
+     "pt": "No Paraguai, a seca e o calor recorde de dezembro e janeiro reduziram a colheita de soja de 2021/22 em 58%, para cerca de 4 milhões de toneladas."
+    }
+   },
+   "source": "https://bichosdecampo.com/desastre-la-cosecha-paraguaya-de-soja-se-cayo-en-un-58-con-un-rinde-medio-que-es-el-mas-bajo-de-la-historia"
+  },
+  {
+   "id": "mosquito",
+   "title": {"en": "Mosquitoes and dengue", "es": "Mosquitos y dengue", "pt": "Mosquitos e dengue"},
+   "steps": [
+    {"kind": "climate", "t": {"en": "Warm weather with rain and humidity", "es": "Tiempo cálido con lluvia y humedad", "pt": "Tempo quente com chuva e umidade"}},
+    {"kind": "nature", "t": {"en": "Water collects in tyres, pots and open tanks", "es": "El agua se junta en llantas, macetas y tanques", "pt": "Água acumulada em pneus, vasos e caixas d'água"}},
+    {"kind": "nature", "t": {"en": "Aedes mosquitoes multiply close to homes", "es": "El mosquito Aedes se multiplica cerca de las casas", "pt": "O mosquito Aedes se multiplica perto das casas"}},
+    {"kind": "health", "t": {"en": "Higher risk of dengue, Zika and chikungunya", "es": "Más riesgo de dengue, zika y chikungunya", "pt": "Mais risco de dengue, zika e chikungunya"}},
+    {"kind": "society", "t": {"en": "In outbreaks, clinics and hospitals fill up", "es": "En los brotes se llenan clínicas y hospitales", "pt": "Nos surtos, postos de saúde e hospitais lotam"}}
+   ],
+   "do": {
+    "en": "Every week, empty, cover or scrub every container that holds water, join neighbourhood clean-ups, and seek care early if anyone has a fever.",
+    "es": "Cada semana vacíe, tape o cepille todo recipiente que junte agua, participe en las limpiezas del barrio y consulte pronto si alguien tiene fiebre.",
+    "pt": "Toda semana esvazie, tampe ou escove todo recipiente que acumule água, participe dos mutirões do bairro e procure atendimento cedo se alguém tiver febre."
+   },
+   "solve": {
+    "en": "Run regular clean-ups of tyres, containers and standing water, keep rubbish collection working in the rainy season and, where dengue returns every year, add Wolbachia mosquito releases.",
+    "es": "Retire con frecuencia llantas, recipientes y agua estancada, mantenga la recolección de basura en época de lluvias y, donde el dengue vuelve cada año, sume mosquitos con Wolbachia.",
+    "pt": "Faça mutirões para retirar pneus, recipientes e água parada, mantenha a coleta de lixo na estação chuvosa e, onde a dengue volta todo ano, some mosquitos com Wolbachia."
+   },
+   "case": {
+    "id": "yogyakarta-wolbachia",
+    "t": {
+     "en": "In a randomized trial in Yogyakarta, Indonesia, areas with Wolbachia mosquitoes had 77% fewer dengue cases and 86% fewer dengue hospitalisations than untreated areas.",
+     "es": "En un ensayo aleatorizado en Yogyakarta, Indonesia, las zonas con mosquitos con Wolbachia tuvieron 77% menos casos de dengue y 86% menos hospitalizaciones por dengue que las no tratadas.",
+     "pt": "Em um ensaio randomizado em Yogyakarta, na Indonésia, as áreas com mosquitos com Wolbachia tiveram 77% menos casos de dengue e 86% menos internações por dengue que as não tratadas."
+    }
+   },
+   "source": "https://worldmosquitoprogram.org/en/learn/scientific-publications/efficacy-wolbachia-infected-mosquito-deployments-control-dengue"
+  },
+  {
+   "id": "cold",
+   "title": {"en": "Cold wave", "es": "Ola de frío", "pt": "Onda de frio"},
+   "steps": [
+    {"kind": "climate", "t": {"en": "Very cold days and nights, sometimes with frost", "es": "Días y noches muy fríos, a veces con heladas", "pt": "Dias e noites muito frios, às vezes com geada"}},
+    {"kind": "body", "t": {"en": "The body loses more heat than it makes", "es": "El cuerpo pierde más calor del que produce", "pt": "O corpo perde mais calor do que produz"}},
+    {"kind": "health", "t": {"en": "Risk of hypothermia; heart and lung conditions may worsen", "es": "Riesgo de hipotermia; pueden agravarse enfermedades cardíacas y respiratorias", "pt": "Risco de hipotermia; doenças cardíacas e respiratórias podem piorar"}},
+    {"kind": "society", "t": {"en": "Closed homes heated with braziers, fire or gas", "es": "Casas cerradas y calentadas con brasero, fuego o gas", "pt": "Casas fechadas e aquecidas com braseiro, fogo ou gás"}},
+    {"kind": "health", "t": {"en": "Risk of carbon monoxide poisoning while people sleep", "es": "Riesgo de intoxicación por monóxido de carbono al dormir", "pt": "Risco de intoxicação por monóxido de carbono ao dormir"}}
+   ],
+   "do": {
+    "en": "Dress in layers, never heat the home with a gas oven or charcoal, keep some ventilation, turn heaters off before sleeping, and check on older neighbours.",
+    "es": "Abríguese en capas, no caliente la casa con horno a gas ni carbón, ventile un poco, apague las estufas antes de dormir y visite a los vecinos mayores.",
+    "pt": "Vista-se em camadas, não aqueça a casa com forno a gás nem carvão, deixe alguma ventilação, apague os aquecedores antes de dormir e visite os vizinhos idosos."
+   },
+   "solve": {
+    "en": "Open warming shelters, look for people sleeping outdoors, visit older residents who live alone, and teach the safe use of heaters and braziers.",
+    "es": "Abra albergues de abrigo, busque a quienes duermen en la calle, visite a los mayores que viven solos y enseñe el uso seguro de estufas y braseros.",
+    "pt": "Abra abrigos contra o frio, procure quem dorme na rua, visite os idosos que moram sozinhos e ensine o uso seguro de aquecedores e braseiros."
+   },
+   "case": null,
+   "source": "https://www.ready.gov/winter-weather"
+  },
+  {
+   "id": "cyclone",
+   "title": {"en": "Cyclone or hurricane", "es": "Ciclón o huracán", "pt": "Ciclone ou furacão"},
+   "steps": [
+    {"kind": "climate", "t": {"en": "Violent wind, heavy rain and sea surging inland", "es": "Viento violento, lluvia fuerte y mar que avanza", "pt": "Vento violento, chuva forte e mar que avança"}},
+    {"kind": "body", "t": {"en": "Danger of drowning and injuries from flying debris", "es": "Peligro de ahogamiento y heridas por objetos que vuelan", "pt": "Perigo de afogamento e ferimentos por objetos arremessados"}},
+    {"kind": "society", "t": {"en": "Homes, power, water and clinics are damaged", "es": "Casas, luz, agua y centros de salud dañados", "pt": "Casas, energia, água e postos de saúde danificados"}},
+    {"kind": "nature", "t": {"en": "Dirty water and standing pools are left behind", "es": "Queda agua contaminada y estancada", "pt": "Fica água contaminada e parada"}},
+    {"kind": "health", "t": {"en": "Risk of diarrhoea, infected wounds and mosquito-borne illness", "es": "Riesgo de diarrea, heridas infectadas y enfermedades por mosquitos", "pt": "Risco de diarreia, feridas infectadas e doenças por mosquitos"}}
+   ],
+   "do": {
+    "en": "Leave early if told to evacuate, stay away from windows, never cross floodwater, keep generators outdoors, and afterwards drink safe water and empty standing water.",
+    "es": "Salga temprano si ordenan evacuar, aléjese de las ventanas, nunca cruce agua de inundación, deje el generador afuera y después tome agua segura y vacíe el agua estancada.",
+    "pt": "Saia cedo se mandarem evacuar, fique longe das janelas, não atravesse alagamentos, use gerador só fora de casa e depois beba água segura e esvazie água parada."
+   },
+   "solve": {
+    "en": "Combine early warnings with safe shelters and trained neighbourhood volunteers who carry the alert door to door, and plan evacuation for people who cannot move alone.",
+    "es": "Combine alertas tempranas con refugios seguros y voluntarios de barrio que lleven el aviso casa por casa, y planifique la evacuación de quienes no pueden moverse solos.",
+    "pt": "Combine alertas antecipados com abrigos seguros e voluntários de bairro que levem o aviso de porta em porta, e planeje a evacuação de quem não consegue sair sozinho."
+   },
+   "case": {
+    "id": "bangladesh-cyclones",
+    "t": {
+     "en": "Bangladesh went from 300,000 to 500,000 deaths in the 1970 cyclone to 26 reported deaths in Cyclone Amphan (2020), after building thousands of shelters and a warning network of about 76,000 volunteers.",
+     "es": "Bangladesh pasó de 300.000 a 500.000 muertes en el ciclón de 1970 a 26 muertes reportadas en el ciclón Amphan (2020), tras construir miles de refugios y una red de alerta con unos 76.000 voluntarios.",
+     "pt": "Bangladesh passou de 300 mil a 500 mil mortes no ciclone de 1970 para 26 mortes registradas no ciclone Amphan (2020), depois de construir milhares de abrigos e uma rede de alerta com cerca de 76 mil voluntários."
+    }
+   },
+   "source": "https://www.preventionweb.net/news/bangladeshs-50-years-journey-climate-resilience"
+  },
+  {
+   "id": "tornado",
+   "title": {"en": "Tornado", "es": "Tornado", "pt": "Tornado"},
+   "steps": [
+    {"kind": "climate", "t": {"en": "A severe storm forms a spinning funnel of wind", "es": "Una tormenta fuerte forma un embudo de viento", "pt": "Uma tempestade forte forma um funil de vento"}},
+    {"kind": "society", "t": {"en": "Wind tears off roofs, walls and trees", "es": "El viento arranca techos, paredes y árboles", "pt": "O vento arranca telhados, paredes e árvores"}},
+    {"kind": "body", "t": {"en": "Flying debris causes cuts, fractures and head injuries", "es": "Los escombros que vuelan causan cortes, fracturas y golpes", "pt": "Os destroços arremessados causam cortes, fraturas e traumas"}},
+    {"kind": "society", "t": {"en": "Power, water and roads are cut for days", "es": "Luz, agua y caminos cortados por días", "pt": "Energia, água e estradas interrompidas por dias"}},
+    {"kind": "health", "t": {"en": "Risk of infected wounds, tetanus and carbon monoxide poisoning", "es": "Riesgo de heridas infectadas, tétanos e intoxicación por monóxido", "pt": "Risco de feridas infectadas, tétano e intoxicação por monóxido"}}
+   ],
+   "do": {
+    "en": "Choose a windowless interior room on the lowest floor, go there at the first warning, cover head and neck, and afterwards clean wounds and check your tetanus vaccine.",
+    "es": "Elija una habitación interior sin ventanas en el piso más bajo, vaya allí al primer aviso, cúbrase cabeza y cuello, luego limpie heridas y revise su vacuna antitetánica.",
+    "pt": "Escolha um cômodo interno sem janelas no andar mais baixo, abrigue-se nele ao primeiro aviso, cubra cabeça e pescoço e depois limpe ferimentos e confira a vacina antitetânica."
+   },
+   "solve": {
+    "en": "Issue warnings that reach every phone and radio, name sturdy public buildings as shelters, hold drills in schools, and help families in light houses reach shelter.",
+    "es": "Emita avisos que lleguen a cada teléfono y radio, señale edificios firmes como refugio, haga simulacros en escuelas y ayude a llegar a quienes viven en casas livianas.",
+    "pt": "Emita avisos que cheguem a cada celular e rádio, indique prédios firmes como abrigo, faça simulados nas escolas e ajude quem mora em casas leves a chegar lá."
+   },
+   "case": null,
+   "source": "https://www.weather.gov/safety/tornado"
+  },
+  {
+   "id": "smoke",
+   "title": {"en": "Smoke and polluted air", "es": "Humo y aire contaminado", "pt": "Fumaça e ar poluído"},
+   "steps": [
+    {"kind": "climate", "t": {"en": "Hot, dry and windy weather", "es": "Tiempo caluroso, seco y con viento", "pt": "Tempo quente, seco e com vento"}},
+    {"kind": "nature", "t": {"en": "Fires spread through forest, pasture and fields", "es": "El fuego avanza por bosques, pastos y campos", "pt": "O fogo avança por matas, pastos e lavouras"}},
+    {"kind": "nature", "t": {"en": "Smoke with fine particles travels far and covers towns", "es": "Humo con partículas finas viaja lejos y cubre ciudades", "pt": "Fumaça com partículas finas viaja longe e cobre cidades"}},
+    {"kind": "body", "t": {"en": "The particles irritate eyes, throat and lungs", "es": "Las partículas irritan ojos, garganta y pulmones", "pt": "As partículas irritam olhos, garganta e pulmões"}},
+    {"kind": "health", "t": {"en": "Higher risk of asthma attacks and heart problems", "es": "Más riesgo de crisis de asma y problemas cardíacos", "pt": "Mais risco de crises de asma e problemas cardíacos"}}
+   ],
+   "do": {
+    "en": "Stay indoors with windows closed, wear an N95 or PFF2 mask outside, avoid physical effort, and seek care for shortness of breath or chest pain.",
+    "es": "Quédese adentro con las ventanas cerradas, use mascarilla N95 afuera, evite el esfuerzo físico y consulte si tiene falta de aire o dolor en el pecho.",
+    "pt": "Fique em casa com janelas fechadas, use máscara PFF2 ou N95 na rua, evite esforço físico e procure atendimento se tiver falta de ar ou dor no peito."
+   },
+   "solve": {
+    "en": "Enforce burning bans on dry, windy days, publish air quality data in near real time, and warn schools and health centres on smoky days.",
+    "es": "Prohíba y controle las quemas en días secos y ventosos, publique datos de calidad del aire casi en tiempo real y avise a escuelas y centros de salud.",
+    "pt": "Proíba e fiscalize as queimadas em dias secos e com vento, publique dados de qualidade do ar quase em tempo real e avise escolas e unidades de saúde."
+   },
+   "case": {
+    "id": "london-air",
+    "t": {
+     "en": "London's smoke came from coal, not wildfires, but the chain is similar: five days of smoke and fog in December 1952 killed thousands, and the 1956 Clean Air Act then created smoke control areas.",
+     "es": "En Londres el humo era de carbón y no de incendios, pero la cadena es parecida: cinco días de humo y niebla en diciembre de 1952 mataron a miles, y la Ley de Aire Limpio de 1956 creó zonas sin humo.",
+     "pt": "Em Londres a fumaça era de carvão, não de queimadas, mas a cadeia é parecida: cinco dias de fumaça e neblina em dezembro de 1952 mataram milhares, e a Lei do Ar Limpo de 1956 criou áreas de controle de fumaça."
+    }
+   },
+   "source": "https://www.london.gov.uk/media-centre/mayors-press-releases/new-evidence-reveals-all-londoners-are-now-breathing-cleaner-air-following-first-year-expanded-ultra"
+  }
+ ]
+}

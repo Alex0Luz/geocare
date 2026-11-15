@@ -140,9 +140,16 @@ const Tour = (() => {
     const lab = () => { b.innerHTML = `${ICON("play")} <span>${tx(UI.btn)}</span>`; }; lab();
     const how = document.createElement("a"); how.className = "howto-link";
     const howLab = () => { how.textContent = tx(["How to use geocare.life", "Cómo usar geocare.life", "Como usar o geocare.life"]); how.href = "tutorial/?lang=" + I18N.lang; }; howLab();
-    const foot = $1(".rail-foot"); if (foot) { foot.prepend(how); foot.prepend(b); }
-    document.querySelectorAll(".lang button").forEach((x) => x.addEventListener("click", () => setTimeout(() => { lab(); howLab(); if (box) paint(); }, 50)));
+    // the planet view: the whole Earth today, and the place of this address on it
+    const pl = document.createElement("a"); pl.className = "planet-link";
+    const plLab = () => { const m = state.main; pl.innerHTML = `${ICON("cyclone")} <span>${tx(["See the planet", "Ver el planeta", "Ver o planeta"])}</span>`; pl.href = "earth/?lang=" + I18N.lang + (m ? `&lat=${m.lat.toFixed(4)}&lon=${m.lon.toFixed(4)}&name=${encodeURIComponent(m.label)}` : ""); }; plLab();
+    pl.addEventListener("pointerdown", plLab); pl.addEventListener("focus", plLab);
+    const foot = $1(".rail-foot"); if (foot) { foot.prepend(how); foot.prepend(pl); foot.prepend(b); }
+    document.querySelectorAll(".lang button").forEach((x) => x.addEventListener("click", () => setTimeout(() => { lab(); howLab(); plLab(); if (box) paint(); }, 50)));
     const q = new URLSearchParams(location.search), d = q.get("demo");
+    // a place handed over by the planet view: ?lat=..&lon=..&name=..
+    const la = parseFloat(q.get("lat")), lo = parseFloat(q.get("lon"));
+    if (!d && Number.isFinite(la) && Number.isFinite(lo) && Math.abs(la) <= 90 && Math.abs(lo) <= 180) { const l = q.get("lang"); if (l) { I18N.set(l); render(); lab(); howLab(); } setTimeout(() => analyzeAt(la, lo, q.get("name") || null), 500); }
     if (d) { const l = q.get("lang"); if (l) { I18N.set(l); render(); lab(); } setTimeout(() => start((parseInt(d, 10) || 1) - 1), 900); }
   });
   return { start, close };

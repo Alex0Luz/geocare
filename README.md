@@ -4,7 +4,9 @@
 
 A project for the **NASA Space Apps Challenge 2026**, challenge *Be An Earth System Trend Detective!*, by team GeoCare (Ciudad del Este, Paraguay).
 
-**Open the app:** https://geocare.life · **How to use it, step by step:** https://geocare.life/tutorial/
+**Open the app:** https://geocare.life · **The planet view:** https://geocare.life/earth/ · **How to use it, step by step:** https://geocare.life/tutorial/
+
+**The planet view** starts from space and zooms down to the street. It shows the Earth as it was yesterday in true colour (NASA VIIRS), rain (NASA IMERG), wind as moving lines, dust and smoke in the air (NASA MODIS), water in the soil (NASA SMAP), the history of floods, landslides, droughts and cyclones (NASA SEDAC), natural events open now (NASA EONET) and earthquakes of the last week (USGS). Tapping any place opens its year in one table, estimated from the NASA POWER climatology of that point and from NOAA storm records, and the chains of consequences that matter there: how heat, heavy rain, drought or storms lead to illness, what a family can do and how a community breaks the chain.
 
 > Prototype built during the 48-hour hackathon (14–15 November 2026).
 
