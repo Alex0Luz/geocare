@@ -1,4 +1,4 @@
-/* GeoCare · guided demonstrations
+/* geocare.life · guided demonstrations
    A set of short demonstrations of the real app, each with a caption ("this is how a family can know ...").
    Nothing here is recorded: the tour drives the same functions a person would use, with live data.
    Start: the "Demo" button, or ?demo=1 in the address (optionally &lang=es and ?demo=3 to start at the third one).
@@ -8,7 +8,7 @@ const Tour = (() => {
   const MIA = [25.7617, -80.1918, "Miami, Florida"], PHX = [33.4484, -112.074, "Phoenix, Arizona"], OKC = [35.4676, -97.5164, "Oklahoma City, Oklahoma"], LAX = [34.0522, -118.2437, "Los Angeles, California"];
   const PLACES = [MIA, PHX, ASU, CDE, OKC, LAX];
   const UI = {
-    btn: ["Watch the demo", "Ver la demostración", "Ver a demonstração"], end: ["GeoCare: know the risks of your place before they make you sick.", "GeoCare: conocé los riesgos de tu lugar antes de que te enfermen.", "GeoCare: conheça os riscos do seu lugar antes que eles adoeçam você."],
+    btn: ["Watch the demo", "Ver la demostración", "Ver a demonstração"], end: ["geocare.life: know the risks of your place before they make you sick.", "geocare.life: conocé los riesgos de tu lugar antes de que te enfermen.", "geocare.life: conheça os riscos do seu lugar antes que eles adoeçam você."],
     endc: ["Open data from NASA, NOAA, USGS, Copernicus and the UN. \"Confirmed\" only when two independent datasets agree. Health answers stay on your device.", "Datos abiertos de NASA, NOAA, USGS, Copernicus y la ONU. \"Confirmado\" solo cuando dos bases independientes coinciden. Sus respuestas de salud quedan en su dispositivo.", "Dados abertos da NASA, NOAA, USGS, Copernicus e ONU. \"Confirmado\" só quando duas bases independentes concordam. Suas respostas de saúde ficam no seu aparelho."],
     again: ["Play again", "Ver de nuevo", "Ver de novo"], close: ["Close", "Cerrar", "Fechar"], load: ["loading live data…", "cargando datos en vivo…", "carregando dados ao vivo…"],
   };
@@ -50,7 +50,7 @@ const Tour = (() => {
   const DEMOS = [
     { head: ["This is how a family can know what the coming months bring to their home.", "Así es como una familia puede saber qué traen los próximos meses a su casa.", "É assim que uma família pode saber o que os próximos meses trazem para a sua casa."],
       steps: [
-        { cap: ["It starts with an address. GeoCare answers in plain words what this week means for you.", "Todo empieza con una dirección. GeoCare responde en palabras simples qué significa esta semana para usted.", "Tudo começa com um endereço. O GeoCare responde em palavras simples o que esta semana significa para você."], ms: 4000, run: async (my) => { await place(MIA, my); await anim("storms", [25, -76, 5], my); await tab("place", my); focus("#simple-place .s-week"); } },
+        { cap: ["It starts with an address. geocare.life answers in plain words what this week means for you.", "Todo empieza con una dirección. geocare.life responde en palabras simples qué significa esta semana para usted.", "Tudo começa com um endereço. O geocare.life responde em palavras simples o que esta semana significa para você."], ms: 4000, run: async (my) => { await place(MIA, my); await anim("storms", [25, -76, 5], my); await tab("place", my); focus("#simple-place .s-week"); } },
         { cap: ["Your year in one table: what to watch in each month, the weather and the illnesses.", "Su año en una tabla: qué vigilar en cada mes, el clima y las enfermedades.", "O seu ano em uma tabela: o que observar em cada mês, o clima e as doenças."], ms: 4000, run: async () => focus("#s-year") },
         { cap: ["Has the climate changed here? 45 years of NASA data, tested. It says so only when two independent datasets agree.", "¿Cambió el clima aquí? 45 años de datos de la NASA, evaluados. Lo dice solo cuando dos bases independientes coinciden.", "O clima mudou aqui? 45 anos de dados da NASA, testados. Só diz que mudou quando duas bases independentes concordam."], ms: 4500, run: async () => focus("#simple-place .s-clim") },
         { cap: ["And lightning: how many flashes a year and in which months, counted from orbit by a NASA sensor.", "Y los rayos: cuántos al año y en qué meses, contados desde la órbita por un sensor de la NASA.", "E os raios: quantos por ano e em quais meses, contados da órbita por um sensor da NASA."], ms: 5000, run: async (my) => { await anim("lightning", [27.5, -81, 6], my); await go("prepare", "rp-lightning", my); } },
@@ -100,7 +100,7 @@ const Tour = (() => {
   function paint(ended) {
     if (!box) return;
     const d = DEMOS[di];
-    box.innerHTML = `<div class="tour-top"><span class="tour-n">${ended ? "GeoCare" : `${di + 1} / ${DEMOS.length}`}</span><span class="tour-ctl">${ended ? `<button type="button" data-t="again">${ICON("replay")} ${tx(UI.again)}</button>` : `<button type="button" data-t="prev" aria-label="previous">${ICON("prev")}</button><button type="button" data-t="pause" aria-label="pause">${ICON(paused ? "play" : "pause")}</button><button type="button" data-t="next" aria-label="next">${ICON("next")}</button>`}<button type="button" data-t="close" aria-label="${tx(UI.close)}">${ICON("x")}</button></span></div>
+    box.innerHTML = `<div class="tour-top"><span class="tour-n">${ended ? "geocare.life" : `${di + 1} / ${DEMOS.length}`}</span><span class="tour-ctl">${ended ? `<button type="button" data-t="again">${ICON("replay")} ${tx(UI.again)}</button>` : `<button type="button" data-t="prev" aria-label="previous">${ICON("prev")}</button><button type="button" data-t="pause" aria-label="pause">${ICON(paused ? "play" : "pause")}</button><button type="button" data-t="next" aria-label="next">${ICON("next")}</button>`}<button type="button" data-t="close" aria-label="${tx(UI.close)}">${ICON("x")}</button></span></div>
       <p class="tour-head">${ended ? tx(UI.end) : tx(d.head)}</p><p class="tour-cap">${ended ? tx(UI.endc) : ""}</p>${ended ? "" : `<div class="tour-bar">${DEMOS.map((_, i) => `<i class="${i < di ? "done" : i === di ? "on" : ""}"></i>`).join("")}</div>`}`;
     box.querySelectorAll("[data-t]").forEach((b) => (b.onclick = () => act(b.dataset.t)));
   }
@@ -139,7 +139,7 @@ const Tour = (() => {
     const b = document.createElement("button"); b.type = "button"; b.className = "demo-btn"; b.dataset.demo = "1";
     const lab = () => { b.innerHTML = `${ICON("play")} <span>${tx(UI.btn)}</span>`; }; lab();
     const how = document.createElement("a"); how.className = "howto-link";
-    const howLab = () => { how.textContent = tx(["How to use GeoCare", "Cómo usar GeoCare", "Como usar o GeoCare"]); how.href = "tutorial/?lang=" + I18N.lang; }; howLab();
+    const howLab = () => { how.textContent = tx(["How to use geocare.life", "Cómo usar geocare.life", "Como usar o geocare.life"]); how.href = "tutorial/?lang=" + I18N.lang; }; howLab();
     const foot = $1(".rail-foot"); if (foot) { foot.prepend(how); foot.prepend(b); }
     document.querySelectorAll(".lang button").forEach((x) => x.addEventListener("click", () => setTimeout(() => { lab(); howLab(); if (box) paint(); }, 50)));
     const q = new URLSearchParams(location.search), d = q.get("demo");

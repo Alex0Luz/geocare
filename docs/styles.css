@@ -117,7 +117,7 @@ input:focus, select:focus, textarea:focus, button:focus-visible { outline: 2px s
 .emoji-pin.k-care { border-color: #1f4d3a; color: #1f4d3a; font-size: 14px; line-height: 24px; font-weight: 700; }
 .reports.care .k { color: var(--forest); font-weight: 700; }
 
-/* --- GeoCare extras --- */
+/* --- geocare.life extras --- */
 .tools { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-top: 10px; }
 .tools p { flex-basis: 100%; margin: 2px 0; }
 .quant { font-size: 0.86rem; margin-top: 8px; }

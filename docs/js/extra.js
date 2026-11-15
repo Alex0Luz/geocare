@@ -1,4 +1,4 @@
-// GeoCare extras: personal health profile and traffic light, region health indicators, playbook for
+// geocare.life extras: personal health profile and traffic light, region health indicators, playbook for
 // cities/industry/farms, "where is it changing" grid, CSV export. Loaded before app.js; everything runs at render time.
 // Code written with AI assistance; scoring rule and health content defined and reviewed by the team.
 I18N.add("en", {
@@ -14,7 +14,7 @@ I18N.add("en", {
   "f.outdoor": "I work outdoors", "f.farm": "I live or work near crops",
   "f.diuretic": "Diuretics (hydrochlorothiazide, furosemide)", "f.acei": "ACE inhibitors / ARBs (enalapril, losartan)", "f.beta": "Beta-blockers", "f.antichol": "Anticholinergic antihistamines (promethazine, dexchlorpheniramine)", "f.psych": "Antipsychotics or tricyclic antidepressants", "f.lithium": "Lithium", "f.nsaid": "Anti-inflammatories (NSAIDs)", "f.alcohol": "Alcohol or stimulants",
   "f.noceiling": "Roof without ceiling lining", "f.noventil": "Little ventilation", "f.nofan": "No fan", "f.alone": "Lives alone",
-  "light.title": "GeoCare traffic light: heat", "light.low": "Low", "light.mid": "Moderate", "light.high": "High",
+  "light.title": "geocare.life traffic light: heat", "light.low": "Low", "light.mid": "Moderate", "light.high": "High",
   "light.rule": "Transparent rule: +1 for each factor you ticked, +2 if the local heat trend is statistically significant, +2 if today's heat index reaches 41 °C. 0–2 low, 3–4 moderate, 5 or more high.",
   "light.r.factors": "{n} personal factor(s): {list}", "light.r.trend": "the heat trend here is statistically significant (+2)", "light.r.today": "today's heat index reaches {v} °C (+2)", "light.r.none": "no factor ticked yet", "light.need": "Choose a place to add the local trend and today's heat index.",
   "med.title": "Your medicines and the heat", "med.rule": "This medicine can raise your risk in the heat. Talk to your doctor or health unit about hot days. Do not stop or change it on your own.",
@@ -45,7 +45,7 @@ I18N.add("es", {
   "f.outdoor": "Trabajo al aire libre", "f.farm": "Vivo o trabajo cerca de cultivos",
   "f.diuretic": "Diuréticos (hidroclorotiazida, furosemida)", "f.acei": "IECA / ARA II (enalapril, losartán)", "f.beta": "Betabloqueantes", "f.antichol": "Antihistamínicos anticolinérgicos (prometazina, dexclorfeniramina)", "f.psych": "Antipsicóticos o antidepresivos tricíclicos", "f.lithium": "Litio", "f.nsaid": "Antiinflamatorios (AINE)", "f.alcohol": "Alcohol o estimulantes",
   "f.noceiling": "Techo sin cielorraso", "f.noventil": "Poca ventilación", "f.nofan": "Sin ventilador", "f.alone": "Vive solo/a",
-  "light.title": "Semáforo GeoCare: calor", "light.low": "Bajo", "light.mid": "Moderado", "light.high": "Alto",
+  "light.title": "Semáforo geocare.life: calor", "light.low": "Bajo", "light.mid": "Moderado", "light.high": "Alto",
   "light.rule": "Regla transparente: +1 por cada factor marcado, +2 si la tendencia local de calor es estadísticamente significativa, +2 si el índice de calor de hoy llega a 41 °C. 0–2 bajo, 3–4 moderado, 5 o más alto.",
   "light.r.factors": "{n} factor(es) personal(es): {list}", "light.r.trend": "la tendencia de calor aquí es estadísticamente significativa (+2)", "light.r.today": "el índice de calor de hoy llega a {v} °C (+2)", "light.r.none": "todavía no marcó ningún factor", "light.need": "Elija un lugar para sumar la tendencia local y el índice de calor de hoy.",
   "med.title": "Sus medicamentos y el calor", "med.rule": "Este medicamento puede aumentar su riesgo con el calor. Hable con su médico o con la unidad de salud sobre los días calurosos. No lo suspenda ni lo cambie por su cuenta.",
@@ -76,7 +76,7 @@ I18N.add("pt", {
   "f.outdoor": "Trabalho ao ar livre", "f.farm": "Moro ou trabalho perto de lavoura",
   "f.diuretic": "Diuréticos (hidroclorotiazida, furosemida)", "f.acei": "IECA / BRA (enalapril, losartana)", "f.beta": "Betabloqueadores", "f.antichol": "Anti-histamínicos anticolinérgicos (prometazina, dexclorfeniramina)", "f.psych": "Antipsicóticos ou antidepressivos tricíclicos", "f.lithium": "Lítio", "f.nsaid": "Anti-inflamatórios (AINE)", "f.alcohol": "Álcool ou estimulantes",
   "f.noceiling": "Telhado sem forro", "f.noventil": "Pouca ventilação", "f.nofan": "Sem ventilador", "f.alone": "Mora sozinho(a)",
-  "light.title": "Semáforo GeoCare: calor", "light.low": "Baixo", "light.mid": "Moderado", "light.high": "Alto",
+  "light.title": "Semáforo geocare.life: calor", "light.low": "Baixo", "light.mid": "Moderado", "light.high": "Alto",
   "light.rule": "Regra transparente: +1 para cada fator marcado, +2 se a tendência local de calor for estatisticamente significativa, +2 se o índice de calor de hoje chegar a 41 °C. 0–2 baixo, 3–4 moderado, 5 ou mais alto.",
   "light.r.factors": "{n} fator(es) pessoal(is): {list}", "light.r.trend": "a tendência de calor aqui é estatisticamente significativa (+2)", "light.r.today": "o índice de calor de hoje chega a {v} °C (+2)", "light.r.none": "nenhum fator marcado ainda", "light.need": "Escolha um lugar para somar a tendência local e o índice de calor de hoje.",
   "med.title": "Seus remédios e o calor", "med.rule": "Este medicamento pode aumentar seu risco no calor. Converse com seu médico ou procure a unidade de saúde para avaliar os dias quentes. Não interrompa nem mude por conta própria.",

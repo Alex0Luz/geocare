@@ -1,4 +1,4 @@
-/* GeoCare · line icons drawn in SVG (no emoji, so they look the same on every device). (code written with AI support) */
+/* geocare.life · line icons drawn in SVG (no emoji, so they look the same on every device). (code written with AI support) */
 const ICON = (() => {
   const P = {
     heat: '<path d="M10 4a2 2 0 0 1 4 0v9.5a4 4 0 1 1-4 0z"/><path d="M12 9v7"/>',

@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GeoCare · how to use it</title>
-<meta name="description" content="How to use GeoCare, step by step, in plain words.">
-<!-- A step-by-step guide to the GeoCare app for people who are not specialists. The pictures are the real app. (page written with AI support) -->
+<title>geocare.life · how to use it</title>
+<meta name="description" content="How to use geocare.life, step by step, in plain words.">
+<!-- A step-by-step guide to the geocare.life app for people who are not specialists. The pictures are the real app. (page written with AI support) -->
 <style>
   @font-face { font-family: "Bricolage Grotesque"; src: url(assets/fonts/bricolage.woff2) format("woff2"); font-weight: 600 700; font-display: swap; }
   @font-face { font-family: "Manrope"; src: url(assets/fonts/manrope.woff2) format("woff2"); font-weight: 400 700; font-display: swap; }
@@ -73,7 +73,7 @@
 <div class="wrap">
   <header class="top">
     <a class="brand" href="../" id="home">
-      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 1.5l1.35 9.15L22.5 12l-9.15 1.35L12 22.5l-1.35-9.15L1.5 12l9.15-1.35z" fill="#1f7f5f"/><circle cx="12" cy="12" r="1.7" fill="#eef1ef"/></svg>GeoCare
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 1.5l1.35 9.15L22.5 12l-9.15 1.35L12 22.5l-1.35-9.15L1.5 12l9.15-1.35z" fill="#1f7f5f"/><circle cx="12" cy="12" r="1.7" fill="#eef1ef"/></svg>geocare.life
     </a>
     <div class="lang" role="group" aria-label="Language"><button data-lang="en">EN</button><button data-lang="es">ES</button><button data-lang="pt">PT</button></div>
   </header>
@@ -107,9 +107,9 @@ const STEPS = [
     es: ["Si quiere, cuente quién es", "Su edad, su salud y sus remedios cambian lo que el clima significa para usted. Este paso es opcional, y no hay que crear ninguna cuenta.", "Sus respuestas quedan en su dispositivo. Solo se guardan si usted marca la casilla, y puede borrarlas cuando quiera.", "En la primera pantalla, paso 2"],
     pt: ["Se quiser, conte quem você é", "A sua idade, a sua saúde e os seus remédios mudam o que o clima significa para você. Este passo é opcional, e não é preciso criar conta.", "As suas respostas ficam no seu aparelho. Só são guardadas se você marcar a caixa, e você pode apagá-las quando quiser.", "Na primeira tela, passo 2"] } },
   { img: "week", t: {
-    en: ["Read “This week for you”", "It is the first thing you see: what the next seven days bring to your address and what to do about it. If you marked a medicine that needs care in the heat, it reminds you.", "GeoCare does not replace your doctor. Never stop or change a medicine on your own.", "My home"],
-    es: ["Lea “Esta semana para usted”", "Es lo primero que aparece: qué traen los próximos siete días a su dirección y qué hacer. Si usted marcó un remedio que pide cuidado con el calor, se lo recuerda.", "GeoCare no reemplaza a su médico. Nunca suspenda ni cambie un remedio por su cuenta.", "Mi casa"],
-    pt: ["Leia “Esta semana para você”", "É a primeira coisa que aparece: o que os próximos sete dias trazem para o seu endereço e o que fazer. Se você marcou um remédio que pede cuidado no calor, ele lembra você.", "O GeoCare não substitui o seu médico. Nunca pare nem troque um remédio por conta própria.", "Minha casa"] } },
+    en: ["Read “This week for you”", "It is the first thing you see: what the next seven days bring to your address and what to do about it. If you marked a medicine that needs care in the heat, it reminds you.", "geocare.life does not replace your doctor. Never stop or change a medicine on your own.", "My home"],
+    es: ["Lea “Esta semana para usted”", "Es lo primero que aparece: qué traen los próximos siete días a su dirección y qué hacer. Si usted marcó un remedio que pide cuidado con el calor, se lo recuerda.", "geocare.life no reemplaza a su médico. Nunca suspenda ni cambie un remedio por su cuenta.", "Mi casa"],
+    pt: ["Leia “Esta semana para você”", "É a primeira coisa que aparece: o que os próximos sete dias trazem para o seu endereço e o que fazer. Se você marcou um remédio que pede cuidado no calor, ele lembra você.", "O geocare.life não substitui o seu médico. Nunca pare nem troque um remédio por conta própria.", "Minha casa"] } },
   { img: "year", t: {
     en: ["Look at your year in one table", "Each line is something to watch: heat, storms, heavy rain, dengue and other illnesses. Darker means more likely in that month, and the outlined column is the current month. Tap a line to see the details.", "The illnesses are estimated from the climate of the address, not from counts of cases.", "My home"],
     es: ["Mire su año en una tabla", "Cada fila es algo que vigilar: calor, tormentas, lluvia fuerte, dengue y otras enfermedades. Más oscuro significa más probable en ese mes, y la columna con borde es el mes actual. Toque una fila para ver los detalles.", "Las enfermedades se estiman por el clima de la dirección, no por conteos de casos.", "Mi casa"],
@@ -132,9 +132,9 @@ const STEPS = [
     pt: ["Ajude ou peça ajuda", "O mural da comunidade mostra pedidos de ajuda e lugares que recebem doações perto do seu endereço, e um link para buscar a Cruz Vermelha ou o Crescente Vermelho do seu país.", "Esta parte é um protótipo: as entradas são exemplos e ficam no seu aparelho.", "Ajudar e doar"] } },
 ];
 const TXT = {
-  en: { title: "GeoCare · how to use it", h1: "How to use GeoCare", lead: "Eight short steps, about two minutes. Nothing to install and no account to create: you only need the address of your home.", open: "Open GeoCare", "end.h": "That is all. Now try it with your own address.", "end.p": "Want more detail? At the end of each page, “Learn more” opens the data and the methods for specialists.", fine: "In an emergency, call the emergency number of your country. GeoCare is a prototype built for the NASA Space Apps Challenge 2026 and gives guidance, not a diagnosis or an official warning." },
-  es: { title: "GeoCare · cómo usarlo", h1: "Cómo usar GeoCare", lead: "Ocho pasos cortos, unos dos minutos. No hay que instalar nada ni crear una cuenta: solo necesita la dirección de su casa.", open: "Abrir GeoCare", "end.h": "Eso es todo. Ahora pruébelo con su propia dirección.", "end.p": "¿Quiere más detalle? Al final de cada página, “Saber más” abre los datos y los métodos para especialistas.", fine: "En una emergencia, llame al número de emergencias de su país. GeoCare es un prototipo hecho para el NASA Space Apps Challenge 2026 y da orientación, no un diagnóstico ni una alerta oficial." },
-  pt: { title: "GeoCare · como usar", h1: "Como usar o GeoCare", lead: "Oito passos curtos, uns dois minutos. Não é preciso instalar nada nem criar conta: você só precisa do endereço da sua casa.", open: "Abrir o GeoCare", "end.h": "É só isso. Agora experimente com o seu próprio endereço.", "end.p": "Quer mais detalhe? No fim de cada página, “Saiba mais” abre os dados e os métodos para especialistas.", fine: "Numa emergência, ligue para o número de emergência do seu país. O GeoCare é um protótipo feito para o NASA Space Apps Challenge 2026 e dá orientação, não um diagnóstico nem um alerta oficial." },
+  en: { title: "geocare.life · how to use it", h1: "How to use geocare.life", lead: "Eight short steps, about two minutes. Nothing to install and no account to create: you only need the address of your home.", open: "Open geocare.life", "end.h": "That is all. Now try it with your own address.", "end.p": "Want more detail? At the end of each page, “Learn more” opens the data and the methods for specialists.", fine: "In an emergency, call the emergency number of your country. geocare.life is a prototype built for the NASA Space Apps Challenge 2026 and gives guidance, not a diagnosis or an official warning." },
+  es: { title: "geocare.life · cómo usarlo", h1: "Cómo usar geocare.life", lead: "Ocho pasos cortos, unos dos minutos. No hay que instalar nada ni crear una cuenta: solo necesita la dirección de su casa.", open: "Abrir geocare.life", "end.h": "Eso es todo. Ahora pruébelo con su propia dirección.", "end.p": "¿Quiere más detalle? Al final de cada página, “Saber más” abre los datos y los métodos para especialistas.", fine: "En una emergencia, llame al número de emergencias de su país. geocare.life es un prototipo hecho para el NASA Space Apps Challenge 2026 y da orientación, no un diagnóstico ni una alerta oficial." },
+  pt: { title: "geocare.life · como usar", h1: "Como usar o geocare.life", lead: "Oito passos curtos, uns dois minutos. Não é preciso instalar nada nem criar conta: você só precisa do endereço da sua casa.", open: "Abrir o geocare.life", "end.h": "É só isso. Agora experimente com o seu próprio endereço.", "end.p": "Quer mais detalhe? No fim de cada página, “Saiba mais” abre os dados e os métodos para especialistas.", fine: "Numa emergência, ligue para o número de emergência do seu país. O geocare.life é um protótipo feito para o NASA Space Apps Challenge 2026 e dá orientação, não um diagnóstico nem um alerta oficial." },
 };
 
 let lang = new URLSearchParams(location.search).get("lang");

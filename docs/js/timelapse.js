@@ -1,4 +1,4 @@
-/* GeoCare · maps in motion and "where it usually happens"
+/* geocare.life · maps in motion and "where it usually happens"
    The NASA GIBS images are not shown as they come: each tile is read, every colour is turned back into its value
    with the layer's own colour table, and the value is painted again with a scale made to be read (quiet base map,
    soft edges, units people use). The same reading gives the value at the address for every frame, drawn as a small

@@ -1,4 +1,4 @@
-// GeoCare, second set of modules: world panorama, year calendar, preparedness guide with safe places, extra NASA satellite signals.
+// geocare.life, second set of modules: world panorama, year calendar, preparedness guide with safe places, extra NASA satellite signals.
 // Code written with AI assistance; content choices and review by the team.
 I18N.add("en", {
   "tab.world": "World", "tab.prepare": "What to expect",
@@ -55,7 +55,7 @@ I18N.add("pt", {
 I18N.add("en", {
   "nav.g.detect": "Detect", "nav.g.predict": "Anticipate", "nav.g.care": "Care", "nav.g.context": "Understand",
   "home.eyebrow": "NASA data, tested and turned into care", "home.title": "What is the climate doing where you live?",
-  "home.lead": "Search any address on Earth. GeoCare shows 45 years of records for that spot, tells you which changes are statistically real, and what they mean for your health, your week and your home.",
+  "home.lead": "Search any address on Earth. geocare.life shows 45 years of records for that spot, tells you which changes are statistically real, and what they mean for your health, your week and your home.",
   "home.1": "Real records", "home.1d": "45 years of NASA data for any point on the planet.",
   "home.2": "Honest", "home.2d": "A change is only called confirmed when two independent datasets agree. When the data cannot prove it, we say so.",
   "home.3": "Guidance, not just charts", "home.3d": "From the trend to your health and your city. The app points to the next step.",
@@ -64,7 +64,7 @@ I18N.add("en", {
 I18N.add("es", {
   "nav.g.detect": "Detectar", "nav.g.predict": "Anticipar", "nav.g.care": "Cuidar", "nav.g.context": "Entender",
   "home.eyebrow": "Datos de la NASA, evaluados y convertidos en cuidado", "home.title": "¿Qué está haciendo el clima donde usted vive?",
-  "home.lead": "Busque cualquier dirección del planeta. GeoCare muestra 45 años de registros de ese punto, le dice qué cambios son estadísticamente reales y qué significan para su salud, su semana y su casa.",
+  "home.lead": "Busque cualquier dirección del planeta. geocare.life muestra 45 años de registros de ese punto, le dice qué cambios son estadísticamente reales y qué significan para su salud, su semana y su casa.",
   "home.1": "Registros reales", "home.1d": "45 años de datos de la NASA para cualquier punto del planeta.",
   "home.2": "Honesto", "home.2d": "Un cambio solo se llama confirmado cuando dos bases independientes coinciden. Cuando los datos no alcanzan para probarlo, lo decimos.",
   "home.3": "Orientación, no solo gráficos", "home.3d": "De la tendencia a su salud y su ciudad. La app indica el próximo paso.",
@@ -73,7 +73,7 @@ I18N.add("es", {
 I18N.add("pt", {
   "nav.g.detect": "Detectar", "nav.g.predict": "Prever", "nav.g.care": "Cuidar", "nav.g.context": "Entender",
   "home.eyebrow": "Dados da NASA, testados e transformados em cuidado", "home.title": "O que o clima está fazendo onde você mora?",
-  "home.lead": "Busque qualquer endereço do planeta. O GeoCare mostra 45 anos de registros daquele ponto, diz quais mudanças são estatisticamente reais e o que elas significam para a sua saúde, a sua semana e a sua casa.",
+  "home.lead": "Busque qualquer endereço do planeta. O geocare.life mostra 45 anos de registros daquele ponto, diz quais mudanças são estatisticamente reais e o que elas significam para a sua saúde, a sua semana e a sua casa.",
   "home.1": "Registros reais", "home.1d": "45 anos de dados da NASA para qualquer ponto do planeta.",
   "home.2": "Honesto", "home.2d": "Uma mudança só é chamada de confirmada quando duas bases independentes concordam. Quando o dado não prova, a gente diz.",
   "home.3": "Condução, não só gráfico", "home.3d": "Da tendência à sua saúde e à sua cidade. O app aponta o próximo passo.",
@@ -332,15 +332,15 @@ I18N.add("pt", {
 I18N.add("en", { "plans.title": "How this fits the public plans for climate and health",
   "plans.br": "Brazil: the health adaptation plan AdaptaSUS (2024–2035) sets as priorities extreme heat and cold, floods, drought, air pollution, diseases carried by vectors, food insecurity, and water, sanitation and hygiene.",
   "plans.py": "Paraguay: the National Plan for Adaptation to Climate Change 2022–2030 has a health sector with four aims: health response to climate emergencies, epidemiological surveillance of climate impacts, research on diseases carried by vectors, and awareness with citizen participation.",
-  "plans.fit": "GeoCare is not part of these plans. It is a prototype of three things they ask for: guidance that reaches each family, risk at a scale smaller than the city, and a channel for what the community sees." });
+  "plans.fit": "geocare.life is not part of these plans. It is a prototype of three things they ask for: guidance that reaches each family, risk at a scale smaller than the city, and a channel for what the community sees." });
 I18N.add("es", { "plans.title": "Cómo encaja esto en los planes públicos de clima y salud",
   "plans.br": "Brasil: el plan de adaptación en salud AdaptaSUS (2024–2035) pone como prioridades el calor y el frío extremos, las inundaciones, la sequía, la contaminación del aire, las enfermedades transmitidas por vectores, la inseguridad alimentaria, y el agua, saneamiento e higiene.",
   "plans.py": "Paraguay: el Plan Nacional de Adaptación al Cambio Climático 2022–2030 tiene un sector de salud con cuatro objetivos: respuesta sanitaria a emergencias climáticas, vigilancia epidemiológica de los impactos del clima, investigación en enfermedades transmitidas por vectores, y concienciación con participación ciudadana.",
-  "plans.fit": "GeoCare no forma parte de esos planes. Es un prototipo de tres cosas que ellos piden: orientación que llegue a cada familia, riesgo a una escala menor que la ciudad y un canal para lo que la comunidad ve." });
+  "plans.fit": "geocare.life no forma parte de esos planes. Es un prototipo de tres cosas que ellos piden: orientación que llegue a cada familia, riesgo a una escala menor que la ciudad y un canal para lo que la comunidad ve." });
 I18N.add("pt", { "plans.title": "Como isto se encaixa nos planos públicos de clima e saúde",
   "plans.br": "Brasil: o plano de adaptação da saúde AdaptaSUS (2024–2035) coloca como prioridades calor e frio extremos, inundações, seca, poluição do ar, doenças transmitidas por vetores, insegurança alimentar, e água, saneamento e higiene.",
   "plans.py": "Paraguai: o Plano Nacional de Adaptação à Mudança do Clima 2022–2030 tem um setor de saúde com quatro objetivos: resposta sanitária a emergências climáticas, vigilância epidemiológica dos impactos do clima, pesquisa em doenças transmitidas por vetores, e conscientização com participação cidadã.",
-  "plans.fit": "O GeoCare não faz parte desses planos. É um protótipo de três coisas que eles pedem: orientação que chegue a cada família, risco numa escala menor que a cidade e um canal para o que a comunidade vê." });
+  "plans.fit": "O geocare.life não faz parte desses planos. É um protótipo de três coisas que eles pedem: orientação que chegue a cada família, risco numa escala menor que a cidade e um canal para o que a comunidade vê." });
 
 I18N.add("en", { "rp.lightning.sub2": "{n} lightning flashes per km² a year", "rp.lightning.hist": "NASA's lightning sensors in orbit counted about {n} flashes per km² a year at this spot. The most active places on Earth pass 100.", "rp.lightning.src.lis": "Lightning Imaging Sensor on the TRMM satellite, 1998–2013.", "rp.lightning.src.both": "LIS and OTD sensors combined, 1995–2014, on a coarser grid.", "rp.lightning.rule": "When you hear thunder, go indoors; no place outside is safe." });
 I18N.add("es", { "rp.lightning.sub2": "{n} rayos por km² al año", "rp.lightning.hist": "Los sensores de rayos de la NASA en órbita contaron unos {n} rayos por km² al año en este punto. Los lugares más activos del planeta pasan de 100.", "rp.lightning.src.lis": "Sensor LIS en el satélite TRMM, 1998–2013.", "rp.lightning.src.both": "Sensores LIS y OTD combinados, 1995–2014, en una grilla más gruesa.", "rp.lightning.rule": "Cuando oiga truenos, entre a un lugar cerrado; ningún lugar al aire libre es seguro." });

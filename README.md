@@ -1,4 +1,4 @@
-# GeoCare
+# geocare.life
 
 **Know what the climate is doing where you live, whether the change is real, and how to prepare.**
 
@@ -10,7 +10,7 @@ A project for the **NASA Space Apps Challenge 2026**, challenge *Be An Earth Sys
 
 ## What it does
 
-GeoCare is a trend detective for one place. Type an address anywhere on Earth, tap the map, or use your location. The app builds yearly series from 1981 to 2025 for eight climate signals, measures the rate of change with the Theil-Sen slope, tests it with the Mann-Kendall test, and compares two independent datasets before giving a verdict.
+geocare.life is a trend detective for one place. Type an address anywhere on Earth, tap the map, or use your location. The app builds yearly series from 1981 to 2025 for eight climate signals, measures the rate of change with the Theil-Sen slope, tests it with the Mann-Kendall test, and compares two independent datasets before giving a verdict.
 
 Then it answers twice: in plain words for the person who lives there, and with the data for the specialist. The plain version adds no data. It rewrites what the other sections already know as short sentences with one action each. The idea comes from the team's physician: people are told it will rain, but not what that means for them.
 

@@ -1,4 +1,4 @@
-// GeoCare: climate trends, health consequences and community help for any address.
+// geocare.life: climate trends, health consequences and community help for any address.
 // Runs fully in the browser. Code written with AI assistance; concept and health content by the team.
 const START = 1981, END = 2025;
 const YEARS = Array.from({ length: END - START + 1 }, (_, i) => START + i);

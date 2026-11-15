@@ -1,4 +1,4 @@
-/* GeoCare · the ground and the water at an address
+/* geocare.life · the ground and the water at an address
    A screening, in plain words, of how safe the ground of a place is: landslides, flooding, soil getting drier.
    It joins what the app already knows (terrain from the Copernicus elevation model, heavy-rain days, the river, the trend
    of soil wetness from NASA POWER) with three NASA SEDAC maps read at the address: landslide hazard class, number of
