@@ -323,7 +323,7 @@ const EXAMPLES = [
   ["New Delhi", 28.6139, 77.209, "New Delhi, India", "w"], ["Jakarta", -6.2088, 106.8456, "Jakarta, Indonesia", "w"], ["Manila", 14.5995, 120.9842, "Manila, Philippines", "w"],
 ];
 let ARCHIVED = null;
-getJSON("data/era5/index.json", "era5idx").then((j) => { ARCHIVED = j; if (!state.main) renderPlace(); }).catch(() => {});
+getJSON("data/era5/index.json", "era5idx").then((j) => { ARCHIVED = j; if (!state.main) { renderPlace(); try { if (typeof Simple !== "undefined") Simple.render(); } catch (e) { console.warn("simple", e); } } }).catch(() => {});
 const exampleChips = (g) => EXAMPLES.map((c, i) => [c, i]).filter(([c]) => c[4] === g && (!ARCHIVED || ARCHIVED.some((p) => km(c[1], c[2], p.lat, p.lon) <= 25)))
   .map(([c, i]) => `<button class="chip" data-i="${i}">${c[0]}</button>`).join("");
 
