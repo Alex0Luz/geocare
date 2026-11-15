@@ -274,6 +274,8 @@ map.touchZoomRotate.disableRotation();
 
 const state = { on: {}, days: {}, picked: null, marker: null, spin: !hasStart, cascades: null };
 LAYERS.forEach((L) => (state.on[L.id] = !!L.on));
+// a link can ask for layers to be on: ?show=plastic,flood
+(qs.get("show") || "").split(",").forEach((id) => { if (id in state.on) state.on[id] = true; });
 
 function addRaster(L, d) {
   if (map.getSource(L.id)) return;

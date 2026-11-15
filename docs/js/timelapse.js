@@ -127,7 +127,7 @@ const Timelapse = (() => {
     },
   });
   // Leaflet throws if a tile finishes loading after its layer left the map: ignore those late tiles
-  const guard = (lay) => { const f = lay._tileReady; lay._tileReady = function (...a) { if (this._map) f.apply(this, a); }; return lay; };
+  const guard = (lay) => { const f = lay._tileReady; lay._tileReady = function (...a) { if (this._map) { try { f.apply(this, a); } catch (_) { /* the layer left the map while this tile was being handled */ } } }; return lay; };
 
   /* ---------- value at one point for every frame, read from the same tiles ---------- */
   async function sample(th, lat, lon) {

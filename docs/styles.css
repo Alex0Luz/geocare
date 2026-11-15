@@ -554,3 +554,4 @@ body.tour-on .tl-more { display: none; }
 .follow-toggle { border: 1px solid var(--line); background: var(--paper); color: var(--muted); border-radius: 999px; padding: 6px 12px; font: 700 0.74rem "Manrope", sans-serif; cursor: pointer; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18); }
 .follow-toggle.on { color: var(--forest); border-color: var(--forest); }
 .yeartab tr[data-go]:hover th { color: var(--forest); }
+.to-planet { display: inline-block; margin-top: 12px; padding: 8px 12px; border-radius: 10px; background: #0e1613; color: #f4eee1; font-size: 0.8rem; font-weight: 700; text-decoration: none; }
