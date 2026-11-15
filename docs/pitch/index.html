@@ -398,7 +398,7 @@ let cur = Math.min(slides.length - 1, Math.max(0, (parseInt(location.hash.slice(
 if (PRINT) document.documentElement.classList.add("print");
 function setTheme(dark) { document.documentElement.classList.toggle("dark", dark); try { localStorage.setItem("geocare.pitch.theme", dark ? "dark" : "light"); } catch (_) { /* storage unavailable */ } }
 let saved = ""; try { saved = localStorage.getItem("geocare.pitch.theme") || ""; } catch (_) { /* storage unavailable */ }
-setTheme((q.get("theme") || saved) === "dark");
+setTheme((q.get("theme") || saved || "dark") === "dark"); // dark is the standard look; D or ?theme=light gives the light one
 
 function setLang(l) {
   lang = l; document.documentElement.lang = l;
