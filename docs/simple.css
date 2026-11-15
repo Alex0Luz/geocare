@@ -44,3 +44,13 @@ details.expert > summary::after { content: "+"; font: 400 1.4rem/1 "Manrope", sa
 .expert-in { padding: 6px 16px 14px; } .expert-in > :first-child { margin-top: 8px; }
 .s-allergy { margin: 10px 0 0; font-size: 0.9rem; background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; } .s-allergy .ic { color: var(--earth); }
 @media (max-width: 420px) { .s-step { gap: 10px; } .s-n { width: 28px; height: 28px; line-height: 28px; font-size: 0.9rem; } .s-card { padding: 12px 12px; } .expert-in { padding: 4px 10px 12px; } .s-big { font-size: 2.4rem; } .yeartab tr > :first-child { width: 40%; } .yeartab th[scope="row"] { font-size: 0.72rem; } .yeartab th[scope="row"] .ic { display: none; } .yeartab td { height: 18px; } .s-samples { grid-template-columns: 1fr; } }
+
+/* menu: the five things for the person stand out; the rest is quieter */
+.rail-g.main { color: var(--earth); }
+.tab .ti { display: inline-flex; align-self: center; } .tab .ti .ic { width: 18px; height: 18px; color: var(--forest); }
+.tab.main { align-items: center; font-size: 0.97rem; font-weight: 600; color: var(--ink); padding: 10px 9px; } .tab.main.on { font-weight: 700; } .tab.main.on .ti .ic { color: var(--earth); }
+@media (max-width: 1180px) { .tab .ti { display: none; } .tab.main { padding: 10px 0; } }
+@media (max-width: 820px) { .tab.main { padding: 6px 10px; font-size: 0.86rem; } }
+.s-see { background: var(--sand); border-radius: 12px; padding: 12px 14px; margin: 0 0 14px; } .s-see p { margin: 0 0 8px; font-weight: 700; font-size: 0.9rem; }
+.s-see ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 6px 14px; } .s-see li { display: flex; gap: 8px; align-items: center; font-size: 0.88rem; } .s-see .ic { width: 18px; height: 18px; color: var(--earth); }
+#p-prepare > .s-ground { margin-top: 18px; } .s-h2 { margin: 4px 0 12px; }

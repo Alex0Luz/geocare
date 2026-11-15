@@ -3,6 +3,7 @@
    and moves the specialist view to a collapsed block at the end of the page. The answers about the person stay on
    the device (localStorage), there is no account and no server. (code written with AI support) */
 I18N.add("en", {
+  "nav.g.you": "For you", "nav.g.more": "Learn more", "tab.place": "My home", "tab.health": "My health", "tab.prepare": "What's ahead", "tab.now": "This week", "tab.community": "Help and donate", "prep.title": "What's ahead", "now.title": "This week", "community.title": "Help and donate", "s.see.h": "When you choose your home, you see in one place:", "s.see.1": "what this week means for you", "s.see.2": "what the next 3 months tend to bring", "s.see.3": "your year in one table", "s.see.4": "whether the climate has changed there", "s.see.5": "whether the ground is safe", "s.see.6": "where to help and where to ask for help", "c.ground.go": "See it in What's ahead", 
   "s.title": "What does the climate where you live mean for you?", "s.lead": "Two steps: say where you live and, if you want, who you are. GeoCare answers in plain words what this week means, what the next months tend to bring and what to do.",
   "s1.h": "Where do you live?", "s1.p": "Type your address, neighbourhood or city in the search box at the top, or use your location.", "s1.type": "Type my address", "s1.gps": "Use my location", "s1.ex": "Or look at an example place:",
   "s2.h": "Who are you?", "s2.opt": "optional", "s2.p": "Your age, your health and your medicines change what the weather means for you. This is not a login: there is no account and no server. You can skip this step.",
@@ -31,6 +32,7 @@ I18N.add("en", {
   "s.allergy.box": "Allergies to medicines (told by you):",
 });
 I18N.add("es", {
+  "nav.g.you": "Para usted", "nav.g.more": "Saber más", "tab.place": "Mi casa", "tab.health": "Mi salud", "tab.prepare": "Lo que viene", "tab.now": "Esta semana", "tab.community": "Ayudar y donar", "prep.title": "Lo que viene", "now.title": "Esta semana", "community.title": "Ayudar y donar", "s.see.h": "Al elegir su casa, usted ve en un solo lugar:", "s.see.1": "qué significa esta semana para usted", "s.see.2": "qué suelen traer los próximos 3 meses", "s.see.3": "su año en una tabla", "s.see.4": "si el clima cambió ahí", "s.see.5": "si el terreno es seguro", "s.see.6": "dónde ayudar y dónde pedir ayuda", "c.ground.go": "Verlo en Lo que viene", 
   "s.title": "¿Qué significa para usted el clima del lugar donde vive?", "s.lead": "Dos pasos: diga dónde vive y, si quiere, quién es. GeoCare responde en palabras simples qué significa esta semana, qué suelen traer los próximos meses y qué hacer.",
   "s1.h": "¿Dónde vive?", "s1.p": "Escriba su dirección, barrio o ciudad en el buscador de arriba, o use su ubicación.", "s1.type": "Escribir mi dirección", "s1.gps": "Usar mi ubicación", "s1.ex": "O mire un lugar de ejemplo:",
   "s2.h": "¿Quién es usted?", "s2.opt": "opcional", "s2.p": "Su edad, su salud y sus remedios cambian lo que el clima significa para usted. Esto no es un inicio de sesión: no hay cuenta ni servidor. Puede saltar este paso.",
@@ -59,6 +61,7 @@ I18N.add("es", {
   "s.allergy.box": "Alergias a medicamentos (informadas por usted):",
 });
 I18N.add("pt", {
+  "nav.g.you": "Para você", "nav.g.more": "Saiba mais", "tab.place": "Minha casa", "tab.health": "Minha saúde", "tab.prepare": "O que vem pela frente", "tab.now": "Esta semana", "tab.community": "Ajudar e doar", "prep.title": "O que vem pela frente", "now.title": "Esta semana", "community.title": "Ajudar e doar", "s.see.h": "Ao escolher a sua casa, você vê num lugar só:", "s.see.1": "o que esta semana significa para você", "s.see.2": "o que os próximos 3 meses costumam trazer", "s.see.3": "o seu ano em uma tabela", "s.see.4": "se o clima mudou ali", "s.see.5": "se o terreno é seguro", "s.see.6": "onde ajudar e onde pedir ajuda", "c.ground.go": "Ver em O que vem pela frente", 
   "s.title": "O que o clima de onde você mora significa para você?", "s.lead": "Dois passos: diga onde você mora e, se quiser, quem você é. O GeoCare responde em palavras simples o que esta semana significa, o que os próximos meses costumam trazer e o que fazer.",
   "s1.h": "Onde você mora?", "s1.p": "Escreva o seu endereço, bairro ou cidade na busca lá em cima, ou use a sua localização.", "s1.type": "Escrever meu endereço", "s1.gps": "Usar minha localização", "s1.ex": "Ou veja um lugar de exemplo:",
   "s2.h": "Quem é você?", "s2.opt": "opcional", "s2.p": "A sua idade, a sua saúde e os seus remédios mudam o que o tempo significa para você. Isto não é um login: não existe conta nem servidor. Você pode pular este passo.",
@@ -136,7 +139,8 @@ const Simple = (() => {
     empty.dataset.simple = "1";
     const chips = [...empty.querySelectorAll(":scope > .chips-g, :scope > .chips")], rest = [...empty.children].filter((e) => !chips.includes(e));
     const wrap = document.createElement("div"); wrap.className = "simple start";
-    wrap.innerHTML = `<h2 class="hero">${T("s.title")}</h2><p class="lead">${T("s.lead")}</p>
+    const see = [["storm", 1], ["mosquito", 2], ["calendar", 3], ["pulse", 4], ["mountain", 5], ["heart", 6]];
+    wrap.innerHTML = `<h2 class="hero">${T("s.title")}</h2><p class="lead">${T("s.lead")}</p><div class="s-see"><p>${T("s.see.h")}</p><ul>${see.map(([ic, n]) => `<li>${ICON(ic)}<span>${T("s.see." + n)}</span></li>`).join("")}</ul></div>
       <section class="s-step"><span class="s-n">1</span><div><h3>${T("s1.h")}</h3><p>${T("s1.p")}</p><div class="s-actions"><button type="button" class="btn" id="s-type">${T("s1.type")}</button><button type="button" class="btn ghost" id="s-gps">${T("s1.gps")}</button></div><p class="s-sub">${T("s1.ex")}</p><div class="s-chips"></div></div></section>
       <section class="s-step"><span class="s-n">2</span><div><h3>${T("s2.h")} <small>${T("s2.opt")}</small></h3><p>${T("s2.p")}</p>${S.sample ? `<p class="s-banner">${T("s2.ex.on", { n: T("sp." + S.sample) })} <button type="button" class="linkish" data-s="exit">${T("s2.ex.off")}</button></p>` : ""}${whoForm()}</div></section>
       <details class="expert" ${S.open.how ? "open" : ""}><summary>${T("x.how")}</summary><div class="expert-in"></div></details>`;
@@ -213,7 +217,7 @@ const Simple = (() => {
     const who = S.sample ? `<p class="s-banner">${T("s2.ex.on", { n: T("sp." + S.sample) })} <button type="button" class="linkish" data-s="exit">${T("s2.ex.off")}</button></p>`
       : `<p class="s-who">${filled(p) ? `${T("s2.for")} <b>${whoText(p)}</b>` : T("s2.none")} <button type="button" class="linkish" data-s="who">${T(S.who ? "s2.hide" : filled(p) ? "s2.change" : "s2.answer")}</button></p>`;
     let ground = ""; try { ground = typeof Ground !== "undefined" ? Ground.html(r) || "" : ""; } catch (_) { ground = ""; }
-    sec.innerHTML = who + (S.who ? `<div class="s-whobox"><p class="muted small">${T("s2.p")}</p>${whoForm()}</div>` : "") + weekCard(r) + nextCard(r) + `<div id="s-year">${(S.year = yearCard(r))}</div>` + climCard(r) + (ground ? `<div class="s-ground">${ground}</div>` : "") + helpCard(r);
+    sec.innerHTML = who + (S.who ? `<div class="s-whobox"><p class="muted small">${T("s2.p")}</p>${whoForm()}</div>` : "") + weekCard(r) + nextCard(r) + `<div id="s-year">${(S.year = yearCard(r))}</div>` + climCard(r) + (ground ? `<div class="s-ground">${ground}<div class="s-gos">${go("prepare", "ground", T("c.ground.go"))}</div></div>` : "") + helpCard(r);
     const exp = document.createElement("details"); exp.className = "expert"; exp.id = "expert-place"; exp.open = !!S.open.place;
     exp.innerHTML = `<summary>${T("x.place")}</summary><div class="expert-in"></div>`;
     const xin = $(".expert-in", exp); rest.forEach((e) => xin.append(e));
@@ -245,6 +249,21 @@ const Simple = (() => {
       const xin = $(".expert-in", exp); items.forEach((e) => { if (e.tagName === "DETAILS") e.open = true; xin.append(e); });
     }
   }
+  // "What's ahead" holds the ground check in full, next to the yearly outlook and the health calendar
+  function groundFull() {
+    const box = document.querySelector("#p-prepare"), r = state.main; if (!box || !r || typeof Ground === "undefined") return;
+    let h = ""; try { h = Ground.html(r) || ""; } catch (_) { h = ""; }
+    let el2 = $(":scope > .s-ground", box);
+    if (!h) { if (el2) el2.remove(); return; }
+    if (el2 && S.gfull === h) return;
+    if (!el2) { el2 = document.createElement("div"); el2.className = "s-ground"; el2.dataset.anchor = "ground"; const before = $(":scope > section.band", box) || $(":scope > details.expert", box) || $(":scope > .stepnav", box); before ? before.before(el2) : box.append(el2); }
+    S.gfull = h; el2.innerHTML = h;
+  }
+  // the plain name of the section as its title, where the section had none
+  function titles() {
+    const box = document.querySelector("#p-health"); if (!box || $(":scope > h2.s-h2", box)) return;
+    const h2 = document.createElement("h2"); h2.className = "s-h2"; h2.textContent = T("tab.health"); const me = $(":scope > #me-box", box); me ? me.before(h2) : box.prepend(h2);
+  }
   function allergy() {
     const sos = document.querySelector("#sos-box"), a = store.get("geocare.allergy"); if (!sos || !a || S.sample || $(".s-allergy", sos)) return;
     const p = document.createElement("p"); p.className = "s-allergy"; p.innerHTML = `${ICON("alert")} <b>${T("s.allergy.box")}</b> ${html(a)}`; sos.append(p);
@@ -254,10 +273,12 @@ const Simple = (() => {
     const box = document.querySelector("#p-place"); if (!box) return;
     if (!Extras.isPreview()) S.sample = null;
     if (state.main) place(box, state.main); else start(box);
-    tuck(); allergy();
+    tuck(); groundFull(); titles(); allergy();
+    document.querySelectorAll(".tab [data-ic]").forEach((e) => { if (!e.firstChild) e.innerHTML = ICON(e.dataset.ic); });
   }
   // sections that redraw themselves later (safe places, storm grids) are tidied again without a full redraw
   let wait = 0;
-  document.addEventListener("DOMContentLoaded", () => { const ps = document.querySelector(".panels"); if (ps) new MutationObserver(() => { clearTimeout(wait); wait = setTimeout(() => { try { tuck(); refreshYear(); allergy(); } catch (_) { /* next redraw will fix it */ } }, 60); }).observe(ps, { childList: true, subtree: true }); });
+  document.addEventListener("DOMContentLoaded", () => { const ps = document.querySelector(".panels"); if (ps) new MutationObserver(() => { clearTimeout(wait); wait = setTimeout(() => { try { tuck(); groundFull(); titles(); refreshYear(); allergy(); } catch (_) { /* next redraw will fix it */ } }, 60); }).observe(ps, { childList: true, subtree: true }); });
   return { render: run };
 })();
+try { I18N.apply(); if (typeof render === "function") render(); } catch (e) { console.warn("simple start", e); }

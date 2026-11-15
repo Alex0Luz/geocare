@@ -29,6 +29,9 @@ const ICON = (() => {
     pin: '<path d="M12 21s-6-5.500-6-10.500a6 6 0 0 1 12 0C18 15.500 12 21 12 21z"/><circle cx="12" cy="10.500" r="2"/>',
     alert: '<path d="M12 4l9 16H3z"/><path d="M12 10v4M12 17v.5"/>',
     x: '<path d="M6 6l12 12M18 6L6 18"/>',
+    home: '<path d="M4 11l8-7 8 7"/><path d="M6 10v9h12v-9"/><path d="M10 19v-5h4v5"/>',
+    calendar: '<rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4"/>',
+    pulse: '<path d="M2 12h4l2-6 3 12 3-9 2 5 1-2h5"/>',
     replay: '<path d="M4 12a8 8 0 1 0 2.500-5.800"/><path d="M4 4v4.500h4.500"/>',
   };
   // solid shapes for the player buttons

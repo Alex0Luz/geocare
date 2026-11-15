@@ -899,8 +899,8 @@ const Extras2 = (() => {
   }
 
   /* ---------- guided navigation: section label on top, next step at the bottom of every panel ---------- */
-  const ORDER = ["place", "compare", "world", "prepare", "now", "health", "community", "region", "act"];
-  const GROUP = { place: "detect", compare: "detect", world: "detect", prepare: "predict", now: "predict", health: "care", community: "care", region: "context", act: "context" };
+  const ORDER = ["place", "health", "prepare", "now", "community", "compare", "world", "region", "act"];
+  const GROUP = { place: "you", health: "you", prepare: "you", now: "you", community: "you", compare: "more", world: "more", region: "more", act: "more" };
   const nn = (i) => String(i + 1).padStart(2, "0");
   function decorate() {
     ORDER.forEach((k, i) => {
