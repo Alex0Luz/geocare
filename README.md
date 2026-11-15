@@ -4,6 +4,8 @@
 
 A project for the **NASA Space Apps Challenge 2026**, challenge *Be An Earth System Trend Detective!*, by team GeoCare (Ciudad del Este, Paraguay).
 
+**Open the app:** https://geocare.life · **How to use it, step by step:** https://geocare.life/tutorial/
+
 > Prototype built during the 48-hour hackathon (14–15 November 2026).
 
 ## What it does
