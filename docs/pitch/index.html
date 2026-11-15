@@ -154,6 +154,7 @@
   #bar { position: absolute; left: 0; bottom: 0; height: 5px; background: var(--earth); width: 0; transition: width 0.6s var(--ease); }
   #hint { position: absolute; right: 26px; bottom: 18px; font-size: 15px; color: var(--muted); transition: opacity 0.8s; }
   #hint.off { opacity: 0; }
+  .blank body { background: #000; } .blank #stage { visibility: hidden; }
 
   /* every slide and every step on paper: add ?print=1 and print to PDF */
   .print body, .print html { overflow: visible; height: auto; }
@@ -215,7 +216,7 @@
     </div>
   </section>
 
-  <section class="slide" id="s3" data-steps="2">
+  <section class="slide" id="s3" data-steps="2" data-auto="1">
     <h2 class="q e" data-t="s3.q"></h2>
     <p class="a" data-f="1" data-t="s3.a"></p>
     <div class="versus" data-f="1" style="--i:4">
@@ -237,7 +238,7 @@
     </div>
   </section>
 
-  <section class="slide" id="s4" data-steps="1">
+  <section class="slide" id="s4" data-steps="1" data-auto="1">
     <h2 class="q e" data-t="s4.q"></h2>
     <div class="grid">
       <div class="left">
@@ -251,7 +252,7 @@
     </div>
   </section>
 
-  <section class="slide" id="s5" data-steps="2">
+  <section class="slide" id="s5" data-steps="2" data-auto="1">
     <h2 class="q e" data-t="s5.q"></h2>
     <div class="grid">
       <img class="shot" data-img="week" alt="" data-f="1">
@@ -271,7 +272,7 @@
     </div>
   </section>
 
-  <section class="slide" id="s6" data-steps="3">
+  <section class="slide" id="s6" data-steps="3" data-auto="1">
     <div class="grid">
       <div>
         <h2 class="q e" data-t="s6.q"></h2>
@@ -392,7 +393,8 @@ const TXT = {
 const q = new URLSearchParams(location.search), PRINT = q.has("print");
 let lang = TXT[q.get("lang")] ? q.get("lang") : "es";
 const stage = document.getElementById("stage"), slides = [...document.querySelectorAll(".slide")];
-let cur = Math.min(slides.length - 1, Math.max(0, (parseInt(location.hash.slice(1), 10) || 1) - 1)), step = 0;
+const auto = (i) => +slides[i].dataset.auto || 0;
+let cur = Math.min(slides.length - 1, Math.max(0, (parseInt(location.hash.slice(1), 10) || 1) - 1)), step = auto(cur);
 if (PRINT) document.documentElement.classList.add("print");
 function setTheme(dark) { document.documentElement.classList.toggle("dark", dark); try { localStorage.setItem("geocare.pitch.theme", dark ? "dark" : "light"); } catch (_) { /* storage unavailable */ } }
 let saved = ""; try { saved = localStorage.getItem("geocare.pitch.theme") || ""; } catch (_) { /* storage unavailable */ }
@@ -415,7 +417,8 @@ function mapRun(on) { clearInterval(mapTimer); mapTimer = null; if (on && !PRINT
 function show() {
   slides.forEach((s, i) => { s.classList.toggle("on", i === cur || PRINT); s.classList.toggle("past", i < cur); });
   slides[cur].querySelectorAll("[data-f]").forEach((e) => e.classList.toggle("in", step >= +e.dataset.f));
-  const total = slides.reduce((n, s) => n + 1 + +s.dataset.steps, 0), done = slides.slice(0, cur).reduce((n, s) => n + 1 + +s.dataset.steps, 0) + step + 1;
+  const presses = (s) => 1 + +s.dataset.steps - (+s.dataset.auto || 0);
+  const total = slides.reduce((n, s) => n + presses(s), 0), done = slides.slice(0, cur).reduce((n, s) => n + presses(s), 0) + step - auto(cur) + 1;
   document.getElementById("bar").style.width = (done / total) * 100 + "%";
   history.replaceState(null, "", "#" + (cur + 1));
   mapRun(cur === 0);
@@ -424,8 +427,8 @@ function show() {
 function count() { const e = document.getElementById("five"); if (e.dataset.done) return; e.dataset.done = 1; let n = 0; e.textContent = 0; const t = setInterval(() => { e.textContent = ++n; if (n >= 5) clearInterval(t); }, 260); }
 function go(d) {
   const steps = +slides[cur].dataset.steps;
-  if (d > 0) { if (step < steps) step++; else if (cur < slides.length - 1) { cur++; step = 0; } }
-  else { if (step > 0) step--; else if (cur > 0) { cur--; step = +slides[cur].dataset.steps; } }
+  if (d > 0) { if (step < steps) step++; else if (cur < slides.length - 1) { cur++; step = auto(cur); } }
+  else { if (step > auto(cur)) step--; else if (cur > 0) { cur--; step = +slides[cur].dataset.steps; } }
   document.getElementById("hint").classList.add("off"); show();
 }
 function fit() { if (PRINT) return; const s = Math.min(innerWidth / 1600, innerHeight / 900); stage.style.transform = `translate(${(innerWidth - 1600 * s) / 2}px, ${(innerHeight - 900 * s) / 2}px) scale(${s})`; }
@@ -436,7 +439,9 @@ addEventListener("keydown", (e) => {
   else if (e.key.toLowerCase() === "l") setLang(lang === "es" ? "en" : "es");
   else if (e.key.toLowerCase() === "d") setTheme(!document.documentElement.classList.contains("dark"));
   else if (e.key.toLowerCase() === "f") { document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen(); }
-  else if (/^[1-7]$/.test(e.key)) { cur = +e.key - 1; step = 0; show(); }
+  else if (e.key === "F5") { e.preventDefault(); if (!document.fullscreenElement) document.documentElement.requestFullscreen(); } // the "start" button of a presenter remote
+  else if (e.key.toLowerCase() === "b" || e.key === ".") document.documentElement.classList.toggle("blank"); // the "black screen" button of a presenter remote
+  else if (/^[1-7]$/.test(e.key)) { cur = +e.key - 1; step = auto(cur); show(); }
   else if (e.key === "Home") { cur = 0; step = 0; show(); }
 });
 addEventListener("click", (e) => { if (e.target.closest("a")) return; go(e.clientX < innerWidth * 0.25 ? -1 : 1); });
