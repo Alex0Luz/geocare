@@ -73,17 +73,18 @@
   .haz .ic { font-size: 30px; color: var(--earth); }
 
   /* 3 why it is a problem */
-  .versus { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: 46px; }
+  .versus { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: 30px; }
+  #s3 .a { font-size: 44px; margin-top: 10px; }
   .versus > div { padding: 4px 56px 4px 0; }
   .versus > div + div { padding: 4px 0 4px 56px; border-left: 1px solid var(--line); }
   .vt { font-size: 20px; font-weight: 700; color: var(--muted); margin-bottom: 18px; }
   .jargon { display: flex; flex-wrap: wrap; gap: 10px 12px; font: 600 22px/1 ui-monospace, "Cascadia Mono", Consolas, monospace; color: var(--ink); }
   .jargon span { border: 1px solid var(--line); background: var(--paper); border-radius: 8px; padding: 10px 13px; }
-  .vc { font-size: 25px; margin-top: 20px; }
-  .nada { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 104px; line-height: 0.95; letter-spacing: -0.03em; color: var(--earth); }
-  .late { margin-top: 44px; }
+  .vc { font-size: 24px; line-height: 1.38; margin-top: 14px; }
+  .nada { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 76px; line-height: 0.95; letter-spacing: -0.03em; color: var(--earth); }
+  .late { margin-top: 26px; }
   .late .lt { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 42px; letter-spacing: -0.02em; }
-  .track { position: relative; height: 16px; border-radius: 8px; background: var(--line); margin: 64px 0 14px; }
+  .track { position: relative; height: 16px; border-radius: 8px; background: var(--line); margin: 56px 0 14px; }
   .track b { position: absolute; left: 0; top: 0; bottom: 0; width: 0; border-radius: 8px; background: var(--ink); transition: width 2.6s linear 0.6s; }
   .in .track b { width: 93%; }
   .track .stop { position: absolute; top: -46px; transform: translateX(-50%); font-size: 20px; font-weight: 700; white-space: nowrap; opacity: 0; transition: opacity 0.5s var(--ease) 3.1s; }
@@ -93,7 +94,7 @@
   .track .stop.d { left: 100%; top: 34px; transform: translateX(-100%); transition-delay: 3.5s; }
   .track .stop.d::after { left: auto; right: 0; top: -34px; height: 30px; }
   .in .track .stop { opacity: 1; }
-  .ends { display: flex; justify-content: space-between; align-items: baseline; font-size: 21px; color: var(--muted); margin-top: 58px; }
+  .ends { display: flex; justify-content: space-between; align-items: baseline; font-size: 21px; color: var(--muted); margin-top: 50px; }
   .ends .hl { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); letter-spacing: -0.015em; }
 
   /* 4 how it works */
@@ -124,12 +125,12 @@
 
   /* 6 what makes us different */
   #s6 .grid { display: grid; grid-template-columns: 1fr 400px; gap: 64px; align-items: start; }
-  #s6 .a { font-size: 66px; line-height: 1; margin-top: 12px; }
+  #s6 .a { font-size: 60px; line-height: 1; margin-top: 10px; }
   #s6 .lead { font-size: 26px; margin-top: 14px; max-width: none; }
   .times { margin-top: 22px; display: grid; gap: 0; }
   .th3 { font-size: 20px; font-weight: 700; color: var(--earth); padding-bottom: 8px; }
-  .time { display: grid; grid-template-columns: 236px 1fr; gap: 20px; align-items: baseline; padding: 12px 0; border-top: 1px solid var(--line); }
-  .time b { font-family: "Bricolage Grotesque", sans-serif; font-size: 32px; letter-spacing: -0.015em; }
+  .time { display: grid; grid-template-columns: 286px 1fr; gap: 20px; align-items: baseline; padding: 9px 0; border-top: 1px solid var(--line); }
+  .time b { font-family: "Bricolage Grotesque", sans-serif; font-size: 30px; letter-spacing: -0.015em; }
   .time span { font-size: 23px; line-height: 1.32; }
   .more { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 16px; padding-top: 20px; border-top: 2px solid var(--ink); }
   .more h3 { margin: 0 0 6px; font-family: "Bricolage Grotesque", sans-serif; font-size: 29px; letter-spacing: -0.015em; }
@@ -200,9 +201,8 @@
         <ul><li data-t="s2.f1"></li><li data-t="s2.f2"></li><li data-t="s2.f3"></li><li data-t="s2.f4"></li></ul>
       </div>
       <div>
-        <p class="a" data-f="1" style="margin-top:0" data-t="s2.a"></p>
-        <p class="big" data-f="1" style="--i:7"><span class="hl" data-t="s2.big"></span></p>
-        <div class="haz" data-f="1" style="--i:12">
+        <p class="big" data-f="1" style="margin-top:0"><span class="hl" data-t="s2.big"></span></p>
+        <div class="haz" data-f="1" style="--i:7">
           <span><svg class="ic" viewBox="0 0 24 24"><path d="M10 4a2 2 0 0 1 4 0v9.5a4 4 0 1 1-4 0z"/><path d="M12 9v7"/></svg><i data-t="h.heat" style="font-style:normal"></i></span>
           <span><svg class="ic" viewBox="0 0 24 24"><path d="M3 8c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/><path d="M3 13c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/><path d="M3 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg><i data-t="h.flood" style="font-style:normal"></i></span>
           <span><svg class="ic" viewBox="0 0 24 24"><path d="M12 3c1 4 5 5 5 10a5 5 0 0 1-10 0c0-2 1-3.5 2-4.5 0 2 1 3 2 3 0-3-1-5 1-8.5z"/></svg><i data-t="h.smoke" style="font-style:normal"></i></span>
@@ -210,13 +210,15 @@
           <span><svg class="ic" viewBox="0 0 24 24"><path d="M12 3c4 5 6 8 6 11a6 6 0 0 1-12 0c0-3 2-6 6-11z"/></svg><i data-t="h.river" style="font-style:normal"></i></span>
           <span><svg class="ic" viewBox="0 0 24 24"><path d="M5 6h7v4H5z"/><path d="M12 8h3"/><path d="M17.5 5.5l3-1.5M17.5 8H21M17.5 10.5l3 1.5"/><path d="M6.5 10v9h4v-9"/></svg><i data-t="h.agro" style="font-style:normal"></i></span>
         </div>
+        <p class="lead" data-f="1" style="--i:12;margin-top:26px" data-t="s2.fam"></p>
       </div>
     </div>
   </section>
 
   <section class="slide" id="s3" data-steps="2">
     <h2 class="q e" data-t="s3.q"></h2>
-    <div class="versus" data-f="1">
+    <p class="a" data-f="1" data-t="s3.a"></p>
+    <div class="versus" data-f="1" style="--i:4">
       <div>
         <p class="vt" data-t="s3.l"></p>
         <div class="jargon"><span>MERRA-2</span><span>ERA5</span><span>T2M_MAX</span><span>PRECTOTCORR</span><span>Mann-Kendall</span><span>Theil-Sen</span><span>1981-2025</span></div>
@@ -318,33 +320,32 @@ const TXT = {
     "s1.m1": "médica", "s1.m2": "la salud", "s1.l1": "desarrollador", "s1.l2": "la tecnología", "s1.a1": "agronomía", "s1.a2": "el campo",
     "s1.ch": "Nuestro desafío: Be An Earth System Trend Detective",
     "s1.cap": "Temperatura de la superficie, mes a mes. NASA MODIS Terra, 2024.", "s1.cold": "menos calor", "s1.hot": "más calor",
-    "s2.q": "¿Qué no sabe doña María?",
+    "s2.q": "¿Cuál es el problema?",
     "s2.f1": "Tiene 70 años.", "s2.f2": "Vive sola en Ciudad del Este.", "s2.f3": "Es hipertensa.", "s2.f4": "Toma su remedio todos los días.",
-    "s2.a": "Que en los días más calurosos, su remedio aumenta el riesgo de un agotamiento por calor.",
     "s2.big": "El lugar donde vivimos nos enferma, y no lo sabemos.",
     "h.heat": "calor", "h.flood": "inundaciones", "h.smoke": "humo", "h.dengue": "dengue", "h.river": "ríos contaminados", "h.agro": "agrotóxicos",
-    "s3.q": "Si esta información existe, ¿por qué no le llega?",
-    "s3.l": "Lo que existe", "s3.lc": "Muchísimo, y hecho para especialistas.",
-    "s3.r": "Lo que le llega a doña María", "s3.nada": "Nada.", "s3.rc": "Se entera cuando ya está enferma.",
+    "s3.q": "¿Por qué es un problema?", "s3.a": "Porque esta información existe, pero no llega a la gente.", "s2.fam": "Todo eso afecta la salud de cada familia.",
+    "s3.l": "Lo que existe", "s3.lc": "Los datos del clima están hechos para especialistas.",
+    "s3.r": "Lo que le llega a doña María", "s3.nada": "Nada.", "s3.rc": "Nadie le explica que en los días más calurosos su remedio aumenta el riesgo de un agotamiento por calor. Se entera cuando ya está enferma.",
     "s3.lt": "Y con los desastres naturales pasa lo mismo.",
     "s3.warn": "llega el aviso", "s3.dis": "el desastre", "s3.calm": "meses sin saber qué viene", "s3.end": "Empezamos a prepararnos cuando ya están encima.",
-    "s4.q": "¿Cómo funciona?",
+    "s4.q": "Nuestra solución es geocare.life",
     "s4.1": "Escribís tu dirección o usás tu ubicación.", "s4.2": "Si querés, contás tu edad, tu salud y tus remedios.", "s4.2b": "Solo con tu autorización. Esos datos quedan en tu dispositivo y no se envían a ningún lugar.",
     "s4.3": "Y te muestra, en palabras simples, los riesgos de tu casa.",
-    "s4.foot": "Detrás hay <b>más de 40 años de datos de la NASA</b>. Es una aplicación web y es gratuita.",
+    "s4.foot": "Una aplicación web gratuita, con <b>más de 40 años de datos de la NASA</b>.",
     "s5.q": "¿Por qué es la solución?", "s5.a": "Porque convertimos los datos en cuidados.",
     "s5.ct": "Esta semana de calor, a doña María le dice:",
     "s5.c1": "Tome agua antes de sentir sed.", "s5.c2": "Evite el sol del mediodía.", "s5.c3": "Pida a su médico que revise sus remedios.",
     "s5.g": "Y para cada desastre:<br>antes, durante y después.",
     "s6.q": "¿Qué nos hace diferentes?", "s6.a": "El cuidado a lo largo del tiempo.",
-    "s6.sub": "Cuidamos a la persona, su casa, su familia, el ambiente y su entorno.", "s6.th": "geocare.life te prepara en tres tiempos",
-    "s6.g": "Y mira el suelo.", "s6.gb": "El suelo y el relieve: una primera señal de si el terreno de tu casa es seguro.",
-    "s6.t1": "Meses antes", "s6.t1b": "Una sola tabla con lo que suele pasar en tu casa en cada mes.",
-    "s6.t2": "En la semana", "s6.t2b": "El pronóstico de siete días y qué hacer.",
-    "s6.t3": "En el momento", "s6.t3b": "Los eventos naturales activos cerca de tu casa, según la NASA.",
-    "s6.h": "Y es honesto.", "s6.hb": "5 de 8 señales del clima cambiaron en Ciudad del Este. Lo decimos solo cuando <b>dos bases de datos coinciden</b>.",
+    "s6.sub": "Vamos a cuidar a la persona, su casa, su familia, el ambiente y su entorno.", "s6.th": "geocare.life te prepara en tres tiempos",
+    "s6.g": "Y mira lo que te rodea.", "s6.gb": "El suelo, el aire, los ríos y las enfermedades de tu región. Una primera señal de si tu terreno es seguro o no.",
+    "s6.t1": "1. Meses antes", "s6.t1b": "En una sola tabla, qué puede pasar en tu casa y en tu salud en cada mes.",
+    "s6.t2": "2. En la semana", "s6.t2b": "El pronóstico de siete días y qué hacer.",
+    "s6.t3": "3. En el momento", "s6.t3b": "Los eventos naturales activos cerca de tu casa, según la NASA.",
+    "s6.h": "Detectives de tendencias.", "s6.hb": "5 de 8 señales del clima cambiaron en Ciudad del Este desde 1981. Lo decimos solo cuando <b>dos bases de datos coinciden</b>.",
     "s6.cap": "Ciudad del Este en la aplicación: el año en una tabla y el suelo.",
-    "s7.k": "El próximo paso", "s7.next": "Probarlo con una unidad de salud de Ciudad del Este.",
+    "s7.k": "Nuestro desafío: Be An Earth System Trend Detective", "s7.next": "Detectamos qué cambió en el clima de tu lugar y te decimos qué hacer.",
     "s7.big": "Conocé los riesgos de tu lugar antes de que te enfermen.", "s7.th": "¡Gracias!",
     "s7.fine": "Datos: NASA POWER, NASA GIBS, NASA EONET, ERA5 (Copernicus) y NOAA. Prototipo hecho en 48 horas. El código y los textos se escribieron con apoyo de IA, como declaramos en el proyecto; la idea y las decisiones son del equipo.",
     hint: "→ avanzar   ← volver   D fondo oscuro   L idioma   F pantalla completa",
@@ -356,33 +357,32 @@ const TXT = {
     "s1.m1": "physician", "s1.m2": "health", "s1.l1": "developer", "s1.l2": "technology", "s1.a1": "agronomy", "s1.a2": "the land",
     "s1.ch": "Our challenge: Be An Earth System Trend Detective",
     "s1.cap": "Land surface temperature, month by month. NASA MODIS Terra, 2024.", "s1.cold": "cooler", "s1.hot": "hotter",
-    "s2.q": "What does doña María not know?",
+    "s2.q": "What is the problem?",
     "s2.f1": "She is 70.", "s2.f2": "She lives alone in Ciudad del Este.", "s2.f3": "She has high blood pressure.", "s2.f4": "She takes her medicine every day.",
-    "s2.a": "That on the hottest days, her medicine raises the risk of heat exhaustion.",
     "s2.big": "The place we live in makes us sick, and we do not know it.",
     "h.heat": "heat", "h.flood": "floods", "h.smoke": "smoke", "h.dengue": "dengue", "h.river": "polluted rivers", "h.agro": "pesticides",
-    "s3.q": "If this information exists, why does it not reach her?",
-    "s3.l": "What exists", "s3.lc": "A great deal, and made for specialists.",
-    "s3.r": "What reaches doña María", "s3.nada": "Nothing.", "s3.rc": "She finds out when she is already sick.",
+    "s3.q": "Why is it a problem?", "s3.a": "Because this information exists, but it does not reach people.", "s2.fam": "All of this affects the health of every family.",
+    "s3.l": "What exists", "s3.lc": "Climate data are made for specialists.",
+    "s3.r": "What reaches doña María", "s3.nada": "Nothing.", "s3.rc": "Nobody tells her that on the hottest days her medicine raises the risk of heat exhaustion. She finds out when she is already sick.",
     "s3.lt": "And with natural disasters it is the same.",
     "s3.warn": "the warning arrives", "s3.dis": "the disaster", "s3.calm": "months without knowing what is coming", "s3.end": "We start preparing when it is already upon us.",
-    "s4.q": "How does it work?",
+    "s4.q": "Our solution is geocare.life",
     "s4.1": "You type your address or use your location.", "s4.2": "If you want, you tell your age, your health and your medicines.", "s4.2b": "Only with your permission. Those answers stay on your device and are never sent anywhere.",
     "s4.3": "And it shows you, in plain words, the risks of your home.",
-    "s4.foot": "Behind it: <b>more than 40 years of NASA data</b>. It is a web app and it is free.",
+    "s4.foot": "A free web app, with <b>more than 40 years of NASA data</b>.",
     "s5.q": "Why is it the solution?", "s5.a": "Because we turn data into care.",
     "s5.ct": "In this hot week, it tells doña María:",
     "s5.c1": "Drink water before you feel thirsty.", "s5.c2": "Stay out of the midday sun.", "s5.c3": "Ask your doctor to review your medicines.",
     "s5.g": "And for every disaster:<br>before, during and after.",
     "s6.q": "What makes us different?", "s6.a": "Care over time.",
     "s6.sub": "We care for the person, their home, their family, the environment and their surroundings.", "s6.th": "geocare.life prepares you at three moments",
-    "s6.g": "And it looks at the ground.", "s6.gb": "Soil and terrain: a first sign of whether the ground under your home is safe.",
-    "s6.t1": "Months ahead", "s6.t1b": "One table with what usually happens at your home in each month.",
-    "s6.t2": "This week", "s6.t2b": "The seven-day forecast and what to do.",
-    "s6.t3": "Right now", "s6.t3b": "The natural events active near your home, according to NASA.",
-    "s6.h": "And it is honest.", "s6.hb": "5 of 8 climate signals changed in Ciudad del Este. We say so only when <b>two datasets agree</b>.",
+    "s6.g": "And it looks around you.", "s6.gb": "The ground, the air, the rivers and the illnesses of your region. A first sign of whether your land is safe or not.",
+    "s6.t1": "1. Months ahead", "s6.t1b": "In one table, what can happen at your home and to your health in each month.",
+    "s6.t2": "2. This week", "s6.t2b": "The seven-day forecast and what to do.",
+    "s6.t3": "3. Right now", "s6.t3b": "The natural events active near your home, according to NASA.",
+    "s6.h": "Trend detectives.", "s6.hb": "5 of 8 climate signals changed in Ciudad del Este since 1981. We say so only when <b>two datasets agree</b>.",
     "s6.cap": "Ciudad del Este in the app: the year in one table, and the ground.",
-    "s7.k": "The next step", "s7.next": "Testing it with a health unit in Ciudad del Este.",
+    "s7.k": "Our challenge: Be An Earth System Trend Detective", "s7.next": "We detect what changed in the climate of your place and tell you what to do.",
     "s7.big": "Know the risks of the place you live before they make you sick.", "s7.th": "Thank you!",
     "s7.fine": "Data: NASA POWER, NASA GIBS, NASA EONET, ERA5 (Copernicus) and NOAA. Prototype built in 48 hours. The code and the texts were written with AI support, as we declare in the project; the idea and the decisions are the team's.",
     hint: "→ next   ← back   D dark background   L language   F full screen",
