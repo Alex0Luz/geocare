@@ -138,8 +138,10 @@ const Tour = (() => {
   window.addEventListener("load", () => {
     const b = document.createElement("button"); b.type = "button"; b.className = "demo-btn"; b.dataset.demo = "1";
     const lab = () => { b.innerHTML = `${ICON("play")} <span>${tx(UI.btn)}</span>`; }; lab();
-    const foot = $1(".rail-foot"); if (foot) foot.prepend(b);
-    document.querySelectorAll(".lang button").forEach((x) => x.addEventListener("click", () => setTimeout(() => { lab(); if (box) paint(); }, 50)));
+    const how = document.createElement("a"); how.className = "howto-link";
+    const howLab = () => { how.textContent = tx(["How to use GeoCare", "Cómo usar GeoCare", "Como usar o GeoCare"]); how.href = "tutorial/?lang=" + I18N.lang; }; howLab();
+    const foot = $1(".rail-foot"); if (foot) { foot.prepend(how); foot.prepend(b); }
+    document.querySelectorAll(".lang button").forEach((x) => x.addEventListener("click", () => setTimeout(() => { lab(); howLab(); if (box) paint(); }, 50)));
     const q = new URLSearchParams(location.search), d = q.get("demo");
     if (d) { const l = q.get("lang"); if (l) { I18N.set(l); render(); lab(); } setTimeout(() => start((parseInt(d, 10) || 1) - 1), 900); }
   });

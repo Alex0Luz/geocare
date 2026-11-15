@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GeoCare · how to use it</title>
+<meta name="description" content="How to use GeoCare, step by step, in plain words.">
+<!-- A step-by-step guide to the GeoCare app for people who are not specialists. The pictures are the real app. (page written with AI support) -->
+<style>
+  @font-face { font-family: "Bricolage Grotesque"; src: url(assets/fonts/bricolage.woff2) format("woff2"); font-weight: 600 700; font-display: swap; }
+  @font-face { font-family: "Manrope"; src: url(assets/fonts/manrope.woff2) format("woff2"); font-weight: 400 700; font-display: swap; }
+  :root { --sand: #f6f1e7; --paper: #fffdf8; --ink: #1c2a24; --muted: #56645c; --line: #e2d9c8; --earth: #b5452c; --forest: #1f4d3a; --mark: #f3d9a4; --r: 16px; --ease: cubic-bezier(0.16, 1, 0.3, 1); }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--sand); color: var(--ink); font: 400 18px/1.55 "Manrope", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+  h1, h2 { font-family: "Bricolage Grotesque", "Manrope", sans-serif; font-weight: 700; letter-spacing: -0.02em; margin: 0; text-wrap: balance; }
+  p { margin: 0; }
+  a { color: inherit; }
+
+  .top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 0; }
+  .brand { display: inline-flex; align-items: center; gap: 9px; font: 700 22px/1 "Bricolage Grotesque", sans-serif; text-decoration: none; }
+  .lang { display: flex; }
+  .lang button { border: 1px solid var(--line); background: transparent; padding: 7px 11px; font: 600 14px/1 "Manrope", sans-serif; color: var(--muted); cursor: pointer; min-height: 36px; }
+  .lang button:first-child { border-radius: 10px 0 0 10px; } .lang button:last-child { border-radius: 0 10px 10px 0; }
+  .lang button + button { border-left: 0; }
+  .lang button.on { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+
+  .hero { padding: 44px 0 30px; }
+  .hero h1 { font-size: clamp(40px, 7vw, 76px); line-height: 1.02; max-width: 12em; }
+  .hero .lead { font-size: clamp(19px, 2.4vw, 24px); line-height: 1.45; max-width: 31em; margin-top: 18px; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; margin-top: 26px; background: var(--forest); color: #fff; font: 700 18px/1 "Manrope", sans-serif; padding: 16px 22px; border-radius: var(--r); text-decoration: none; transition: transform 0.2s var(--ease); }
+  .btn:active { transform: translateY(1px) scale(0.99); }
+  .btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+  .jump { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 34px; padding: 0; list-style: none; }
+  .jump a { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line); background: var(--paper); border-radius: 999px; padding: 8px 14px 8px 9px; font-size: 15px; font-weight: 600; text-decoration: none; }
+  .jump b { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--ink); color: var(--paper); font: 700 13px/1 "Bricolage Grotesque", sans-serif; }
+
+  .step { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 460px); gap: 56px; align-items: center; padding: 58px 0; border-top: 1px solid var(--line); scroll-margin-top: 10px; }
+  .step:nth-of-type(even) .txt { order: 2; }
+  .n { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%; background: var(--ink); color: var(--paper); font: 700 25px/1 "Bricolage Grotesque", sans-serif; }
+  .step h2 { font-size: clamp(30px, 4.2vw, 44px); line-height: 1.08; margin-top: 18px; }
+  .step .txt p { margin-top: 14px; max-width: 30em; }
+  .step .tip { margin-top: 18px; padding: 13px 16px; border-left: 4px solid var(--earth); background: var(--paper); border-radius: 0 var(--r) var(--r) 0; font-size: 16.5px; }
+  .where { display: inline-block; font-size: 15px; font-weight: 700; color: var(--earth); margin-top: 16px; }
+  .hl { background: linear-gradient(transparent 60%, var(--mark) 60%, var(--mark) 94%, transparent 94%); padding: 0 2px; }
+  .pic { border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; background: var(--paper); box-shadow: 0 18px 40px -24px rgba(92, 58, 28, 0.5); }
+  .pic img { display: block; width: 100%; height: auto; }
+  .pic.tall { max-height: 470px; position: relative; }
+  .pic.tall::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 90px; background: linear-gradient(transparent, var(--paper)); }
+
+  .end { padding: 60px 0 80px; border-top: 2px solid var(--ink); }
+  .end h2 { font-size: clamp(30px, 4.6vw, 52px); line-height: 1.06; max-width: 15em; }
+  .end p { margin-top: 14px; max-width: 34em; }
+  .fine { font-size: 15px; color: var(--muted); margin-top: 30px !important; }
+
+  /* each step comes in as it reaches the screen */
+  .rv { opacity: 0; transform: translateY(26px); transition: opacity 0.8s var(--ease), transform 0.9s var(--ease); }
+  .rv.in { opacity: 1; transform: none; }
+  .rv.d1 { transition-delay: 0.12s; }
+  @media (prefers-reduced-motion: reduce) { .rv { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
+  @media (max-width: 820px) {
+    body { font-size: 17px; }
+    .wrap { padding: 0 18px; }
+    .hero { padding: 26px 0 22px; }
+    .step { grid-template-columns: 1fr; gap: 22px; padding: 40px 0; }
+    .step:nth-of-type(even) .txt { order: 0; }
+    .pic.tall { max-height: 420px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="../" id="home">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 1.5l1.35 9.15L22.5 12l-9.15 1.35L12 22.5l-1.35-9.15L1.5 12l9.15-1.35z" fill="#1f7f5f"/><circle cx="12" cy="12" r="1.7" fill="#eef1ef"/></svg>GeoCare
+    </a>
+    <div class="lang" role="group" aria-label="Language"><button data-lang="en">EN</button><button data-lang="es">ES</button><button data-lang="pt">PT</button></div>
+  </header>
+
+  <section class="hero">
+    <h1 data-t="h1"></h1>
+    <p class="lead" data-t="lead"></p>
+    <a class="btn open" href="../"><span data-t="open"></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <ol class="jump" id="jump"></ol>
+  </section>
+
+  <main id="steps"></main>
+
+  <section class="end">
+    <h2 data-t="end.h"></h2>
+    <p data-t="end.p"></p>
+    <a class="btn open" href="../"><span data-t="open"></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <p class="fine" data-t="fine"></p>
+  </section>
+</div>
+
+<script>
+// One entry per step: [picture, tall picture?], and the words in each language.
+const STEPS = [
+  { img: "step1", t: {
+    en: ["Say where you live", "Type your address, neighbourhood or city in the search box, or tap “Use my location”. You can also look at one of the example cities first.", "", "On the first screen"],
+    es: ["Diga dónde vive", "Escriba su dirección, barrio o ciudad en el buscador, o toque “Usar mi ubicación”. También puede mirar primero una de las ciudades de ejemplo.", "", "En la primera pantalla"],
+    pt: ["Diga onde você mora", "Escreva o seu endereço, bairro ou cidade na busca, ou toque em “Usar minha localização”. Você também pode olhar primeiro uma das cidades de exemplo.", "", "Na primeira tela"] } },
+  { img: "consent", t: {
+    en: ["If you want, say who you are", "Your age, your health and your medicines change what the weather means for you. This step is optional, and there is no account to create.", "Your answers stay on your device. They are saved only if you tick the box, and you can delete them whenever you want.", "On the first screen, step 2"],
+    es: ["Si quiere, cuente quién es", "Su edad, su salud y sus remedios cambian lo que el clima significa para usted. Este paso es opcional, y no hay que crear ninguna cuenta.", "Sus respuestas quedan en su dispositivo. Solo se guardan si usted marca la casilla, y puede borrarlas cuando quiera.", "En la primera pantalla, paso 2"],
+    pt: ["Se quiser, conte quem você é", "A sua idade, a sua saúde e os seus remédios mudam o que o clima significa para você. Este passo é opcional, e não é preciso criar conta.", "As suas respostas ficam no seu aparelho. Só são guardadas se você marcar a caixa, e você pode apagá-las quando quiser.", "Na primeira tela, passo 2"] } },
+  { img: "week", t: {
+    en: ["Read “This week for you”", "It is the first thing you see: what the next seven days bring to your address and what to do about it. If you marked a medicine that needs care in the heat, it reminds you.", "GeoCare does not replace your doctor. Never stop or change a medicine on your own.", "My home"],
+    es: ["Lea “Esta semana para usted”", "Es lo primero que aparece: qué traen los próximos siete días a su dirección y qué hacer. Si usted marcó un remedio que pide cuidado con el calor, se lo recuerda.", "GeoCare no reemplaza a su médico. Nunca suspenda ni cambie un remedio por su cuenta.", "Mi casa"],
+    pt: ["Leia “Esta semana para você”", "É a primeira coisa que aparece: o que os próximos sete dias trazem para o seu endereço e o que fazer. Se você marcou um remédio que pede cuidado no calor, ele lembra você.", "O GeoCare não substitui o seu médico. Nunca pare nem troque um remédio por conta própria.", "Minha casa"] } },
+  { img: "year", t: {
+    en: ["Look at your year in one table", "Each line is something to watch: heat, storms, heavy rain, dengue and other illnesses. Darker means more likely in that month, and the outlined column is the current month. Tap a line to see the details.", "The illnesses are estimated from the climate of the address, not from counts of cases.", "My home"],
+    es: ["Mire su año en una tabla", "Cada fila es algo que vigilar: calor, tormentas, lluvia fuerte, dengue y otras enfermedades. Más oscuro significa más probable en ese mes, y la columna con borde es el mes actual. Toque una fila para ver los detalles.", "Las enfermedades se estiman por el clima de la dirección, no por conteos de casos.", "Mi casa"],
+    pt: ["Olhe o seu ano em uma tabela", "Cada linha é algo para vigiar: calor, tempestades, chuva forte, dengue e outras doenças. Mais escuro significa mais provável naquele mês, e a coluna com borda é o mês atual. Toque numa linha para ver os detalhes.", "As doenças são estimadas pelo clima do endereço, não por contagem de casos.", "Minha casa"] } },
+  { img: "clim", t: {
+    en: ["See whether the climate has changed", "The large number says how many of eight climate signals have changed at your address since 1981, such as hotter days or a longer mosquito season.", "We say “changed” only when two independent datasets agree. When the data are not enough to tell, the app says so.", "My home"],
+    es: ["Vea si el clima cambió", "El número grande dice cuántas de ocho señales del clima cambiaron en su dirección desde 1981, como más días calurosos o una temporada de mosquitos más larga.", "Decimos “cambió” solo cuando dos bases de datos independientes coinciden. Cuando los datos no alcanzan para saberlo, la aplicación lo dice.", "Mi casa"],
+    pt: ["Veja se o clima mudou", "O número grande diz quantos de oito sinais do clima mudaram no seu endereço desde 1981, como mais dias quentes ou uma temporada de mosquito mais longa.", "Dizemos “mudou” só quando duas bases de dados independentes concordam. Quando os dados não bastam para saber, o aplicativo avisa.", "Minha casa"] } },
+  { img: "ground", tall: true, t: {
+    en: ["Ask about the ground", "Three questions about the land around your home: can the ground slide, can water reach it, and does the soil hold water.", "It is a first look from global data. It does not replace an inspection of your land or the advice of civil defence.", "My home"],
+    es: ["Pregunte por el suelo", "Tres preguntas sobre el terreno de su casa: si el suelo puede deslizarse, si el agua puede llegar y si el suelo retiene agua.", "Es una primera mirada con datos globales. No reemplaza una inspección del terreno ni la orientación de protección civil.", "Mi casa"],
+    pt: ["Pergunte pelo chão", "Três perguntas sobre o terreno da sua casa: se o solo pode deslizar, se a água pode chegar e se o solo retém água.", "É uma primeira olhada com dados globais. Não substitui uma inspeção do terreno nem a orientação da defesa civil.", "Minha casa"] } },
+  { img: "guide", tall: true, t: {
+    en: ["Get ready: before, during and after", "For each kind of event there is a short guide with what to do before, during and after, plus an emergency kit and a family plan. The guides that fit your address come first.", "", "What's ahead"],
+    es: ["Prepárese: antes, durante y después", "Para cada tipo de evento hay una guía corta con qué hacer antes, durante y después, además del kit de emergencia y el plan familiar. Las guías que corresponden a su dirección aparecen primero.", "", "Lo que viene"],
+    pt: ["Prepare-se: antes, durante e depois", "Para cada tipo de evento há um guia curto com o que fazer antes, durante e depois, além do kit de emergência e do plano da família. Os guias que valem para o seu endereço aparecem primeiro.", "", "O que vem pela frente"] } },
+  { img: "help", t: {
+    en: ["Help, or ask for help", "The community board shows requests for help and places that receive donations near your address, and a link to find the Red Cross or Red Crescent of your country.", "This part is a prototype: the entries are examples and stay on your device.", "Help and donate"],
+    es: ["Ayude o pida ayuda", "El mural de la comunidad muestra pedidos de ayuda y lugares que reciben donaciones cerca de su dirección, y un enlace para buscar la Cruz Roja o Media Luna Roja de su país.", "Esta parte es un prototipo: las entradas son ejemplos y quedan en su dispositivo.", "Ayudar y donar"],
+    pt: ["Ajude ou peça ajuda", "O mural da comunidade mostra pedidos de ajuda e lugares que recebem doações perto do seu endereço, e um link para buscar a Cruz Vermelha ou o Crescente Vermelho do seu país.", "Esta parte é um protótipo: as entradas são exemplos e ficam no seu aparelho.", "Ajudar e doar"] } },
+];
+const TXT = {
+  en: { title: "GeoCare · how to use it", h1: "How to use GeoCare", lead: "Eight short steps, about two minutes. Nothing to install and no account to create: you only need the address of your home.", open: "Open GeoCare", "end.h": "That is all. Now try it with your own address.", "end.p": "Want more detail? At the end of each page, “Learn more” opens the data and the methods for specialists.", fine: "In an emergency, call the emergency number of your country. GeoCare is a prototype built for the NASA Space Apps Challenge 2026 and gives guidance, not a diagnosis or an official warning." },
+  es: { title: "GeoCare · cómo usarlo", h1: "Cómo usar GeoCare", lead: "Ocho pasos cortos, unos dos minutos. No hay que instalar nada ni crear una cuenta: solo necesita la dirección de su casa.", open: "Abrir GeoCare", "end.h": "Eso es todo. Ahora pruébelo con su propia dirección.", "end.p": "¿Quiere más detalle? Al final de cada página, “Saber más” abre los datos y los métodos para especialistas.", fine: "En una emergencia, llame al número de emergencias de su país. GeoCare es un prototipo hecho para el NASA Space Apps Challenge 2026 y da orientación, no un diagnóstico ni una alerta oficial." },
+  pt: { title: "GeoCare · como usar", h1: "Como usar o GeoCare", lead: "Oito passos curtos, uns dois minutos. Não é preciso instalar nada nem criar conta: você só precisa do endereço da sua casa.", open: "Abrir o GeoCare", "end.h": "É só isso. Agora experimente com o seu próprio endereço.", "end.p": "Quer mais detalhe? No fim de cada página, “Saiba mais” abre os dados e os métodos para especialistas.", fine: "Numa emergência, ligue para o número de emergência do seu país. O GeoCare é um protótipo feito para o NASA Space Apps Challenge 2026 e dá orientação, não um diagnóstico nem um alerta oficial." },
+};
+
+let lang = new URLSearchParams(location.search).get("lang");
+if (!TXT[lang]) { try { lang = localStorage.getItem("geocare.lang"); } catch (_) { /* storage unavailable */ } }
+if (!TXT[lang]) lang = (navigator.language || "en").slice(0, 2);
+if (!TXT[lang]) lang = "en";
+const esc = (s) => s.replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+const io = "IntersectionObserver" in window ? new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: 0.18 }) : null;
+
+function draw() {
+  document.documentElement.lang = lang; document.title = TXT[lang].title;
+  document.querySelectorAll("[data-t]").forEach((e) => (e.textContent = TXT[lang][e.dataset.t]));
+  document.querySelectorAll(".lang button").forEach((b) => b.classList.toggle("on", b.dataset.lang === lang));
+  document.getElementById("jump").innerHTML = STEPS.map((s, i) => `<li><a href="#p${i + 1}"><b>${i + 1}</b>${esc(s.t[lang][0])}</a></li>`).join("");
+  document.getElementById("steps").innerHTML = STEPS.map((s, i) => {
+    const [h, p, tip, where] = s.t[lang];
+    return `<section class="step" id="p${i + 1}"><div class="txt rv"><span class="n">${i + 1}</span><h2>${esc(h)}</h2><p>${esc(p)}</p>${tip ? `<p class="tip">${esc(tip)}</p>` : ""}<span class="where">${esc(where)}</span></div><div class="pic rv d1${s.tall ? " tall" : ""}"><img src="assets/${lang}/${s.img}.webp" alt="" loading="${i < 2 ? "eager" : "lazy"}"></div></section>`;
+  }).join("");
+  document.querySelectorAll(".rv").forEach((e) => (io ? io.observe(e) : e.classList.add("in")));
+}
+document.querySelectorAll(".lang button").forEach((b) => b.addEventListener("click", () => { lang = b.dataset.lang; try { localStorage.setItem("geocare.lang", lang); } catch (_) { /* storage unavailable */ } draw(); }));
+draw();
+</script>
+</body>
+</html>
