@@ -1,0 +1,5 @@
+/* GeoCare · styles of the simple way in (docs/js/simple.js) and of the ground screening (docs/js/ground.js) */
+.ground .grow { display: flex; gap: 12px; align-items: flex-start; padding: 12px 0; border-top: 1px solid var(--line); }
+.ground .gq { margin: 0 0 4px; font-weight: 700; } .ground .gf { margin: 0 0 3px; font-size: 0.88rem; } .ground .gt { margin: 6px 0 0; font-size: 0.86rem; background: var(--sand); border-radius: 8px; padding: 7px 10px; }
+.badge.g-ok { background: #e3efe9; color: #1f5f47; } .badge.g-watch { background: #f3e9cf; color: #6f5413; } .badge.g-care { background: var(--earth); color: #fff; }
+.grow.g-care .hz { color: var(--earth); } .grow.g-watch .hz { color: #8a6a12; }

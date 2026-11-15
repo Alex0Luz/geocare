@@ -372,7 +372,7 @@ async function analyzeAt(lat, lon, label, slot = "main") {
   step("nasad", fetchNasaDaily(lat, lon));
   step("era5", fetchEra5(lat, lon));
   step("terrain", fetchTerrain(lat, lon));
-  if (slot === "main") { step("now", fetchNow(lat, lon)); step("events", fetchEvents(lat, lon)); step("river", fetchRiver(lat, lon)); step("care", fetchCare(lat, lon)); step("quakes", fetchQuakes(lat, lon)); step("lightning", fetchLightning(lat, lon)); }
+  if (slot === "main") { step("now", fetchNow(lat, lon)); step("events", fetchEvents(lat, lon)); step("river", fetchRiver(lat, lon)); step("care", fetchCare(lat, lon)); step("quakes", fetchQuakes(lat, lon)); step("lightning", fetchLightning(lat, lon)); step("ground", fetchGround(lat, lon)); }
   r.signals = buildSignals(r);
   render();
 }
@@ -404,6 +404,7 @@ function render() {
   // one section failing to draw must not stop the others
   try { Extras.render(); } catch (e) { console.warn("extras", e); }
   try { Extras2.render(); } catch (e) { console.warn("extras2", e); }
+  try { if (typeof Simple !== "undefined") Simple.render(); } catch (e) { console.warn("simple", e); }
 }
 
 function verdictBadge(s) {
