@@ -124,29 +124,23 @@
   .gt { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 27px; line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 14px; }
 
   /* 6 what makes us different */
-  #s6 .grid { display: grid; grid-template-columns: 1fr 400px; gap: 64px; align-items: start; }
-  #s6 .a { font-size: 60px; line-height: 1; margin-top: 10px; }
-  #s6 .lead { font-size: 26px; margin-top: 14px; max-width: none; }
-  .times { margin-top: 22px; display: grid; gap: 0; }
-  .th3 { font-size: 20px; font-weight: 700; color: var(--earth); padding-bottom: 8px; }
-  .time { display: grid; grid-template-columns: 286px 1fr; gap: 20px; align-items: baseline; padding: 9px 0; border-top: 1px solid var(--line); }
-  .time b { font-family: "Bricolage Grotesque", sans-serif; font-size: 30px; letter-spacing: -0.015em; }
-  .time span { font-size: 23px; line-height: 1.32; }
-  .more { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 16px; padding-top: 20px; border-top: 2px solid var(--ink); }
-  .more h3 { margin: 0 0 6px; font-family: "Bricolage Grotesque", sans-serif; font-size: 29px; letter-spacing: -0.015em; }
-  .more p { font-size: 20px; line-height: 1.36; }
-  .more .hon { display: grid; grid-template-columns: auto 1fr; gap: 0 20px; align-items: center; }
-  .more .num { font-size: 84px; line-height: 0.9; color: var(--earth); }
-  .more .num small { font-size: 0.5em; color: var(--ink); }
+  #s6 .grid { display: grid; grid-template-columns: 1fr 420px; gap: 64px; align-items: start; }
+  #s6 .a { font-size: 58px; line-height: 1.02; margin-top: 14px; }
+  #s6 .haz { margin-top: 26px; font-size: 30px; gap: 14px 36px; }
+  #s6 .haz .ic { font-size: 34px; }
+  #s6 .lead { font-size: 28px; margin-top: 22px; max-width: 26em; }
+  .care { margin-top: 30px; padding-top: 26px; border-top: 2px solid var(--ink); }
+  .care .a2 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 50px; line-height: 1.04; letter-spacing: -0.02em; color: var(--earth); }
+  .who5 { display: flex; flex-wrap: wrap; gap: 10px 12px; margin-top: 20px; }
+  .who5 span { border: 1px solid var(--line); background: var(--paper); border-radius: 999px; padding: 9px 20px; font-size: 27px; font-weight: 600; }
   #s6 .crop { margin-top: 0; }
-  #s6 .crop.y { height: 420px; } #s6 .crop.g { height: 196px; margin-top: 16px; }
-  .capt { font-size: 18px; color: var(--muted); margin-top: 10px; }
+  #s6 .crop.g { height: 330px; } #s6 .crop.y { height: 330px; margin-top: 18px; }
 
   /* 7 close */
   #s7 { display: grid; grid-template-columns: 1fr 470px; gap: 80px; align-items: center; }
   .next { font-size: 21px; font-weight: 700; color: var(--earth); }
   .nextt { font-family: "Bricolage Grotesque", sans-serif; font-weight: 600; font-size: 38px; line-height: 1.15; letter-spacing: -0.015em; margin-top: 8px; max-width: 16em; }
-  #s7 .big { font-size: 84px; line-height: 1; margin-top: 50px; text-wrap: balance; }
+  #s7 .big { font-size: 78px; line-height: 1.02; margin-top: 50px; text-wrap: balance; }
   .url { display: inline-block; margin-top: 44px; font: 700 30px/1 "Manrope", sans-serif; color: var(--paper); background: var(--ink); padding: 18px 26px; border-radius: var(--r); text-decoration: none; }
   .thanks { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 40px; margin-left: 26px; }
   .fine { margin-top: 44px; font-size: 18px; line-height: 1.5; color: var(--muted); max-width: 46em; }
@@ -272,27 +266,26 @@
     </div>
   </section>
 
-  <section class="slide" id="s6" data-steps="3" data-auto="1">
+  <section class="slide" id="s6" data-steps="2" data-auto="1">
     <div class="grid">
       <div>
         <h2 class="q e" data-t="s6.q"></h2>
         <p class="a" data-f="1" data-t="s6.a"></p>
-        <p class="lead" data-f="1" style="--i:3" data-t="s6.sub"></p>
-        <div class="times">
-          <p class="th3" data-f="2" data-t="s6.th"></p>
-          <div class="time" data-f="2" style="--i:2"><b data-t="s6.t1"></b><span data-t="s6.t1b"></span></div>
-          <div class="time" data-f="2" style="--i:6"><b data-t="s6.t2"></b><span data-t="s6.t2b"></span></div>
-          <div class="time" data-f="2" style="--i:10"><b data-t="s6.t3"></b><span data-t="s6.t3b"></span></div>
+        <div class="haz" data-f="1" style="--i:3">
+          <span><svg class="ic" viewBox="0 0 24 24"><path d="M3 19l6-11 4 6 2-3 6 8z"/></svg><i data-t="s6.i1" style="font-style:normal"></i></span>
+          <span><svg class="ic" viewBox="0 0 24 24"><path d="M3 8h10a3 3 0 1 0-3-3"/><path d="M3 12h15a3 3 0 1 1-3 3"/><path d="M3 16h7"/></svg><i data-t="s6.i2" style="font-style:normal"></i></span>
+          <span><svg class="ic" viewBox="0 0 24 24"><path d="M3 8c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/><path d="M3 13c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/><path d="M3 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg><i data-t="s6.i3" style="font-style:normal"></i></span>
+          <span><svg class="ic" viewBox="0 0 24 24"><path d="M2 12h4l2-6 3 12 3-9 2 5 1-2h5"/></svg><i data-t="s6.i4" style="font-style:normal"></i></span>
         </div>
-        <div class="more" data-f="3">
-          <div><h3 data-t="s6.g"></h3><p data-t="s6.gb"></p></div>
-          <div class="hon"><p class="num"><span id="five">5</span><small>/8</small></p><div><h3 data-t="s6.h"></h3><p data-t="s6.hb" data-html></p></div></div>
+        <p class="lead" data-f="1" style="--i:7"><span class="hl" data-t="s6.sign"></span></p>
+        <div class="care" data-f="2">
+          <p class="a2" data-t="s6.c"></p>
+          <div class="who5"><span data-t="s6.w1"></span><span data-t="s6.w2"></span><span data-t="s6.w3"></span><span data-t="s6.w4"></span><span data-t="s6.w5"></span></div>
         </div>
       </div>
       <div>
+        <div data-f="1" style="--i:4"><div class="crop g"><img data-img="ground" alt=""></div></div>
         <div data-f="2" style="--i:3"><div class="crop y"><img data-img="year" alt=""></div></div>
-        <div data-f="3" style="--i:2"><div class="crop g"><img data-img="ground" alt=""></div></div>
-        <p class="capt" data-f="2" style="--i:5" data-t="s6.cap"></p>
       </div>
     </div>
   </section>
@@ -338,7 +331,7 @@ const TXT = {
     "s5.ct": "Esta semana de calor, a doña María le dice:",
     "s5.c1": "Tome agua antes de sentir sed.", "s5.c2": "Evite el sol del mediodía.", "s5.c3": "Pida a su médico que revise sus remedios.",
     "s5.g": "Y para cada desastre:<br>antes, durante y después.",
-    "s6.q": "¿Qué nos hace diferentes?", "s6.a": "El cuidado a lo largo del tiempo.",
+    "s6.q": "¿Qué nos hace diferentes?", "s6.a": "Miramos todo lo que te rodea.", "s6.i1": "el suelo", "s6.i2": "el aire", "s6.i3": "los ríos", "s6.i4": "las enfermedades de tu región", "s6.sign": "Te damos una primera señal de si tu terreno es seguro o no.", "s6.c": "Y el cuidado a largo plazo.", "s6.w1": "tu casa", "s6.w2": "tu familia", "s6.w3": "tu ambiente", "s6.w4": "tu entorno", "s6.w5": "tu comunidad",
     "s6.sub": "Vamos a cuidar a la persona, su casa, su familia, el ambiente y su entorno.", "s6.th": "geocare.life te prepara en tres tiempos",
     "s6.g": "Y mira lo que te rodea.", "s6.gb": "El suelo, el aire, los ríos y las enfermedades de tu región. Una primera señal de si tu terreno es seguro o no.",
     "s6.t1": "1. Meses antes", "s6.t1b": "En una sola tabla, qué puede pasar en tu casa y en tu salud en cada mes.",
@@ -347,7 +340,7 @@ const TXT = {
     "s6.h": "Detectives de tendencias.", "s6.hb": "5 de 8 señales del clima cambiaron en Ciudad del Este desde 1981. Lo decimos solo cuando <b>dos bases de datos coinciden</b>.",
     "s6.cap": "Ciudad del Este en la aplicación: el año en una tabla y el suelo.",
     "s7.k": "Nuestro desafío: Be An Earth System Trend Detective", "s7.next": "Detectamos qué cambió en el clima de tu lugar y te decimos qué hacer.",
-    "s7.big": "Conocé los riesgos de tu lugar antes de que te enfermen.", "s7.th": "¡Gracias!",
+    "s7.big": "geocare.life te prepara, te previene y te cuida.", "s7.th": "¡Gracias!",
     "s7.fine": "Datos: NASA POWER, NASA GIBS, NASA EONET, ERA5 (Copernicus) y NOAA. Prototipo hecho en 48 horas. El código y los textos se escribieron con apoyo de IA, como declaramos en el proyecto; la idea y las decisiones son del equipo.",
     hint: "→ avanzar   ← volver   D fondo oscuro   L idioma   F pantalla completa",
   },
@@ -375,7 +368,7 @@ const TXT = {
     "s5.ct": "In this hot week, it tells doña María:",
     "s5.c1": "Drink water before you feel thirsty.", "s5.c2": "Stay out of the midday sun.", "s5.c3": "Ask your doctor to review your medicines.",
     "s5.g": "And for every disaster:<br>before, during and after.",
-    "s6.q": "What makes us different?", "s6.a": "Care over time.",
+    "s6.q": "What makes us different?", "s6.a": "We look at everything around you.", "s6.i1": "the ground", "s6.i2": "the air", "s6.i3": "the rivers", "s6.i4": "the illnesses of your region", "s6.sign": "We give you a first sign of whether your land is safe or not.", "s6.c": "And long-term care.", "s6.w1": "your home", "s6.w2": "your family", "s6.w3": "your environment", "s6.w4": "your surroundings", "s6.w5": "your community",
     "s6.sub": "We care for the person, their home, their family, the environment and their surroundings.", "s6.th": "geocare.life prepares you at three moments",
     "s6.g": "And it looks around you.", "s6.gb": "The ground, the air, the rivers and the illnesses of your region. A first sign of whether your land is safe or not.",
     "s6.t1": "1. Months ahead", "s6.t1b": "In one table, what can happen at your home and to your health in each month.",
@@ -384,7 +377,7 @@ const TXT = {
     "s6.h": "Trend detectives.", "s6.hb": "5 of 8 climate signals changed in Ciudad del Este since 1981. We say so only when <b>two datasets agree</b>.",
     "s6.cap": "Ciudad del Este in the app: the year in one table, and the ground.",
     "s7.k": "Our challenge: Be An Earth System Trend Detective", "s7.next": "We detect what changed in the climate of your place and tell you what to do.",
-    "s7.big": "Know the risks of the place you live before they make you sick.", "s7.th": "Thank you!",
+    "s7.big": "geocare.life prepares you, warns you and cares for you.", "s7.th": "Thank you!",
     "s7.fine": "Data: NASA POWER, NASA GIBS, NASA EONET, ERA5 (Copernicus) and NOAA. Prototype built in 48 hours. The code and the texts were written with AI support, as we declare in the project; the idea and the decisions are the team's.",
     hint: "→ next   ← back   D dark background   L language   F full screen",
   },
@@ -422,7 +415,6 @@ function show() {
   document.getElementById("bar").style.width = (done / total) * 100 + "%";
   history.replaceState(null, "", "#" + (cur + 1));
   mapRun(cur === 0);
-  if (cur === 5 && step >= 3) count();
 }
 function count() { const e = document.getElementById("five"); if (e.dataset.done) return; e.dataset.done = 1; let n = 0; e.textContent = 0; const t = setInterval(() => { e.textContent = ++n; if (n >= 5) clearInterval(t); }, 260); }
 function go(d) {
