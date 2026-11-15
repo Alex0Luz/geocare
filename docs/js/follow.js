@@ -30,6 +30,8 @@ const Follow = (() => {
   function home() { const r = state.main; if (r) map.setView([r.lat, r.lon], 12, { animate: false }); }
   function show(id, tapped) {
     if (!ready() || !id) return;
+    // while the planet is on the screen, only something a person asked for brings the street map back
+    if (typeof Globe !== "undefined" && Globe.mode() === "globe") { if (!tapped) return; Globe.set("map"); }
     if (tapped && small()) { const m = $("#map"); if (m) m.scrollIntoView({ behavior: "smooth", block: "start" }); }
     if (S.cur === id) return;
     const r = state.main; S.cur = id;
@@ -119,7 +121,7 @@ const Follow = (() => {
     yearDraw(); touch();
     if (!small() && ready()) { // the map shows the same month of the thing that weighs most
       const D = monthOf(Y.m), id = theme(ROW[(D.ev[0] || D.il[0] || {}).id] || "heat"), m = Y.m, fresh = S.cur !== id;
-      show(id); setTimeout(() => { if (Y.on && S.cur === id && Timelapse.at) Timelapse.at(m); }, fresh ? 650 : 0);
+      show(id, true); setTimeout(() => { if (Y.on && S.cur === id && Timelapse.at) Timelapse.at(m); }, fresh ? 650 : 0);
     }
     if (Y.playing) { if (Y.k >= 11) { Y.playing = false; yearDraw(); return; } Y.timer = setTimeout(() => yearGo(1), 4200); }
   }
@@ -131,7 +133,7 @@ const Follow = (() => {
     if (!S.on || small() || !d.open || !d.dataset || !d.dataset.anchor || tab() === "place") return;
     const [kind, ...rest] = d.dataset.anchor.split("-"), key = rest.join("-");
     const id = kind === "topic" ? TOPIC[key] : kind === "rp" ? ROW[key] : kind === "hz" ? GUIDE[key] : null;
-    if (id) { touch(); S.hold = 0; show(theme(id)); }
+    if (id) { touch(); S.hold = 0; show(theme(id), true); }
   }
 
   function init() {
@@ -153,7 +155,7 @@ const Follow = (() => {
       // closing the moving map by its own button also switches the following off
       if (e.target.closest(".tl-toggle, .tl-close") && S.on && S.cur) { S.cur = null; S.on = false; label(); return; }
       // a day of "This week": rain if that day brings rain, heat otherwise
-      const day = e.target.closest("#p-now .wkrow"); if (day && S.on && !small()) { touch(); S.hold = 0; show(/[1-9]\d*\s*mm/.test(day.textContent) ? "rain" : "heat"); return; }
+      const day = e.target.closest("#p-now .wkrow"); if (day && S.on && !small()) { touch(); S.hold = 0; show(/[1-9]\d*\s*mm/.test(day.textContent) ? "rain" : "heat", true); return; }
       // rivers near this address (Health of the region): the plain map, close enough to see them
       if (e.target.closest("#pressure-box") && !e.target.closest("a, button, .rivs li") && ready()) { if (S.cur) { S.cur = null; Timelapse.close(); } const r = state.main; map.setView([r.lat, r.lon], 8, { animate: false }); }
     }, true);

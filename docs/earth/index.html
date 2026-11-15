@@ -107,6 +107,12 @@
     .hint { bottom: 44px; font-size: 13px; }
   }
   @media (prefers-reduced-motion: reduce) { .chain span { animation: none; opacity: 1; transform: none; } .panel { transition: none; } }
+  /* inside the app: the app has the name, the search and the languages, and shows the place itself */
+  .embed .top, .embed .panel { display: none; }
+  .embed .ltoggle { display: inline-flex; position: absolute; left: 12px; top: 10px; z-index: 3; padding: 7px 13px; font-weight: 700; font-size: 13px; border-radius: 999px; }
+  .embed .layers { top: 52px; left: 12px; max-height: calc(100% - 70px); display: none; }
+  .embed .layers.show { display: block; }
+  .embed .hint { bottom: 16px; }
 </style>
 </head>
 <body>
@@ -145,7 +151,7 @@ const TXT = {
     i_heat: "Heat illness", i_mosq: "Dengue and other mosquito viruses", i_resp: "Flu and respiratory infections", i_water: "Diarrhoea and leptospirosis",
     casc: "Chains of consequences here", casc_n: "How one thing leads to the next, and where the chain can be broken.", doit: "What a family can do:", solve: "How a community breaks the chain:", real: "It happened:", source: "source",
     open: "See everything about this place", calm: "No strong seasonal hazard stands out in the climate record of this point.", when: "since", mag: "Magnitude", fail: "Could not read this place now. Try again in a moment.", notfound: "Place not found.",
-    p_temp: "Temperature", p_rain: "Rain of the year", p_sig: "{n} of 5 climate signals changed in one dataset (to be confirmed)", p_see: "See this place", p_storm: "Tropical storm", p_wind: "strongest wind", p_tor: "tornadoes started here, 1981-2024", p_plastic: "tonnes of plastic a year reach the sea here (model estimate)", months: "month" },
+    p_temp: "Temperature", p_rain: "Rain of the year", p_sig: "{n} of 5 climate signals changed in one dataset (to be confirmed)", p_see: "See this place", p_here: "This point", p_storm: "Tropical storm", p_wind: "strongest wind", p_tor: "tornadoes started here, 1981-2024", p_plastic: "tonnes of plastic a year reach the sea here (model estimate)", months: "month" },
   es: { title: "geocare.life · el planeta", ph: "Busque una ciudad o una dirección", go: "Buscar", layers: "Capas", hint: "Acerque y toque cualquier lugar de la Tierra",
     g_now: "Hoy, desde el espacio", g_years: "40 años de registros", g_land: "El suelo y los riesgos", g_live: "Está pasando ahora",
     clouds: "Nubes y tierra", clouds_s: "color real, NASA VIIRS", rain: "Lluvia", rain_s: "NASA IMERG", wind: "Viento", wind_s: "líneas que siguen al viento", air: "Aire: polvo y humo", air_s: "NASA MODIS", temp: "Temperatura del suelo", temp_s: "NASA MODIS",
@@ -163,7 +169,7 @@ const TXT = {
     i_heat: "Enfermedades por calor", i_mosq: "Dengue y otros virus del mosquito", i_resp: "Gripe e infecciones respiratorias", i_water: "Diarrea y leptospirosis",
     casc: "Cadenas de consecuencias aquí", casc_n: "Cómo una cosa lleva a la otra, y dónde se puede romper la cadena.", doit: "Qué puede hacer una familia:", solve: "Cómo una comunidad rompe la cadena:", real: "Ya pasó:", source: "fuente",
     open: "Ver todo sobre este lugar", calm: "En el registro del clima de este punto no sobresale ningún peligro fuerte de temporada.", when: "desde", mag: "Magnitud", fail: "No se pudo leer este lugar ahora. Intente de nuevo en un momento.", notfound: "No se encontró el lugar.",
-    p_temp: "Temperatura", p_rain: "Lluvia del año", p_sig: "{n} de 5 señales del clima cambiaron en una base de datos (por confirmar)", p_see: "Ver este lugar", p_storm: "Tormenta tropical", p_wind: "viento más fuerte", p_tor: "tornados nacieron aquí, 1981-2024", p_plastic: "toneladas de plástico por año llegan al mar aquí (estimación de modelo)", months: "mes" },
+    p_temp: "Temperatura", p_rain: "Lluvia del año", p_sig: "{n} de 5 señales del clima cambiaron en una base de datos (por confirmar)", p_see: "Ver este lugar", p_here: "Este punto", p_storm: "Tormenta tropical", p_wind: "viento más fuerte", p_tor: "tornados nacieron aquí, 1981-2024", p_plastic: "toneladas de plástico por año llegan al mar aquí (estimación de modelo)", months: "mes" },
   pt: { title: "geocare.life · o planeta", ph: "Busque uma cidade ou um endereço", go: "Buscar", layers: "Camadas", hint: "Aproxime e toque em qualquer lugar da Terra",
     g_now: "Hoje, do espaço", g_years: "40 anos de registros", g_land: "O chão e os riscos", g_live: "Acontecendo agora",
     clouds: "Nuvens e terra", clouds_s: "cor real, NASA VIIRS", rain: "Chuva", rain_s: "NASA IMERG", wind: "Vento", wind_s: "linhas que seguem o vento", air: "Ar: poeira e fumaça", air_s: "NASA MODIS", temp: "Temperatura do solo", temp_s: "NASA MODIS",
@@ -181,7 +187,7 @@ const TXT = {
     i_heat: "Doenças do calor", i_mosq: "Dengue e outros vírus do mosquito", i_resp: "Gripe e infecções respiratórias", i_water: "Diarreia e leptospirose",
     casc: "Cadeias de consequências aqui", casc_n: "Como uma coisa leva à outra, e onde a cadeia pode ser quebrada.", doit: "O que uma família pode fazer:", solve: "Como uma comunidade quebra a cadeia:", real: "Já aconteceu:", source: "fonte",
     open: "Ver tudo sobre este lugar", calm: "No registro do clima deste ponto não se destaca nenhum perigo forte de temporada.", when: "desde", mag: "Magnitude", fail: "Não foi possível ler este lugar agora. Tente de novo em instantes.", notfound: "Lugar não encontrado.",
-    p_temp: "Temperatura", p_rain: "Chuva do ano", p_sig: "{n} de 5 sinais do clima mudaram em uma base de dados (a confirmar)", p_see: "Ver este lugar", p_storm: "Tempestade tropical", p_wind: "vento mais forte", p_tor: "tornados nasceram aqui, 1981-2024", p_plastic: "toneladas de plástico por ano chegam ao mar aqui (estimativa de modelo)", months: "mês" },
+    p_temp: "Temperatura", p_rain: "Chuva do ano", p_sig: "{n} de 5 sinais do clima mudaram em uma base de dados (a confirmar)", p_see: "Ver este lugar", p_here: "Este ponto", p_storm: "Tempestade tropical", p_wind: "vento mais forte", p_tor: "tornados nasceram aqui, 1981-2024", p_plastic: "toneladas de plástico por ano chegam ao mar aqui (estimativa de modelo)", months: "mês" },
 };
 const qs = new URLSearchParams(location.search);
 let lang = qs.get("lang");
@@ -194,6 +200,8 @@ const num = (v, d = 0) => Number(v).toLocaleString(lang, { minimumFractionDigits
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const $ = (s) => document.querySelector(s);
 const small = innerWidth < 820;
+const EMBED = qs.has("embed") && parent !== window;
+if (EMBED) document.documentElement.classList.add("embed");
 
 /* ---------------- layers ---------------- */
 const GIBS = "https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/";
@@ -268,7 +276,7 @@ const style = {
 const start = [parseFloat(qs.get("lon")), parseFloat(qs.get("lat"))];
 const hasStart = Number.isFinite(start[0]) && Number.isFinite(start[1]);
 // A screen with very dense pixels is drawn at 1.5 times at most: far less work for the same picture.
-const map = new maplibregl.Map({ container: "map", style, center: hasStart ? start : [-58, -15], zoom: hasStart ? 5.5 : (small ? 0.9 : 1.9), minZoom: 0.6, maxZoom: 17, pixelRatio: Math.min(devicePixelRatio || 1, 1.5), fadeDuration: 120, refreshExpiredTiles: false, attributionControl: { compact: true }, dragRotate: false, pitchWithRotate: false });
+const map = new maplibregl.Map({ container: "map", style, center: hasStart ? start : [-58, -15], zoom: hasStart ? 5.5 : EMBED ? 2.3 : (small ? 0.9 : 1.9), minZoom: 0.6, maxZoom: 17, pixelRatio: Math.min(devicePixelRatio || 1, 1.5), fadeDuration: 120, refreshExpiredTiles: false, attributionControl: { compact: true }, dragRotate: false, pitchWithRotate: false });
 map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "bottom-right");
 map.touchZoomRotate.disableRotation();
 
@@ -396,7 +404,7 @@ function popup(f, lngLat) {
   else if (p.kind === "tornado") body = `<b>${num(p.n)}</b> ${t("p_tor")}`;
   else if (p.kind === "plastic") body = `${p.title ? `<b>${esc(p.title)}</b><br>` : ""}<b>${num(p.tons)}</b> ${t("p_plastic")}`;
   const pop = new maplibregl.Popup({ closeButton: false, offset: 10 }).setLngLat(lngLat).setHTML(`${body}${p.link ? `<br><a href="${esc(p.link)}" target="_blank" rel="noopener">${t("source")}</a>` : ""}${see ? `<br><button type="button">${t("p_see")} →</button>` : ""}`).addTo(map);
-  if (see) pop.getElement().querySelector("button").onclick = () => { pop.remove(); pick(+see[0], +see[1], see[2]); };
+  if (see) pop.getElement().querySelector("button").onclick = () => { pop.remove(); if (EMBED) hand(+see[0], +see[1], see[2]); else pick(+see[0], +see[1], see[2]); };
 }
 
 /* ---------------- wind: lines that follow the wind ---------------- */
@@ -570,16 +578,33 @@ map.on("load", () => {
   sizeCanvas(); words();
   setLayer("clouds", true); // the picture first
   getJSON("../data/cascades.json").then((j) => { state.cascades = j.cascades; if (state.picked && state.picked.year) $("#pcasc").innerHTML = cascadesFor(state.picked.year); }).catch(() => {});
-  if (hasStart) pick(start[1], start[0], qs.get("name") || "");
+  if (hasStart && !EMBED) pick(start[1], start[0], qs.get("name") || "");
+  if (hasStart && EMBED) { state.marker = new maplibregl.Marker({ color: "#b5452c" }).setLngLat(start).addTo(map); }
   // everything else waits until the globe is on the screen (or four seconds, whichever comes first)
   map.once("idle", theRest); setTimeout(theRest, 4000);
   setTimeout(() => $("#hint").classList.add("off"), 9000);
   setTimeout(() => (state.spin = false), 30000);
 });
+const hand = (lat, lon, name) => parent.postMessage({ type: "geocare-pick", lat, lon, name: name || "" }, location.origin);
+let asking = null;
+function ask(lat, lon) {
+  lon = ((lon + 540) % 360) - 180; state.spin = false; $("#hint").classList.add("off"); if (asking) asking.remove();
+  if (!state.marker) state.marker = new maplibregl.Marker({ color: "#b5452c" });
+  state.marker.setLngLat([lon, lat]).addTo(map);
+  const me = { name: "" }, pop = (asking = new maplibregl.Popup({ closeButton: false, offset: 34 }).setLngLat([lon, lat]).setHTML(`<b id="askn">${t("p_here")}</b><br><span style="color:#5d6b63">${lat.toFixed(2)}, ${lon.toFixed(2)}</span><br><button type="button">${t("p_see")} →</button>`).addTo(map));
+  pop.getElement().querySelector("button").onclick = () => { pop.remove(); hand(lat, lon, me.name); };
+  getJSON(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=jsonv2&zoom=10&accept-language=${lang}`).then((j) => { if (!j.address) return; const a = j.address, n = [a.city || a.town || a.village || a.municipality || a.county || a.state_district, a.state, a.country].filter(Boolean).filter((v, i, arr) => arr.indexOf(v) === i).slice(0, 3).join(", "); if (n) { me.name = n; const e = pop.getElement() && pop.getElement().querySelector("#askn"); if (e) e.textContent = n; } }).catch(() => {});
+}
 map.on("click", (e) => {
   const f = map.queryRenderedFeatures([[e.point.x - 4, e.point.y - 4], [e.point.x + 4, e.point.y + 4]], { layers: CLICK.filter((i) => map.getLayer(i)) })[0];
   if (f) { popup(f, e.lngLat); return; }
-  pick(e.lngLat.lat, e.lngLat.lng, "");
+  if (EMBED) ask(e.lngLat.lat, e.lngLat.lng); else pick(e.lngLat.lat, e.lngLat.lng, "");
+});
+// the app tells the planet which language to speak and where its place is
+if (EMBED) addEventListener("message", (e) => {
+  if (e.origin !== location.origin || !e.data) return;
+  if (e.data.type === "geocare-lang" && TXT[e.data.lang]) { lang = e.data.lang; words(); }
+  if (e.data.type === "geocare-goto" && Number.isFinite(+e.data.lat) && Number.isFinite(+e.data.lon)) { state.spin = false; if (!state.marker) state.marker = new maplibregl.Marker({ color: "#b5452c" }); state.marker.setLngLat([+e.data.lon, +e.data.lat]).addTo(map); map.flyTo({ center: [+e.data.lon, +e.data.lat], zoom: Math.max(map.getZoom(), 5), duration: 1800, essential: true }); }
 });
 // the Earth turns slowly until someone touches it
 ["mousedown", "touchstart", "wheel", "keydown"].forEach((ev) => addEventListener(ev, () => (state.spin = false), { passive: true }));
