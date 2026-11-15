@@ -7,7 +7,7 @@
    Where it happens: floods, drought, landslides, volcanoes (NASA SEDAC), lightning (NASA LIS), storm tracks (NOAA),
    tornadoes (NOAA), earthquakes (USGS). (code written with AI support) */
 I18N.add("en", {
-  "tl.open": "Maps in motion", "tl.what": "What am I seeing?", "tl.play": "Play", "tl.pause": "Pause", "tl.py": "Paraguay", "tl.here": "My address", "tl.close": "Close", "tl.src": "NASA GIBS · base map © OpenStreetMap contributors", "tl.more": "Other maps", "tl.go": "See it on the map in motion", "tl.where": "See on the map where it happens",
+  "tl.open": "Maps in motion", "tl.what": "What am I seeing?", "tl.play": "Play", "tl.pause": "Pause", "tl.py": "World", "tl.here": "My address", "tl.close": "Close", "tl.src": "NASA GIBS · base map © OpenStreetMap contributors", "tl.more": "Other maps", "tl.go": "See it on the map in motion", "tl.where": "See on the map where it happens",
   "tl.g.time": "Through time", "tl.g.where": "Where it usually happens", "tl.center": "Centre of the map", "tl.nodata": "no data",
   "tl.twisters": "Tornado season", "tl.twisters.d": "Tornadoes rated EF1 or stronger in each month of the year, added up from 1981 to 2024, in cells of about 50 km; the dark lines are the paths of the EF3 or stronger ones. NOAA Storm Prediction Center; United States only. Watch the season move north from spring to summer.", "tl.twisters.u": "tornadoes in that month, 1981–2024, per cell of about 50 km", "tl.twisters.v": "United States: {n} tornadoes in this month, 1981–2024", "tl.w-tornado.u": "tornadoes since 1981 in each cell of about 50 km", "tl.tor.strong": "path of a tornado rated EF3 or stronger", "tl.rain": "Rain", "tl.rain.u": "mm of rain in the month", "tl.rain.d": "Total rain of each month of 2025. Watch the wet season arrive and leave. NASA MERRA-2, corrected with rain gauges and satellites; cells of about 50 km, softened for display.",
   "tl.heat": "Ground heat", "tl.heat.u": "°C at the surface, by day", "tl.heat.d": "Temperature of the land surface by day in each month of 2025, measured by the MODIS instrument on NASA's Terra satellite. It is the heat of the ground, which is higher than the air temperature.",
@@ -29,7 +29,7 @@ I18N.add("en", {
   "tl.lc.forest": "forest", "tl.lc.savanna": "savanna and shrubs", "tl.lc.grass": "grassland", "tl.lc.crop": "cropland", "tl.lc.urban": "city", "tl.lc.wet": "wetland", "tl.lc.water": "water", "tl.lc.bare": "bare ground",
 });
 I18N.add("es", {
-  "tl.open": "Mapas en movimiento", "tl.what": "¿Qué estoy viendo?", "tl.play": "Reproducir", "tl.pause": "Pausar", "tl.py": "Paraguay", "tl.here": "Mi dirección", "tl.close": "Cerrar", "tl.src": "NASA GIBS · mapa base © colaboradores de OpenStreetMap", "tl.more": "Otros mapas", "tl.go": "Verlo en el mapa en movimiento", "tl.where": "Ver en el mapa dónde ocurre",
+  "tl.open": "Mapas en movimiento", "tl.what": "¿Qué estoy viendo?", "tl.play": "Reproducir", "tl.pause": "Pausar", "tl.py": "Mundo", "tl.here": "Mi dirección", "tl.close": "Cerrar", "tl.src": "NASA GIBS · mapa base © colaboradores de OpenStreetMap", "tl.more": "Otros mapas", "tl.go": "Verlo en el mapa en movimiento", "tl.where": "Ver en el mapa dónde ocurre",
   "tl.g.time": "A lo largo del tiempo", "tl.g.where": "Dónde suele ocurrir", "tl.center": "Centro del mapa", "tl.nodata": "sin datos",
   "tl.twisters": "Temporada de tornados", "tl.twisters.d": "Tornados de categoría EF1 o más en cada mes del año, sumados de 1981 a 2024, en celdas de unos 50 km; las líneas oscuras son las trayectorias de los EF3 o más fuertes. NOAA Storm Prediction Center; solo Estados Unidos. Vea cómo la temporada sube hacia el norte de la primavera al verano.", "tl.twisters.u": "tornados en ese mes, 1981–2024, por celda de unos 50 km", "tl.twisters.v": "Estados Unidos: {n} tornados en este mes, 1981–2024", "tl.w-tornado.u": "tornados desde 1981 en cada celda de unos 50 km", "tl.tor.strong": "trayectoria de un tornado EF3 o más fuerte", "tl.rain": "Lluvia", "tl.rain.u": "mm de lluvia en el mes", "tl.rain.d": "Lluvia total de cada mes de 2025. Vea llegar y salir la temporada de lluvias. NASA MERRA-2, corregido con pluviómetros y satélites; celdas de unos 50 km, suavizadas para mostrar.",
   "tl.heat": "Calor del suelo", "tl.heat.u": "°C en la superficie, de día", "tl.heat.d": "Temperatura de la superficie del suelo de día en cada mes de 2025, medida por el instrumento MODIS del satélite Terra de la NASA. Es el calor del suelo, mayor que la temperatura del aire.",
@@ -51,7 +51,7 @@ I18N.add("es", {
   "tl.lc.forest": "bosque", "tl.lc.savanna": "sabana y arbustos", "tl.lc.grass": "pastizal", "tl.lc.crop": "cultivos", "tl.lc.urban": "ciudad", "tl.lc.wet": "humedal", "tl.lc.water": "agua", "tl.lc.bare": "suelo desnudo",
 });
 I18N.add("pt", {
-  "tl.open": "Mapa em movimento", "tl.what": "O que estou vendo?", "tl.play": "Tocar", "tl.pause": "Pausar", "tl.py": "Paraguai", "tl.here": "Meu endereço", "tl.close": "Fechar", "tl.src": "NASA GIBS · mapa base © colaboradores do OpenStreetMap", "tl.more": "Outros mapas", "tl.go": "Ver no mapa em movimento", "tl.where": "Ver no mapa onde acontece",
+  "tl.open": "Mapa em movimento", "tl.what": "O que estou vendo?", "tl.play": "Tocar", "tl.pause": "Pausar", "tl.py": "Mundo", "tl.here": "Meu endereço", "tl.close": "Fechar", "tl.src": "NASA GIBS · mapa base © colaboradores do OpenStreetMap", "tl.more": "Outros mapas", "tl.go": "Ver no mapa em movimento", "tl.where": "Ver no mapa onde acontece",
   "tl.g.time": "Ao longo do tempo", "tl.g.where": "Onde costuma acontecer", "tl.center": "Centro do mapa", "tl.nodata": "sem dado",
   "tl.twisters": "Temporada de tornados", "tl.twisters.d": "Tornados de categoria EF1 ou mais em cada mês do ano, somados de 1981 a 2024, em células de uns 50 km; as linhas escuras são as trajetórias dos EF3 ou mais fortes. NOAA Storm Prediction Center; só Estados Unidos. Veja a temporada subir para o norte da primavera ao verão.", "tl.twisters.u": "tornados naquele mês, 1981–2024, por célula de uns 50 km", "tl.twisters.v": "Estados Unidos: {n} tornados neste mês, 1981–2024", "tl.w-tornado.u": "tornados desde 1981 em cada célula de uns 50 km", "tl.tor.strong": "trajetória de um tornado EF3 ou mais forte", "tl.rain": "Chuva", "tl.rain.u": "mm de chuva no mês", "tl.rain.d": "Chuva total de cada mês de 2025. Veja a estação chuvosa chegar e ir embora. NASA MERRA-2, corrigido com pluviômetros e satélites; células de uns 50 km, suavizadas para exibir.",
   "tl.heat": "Calor do solo", "tl.heat.u": "°C na superfície, de dia", "tl.heat.d": "Temperatura da superfície do solo de dia em cada mês de 2025, medida pelo instrumento MODIS do satélite Terra da NASA. É o calor do chão, maior do que a temperatura do ar.",
@@ -316,7 +316,7 @@ const Timelapse = (() => {
     const mb = p.querySelector(".tl-more"); if (mb) mb.onclick = () => { pick = true; paint(); };
     p.querySelectorAll(".tl-chart i").forEach((b) => (b.onclick = () => { playing = false; clearTimeout(timer); show(+b.dataset.f); paint(); }));
     const pl = p.querySelector(".tl-play"); if (pl) pl.onclick = () => { playing = !playing; clearTimeout(timer); if (playing) show((idx + 1) % cur.frames.length); else paint(); };
-    p.querySelector(".tl-py").onclick = () => { frame(PY, cur ? cur.zmax : 6); redraw(); };
+    p.querySelector(".tl-py").onclick = () => { map.invalidateSize(); map.setView([15, 10], 2, { animate: false }); redraw(); };
     const hb = p.querySelector(".tl-here"); if (hb) hb.onclick = () => { map.setView([state.main.lat, state.main.lon], Math.min(6, cur ? cur.zmax : 6)); redraw(); };
     p.querySelector(".tl-close").onclick = () => { stop(); open = false; paint(); };
     if (stamp && cur) stamp.innerHTML = stampHtml();
@@ -396,7 +396,7 @@ const Timelapse = (() => {
       L.DomEvent.disableClickPropagation(box); L.DomEvent.disableScrollPropagation(box);
       // the panel redraws itself on a click, so the clicked button is gone before Leaflet looks at it: stop the click here, or the map takes it as a click on the map
       L.DomEvent.on(box, "click", L.DomEvent.stopPropagation);
-      box.querySelector(".tl-toggle").onclick = () => { open = !open; if (!open) stop(); else if (typeof state !== "undefined" && !state.main) frame(PY, 6); paint(); };
+      box.querySelector(".tl-toggle").onclick = () => { open = !open; if (!open) stop(); paint(); };
       return box;
     };
     C.addTo(map); paint();

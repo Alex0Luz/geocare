@@ -157,7 +157,7 @@ function quantLine(s) {
 
 const Extras = (() => {
   const GROUPS = { age: ["u5", "5-17", "18-59", "60-74", "75+"], cond: ["hta", "heart", "kidney", "diabetes", "lung", "bed", "mental", "pregnant"], work: ["outdoor", "farm"], meds: ["diuretic", "acei", "beta", "antichol", "psych", "lithium", "nsaid", "alcohol"], home: ["noceiling", "noventil", "nofan", "alone"] };
-  const SOS = { PY: [["911", ""], ["141", "SEME"]], BR: [["192", "SAMU"], ["193", ""]], AR: [["107", "SAME"], ["911", ""]] };
+  const SOS = { US: [["911", ""]], PY: [["911", ""], ["141", "SEME"]], BR: [["192", "SAMU"], ["193", ""]], AR: [["107", "SAME"], ["911", ""]] };
   const ui = { aud: "city", gridVar: "temp", health: {}, meta: null, playbook: undefined, layers: {} };
   let profile = { age: "", on: [] };
   try { profile = JSON.parse(localStorage.getItem("geocare.profile")) || profile; } catch (_) { /* storage unavailable */ }

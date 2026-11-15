@@ -1,7 +1,7 @@
 // GeoCare, second set of modules: world panorama, year calendar, preparedness guide with safe places, extra NASA satellite signals.
 // Code written with AI assistance; content choices and review by the team.
 I18N.add("en", {
-  "tab.world": "World", "tab.prepare": "Prepare",
+  "tab.world": "World", "tab.prepare": "What to expect",
   "era5.down": "The second dataset (ERA5) is temporarily unavailable: the free service limits requests per hour. Verdicts below use NASA data only, so none can be confirmed. Try again later.", "era5.archived": "Second dataset (ERA5) shown from an archived copy for this place.",
   "world.title": "World panorama", "world.intro": "{n} large cities ranked by how much their climate has shifted since 1981. Screening with one source (NASA POWER / MERRA-2); open a city for the full two-source analysis.",
   "world.sum": "<b>{w} of {n}</b> cities show significant warming. In <b>{m}</b> the mosquito season is getting significantly longer, and in <b>{s}</b> it is getting shorter.",
@@ -9,7 +9,7 @@ I18N.add("en", {
   "world.city": "City", "world.idx": "Index", "world.more": "Show all", "world.na": "Panorama not available yet.",
   "world.note": "Change index (0–100): combines the size of the significant trends in temperature, hottest month, rainfall and mosquito season. It measures change in climate, not harm to people.",
   "cal.title": "Your year at this address", "cal.intro": "What each month usually brings here, from the last 10 years of daily records.", "cal.mosq": "Mosquito season", "cal.hot": "Very hot days", "cal.heavy": "Heavy rain", "cal.dry": "Dry spell", "cal.now": "this month",
-  "prep.title": "Be ready", "prep.intro": "What to do before, during and after each kind of event, from official civil-protection guidance. The ones that fit this place come first.", "prep.here": "relevant here",
+  "prep.title": "What to expect, and how to be ready", "prep.intro": "What to do before, during and after each kind of event, from official civil-protection guidance. The ones that fit this place come first.", "prep.here": "relevant here",
   "prep.shelter": "Where to shelter", "prep.before": "Before", "prep.during": "During", "prep.after": "After", "prep.hazards": "What to do in each kind of event", "world.k.warm": "cities warming significantly", "world.k.mosq": "with a longer mosquito season", "world.k.dry": "with significantly less rain", "prep.kit": "Emergency kit", "prep.plan": "Family plan", "prep.numbers": "Emergency numbers", "prep.na": "Guide not available yet.",
   "safe.title": "Safe places nearby", "safe.btn": "Find shelters and safe places near this address", "safe.loading": "Searching OpenStreetMap…", "safe.none": "Nothing mapped within 5 km. Ask your civil-defence office where the official shelters are.", "safe.route": "walking route",
   "safe.note": "From OpenStreetMap volunteers. It is not an official evacuation plan: confirm shelters and routes with your civil-defence office.",
@@ -18,7 +18,7 @@ I18N.add("en", {
   "sat.u.omi_no2": "10¹⁵ molecules/cm²", "sat.u.grace_gws": "percentile", "sat.u.gldas_soil": "kg/m²",
 });
 I18N.add("es", {
-  "tab.world": "Mundo", "tab.prepare": "Prepárese",
+  "tab.world": "Mundo", "tab.prepare": "Qué esperar",
   "era5.down": "La segunda base (ERA5) no está disponible por ahora: el servicio gratuito limita los pedidos por hora. Los veredictos de abajo usan solo datos de la NASA, así que ninguno puede confirmarse. Intente más tarde.", "era5.archived": "Segunda base (ERA5) mostrada desde una copia archivada para este lugar.",
   "world.title": "Panorama mundial", "world.intro": "{n} grandes ciudades ordenadas por cuánto cambió su clima desde 1981. Tamizaje con una sola fuente (NASA POWER / MERRA-2); abra una ciudad para el análisis completo con dos fuentes.",
   "world.sum": "<b>{w} de {n}</b> ciudades muestran calentamiento significativo. En <b>{m}</b> la temporada del mosquito se alarga de forma significativa y en <b>{s}</b> se acorta.",
@@ -26,7 +26,7 @@ I18N.add("es", {
   "world.city": "Ciudad", "world.idx": "Índice", "world.more": "Ver todas", "world.na": "El panorama todavía no está disponible.",
   "world.note": "Índice de cambio (0–100): combina el tamaño de las tendencias significativas de temperatura, mes más caluroso, lluvia y temporada del mosquito. Mide el cambio del clima, no el daño a las personas.",
   "cal.title": "Su año en esta dirección", "cal.intro": "Lo que suele traer cada mes aquí, según los últimos 10 años de registros diarios.", "cal.mosq": "Temporada del mosquito", "cal.hot": "Días muy calurosos", "cal.heavy": "Lluvia fuerte", "cal.dry": "Período seco", "cal.now": "este mes",
-  "prep.title": "Esté preparado", "prep.intro": "Qué hacer antes, durante y después de cada tipo de evento, según orientaciones oficiales de protección civil. Primero aparecen los que corresponden a este lugar.", "prep.here": "corresponde aquí",
+  "prep.title": "Qué esperar y cómo prepararse", "prep.intro": "Qué hacer antes, durante y después de cada tipo de evento, según orientaciones oficiales de protección civil. Primero aparecen los que corresponden a este lugar.", "prep.here": "corresponde aquí",
   "prep.shelter": "Dónde refugiarse", "prep.before": "Antes", "prep.during": "Durante", "prep.after": "Después", "prep.hazards": "Qué hacer en cada tipo de evento", "world.k.warm": "ciudades con calentamiento significativo", "world.k.mosq": "con temporada del mosquito más larga", "world.k.dry": "con lluvia significativamente menor", "prep.kit": "Kit de emergencia", "prep.plan": "Plan familiar", "prep.numbers": "Números de emergencia", "prep.na": "La guía todavía no está disponible.",
   "safe.title": "Lugares seguros cercanos", "safe.btn": "Buscar refugios y lugares seguros cerca de esta dirección", "safe.loading": "Buscando en OpenStreetMap…", "safe.none": "No hay nada mapeado a menos de 5 km. Consulte en defensa civil dónde están los refugios oficiales.", "safe.route": "ruta a pie",
   "safe.note": "Datos de voluntarios de OpenStreetMap. No es un plan oficial de evacuación: confirme refugios y rutas con defensa civil.",
@@ -35,7 +35,7 @@ I18N.add("es", {
   "sat.u.omi_no2": "10¹⁵ moléculas/cm²", "sat.u.grace_gws": "percentil", "sat.u.gldas_soil": "kg/m²",
 });
 I18N.add("pt", {
-  "tab.world": "Mundo", "tab.prepare": "Prepare-se",
+  "tab.world": "Mundo", "tab.prepare": "O que esperar",
   "era5.down": "A segunda base (ERA5) está indisponível no momento: o serviço gratuito limita os pedidos por hora. Os vereditos abaixo usam só dados da NASA, então nenhum pode ser confirmado. Tente mais tarde.", "era5.archived": "Segunda base (ERA5) mostrada a partir de uma cópia arquivada deste lugar.",
   "world.title": "Panorama mundial", "world.intro": "{n} grandes cidades ordenadas por quanto o clima delas mudou desde 1981. Triagem com uma fonte só (NASA POWER / MERRA-2); abra uma cidade para a análise completa com duas fontes.",
   "world.sum": "<b>{w} de {n}</b> cidades mostram aquecimento significativo. Em <b>{m}</b> a temporada do mosquito está ficando significativamente mais longa, e em <b>{s}</b> está encurtando.",
@@ -43,7 +43,7 @@ I18N.add("pt", {
   "world.city": "Cidade", "world.idx": "Índice", "world.more": "Ver todas", "world.na": "O panorama ainda não está disponível.",
   "world.note": "Índice de mudança (0–100): combina o tamanho das tendências significativas de temperatura, mês mais quente, chuva e temporada do mosquito. Mede a mudança do clima, não o dano às pessoas.",
   "cal.title": "Seu ano neste endereço", "cal.intro": "O que cada mês costuma trazer aqui, pelos últimos 10 anos de registros diários.", "cal.mosq": "Temporada do mosquito", "cal.hot": "Dias muito quentes", "cal.heavy": "Chuva forte", "cal.dry": "Estiagem", "cal.now": "este mês",
-  "prep.title": "Esteja pronto", "prep.intro": "O que fazer antes, durante e depois de cada tipo de evento, pelas orientações oficiais de defesa civil. Os que combinam com este lugar vêm primeiro.", "prep.here": "vale aqui",
+  "prep.title": "O que esperar e como se preparar", "prep.intro": "O que fazer antes, durante e depois de cada tipo de evento, pelas orientações oficiais de defesa civil. Os que combinam com este lugar vêm primeiro.", "prep.here": "vale aqui",
   "prep.shelter": "Onde se abrigar", "prep.before": "Antes", "prep.during": "Durante", "prep.after": "Depois", "prep.hazards": "O que fazer em cada tipo de evento", "world.k.warm": "cidades aquecendo de forma significativa", "world.k.mosq": "com temporada do mosquito mais longa", "world.k.dry": "com chuva significativamente menor", "prep.kit": "Kit de emergência", "prep.plan": "Plano da família", "prep.numbers": "Telefones de emergência", "prep.na": "O guia ainda não está disponível.",
   "safe.title": "Lugares seguros por perto", "safe.btn": "Buscar abrigos e lugares seguros perto deste endereço", "safe.loading": "Buscando no OpenStreetMap…", "safe.none": "Nada mapeado a até 5 km. Pergunte à Defesa Civil onde ficam os abrigos oficiais.", "safe.route": "rota a pé",
   "safe.note": "Dados de voluntários do OpenStreetMap. Não é plano oficial de evacuação: confirme abrigos e rotas com a Defesa Civil.",
@@ -53,31 +53,31 @@ I18N.add("pt", {
 });
 
 I18N.add("en", {
-  "nav.g.detect": "Detect", "nav.g.care": "Care", "nav.g.context": "Understand",
+  "nav.g.detect": "Detect", "nav.g.predict": "Anticipate", "nav.g.care": "Care", "nav.g.context": "Understand",
   "home.eyebrow": "NASA data, tested and turned into care", "home.title": "What is the climate doing where you live?",
   "home.lead": "Search any address on Earth. GeoCare shows 45 years of records for that spot, tells you which changes are statistically real, and what they mean for your health, your week and your home.",
   "home.1": "Real records", "home.1d": "45 years of NASA data for any point on the planet.",
   "home.2": "Honest", "home.2d": "A change is only called confirmed when two independent datasets agree. When the data cannot prove it, we say so.",
   "home.3": "Guidance, not just charts", "home.3d": "From the trend to your health and your city. The app points to the next step.",
-  "home.try": "Or start with one of these", "step.next": "Next",
+  "home.try": "Or start with one of these cities", "home.us": "United States", "home.world": "Around the world", "home.method": "Method: Mann-Kendall trend test and Theil-Sen slope on yearly values, 1981–2025. A change is called confirmed only when two independent datasets agree.", "step.next": "Next",
 });
 I18N.add("es", {
-  "nav.g.detect": "Detectar", "nav.g.care": "Cuidar", "nav.g.context": "Entender",
+  "nav.g.detect": "Detectar", "nav.g.predict": "Anticipar", "nav.g.care": "Cuidar", "nav.g.context": "Entender",
   "home.eyebrow": "Datos de la NASA, evaluados y convertidos en cuidado", "home.title": "¿Qué está haciendo el clima donde usted vive?",
   "home.lead": "Busque cualquier dirección del planeta. GeoCare muestra 45 años de registros de ese punto, le dice qué cambios son estadísticamente reales y qué significan para su salud, su semana y su casa.",
   "home.1": "Registros reales", "home.1d": "45 años de datos de la NASA para cualquier punto del planeta.",
   "home.2": "Honesto", "home.2d": "Un cambio solo se llama confirmado cuando dos bases independientes coinciden. Cuando los datos no alcanzan para probarlo, lo decimos.",
   "home.3": "Orientación, no solo gráficos", "home.3d": "De la tendencia a su salud y su ciudad. La app indica el próximo paso.",
-  "home.try": "O empiece por uno de estos", "step.next": "Siguiente",
+  "home.try": "O empiece por una de estas ciudades", "home.us": "Estados Unidos", "home.world": "En el mundo", "home.method": "Método: prueba de tendencia de Mann-Kendall y pendiente de Theil-Sen sobre valores anuales, 1981–2025. Un cambio se llama confirmado solo cuando dos bases de datos independientes coinciden.", "step.next": "Siguiente",
 });
 I18N.add("pt", {
-  "nav.g.detect": "Detectar", "nav.g.care": "Cuidar", "nav.g.context": "Entender",
+  "nav.g.detect": "Detectar", "nav.g.predict": "Prever", "nav.g.care": "Cuidar", "nav.g.context": "Entender",
   "home.eyebrow": "Dados da NASA, testados e transformados em cuidado", "home.title": "O que o clima está fazendo onde você mora?",
   "home.lead": "Busque qualquer endereço do planeta. O GeoCare mostra 45 anos de registros daquele ponto, diz quais mudanças são estatisticamente reais e o que elas significam para a sua saúde, a sua semana e a sua casa.",
   "home.1": "Registros reais", "home.1d": "45 anos de dados da NASA para qualquer ponto do planeta.",
   "home.2": "Honesto", "home.2d": "Uma mudança só é chamada de confirmada quando duas bases independentes concordam. Quando o dado não prova, a gente diz.",
   "home.3": "Condução, não só gráfico", "home.3d": "Da tendência à sua saúde e à sua cidade. O app aponta o próximo passo.",
-  "home.try": "Ou comece por um destes", "step.next": "Próximo",
+  "home.try": "Ou comece por uma destas cidades", "home.us": "Estados Unidos", "home.world": "No mundo", "home.method": "Método: teste de tendência de Mann-Kendall e inclinação de Theil-Sen sobre valores anuais, 1981–2025. Uma mudança só é chamada de confirmada quando duas bases de dados independentes concordam.", "step.next": "Próximo",
 });
 
 I18N.add("en", {
@@ -898,8 +898,8 @@ const Extras2 = (() => {
   }
 
   /* ---------- guided navigation: section label on top, next step at the bottom of every panel ---------- */
-  const ORDER = ["place", "now", "health", "prepare", "community", "region", "act", "world", "compare"];
-  const GROUP = { place: "detect", now: "detect", health: "care", prepare: "care", community: "care", region: "context", act: "context", world: "context", compare: "context" };
+  const ORDER = ["place", "compare", "world", "prepare", "now", "health", "community", "region", "act"];
+  const GROUP = { place: "detect", compare: "detect", world: "detect", prepare: "predict", now: "predict", health: "care", community: "care", region: "context", act: "context" };
   const nn = (i) => String(i + 1).padStart(2, "0");
   function decorate() {
     ORDER.forEach((k, i) => {
@@ -921,7 +921,7 @@ const Extras2 = (() => {
 
   function hero() {
     const pt = (n) => `<li><span class="n">0${n}</span><div><b>${t("home." + n)}</b><p>${t("home." + n + "d")}</p></div></li>`;
-    return `<p class="eyebrow">${t("home.eyebrow")}</p><h2 class="hero">${t("home.title")}</h2><p class="lead">${t("home.lead")}</p><ol class="points">${pt(1)}${pt(2)}${pt(3)}</ol><p><button type="button" class="btn" data-demo="1">${ICON("play")} ${t("home.demo")}</button></p><p class="plabel">${t("home.try")}</p>`;
+    return `<p class="eyebrow">${t("home.eyebrow")}</p><h2 class="hero">${t("home.title")}</h2><p class="lead">${t("home.lead")}</p><p class="method-line">${t("home.method")}</p><ol class="points">${pt(1)}${pt(2)}${pt(3)}</ol><p><button type="button" class="btn" data-demo="1">${ICON("play")} ${t("home.demo")}</button></p><p class="plabel">${t("home.try")}</p>`;
   }
 
   function render() { renderWorld(); renderCalendar(); renderPrepare(); renderExpect(); renderNowContext(); renderIllNext(); renderSat(); renderQuakes(); schedule(); if (typeof Timelapse !== "undefined") Timelapse.refresh(); }

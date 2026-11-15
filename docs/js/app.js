@@ -13,7 +13,7 @@ const t = (k, v) => I18N.t(k, v);
 const state = { main: null, other: null, tab: "place", charts: [], pin: null, dengue: null, giov: null };
 
 /* ---------------- Map ---------------- */
-const map = L.map("map", { zoomControl: true }).setView([-25.51, -54.61], 11);
+const map = L.map("map", { zoomControl: true, worldCopyJump: true }).setView([15, 10], 2);
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19, attribution: "© OpenStreetMap" }).addTo(map);
 const gibsDay = new Date(Date.now() - 2 * 864e5).toISOString().slice(0, 10);
 const gibs = (layer, set, ext, maxNative, opacity) =>
@@ -312,6 +312,21 @@ function giovWitnesses(r, key) {
 
 if (window.Chart) { Chart.defaults.devicePixelRatio = Math.max(2, window.devicePixelRatio || 1); Chart.defaults.font.family = '"Manrope", sans-serif'; Chart.defaults.font.size = 12; Chart.defaults.color = "#5b6762"; }
 
+// Example places on the start screen: cities of the United States and of the rest of the world.
+// A city is offered only when the second dataset is archived for it in data/era5, so every example opens with two sources.
+const EXAMPLES = [
+  ["Miami", 25.7617, -80.1918, "Miami, Florida", "us"], ["Houston", 29.7604, -95.3698, "Houston, Texas", "us"], ["New Orleans", 29.9511, -90.0715, "New Orleans, Louisiana", "us"],
+  ["Phoenix", 33.4484, -112.074, "Phoenix, Arizona", "us"], ["Oklahoma City", 35.4676, -97.5164, "Oklahoma City, Oklahoma", "us"], ["Los Angeles", 34.0522, -118.2437, "Los Angeles, California", "us"],
+  ["Chicago", 41.8781, -87.6298, "Chicago, Illinois", "us"], ["New York", 40.7128, -74.006, "New York, New York", "us"], ["Washington", 38.9072, -77.0369, "Washington, D.C.", "us"],
+  ["Mexico City", 19.4326, -99.1332, "Mexico City, Mexico", "w"], ["São Paulo", -23.5505, -46.6333, "São Paulo, Brazil", "w"], ["Ciudad del Este", -25.5097, -54.6111, "Ciudad del Este, Paraguay", "w"],
+  ["Madrid", 40.4168, -3.7038, "Madrid, Spain", "w"], ["Lagos", 6.5244, 3.3792, "Lagos, Nigeria", "w"], ["Addis Ababa", 9.03, 38.74, "Addis Ababa, Ethiopia", "w"],
+  ["New Delhi", 28.6139, 77.209, "New Delhi, India", "w"], ["Jakarta", -6.2088, 106.8456, "Jakarta, Indonesia", "w"], ["Manila", 14.5995, 120.9842, "Manila, Philippines", "w"], ["Tokyo", 35.6762, 139.6503, "Tokyo, Japan", "w"],
+];
+let ARCHIVED = null;
+getJSON("data/era5/index.json", "era5idx").then((j) => { ARCHIVED = j; if (!state.main) renderPlace(); }).catch(() => {});
+const exampleChips = (g) => EXAMPLES.map((c, i) => [c, i]).filter(([c]) => c[4] === g && (!ARCHIVED || ARCHIVED.some((p) => km(c[1], c[2], p.lat, p.lon) <= 25)))
+  .map(([c, i]) => `<button class="chip" data-i="${i}">${c[0]}</button>`).join("");
+
 /* ---------------- Signals ---------------- */
 const SIGNALS = [
   { key: "temp", unit: "°C", d: 2, src: ["nasa", "era5"] },
@@ -409,8 +424,8 @@ function witnessRow(name, tr, s) {
 function renderPlace() {
   const r = state.main, box = $("#p-place");
   state.detailChart = null;
-  if (!r) { box.innerHTML = `<div class="empty">${Extras2.hero()}<div class="chips">${["Ciudad del Este", "Asunción", "São Paulo", "Porto Alegre", "Karachi", "Kathmandu", "Nairobi", "Phoenix"].map((c) => `<button class="chip" data-q="${c}">${c}</button>`).join("")}</div><div class="capitals-box"></div></div>`;
-    box.querySelectorAll(".chip").forEach((b) => (b.onclick = () => { $("#q").value = b.dataset.q; search(b.dataset.q); })); return; }
+  if (!r) { box.innerHTML = `<div class="empty">${Extras2.hero()}<p class="chips-g">${t("home.us")}</p><div class="chips">${exampleChips("us")}</div><p class="chips-g">${t("home.world")}</p><div class="chips">${exampleChips("w")}</div><div class="capitals-box"></div></div>`;
+    box.querySelectorAll(".chip").forEach((b) => (b.onclick = () => { const c = EXAMPLES[+b.dataset.i]; $("#q").value = c[3]; analyzeAt(c[1], c[2], c[3]); })); return; }
   const sigs = r.signals, done = sigs.filter((s) => !s.waiting);
   const strong = done.filter((s) => ["confirmed", "likely"].includes(s.verdict)).length;
   // which signal is open in the evidence panel: the user's choice, or the strongest verdict
