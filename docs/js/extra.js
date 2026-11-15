@@ -223,7 +223,7 @@ const Extras = (() => {
     if (!d) { box.innerHTML = `<h2>${t("region.title", { c: r.cc })}</h2><p class="muted">${t("region.none")}</p>`; return; }
     const li = { en: 0, es: 1, pt: 2 }[I18N.lang];
     const series = (c) => { const ys = Object.keys(d.ind[c] || {}).map(Number).sort((a, b) => a - b); return { ys, vs: ys.map((y) => d.ind[c][y]) }; };
-    const stat = (c) => { const { ys, vs } = series(c); if (!ys.length) return ""; return `<div><b>${fmt(vs[vs.length - 1], ui.meta[c].digits)}</b><span>${IND_LABEL[c][li]} · ${ys[ys.length - 1]}</span></div>`; };
+    const stat = (c) => { const { ys, vs } = series(c); if (!ys.length) return ""; return `<div><b>${fmt(vs[vs.length - 1], ui.meta?.[c]?.digits ?? 1)}</b><span>${IND_LABEL[c][li]} · ${ys[ys.length - 1]}</span></div>`; };
     let h = `<h2>${t("region.title", { c: esc(d.name) })}</h2><p class="muted small">${t("region.intro")}</p><div class="stats3">${stat("SP.DYN.LE00.IN")}${stat("SP.DYN.IMRT.IN")}${stat("SH.IMM.MEAS")}</div>`;
     for (const g of ["life", "causes", "vaccines", "system", "wash", "food"]) {
       const codes = Object.keys(IND_LABEL).filter((c) => ui.meta?.[c]?.group === g && d.ind[c]);

@@ -401,7 +401,9 @@ function render() {
   state.charts.forEach((c) => c.destroy()); state.charts = [];
   I18N.apply();
   renderPlace(); renderHealth(); renderNow(); renderCommunity(); renderCompare();
-  Extras.render(); Extras2.render();
+  // one section failing to draw must not stop the others
+  try { Extras.render(); } catch (e) { console.warn("extras", e); }
+  try { Extras2.render(); } catch (e) { console.warn("extras2", e); }
 }
 
 function verdictBadge(s) {
