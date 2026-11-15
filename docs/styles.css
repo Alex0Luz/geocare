@@ -555,3 +555,21 @@ body.tour-on .tl-more { display: none; }
 .follow-toggle.on { color: var(--forest); border-color: var(--forest); }
 .yeartab tr[data-go]:hover th { color: var(--forest); }
 .to-planet { display: inline-block; margin-top: 12px; padding: 8px 12px; border-radius: 10px; background: #0e1613; color: #f4eee1; font-size: 0.8rem; font-weight: 700; text-decoration: none; }
+.s-yearbtn { margin-left: 10px; vertical-align: 2px; border: 0; background: var(--forest); color: #fff; border-radius: 999px; padding: 5px 12px; font: 700 0.76rem "Manrope", sans-serif; cursor: pointer; white-space: nowrap; }
+.s-yearbtn .ic { width: 0.85em; height: 0.85em; vertical-align: -0.08em; }
+.yplay { margin: 10px 0 14px; padding: 12px 14px 14px; border-radius: 12px; background: var(--sand); border: 1px solid var(--line); }
+.yp-top { display: flex; align-items: center; gap: 10px; }
+.yp-month { font: 700 1.5rem/1.1 "Bricolage Grotesque", "Fraunces", serif; text-transform: capitalize; }
+.yp-k { font-size: 0.78rem; color: var(--muted); font-weight: 700; white-space: nowrap; }
+.yp-ctl { margin-left: auto; display: flex; gap: 4px; }
+.yp-ctl button { width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--line); background: var(--paper); cursor: pointer; display: grid; place-items: center; padding: 0; }
+.yp-ctl .ic { width: 13px; height: 13px; }
+.yp-bar { display: grid; grid-template-columns: repeat(12, 1fr); gap: 3px; margin: 10px 0 8px; }
+.yp-bar i { height: 4px; border-radius: 2px; background: var(--line); } .yp-bar i.on { background: var(--earth); }
+.yp-sum { font-weight: 600; margin: 0 0 6px; }
+.yp-h { font: 700 0.66rem "Manrope", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 10px 0 5px; }
+.yp-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.yp-chip { display: inline-flex; flex-direction: column; border-radius: 9px; padding: 5px 10px; background: #f2cfa0; line-height: 1.2; }
+.yp-chip b { font-size: 0.86rem; } .yp-chip i { font-style: normal; font-size: 0.7rem; opacity: 0.85; }
+.yp-chip.l2 { background: #de8a3c; } .yp-chip.l3 { background: #7a2e16; color: #fff; }
+.yplay .s-go { margin-top: 12px; }

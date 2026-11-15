@@ -402,7 +402,8 @@ const Timelapse = (() => {
     C.addTo(map); paint();
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
-  return { refresh: paint, close: () => { stop(); if (open) { open = false; paint(); } }, start: (id) => { const th = byId(id); if (!th) return; open = true; start(th); }, zmax: (id) => (byId(id) || {}).zmax || 6, PY };
+  return { refresh: paint, close: () => { stop(); if (open) { open = false; paint(); } }, start: (id) => { const th = byId(id); if (!th) return; open = true; start(th); }, zmax: (id) => (byId(id) || {}).zmax || 6, PY,
+    at: (i) => { if (!cur || cur.frames.length < 2) return; playing = false; clearTimeout(timer); show(((i % cur.frames.length) + cur.frames.length) % cur.frames.length); paint(); } };
 })();
 
 // any element with data-tl="theme" opens that animation or map and brings the map into view
