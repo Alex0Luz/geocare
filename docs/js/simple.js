@@ -217,7 +217,7 @@ const Simple = (() => {
     const who = S.sample ? `<p class="s-banner">${T("s2.ex.on", { n: T("sp." + S.sample) })} <button type="button" class="linkish" data-s="exit">${T("s2.ex.off")}</button></p>`
       : `<p class="s-who">${filled(p) ? `${T("s2.for")} <b>${whoText(p)}</b>` : T("s2.none")} <button type="button" class="linkish" data-s="who">${T(S.who ? "s2.hide" : filled(p) ? "s2.change" : "s2.answer")}</button></p>`;
     let ground = ""; try { ground = typeof Ground !== "undefined" ? Ground.html(r) || "" : ""; } catch (_) { ground = ""; }
-    sec.innerHTML = who + (S.who ? `<div class="s-whobox"><p class="muted small">${T("s2.p")}</p>${whoForm()}</div>` : "") + weekCard(r) + nextCard(r) + `<div id="s-year">${(S.year = yearCard(r))}</div>` + climCard(r) + (ground ? `<div class="s-ground">${ground}<div class="s-gos">${go("prepare", "ground", T("c.ground.go"))}</div></div>` : "") + helpCard(r);
+    sec.innerHTML = who + (S.who ? `<div class="s-whobox"><p class="muted small">${T("s2.p")}</p>${whoForm()}</div>` : "") + weekCard(r) + nextCard(r) + `<div id="s-year">${(S.year = yearCard(r))}</div>` + (typeof Chains !== "undefined" ? Chains.html(r) : "") + climCard(r) + (ground ? `<div class="s-ground">${ground}<div class="s-gos">${go("prepare", "ground", T("c.ground.go"))}</div></div>` : "") + helpCard(r);
     const exp = document.createElement("details"); exp.className = "expert"; exp.id = "expert-place"; exp.open = !!S.open.place;
     exp.innerHTML = `<summary>${T("x.place")}</summary><div class="expert-in"></div>`;
     const xin = $(".expert-in", exp); rest.forEach((e) => xin.append(e));

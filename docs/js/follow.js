@@ -166,5 +166,5 @@ const Follow = (() => {
     setInterval(() => { if (S.on && ready() && Date.now() - S.idle > 14000) { touch(); rest(); } }, 2000);
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
-  return { show, set };
+  return { show, set, theme };
 })();
