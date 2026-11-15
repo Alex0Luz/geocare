@@ -352,5 +352,9 @@ const Extras = (() => {
   }
   // the guided demonstration shows a sample profile without touching what the person saved
   const preview = (p) => { if (p) { if (!ui.saved) ui.saved = profile; profile = p; ui.editing = false; } else if (ui.saved) { profile = ui.saved; ui.saved = null; ui.editing = undefined; } };
-  return { render, has: (k) => profile.on.includes(k), preview };
+  // used by the simple way in (simple.js): read, save and delete the answers; nothing leaves the device
+  const get = () => ({ age: profile.age, on: [...profile.on] });
+  const set = (p) => { ui.saved = null; profile = { age: p.age || "", on: [...(p.on || [])] }; saveProfile(); ui.editing = false; };
+  const clear = () => { ui.saved = null; profile = { age: "", on: [] }; try { localStorage.removeItem("geocare.profile"); } catch (_) { /* ignore */ } ui.editing = undefined; };
+  return { render, has: (k) => profile.on.includes(k), preview, get, set, clear, groups: GROUPS, isPreview: () => !!ui.saved };
 })();

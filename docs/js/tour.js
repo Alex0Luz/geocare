@@ -22,6 +22,7 @@ const Tour = (() => {
   function focus(sel) {
     if (focused) focused.classList.remove("tour-focus");
     focused = typeof sel === "string" ? $1(sel) : sel; if (!focused) return;
+    for (let d = focused.parentElement && focused.parentElement.closest("details"); d; d = d.parentElement && d.parentElement.closest("details")) d.open = true; // the specialist data sits in a collapsed block
     if (focused.tagName === "DETAILS") focused.open = true;
     focused.scrollIntoView({ behavior: "smooth", block: "center" }); focused.classList.add("tour-focus");
   }

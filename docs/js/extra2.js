@@ -407,6 +407,7 @@ function goTo(tab, anchor) {
   setTimeout(() => {
     const ps = document.querySelector(".panels"), e = anchor && document.querySelector(`#p-${tab} [data-anchor="${anchor}"]`);
     if (!e) { if (ps) ps.scrollTop = 0; return; }
+    for (let d = e.parentElement && e.parentElement.closest("details"); d; d = d.parentElement && d.parentElement.closest("details")) d.open = true; // open any collapsed block around it
     if (e.classList.contains("sigtile")) { e.click(); return; }
     if (e.tagName === "DETAILS") e.open = true;
     e.scrollIntoView({ behavior: "smooth", block: "start" }); e.classList.add("flash"); setTimeout(() => e.classList.remove("flash"), 1700);
@@ -743,7 +744,7 @@ const Extras2 = (() => {
     const next = [...rows].sort((a, b) => b.next - a.next);
     let h = `<h3>${t("ill.title")}</h3><p class="muted small">${t("ill.intro")}</p>
       <section class="illnext"><p class="eyebrow">${t("ill.next")} · ${mon[m0]}–${mon[(m0 + 2) % 12]}</p><div class="illchips">${next.map((o) => `<button type="button" class="illchip ${illLevel(o.next)}" data-go="prepare:rp-${o.id}">${ICON(o.icon)}<span><b>${o.name}</b><small>${t("ill." + illLevel(o.next))}</small></span></button>`).join("")}</div></section>
-      <div class="illcal"><div class="illhead"><span></span>${order.map((m, k) => `<span class="${k === 0 ? "now" : ""}">${mon[m].slice(0, 3)}</span>`).join("")}</div>`;
+      <div class="illcal" data-anchor="illcal"><div class="illhead"><span></span>${order.map((m, k) => `<span class="${k === 0 ? "now" : ""}">${mon[m].slice(0, 3)}</span>`).join("")}</div>`;
     for (const o of rows) {
       h += `<details class="illrow" data-anchor="rp-${o.id}" ${isOpen("rp-" + o.id, false)}><summary><span class="illname">${ICON(o.icon)}<span>${o.name}</span></span>${order.map((m, k) => `<i class="l${o.vals[m] >= 0.7 ? 3 : o.vals[m] >= 0.45 ? 2 : o.vals[m] >= 0.2 ? 1 : 0}${k === 0 ? " now" : ""}" title="${mon[m]}"></i>`).join("")}</summary>
         <div class="illbody"><p class="why"><b>${t("ill.why")}</b> ${o.why}</p><p><b>${t("ill.who")}</b> ${t(key(o) + ".who")}</p><p><b>${t("ill.do")}</b> ${t(key(o) + ".do")}</p><p class="nowline"><b>${t("ill.signs")}</b> ${t(key(o) + ".signs")}</p>
@@ -927,5 +928,5 @@ const Extras2 = (() => {
   function render() { renderWorld(); renderCalendar(); renderPrepare(); renderExpect(); renderNowContext(); renderIllNext(); renderSat(); renderQuakes(); schedule(); if (typeof Timelapse !== "undefined") Timelapse.refresh(); }
   function onTab(name) { ui.tab = name; drawWorld(); if (name === "world" && ui.pano) map.setView([10, 10], 2); }
   const seasonOf = (id) => { const z = riskProfile(state.main).list.find((x) => x.id === id); return z && z.mask ? { on: !!z.mask[new Date().getMonth()], months: monthText(z.mask) } : null; };
-  return { render, onTab, hero, links, renderPressures, seasonOf, sewage: () => loadPress()?.countries?.[state.main?.cc]?.wastewater };
+  return { render, onTab, hero, links, renderPressures, seasonOf, ill: illRows, risk: riskProfile, sewage: () => loadPress()?.countries?.[state.main?.cc]?.wastewater };
 })();
