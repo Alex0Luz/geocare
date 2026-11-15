@@ -320,7 +320,7 @@ const EXAMPLES = [
   ["Chicago", 41.8781, -87.6298, "Chicago, Illinois", "us"], ["New York", 40.7128, -74.006, "New York, New York", "us"], ["Washington", 38.9072, -77.0369, "Washington, D.C.", "us"],
   ["Mexico City", 19.4326, -99.1332, "Mexico City, Mexico", "w"], ["São Paulo", -23.5505, -46.6333, "São Paulo, Brazil", "w"], ["Ciudad del Este", -25.5097, -54.6111, "Ciudad del Este, Paraguay", "w"],
   ["Madrid", 40.4168, -3.7038, "Madrid, Spain", "w"], ["Lagos", 6.5244, 3.3792, "Lagos, Nigeria", "w"], ["Addis Ababa", 9.03, 38.74, "Addis Ababa, Ethiopia", "w"],
-  ["New Delhi", 28.6139, 77.209, "New Delhi, India", "w"], ["Jakarta", -6.2088, 106.8456, "Jakarta, Indonesia", "w"], ["Manila", 14.5995, 120.9842, "Manila, Philippines", "w"], ["Tokyo", 35.6762, 139.6503, "Tokyo, Japan", "w"],
+  ["New Delhi", 28.6139, 77.209, "New Delhi, India", "w"], ["Jakarta", -6.2088, 106.8456, "Jakarta, Indonesia", "w"], ["Manila", 14.5995, 120.9842, "Manila, Philippines", "w"],
 ];
 let ARCHIVED = null;
 getJSON("data/era5/index.json", "era5idx").then((j) => { ARCHIVED = j; if (!state.main) renderPlace(); }).catch(() => {});

@@ -280,7 +280,7 @@ const Timelapse = (() => {
     if (cur.value) return cur.value(idx);
     const v = ser && ser.id === cur.id && ser.vals ? ser.vals[cur.frames.length > 1 ? idx : 0] : undefined, p = here();
     if (v === undefined) return "";
-    const txt = cur.cat ? (v ? tt("tl.lc." + v) : tt("tl.nodata")) : Number.isFinite(v) ? `${nf(v, cur.dec || 0)}${cur.unit ? " " + cur.unit : ""}` : tt("tl.nodata");
+    const txt = cur.cat ? (v ? tt("tl.lc." + v) : tt("tl.nodata")) : Number.isFinite(v) ? `${nf(v, cur.dec || 0)}${cur.unit ? " " + cur.unit : ""}` : /lightning/.test(cur.id) && Math.abs(typeof state !== "undefined" && state.main ? state.main.lat : map.getCenter().lat) <= 37.5 ? `0${cur.unit ? " " + cur.unit : ""}` : tt("tl.nodata");
     return `${safe(p.name)}: <b>${txt}</b>`;
   }
   function legend() {

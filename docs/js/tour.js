@@ -4,7 +4,7 @@
    Start: the "Demo" button, or ?demo=1 in the address (optionally &lang=es and ?demo=3 to start at the third one).
    Keys: Space pauses, right/left arrows (or PageDown/PageUp) change demonstration, Esc closes. (code written with AI support) */
 const Tour = (() => {
-  const CDE = [-25.5097, -54.6111, "Ciudad del Este, Paraguay"], TYO = [35.6762, 139.6503, "Tokyo, Japan"], SAO = [-23.5505, -46.6333, "São Paulo, Brazil"], DEL = [28.6139, 77.209, "New Delhi, India"], ASU = [-25.2637, -57.5759, "Asunción, Paraguay"], MEX = [19.4326, -99.1332, "Mexico City, Mexico"];
+  const CDE = [-25.5097, -54.6111, "Ciudad del Este, Paraguay"], SAO = [-23.5505, -46.6333, "São Paulo, Brazil"], DEL = [28.6139, 77.209, "New Delhi, India"], ASU = [-25.2637, -57.5759, "Asunción, Paraguay"], MEX = [19.4326, -99.1332, "Mexico City, Mexico"];
   const MIA = [25.7617, -80.1918, "Miami, Florida"], PHX = [33.4484, -112.074, "Phoenix, Arizona"], OKC = [35.4676, -97.5164, "Oklahoma City, Oklahoma"], LAX = [34.0522, -118.2437, "Los Angeles, California"];
   const PLACES = [MIA, PHX, ASU, CDE, OKC, LAX];
   const UI = {
@@ -52,7 +52,7 @@ const Tour = (() => {
         { cap: ["It starts with an address. GeoCare reads 45 years of NASA data for that exact point.", "Todo empieza con una dirección. GeoCare lee 45 años de datos de la NASA para ese punto exacto.", "Tudo começa com um endereço. O GeoCare lê 45 anos de dados da NASA para aquele ponto exato."], ms: 3500, run: async (my) => { await place(MIA, my); await anim("storms", [25, -76, 5], my); await tab("place", my); focus(".vhero"); } },
         { cap: ["What usually happens here, with the months of each event.", "Lo que suele pasar aquí, con los meses de cada evento.", "O que costuma acontecer aqui, com os meses de cada evento."], ms: 3500, run: async () => focus("#expect-box") },
         { cap: ["For each event: how often, in which months, why here, and the trend since 1981.", "Para cada evento: con qué frecuencia, en qué meses, por qué aquí y la tendencia desde 1981.", "Para cada evento: com que frequência, em quais meses, por que aqui e a tendência desde 1981."], ms: 4500, run: async (my) => go("prepare", "rp-cyclone", my) },
-        { cap: ["Heavy rain and flooding: the usual months, the river nearby, and what to do before, during and after.", "Lluvia fuerte e inundación: los meses habituales, el río cercano y qué hacer antes, durante y después.", "Chuva forte e alagamento: os meses habituais, o rio por perto e o que fazer antes, durante e depois."], ms: 4000, run: async (my) => go("prepare", "rp-flood", my) },
+        { cap: ["And lightning: how many flashes a year and in which months, counted from orbit by a NASA sensor.", "Y los rayos: cuántos al año y en qué meses, contados desde la órbita por un sensor de la NASA.", "E os raios: quantos por ano e em quais meses, contados da órbita por um sensor da NASA."], ms: 5000, run: async (my) => { await anim("lightning", [27.5, -81, 6], my); await go("prepare", "rp-lightning", my); } },
       ] },
     { head: ["This is how someone who takes medicines knows what a hot week means for their body.", "Así es como una persona que toma remedios sabe qué significa una semana de calor para su cuerpo.", "É assim que uma pessoa que toma remédios sabe o que uma semana de calor significa para o seu corpo."],
       steps: [
