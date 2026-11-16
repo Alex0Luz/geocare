@@ -149,6 +149,7 @@ const Tour = (() => {
     const q = new URLSearchParams(location.search), d = q.get("demo");
     // a place handed over by the planet view: ?lat=..&lon=..&name=..
     const la = parseFloat(q.get("lat")), lo = parseFloat(q.get("lon"));
+    const l0 = q.get("lang"); if (l0 && ["en", "es", "pt"].includes(l0) && !d && !Number.isFinite(la)) { I18N.set(l0); render(); lab(); howLab(); plLab(); }
     if (!d && Number.isFinite(la) && Number.isFinite(lo) && Math.abs(la) <= 90 && Math.abs(lo) <= 180) { const l = q.get("lang"); if (l) { I18N.set(l); render(); lab(); howLab(); plLab(); } setTimeout(() => analyzeAt(la, lo, q.get("name") || null), 500); }
     if (d) { const l = q.get("lang"); if (l) { I18N.set(l); render(); lab(); } setTimeout(() => start((parseInt(d, 10) || 1) - 1), 900); }
   });

@@ -4,7 +4,7 @@
 
 A project for the **NASA Space Apps Challenge 2026**, challenge *Be An Earth System Trend Detective!*, by team GeoCare (Ciudad del Este, Paraguay).
 
-**Open the app:** https://geocare.life · **The planet view:** https://geocare.life/earth/ · **How to use it, step by step:** https://geocare.life/tutorial/
+**Project demo (7 slides):** [demo/geocare-life-demo-slides.pdf](demo/geocare-life-demo-slides.pdf) · **Open the app:** https://geocare.life/?lang=en · **The planet view:** https://geocare.life/earth/ · **How to use it, step by step:** https://geocare.life/tutorial/
 
 **One screen.** On a computer the app opens with the planet where the map is: the whole Earth, today. A click on the planet asks first and then hands the place to the app; the street map takes over, with everything the app draws on it, and a switch at the top of the map goes back and forth between *Planet* and *Map*. On a phone, where the map area is small, the planet stays a page of its own.
 
