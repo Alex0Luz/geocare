@@ -2,7 +2,7 @@
 
 **Know what the climate is doing where you live, whether the change is real, and how to prepare.**
 
-A project for the **NASA Space Apps Challenge 2026**, challenge *Be An Earth System Trend Detective!*, by team GeoCare (Ciudad del Este, Paraguay).
+A project for the **NASA Space Apps Challenge 2026**, challenge *Be An Earth System Trend Detective!*, by team GeoCare Life (Ciudad del Este, Paraguay).
 
 **Project demo (7 slides):** [demo/geocare-life-demo-slides.pdf](demo/geocare-life-demo-slides.pdf) · **Open the app:** https://geocare.life/?lang=en · **The planet view:** https://geocare.life/earth/ · **How to use it, step by step:** https://geocare.life/tutorial/
 
