@@ -330,8 +330,10 @@ const Extras = (() => {
   }
 
   /* ---------- ten capitals panel (precomputed with the same method) ---------- */
+  const CAPITALS_READY = false;
   function renderCapitals() {
     const boxes = document.querySelectorAll(".capitals-box"); if (!boxes.length) return;
+    if (!CAPITALS_READY) { boxes.forEach((b) => b.remove()); return; } // the panel of ten capitals has no data file yet: it is left out instead of saying "not available"
     if (ui.capitals === undefined) { ui.capitals = null; fetch("data/capitals.json").then((x) => (x.ok ? x.json() : false)).then((j) => { ui.capitals = j; }).catch(() => { ui.capitals = false; }).finally(() => renderCapitals()); }
     const c = ui.capitals;
     let h = `<h3>${t("cap.title")}</h3>`;
